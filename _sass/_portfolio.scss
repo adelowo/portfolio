@@ -69,8 +69,8 @@ img[src$="img/lanre2.jpg"] {
   text-transform: uppercase;
 
   h1 {
-    margin-top: 68px;
-    font-size: 65px;
+    margin-top: $portfolio-difference-between-sections + 18;
+    font-size: 64px;
     font-family: "Pluto";
   }
 
@@ -113,11 +113,11 @@ img[src$="img/lanre2.jpg"] {
 }
 
 #works {
-  margin-top: 50px;
+  margin-top: $portfolio-difference-between-sections;
   font-family: Montserrat;
 
   p.lead {
-    margin-top: 30px;
+    margin-top: $portfolio-difference-between-sections - 20;
   }
 
   a {
@@ -126,7 +126,7 @@ img[src$="img/lanre2.jpg"] {
   }
 
   .portfolio-item {
-    margin-bottom: 32px;
+    margin-bottom: $portfolio-difference-between-sections - 18;
   }
 
   .portfolio-item .portfolio-link {
@@ -171,8 +171,8 @@ img[src$="img/lanre2.jpg"] {
   }
 
   .portfolio-modal .modal-content {
-    padding: 100px 0;
-    min-height: 100%;
+    padding: 100px 0px;
+    min-height: 120%; //for some reasons,min-height @100% isn't taking in 'long' screenshots. //todo : fix this
     border: 0;
     border-radius: 0;
     text-align: center;
@@ -237,8 +237,8 @@ img[src$="img/lanre2.jpg"] {
   -moz-appearance: none;
   border-radius: 0;
   cursor: pointer;
-  font-family: "Amaranth", Helvetica, Roboto, Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Montserrat", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: bold;
   line-height: normal;
   margin: 0 0 1.25rem;
   position: relative;
@@ -252,11 +252,78 @@ img[src$="img/lanre2.jpg"] {
   box-shadow: 0px 5px black;
   color: #FFFFFF;
   transition: background-color 300ms ease-out;
+
+  &:hover,
+  &:focus,
+  &:focus {
+    background-color: inherit;
+    color: inherit;
+  }
 }
 
-.button:hover,
-.button:focus,
-.button:focus {
+#about {
+  background-color: lightpink;
+  padding-top: $portfolio-difference-between-sections;
+  font-family: Amaranth;
+}
+
+#contact {
+  background-color: #fff;
+  padding-top: $portfolio-difference-between-sections;
+  margin-top: -20px;
+  font-family: Montserrat;
+
+  h2 {
+    font-weight: bold;
+  }
+
+  label {
+    font-weight: normal;
+  }
+
+  textarea.form-control {
+    border: 2px dotted $portfolio-opacity-color;
+    border-radius: 0px;
+    font-size: large;
+    color: $text-color;
+
+    &:hover,
+    &:focus {
+      border: none $portfolio-background-color;
+      box-shadow: $hover-input-element;
+    }
+  }
+
+  input.form-control {
+    @extend textarea.form-control;
+    height: 50px; //only Input elements should have a fixed height
+  }
+
+  .list-unstyled {
+    padding-top: 12px;
+    font-weight: normal;
+
+    li > i {
+
+      font-size: 40px;
+      color: $text-color;
+      vertical-align: middle;
+    }
+
+    a {
+      color: $portfolio-background-color;
+      background-color: inherit;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+
+  }
+}
+
+.notification {
+  color: $portfolio-background-color;
   background-color: inherit;
-  color: inherit;
 }
