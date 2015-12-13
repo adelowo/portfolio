@@ -1,0 +1,53 @@
+---
+---
+/**
+  Author : Adelowo Lanre
+  Email : me@adelowolanre.com
+  Url : http://adelowolanre.com
+**/
+
+@charset "utf-8";
+
+
+
+// Our variables
+$portfolio-background-color : rgba(223, 39, 151, 0.85);
+$portfolio-nav-color : #ffffff ;
+$portfolio-opacity-color : rgba(41, 39, 42, 0.7);
+$portfolio-difference-between-sections : 50px ;
+$hover-input-element : 0 1px 1px $portfolio-background-color, 0 0 8px $portfolio-background-color ;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$image-box-shadow : 10px 10px $text-color ;
+
+$mediaquery-landscape-phone-maximum :480px ;
+$mediaquery-tablet-maximum : 767px ;
+$mediaquery-desktop-minimum : 768px ;
+$mediaquery-desktop-maximum : 979px ;
+$mediaquery-large-desktop : 1200px ;
+
+
+$font-family : Helvetica , sans-serif;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "portfolio" , "blog"
+;
