@@ -75,13 +75,13 @@ img[src$="img/lanre2.jpg"] {
   h1 {
     margin-top: $portfolio-difference-between-sections + 18;
     font-size: 64px;
-    font-family: "Pluto";
+    font-family: "Pluto", $font-family;
   }
 
   h3 {
-    font-family: "BebasNeue";
-    direction: rtl;
-    margin-right: 20px;
+    font-family: "BebasNeue", $font-family;
+    margin-right: 14px;
+    opacity: 0.5;
   }
 
   @include media-query($mediaquery-tablet-maximum) {
@@ -89,17 +89,18 @@ img[src$="img/lanre2.jpg"] {
       margin-top: $portfolio-difference-between-sections + 18;
       font-size: 50px;
     }
-
-    h3 {
-      direction: ltr;
-    }
   }
 
+  @media screen and (min-width: $mediaquery-desktop-maximum) {
+    h3 {
+      direction: rtl;
+    }
+  }
 }
 
 #homeNav {
 
-  font-family: "Amaranth";
+  font-family: "Amaranth", $font-family;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 35px;
@@ -129,7 +130,7 @@ img[src$="img/lanre2.jpg"] {
 
 #works {
   margin-top: $portfolio-difference-between-sections;
-  font-family: Montserrat;
+  font-family: "Montserrat", $font-family;
 
   p.lead {
     margin-top: $portfolio-difference-between-sections - 20;
@@ -279,7 +280,7 @@ img[src$="img/lanre2.jpg"] {
 #about {
   background-color: lightpink;
   padding-top: $portfolio-difference-between-sections;
-  font-family: Amaranth;
+  font-family: "Amaranth", $font-family;
 }
 
 #contact {
@@ -290,6 +291,7 @@ img[src$="img/lanre2.jpg"] {
 
   h2 {
     font-weight: bold;
+    margin-bottom: $portfolio-difference-between-sections - 30;
   }
 
   label {
@@ -319,10 +321,10 @@ img[src$="img/lanre2.jpg"] {
     font-weight: normal;
 
     li > i {
-
       font-size: 40px;
       color: $text-color;
       vertical-align: middle;
+      padding-right: 20px;
     }
 
     a {
