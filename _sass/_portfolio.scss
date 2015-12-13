@@ -58,8 +58,12 @@ a {
 }
 
 img[src$="img/lanre2.jpg"] {
-  border: 4px solid $text-color;
+  border: 4px solid $portfolio-background-color;
   border-radius: 29px;
+  -webkit-box-shadow: $image-box-shadow;
+  -moz-box-shadow: $image-box-shadow;
+  -o-box-shadow: $image-box-shadow;
+  box-shadow: $image-box-shadow;
 }
 
 #tagline {
@@ -117,9 +121,9 @@ img[src$="img/lanre2.jpg"] {
 
   a {
     padding: 16px;
-    background-color: $text-color;
+    background-color: inherit;
     color: $portfolio-nav-color;
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
 
@@ -331,6 +335,24 @@ img[src$="img/lanre2.jpg"] {
       }
     }
 
+  }
+
+  #foot {
+    font-weight: bold;
+    font-size: large;
+
+    div {
+      color: red;
+      background-color: inherit;
+      font-size: 30px;
+      display: inline-block;
+
+      &:hover {
+        transform: scale(2, 2);
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
   }
 }
 
