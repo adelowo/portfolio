@@ -1,4 +1,9 @@
 _site
 .sass-cache
 .jekyll-metadata
-.idea
+.idea/
+css/bootstrap/
+img/
+css/icons/
+css/fonts/
+js/jquery.js
