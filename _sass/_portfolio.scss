@@ -13,8 +13,7 @@ html, body {
 
 @font-face {
   font-family: "Pluto";
-  src: url("../css/fonts/pluto-medium.woff2") format("woff2"),
-  url("../css/fonts/pluto-medium.woff") format("woff");
+  src: url("../css/fonts/pluto-medium.woff") format("woff");
   font-style: normal;
 }
 
@@ -31,17 +30,17 @@ html, body {
 }
 
 @font-face {
-  font-family: Amaranth;
+  font-family: "Amaranth";
   src: url('../css/fonts/Amaranth-Regular.otf');
 }
 
 @font-face {
-  font-family: JosefinSans;
+  font-family: "JosefinSans";
   src: url('../css/fonts/JosefinSans-Light.ttf') format("truetype");
 }
 
 @font-face {
-  font-family: Montserrat;
+  font-family: "Montserrat";
   src: url('../css/fonts/Montserrat-UltraLight.otf');
 }
 
