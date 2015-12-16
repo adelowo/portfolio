@@ -55,6 +55,7 @@ navHeader.addEventListener("click", function () {
 
 fixcolumns.init();
 
+
 /**
  * Made edits to cbpAnimatedHeader.js v1.0.0 to use vanilla JS for it's class toggling functionality than use another js library it ships with
  * cbpAnimatedHeader.js is licensed under the MIT by http://www.codrops.com
@@ -103,3 +104,18 @@ var cbpAnimatedHeader = (function () {
 
     init();
 })();
+
+(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', '{{ site.googleanalytics }}', 'auto');
+ga('send', 'pageview');
