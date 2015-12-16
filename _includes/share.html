@@ -1,0 +1,14 @@
+<div id="social-button">
+    <h4>SHARE VIA : </h4>
+    <a class="twitter"
+       href="https://twitter.com/intent/tweet?text={{ page.title | escape | replace:' ','%20' }}&amp;url={{ page.url | replace:'index.html','' | prepend: site.url }}&amp;via={{ site.author }}"
+       target="_blank"><i class="fi-social-twitter" aria-hidden="true"></i> Twitter</a>
+
+    <a class="facebook"
+       href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | replace:'index.html','' | prepend: site.url }}"
+       target="_blank"><i class="fi-social-facebook" aria-hidden="true"></i> Facebook</a>
+
+    <a class="google-plus"
+       href="https://plus.google.com/share?url={{ page.url | replace:'index.html','' | prepend: site.url }}"
+       target="_blank"><i class="fi-social-google-plus" aria-hidden="true"></i> Google+</a>
+</div>
