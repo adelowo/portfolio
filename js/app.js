@@ -54,3 +54,52 @@ navHeader.addEventListener("click", function () {
 });
 
 fixcolumns.init();
+
+/**
+ * Made edits to cbpAnimatedHeader.js v1.0.0 to use vanilla JS for it's class toggling functionality than use another js library it ships with
+ * cbpAnimatedHeader.js is licensed under the MIT by http://www.codrops.com
+ */
+var cbpAnimatedHeader = (function () {
+
+    var docElem = document.documentElement,
+        header = document.querySelector('.navbar-fixed-top'),
+        fixed = document.querySelector('.fixed'),
+        didScroll = false,
+        changeHeaderOn = 300;
+
+    function init() {
+        window.addEventListener('scroll', function (event) {
+            if (!didScroll) {
+                didScroll = true;
+                setTimeout(scrollPage, 250);
+            }
+        }, false);
+    }
+
+    function scrollPage() {
+        var sy = scrollY();
+        if (sy >= changeHeaderOn) {
+
+
+            if (!isMatch()) {
+                header.className += ' shrink';
+            }
+        } else {
+
+            if (isMatch()) {
+                header.className = header.className.replace(' shrink', '');
+            }
+        }
+        didScroll = false;
+    }
+
+    function scrollY() {
+        return window.pageYOffset || docElem.scrollTop;
+    }
+
+    function isMatch() {
+        return header.className.match(' shrink');
+    }
+
+    init();
+})();
