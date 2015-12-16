@@ -45,9 +45,11 @@ $font-family : Helvetica , sans-serif;
     }
 }
 
-
+%vertical-rhythm {
+  margin-bottom: $portfolio-difference-between-sections;
+}
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "portfolio" , "blog"
+        "portfolio" , "blog" , "syntax-highlighting"
 ;
