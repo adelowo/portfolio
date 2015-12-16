@@ -3,6 +3,5 @@ _site
 .jekyll-metadata
 .idea/
 css/bootstrap/
-img/
 css/icons/
 js/jquery.js
