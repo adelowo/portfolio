@@ -1,6 +1,6 @@
 ---
 layout : blog
-title : You really should use a PHP template engine.
+title : You really should be using a PHP template engine
 categories : [PHP,Web Development]
 
 ---
@@ -13,7 +13,7 @@ In light of the scenario above, developers started "separating their concerns" i
 
 > A nice article on the MVC pattern is that of [Martin Fowler on GUI Architectures](http://martinfowler.com/eaaDev/uiArchs.html)
 
-Back to the present day ; Now that every sane developer is "separating his concerns",we got a lot more 'saner' (is that even grammatically correct ?). You see,folks were creating `View` classes that rendered data to the user,in doing so,it (the View object) allowed the pseudo-variable `$this` to be used outside an object (which is a no-no ) i.e the files containing the HTML markup. Here's an example from an open-source framework for building User Authentication systems, [Huge](https://github.com/panique/huge).
+Back to the present day ; Now that every sane developer is "separating his concerns", better, robust and maintainable applications have been built. You see,folks were creating `View` classes that rendered data to the user,in doing so,it (the View object) allowed the pseudo-variable `$this` to be used outside an object (which still messes up the templates ) i.e the files containing the HTML markup. Here's an example from an open-source framework for building User Authentication systems, [Huge](https://github.com/panique/huge).
 
 {% highlight php %}
 
@@ -113,7 +113,7 @@ Here comes twig again to save the day and a major reason why i'd never ever writ
 > XSS can definitely be prevented via raw PHP as by encoding `HTML` into non `HTML` output ,I just don't feel it's worth the 'extra' keystrokes and also taking into consideration that one source file where you (might just) forget to escape the incoming data..**Holy fucks!!!!**
 
 
-3.) **Object Oriented Template design**  : Twig has quite a number of tricks up it's sleeves. One of which is it's templates mimicry of objects.
+3.) **Object Oriented Template design**  : Twig has quite a number of tricks up it's sleeve. One of which is it's templates mimicry of objects.
 When we find out a class methods could be used by 3 or 5 other class,what we would do is making such a superclass ; concrete or abstract. Same thing applies to Twig, our web app has to have that feel of consistency across it's pages, hence we create a base template (think a full template skeleton,footer,right column call to action banner, or even something as little as stylesheets and scripts) containing the basic part that needs to stay the same across multiple files or the web app. All that is required of us is to 'extend' the base template as we'd have done in OOP.
 
 {% highlight php %}
@@ -224,7 +224,7 @@ But in `PHP` , you can always call the method in the super class as in :
 
 {% endhighlight %}
 
-That can also be done in twig as in : 
+That can also be done in twig as shown below : 
 
 {% highlight twig %}
 {% raw %}
@@ -294,13 +294,15 @@ This strategy has ridden it's way into just about every modern template engine r
 
 The major problem associated with the adoption of template engines by web developers is the 'learning another language' block and 'Template engines are slow'. Twig is pretty much fast in the sense that it processes your templates not on every 'run' but only when a template have been modified (well , only if you disable an option called `auto_reload`) and loading a cached template is just an internal call to the cached `PHP` class (yes, cached templates are stored in raw `PHP`) .
 
+Even if a template engine requires you learn another language, IMO, i do think it's worthwhile as the knowledge extends to every other (modern) engine. For example, this blog was built with [Jekyll](http://jekyllrb.com) which uses liquid for it's templating, I haven't even checked out the latter's docs and i still am yet to lose my way!!.
+
  {% raw %}
  
  Twig for instance has only three tags ; 
 
  * `{{ }}` : Used to print out data or the result of an expression.
  * `{% %}` : Used to perform expressions such as loops,if/else and the likes.
- * `{# #}` : Used to make comments. It's behavior is a little different as the commented section isn't rendered in the browser. But i do think it's nice as i can leave a **todo message** in my template if necessary.
+ * `{# #}` : Used to make comments. It's behavior is a little different from standard `HTML` comment blocks as the former isn't rendered in the browser. But i do think it's nice as i can leave a **todo message** in my template (without getting it to spill out) if necessary.
  
 {% endraw %}
 
