@@ -73,7 +73,7 @@ There are numerous template engines in the wild but I've decided to pick [Twig](
 
 {% endhighlight %}
 
-{% highlight twig %}
+{% highlight liquid %}
 {% raw %}
 
     {# in the rendered twig template, the data from the previous code block is available as below #} 
@@ -96,7 +96,7 @@ Here comes twig again to save the day and a major reason why i'd never ever writ
 
 {% endhighlight %}
 
-{% highlight twig %}
+{% highlight liquid %}
 {% raw %}
 
     {{ firstname }} {# escaped automatically #}
@@ -146,7 +146,7 @@ When we find out a class methods could be used by 3 or 5 other class,what we wou
 
 {% endhighlight %}
 
-{% highlight twig %}
+{% highlight liquid %}
 {% raw %}
 
     {# filename : base.twig.html #}
@@ -191,7 +191,7 @@ When we find out a class methods could be used by 3 or 5 other class,what we wou
 When writing OO code,we can actually choose to override certain methods or have both methods in the parent and child class run together, Twig has something extremely similar to the above described behavior ; something it calls **BLOCKS**, they have been introduced in the previous code {% raw %} `{% block templatebody %} {% endblock %}` {% endraw %}. 
 In your base template,you could have a block tag for javascript files that are used on all pages of the web app but 'every once in a while' there's always that one page we'd like to brandish a cool library. Since it's a 'one page (and kinda large) library'. How then do we then override a twig `block` in a child template since it would always spit out the values from the super template ?.
 
-{% highlight twig %}
+{% highlight liquid %}
 	{% raw %}
 	
     {# filename : index.html.twig #}
@@ -224,7 +224,7 @@ But in `PHP` , you can always call the method in the super class as in :
 
 That can also be done in twig as shown below : 
 
-{% highlight twig %}
+{% highlight liquid %}
 {% raw %}
 
     {# filename : index.html.twig #}
@@ -246,7 +246,7 @@ This strategy has ridden it's way into just about every modern template engine r
 
 4.) **Terseness** : This one boils down to personal preferences. I so much love the readability and conciseness offered by twig than it's counterpart (native php). Truth be told,things can get extremely verbose when performing conditionals,loops,boolean checks in raw `PHP`. Seeing,they say is believing.
 
-{% highlight twig %}
+{% highlight liquid %}
 
 {% raw %}
 
