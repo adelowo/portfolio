@@ -1,0 +1,92 @@
+#blog {
+
+  font-family: "VerelaRound", $font-family;
+
+  .navbar-inverse {
+    background-color: $portfolio-nav-color;
+    border-color: $portfolio-opacity-color;
+  }
+
+  a {
+    color : $portfolio-opacity-color;
+  }
+
+  a:hover {
+    background-color: inherit;
+    color: $text-color;
+  }
+
+  nav {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: $portfolio-difference-between-sections;
+
+    .navbar-brand {
+      font-size: 25px;
+      text-transform: capitalize;
+    }
+
+    a {
+      color : $portfolio-background-color;
+    }
+  }
+
+  .container {
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .post-grid {
+/*
+    border: 2px solid $portfolio-opacity-color;
+*/
+
+    h2 {
+      text-transform: uppercase;
+      font-weight: bold;
+      border-bottom: 5px solid $portfolio-background-color;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .excerpt {
+      a {
+       color : inherit;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .footer {
+      padding-bottom: 20px;
+      .published {
+        > i {
+          font-size: 35px;
+        }
+      }
+    }
+
+    .read-more {
+      float: right;
+    }
+
+    @media (max-width: $mediaquery-landscape-phone-maximum) {
+      .read-more {
+        float: none;
+      }
+
+      .footer {
+        margin-top: $portfolio-difference-between-sections;
+      }
+    }
+  }
+}
+
+blockquote {
+  border-left: 4px solid $portfolio-background-color;
+}
