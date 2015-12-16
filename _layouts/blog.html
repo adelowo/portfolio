@@ -79,10 +79,20 @@
                     </span>
                 </p>
                 {{ content }}
+
+                {% include share.html %}
+                {% include disqus.html %}
+
             </div>
 
-            <div class="col-md-3">
-
+            <div class="col-md-3 fixed">
+                <div class="well well-lg">
+                    <a href="{{ site.url }}">
+                        <img src="/img/lanre2.png"
+                             class="img-responsive img-centered"
+                             alt="Adelowo Lanre&#039;s Portfolio On the Web">
+                    </a>
+                </div>
             </div>
 
             {% endif %}
