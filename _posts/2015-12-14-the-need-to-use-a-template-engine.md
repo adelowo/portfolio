@@ -1,12 +1,13 @@
 ---
 layout : blog
 title : You really should use a PHP template engine.
-tags : [Twig,MVC,Best practices,opinions]
 categories : [PHP,Web Development]
 
 ---
 
-In the beginning, there was HTML then came CSS after which [Rasmus Lerdorf](https://en.m.wikipedia.org/wiki/Rasmus_Lerdorf) then decided to put some bunch of CGI scripts that could be mixed with HTML. Those bunch of scripts ended up being PHP ; a programming language extremely suited for web development ; From the little history above, we know crystal clear that PHP was designed to be 'mixed' with HTML. It was nice and relieving due to it's simplicity ; create a `.php` file, throw in some `div`s, `echo` , `sql` and `die` statements, bam....and you are golden. But as soon as more complex web applications, think facebook or big company X, were developed, the simplicity the language offered actually became a pain in the ass as there was duplication even across adjacent files, maintainability was nearly impossible and debugging was extremely hard because the `HTML` markup had been infested by PHP.
+In the beginning, there was HTML then came CSS after which [Rasmus Lerdorf](https://en.m.wikipedia.org/wiki/Rasmus_Lerdorf) then decided to put some bunch of CGI scripts that could be mixed with HTML. Those bunch of scripts ended up being PHP ; a programming language extremely suited for web development ; From the little history above, we know crystal clear that PHP was designed to be 'mixed' with HTML. 
+
+It was nice and relieving due to it's simplicity ; create a `.php` file, throw in some `div`s, `echo` , `sql` and `die` statements, bam....and you are golden. But as soon as more complex web applications, think facebook or big company X, were developed, the simplicity the language offered actually became a pain in the ass as there was duplication even across adjacent files, maintainability was nearly impossible and debugging was extremely hard because the `HTML` markup had been infested by PHP.
 
 In light of the scenario above, developers started "separating their concerns" in strict adherence with the **[Model-View-Controller pattern](https://en.m.wikipedia.com/wiki/Model_view_controller)** (popularly known as MVC) which was developed in 1974 for use in the smalltalk programming language by [Trygve Reenskaug](https://en.m.wikipedia.org/wiki/Trygve_Reenskaug) and has since been incorporated into many languages like Java (spring framework), Ruby (with the [Rails framework](https://rubyonrails.org)), Python (with [Django](http://djangoproject.net)).
 
