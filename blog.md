@@ -1,12 +1,8 @@
 ---
 layout : blog
 title : The Blog Of Adelowo Lanre
+bloghome : true
 ---
-
-<div class="container">
-
-<div class="row">
-<div class="col-md-12" id="recent">
 
   {% for post in site.posts %}
   
@@ -30,7 +26,3 @@ title : The Blog Of Adelowo Lanre
     
     </div>
   {% endfor %}
- 
-</div>
-</div>
-</div>
