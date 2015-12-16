@@ -11,8 +11,6 @@ It was nice and relieving due to it's simplicity ; create a `.php` file, throw i
 
 In light of the scenario above, developers started "separating their concerns" in strict adherence with the **[Model-View-Controller pattern](https://en.m.wikipedia.com/wiki/Model_view_controller)** (popularly known as MVC) which was developed in 1974 for use in the smalltalk programming language by [Trygve Reenskaug](https://en.m.wikipedia.org/wiki/Trygve_Reenskaug) and has since been incorporated into many languages like Java (spring framework), Ruby (with the [Rails framework](https://rubyonrails.org)), Python (with [Django](http://djangoproject.net)).
 
-> A nice article on the MVC pattern is that of [Martin Fowler on GUI Architectures](http://martinfowler.com/eaaDev/uiArchs.html)
-
 Back to the present day ; Now that every sane developer is "separating his concerns", better, robust and maintainable applications have been built. You see,folks were creating `View` classes that rendered data to the user,in doing so,it (the View object) allowed the pseudo-variable `$this` to be used outside an object (which still messes up the templates ) i.e the files containing the HTML markup. Here's an example from an open-source framework for building User Authentication systems, [Huge](https://github.com/panique/huge).
 
 {% highlight php %}
@@ -35,7 +33,7 @@ Back to the present day ; Now that every sane developer is "separating his conce
         }
     }
 	
-    ?>
+    
 
 {% endhighlight %}
 
@@ -71,7 +69,7 @@ There are numerous template engines in the wild but I've decided to pick [Twig](
         
     }
     
-    ?>
+    
 
 {% endhighlight %}
 
@@ -94,7 +92,7 @@ Here comes twig again to save the day and a major reason why i'd never ever writ
 
     <?php 
         echo htmlspecialchars($variable , ENT_QUOTES , 'UTF-8') ;
-    ?>
+    
 
 {% endhighlight %}
 
@@ -144,7 +142,7 @@ When we find out a class methods could be used by 3 or 5 other class,what we wou
 		//the isLoggedIn() method can be used by other codes when a new instance of this class is created
     }
 	
-    ?>
+    
 
 {% endhighlight %}
 
@@ -220,7 +218,7 @@ But in `PHP` , you can always call the method in the super class as in :
             parent::loggedIn();
         }
         
-    ?>
+    
 
 {% endhighlight %}
 
