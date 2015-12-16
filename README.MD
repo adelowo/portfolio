@@ -1,4 +1,4 @@
-The source code of my [portfolio and blog](https://github.com/adelowo/adelowo.github.com).
+The source code of my [portfolio and blog](http://adelowo.com).
 
 Built with [Jekyll](http://jekyllrb.com).
 
