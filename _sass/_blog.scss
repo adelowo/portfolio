@@ -5,10 +5,41 @@
   .navbar-inverse {
     background-color: $portfolio-nav-color;
     border-color: $portfolio-opacity-color;
+
+    .navbar-toggle .icon-bar {
+      background-color: red;
+    }
+  }
+
+  @media (min-width: $mediaquery-desktop-minimum) {
+
+    .navbar-fixed-top {
+      padding: 20px 0;
+      -webkit-transition: padding .3s;
+      -moz-transition: padding .3s;
+      -o-transition: padding .3s;
+      transition: padding .3s;
+    }
+
+    .navbar-fixed-top .navbar-brand {
+      font-size: 32px;
+      -webkit-transition: all .5s;
+      -moz-transition: all .5s;
+      -o-transition: all .5s;
+      transition: all .7s;
+    }
+
+    .navbar-fixed-top.shrink {
+      padding: 10px 0;
+    }
+
+    .shrink > .navbar-brand {
+      font-size: 20px;
+    }
   }
 
   a {
-    color : $portfolio-opacity-color;
+    color: $portfolio-opacity-color;
   }
 
   a:hover {
@@ -20,7 +51,6 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 25px;
-    margin-bottom: $portfolio-difference-between-sections;
 
     .navbar-brand {
       font-size: 25px;
@@ -28,7 +58,7 @@
     }
 
     a {
-      color : $portfolio-background-color;
+      color: $portfolio-background-color;
     }
   }
 
@@ -39,10 +69,14 @@
     }
   }
 
+  #recent {
+    margin-top: $portfolio-difference-between-sections + 55px;
+  }
+
   .post-grid {
-/*
-    border: 2px solid $portfolio-opacity-color;
-*/
+    /*
+        border: 2px solid $portfolio-opacity-color;
+    */
 
     h2 {
       text-transform: uppercase;
@@ -54,7 +88,7 @@
 
     .excerpt {
       a {
-       color : inherit;
+        color: inherit;
       }
 
       a:hover {
@@ -85,8 +119,17 @@
       }
     }
   }
+
+  #content {
+    @extend #recent ;
+
+    > h3 {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
 }
 
 blockquote {
-  border-left: 4px solid $portfolio-background-color;
+  border-left: 4px solid lighten(red , 10);
 }
