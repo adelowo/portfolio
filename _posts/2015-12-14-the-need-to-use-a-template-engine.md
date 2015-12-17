@@ -37,7 +37,7 @@ Back to the present day ; Now that every sane developer is "separating his conce
 
 {% endhighlight %}
 
-It works but i do feel we could do better.
+It works but i do feel we could do better without screwing the `$this` pseudo-variable.
 
 ## What is a template engine ? 
 
@@ -85,7 +85,7 @@ There are numerous template engines in the wild but I've decided to pick [Twig](
 
 > Separation of concerns leads to great flexibility when updating the design of your web application as nothing is guaranteed to break.
 
-2.) **Security** : First of all,let me state that PHP is **secure** as a language but it lacks automatic data escaping but so does those Ruby, Python and other "hip languages". Since learning to program, my paranoia has gone up 186% (I've always been 100% paranoid from the womb) due to the fact that you can't evade the **bad guys** and the __good guys with good intentions that end up doing bad things to your web app__. In preparing for the worst, "getting caught sleeping" is not what we wish for, not even in our worst nightmares.
+2.) **Security** : First of all,let me state that PHP is **secure** as a language but it lacks automatic data escaping but so does those Ruby, Python and other "hip languages". Since learning to program, my paranoia has gone up 186% (I've always been 100% paranoid!!) due to the fact that you can't evade the **bad guys** and the __good guys with good intentions that end up doing bad things to your web app__. In preparing for the worst, "getting caught sleeping" is not what we wish for, not even in our worst nightmares.
 Here comes twig again to save the day and a major reason why i'd never ever write a web app again without a template engine (well if a gun was put to my balls,I probably would...just don't count on that).
 
 {% highlight php %}
@@ -111,8 +111,9 @@ Here comes twig again to save the day and a major reason why i'd never ever writ
 > XSS can definitely be prevented via raw PHP as by encoding `HTML` into non `HTML` output ,I just don't feel it's worth the 'extra' keystrokes and also taking into consideration that one source file where you (might just) forget to escape the incoming data..**Holy fucks!!!!**
 
 
-3.) **Object Oriented Template design**  : Twig has quite a number of tricks up it's sleeve. One of which is it's templates mimicry of objects.
-When we find out a class methods could be used by 3 or 5 other class,what we would do is making such a superclass ; concrete or abstract. Same thing applies to Twig, our web app has to have that feel of consistency across it's pages, hence we create a base template (think a full template skeleton,footer,right column call to action banner, or even something as little as stylesheets and scripts) containing the basic part that needs to stay the same across multiple files or the web app. All that is required of us is to 'extend' the base template as we'd have done in OOP.
+3.) **Object Oriented Template design**  : Twig has quite a number of tricks up it's sleeve. One of which is it's mimicry of standard objects with templates.
+
+When we find out a class methods could be used by 3 or 5 other class, what we would do is making such a superclass ; concrete or abstract. Same thing applies to Twig, our web app has to have that feel of consistency across it's pages, hence we create a base template (think a full template skeleton,footer,right column call to action banner, or even something as little as stylesheets and scripts) containing the basic part that needs to stay the same across multiple files or the web app. All that is required of us is to **extend** the base template as we'd have done in OOP.
 
 {% highlight php %}
 
