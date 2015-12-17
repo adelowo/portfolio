@@ -1,5 +1,4 @@
 ---
-title : How to build a small MVC framework with AuraPHP and Twig
 categories : [PHP , Web Development , Tuts]
 layout : blog
 
@@ -73,7 +72,7 @@ Fire up your favorite editor with the `index.php` file opened
 
     <?php
 
-    require_once "vendor/autoload.php";
+    require_once "path/to/vendor/autoload.php";
 
     use Aura\Router\RouterFactory;
 
@@ -230,9 +229,6 @@ There's a C (controller) in MVC, so we'd want something to mediate between web r
 	
 		const FORM_HAS_ERRORS = "The submitted form is invalid and could not be processed as a result of unprovided data";
 	
-	
-		const NEW_MESSAGE_FROM_A_VISITOR = "Hello {{school}},{{name}} sent you an email via Schoollogue";
-	
 		
 		public function validateIndexPageForm(array $params = null)
 		{
@@ -273,7 +269,7 @@ In the above code block for `IndexController.php`, we have instructed Twig to lo
 
 Ok, that works right but we can't always know what parameters a route would present as web developers are always working with dynamic data every now and then. We need dynamic routes, i.e one with parameters!!
 
-> If you aren't working with dynamic routes, it would be an overkill to use a routing engine since all pages are predetermined. Plain old multiple point of entry (i.e `index.php` , `contact.php` , `about.php`) OR a simple `switch` statement at the `index.php` file would do the trick.
+> If you aren't working with dynamic routes, it would be an overkill to use a routing engine (or even the MVC pattern) since all pages are predetermined. Plain old multiple points of entry (i.e `index.php` , `contact.php` , `about.php`) OR a simple `switch` statement in the `index.php` file would do the trick.
 
 {% highlight php %}
 
@@ -286,9 +282,9 @@ Ok, that works right but we can't always know what parameters a route would pres
 	            "method" => "showAUser"
 	        ])
 	        ->addTokens([
-	            "id" => "\d+" //Regular expression to run on the 'id' parameter in the uri. Make sure it is a digit, we do not want an alpha-numeric value as ID.
+	            "id" => "\d+", //Regular expression to run on the 'id' parameter in the uri. Make sure it is a digit, we do not want an alpha-numeric value as ID.
 	            //you can also validate the 'name' parameter as shown below
-	            //"name" => "\w+"
+	            "name" => "\w+"
 	        ]);
 	
 	//match routes like /pdf/10
@@ -342,7 +338,7 @@ Ok, that works right but we can't always know what parameters a route would pres
 
 ### HELPFUL METHODS
 
-We have gone AuraPHP routing engine and it is in no doubt expressive and functional but they are quite some methods apart from what have been depicted here that are available for use. I wouldn't go through all methods as :
+We have gone through AuraPHP's routing engine and it is in no doubt expressive and functional but they are quite some methods apart from what have been depicted here that are available for use. I wouldn't go through all methods as :
 
 * `addHead()` => accept only requests with a `HEAD` `HTTP` method
 * `addGet()` => accept only requests with a `GET` `HTTP` method
@@ -352,12 +348,14 @@ We have gone AuraPHP routing engine and it is in no doubt expressive and functio
 
 * `failedAccept()` => The `HTTP` method is not supported by the server.
 
-* `addValues(array $values)` and `setValues(array $values)` => This is used to set default values for a route should in case the user didn't provide one. `setValues()` does the same thing as `addValues()`
-
-> All `setXXX` methods override whatever has been previously declared with it's `addXXX` counterpart.
+* `addValues(array $values)` and `setValues(array $values)` => This is used to set default values for a route should in case the user didn't provide one. `setValues()` does the same thing as `addValues()` but it would override whatever has been declared with `addValues` and that is as true for all other `setXXX()` method the library offers.
 
 * `setSecure()` => If set to true, only traffic over ssl would be considered.
 
-> There are other methods AuraPHP router offers but this are the most implemented of them. Do check out the documentation to find out those that were not mentioned .
+> There are other methods AuraPHP router offers but this are the most implemented of them. Do check out it's [github's page](https://github.com/auraphp/Aura.Router) to find out those that were not mentioned .
+
+> Twig's online documentation can be found [here](https://twig.sensiolabs.org/documentation).
+
+
 
 There you go!!. A minimal MVC framework without the use of framework Y. With that said, frameworks on the market do offer far more features than what we've just built so far - heck, all our 'framework' has is just a router and a template engine but hey you sometimes do not want that monolithic Framework.
