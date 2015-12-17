@@ -2,12 +2,18 @@
 
     {% if page.title %}
 
-    {% include disqus.html %}
     <script src="/js/app.js"></script>
+
+    <div class="text-center">
+        <p class="copyright">&copy; {{ site.time | date: '%Y' }} <a
+                href="{{ site.url }}">{{ site.author }}</a>. All
+            contents are available under the <strong>Creative Commons
+                Attribution 3.0 License</strong></p>
+    </div>
 
     {% else %}
     <script src="/js/jquery.js"></script>
-    <script src="/css/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/css/bootstrap/js/bootstrap.js"></script>
     {% endif %}
 
 </footer>
