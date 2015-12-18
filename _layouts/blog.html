@@ -19,8 +19,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ site.url }}">{{ site.author
-                }}</a>
+            <a class="navbar-brand" href="{{ site.url }}">{{ site.author }}</a>
         </div>
 
 
@@ -72,15 +71,15 @@
 
                 <p>
                     <i class="fi-calendar"></i>
-                    <time datetime="{{ page.date | date: " %Y-%m-%d
-                    " }}" itemprop="datePublished">{{ page.date | date: "%B %d,
-                    %Y" }}</time> by
+                    <time datetime="{{ page.date | date: " %Y-%m-%d " }}" itemprop="datePublished">
+                        {{ page.date | date: "%B %d,%Y" }}</time> by
                     <span><a href="{{ site.url }}">{{ site.author }}</a>
                     </span>
                 </p>
                 {{ content }}
 
                 {% include share.html %}
+
                 {% include disqus.html %}
 
             </div>
