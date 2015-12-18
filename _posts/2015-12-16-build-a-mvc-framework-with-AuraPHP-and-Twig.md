@@ -6,7 +6,7 @@ layout : blog
 
 In my [previous post]({{site.baseurl}}/blog/2015/12/14/the-need-to-use-a-template-engine), i discussed the benefits a template engine could bring to a project and why major frameworks have native support for them, I also name-dropped **MVC** quite a number of time. 
 
-In view of that, i thought it'd be nice to describe how a minimal MVC structure without running a `composer require large/framework` when all you just want is a clean way to seperate your logic from presentation and do not need all the features that'd be available within `large/framework`.
+In view of that, i thought it'd be nice to describe how a minimal MVC structure could be implemented without running a `composer require large/framework` when all you just want is a clean way to seperate your logic from presentation and do not need all the features that'd be available within `large/framework`.
 
 ## AuraPHP
 This is a router and we only are installing it since we get pretty urls which is a must nowadays.
@@ -127,7 +127,8 @@ This is a simple example as it represents a :
 If no routes match what have been registered, call the `ErrorController`, which is simply a wrapper for `404` HTTP requests. All it does is present the user an error page.
 
 > Only HTTP Method(s) assigned to a route would match else a 404 HTTP error would be thrown.
-	
+
+> `addHead()`, `addDelete()` , `addPut` , `addPatch`, `addOptions` are also available for use. But do have it in mind that not all servers are configured to accept some certain `HTTP` request methods, `GET` and `POST` are available on all servers though.
 
 There's a C (controller) in MVC, so we'd want something to mediate between web requests and our web app. Let's write one .
 
@@ -336,26 +337,10 @@ Ok, that works right but we can't always know what parameters a route would pres
 
 {% endhighlight %}
 
-### HELPFUL METHODS
-
-We have gone through AuraPHP's routing engine and it is in no doubt expressive and functional but they are quite some methods apart from what have been depicted here that are available for use. I wouldn't go through all methods as :
-
-* `addHead()` => accept only requests with a `HEAD` `HTTP` method
-* `addGet()` => accept only requests with a `GET` `HTTP` method
-* `addPost()` => accept only requests with a `POST` `HTTP` method
-
-* `failedMethod()` => an error occurred while the `HTTP` request was processed.
-
-* `failedAccept()` => The `HTTP` method is not supported by the server.
-
-* `addValues(array $values)` and `setValues(array $values)` => This is used to set default values for a route should in case the user didn't provide one. `setValues()` does the same thing as `addValues()` but it would override whatever has been declared with `addValues` and that is as true for all other `setXXX()` method the library offers.
-
-* `setSecure()` => If set to true, only traffic over ssl would be considered.
+### Official Documentation
 
 > There are other methods AuraPHP router offers but this are the most implemented of them. Do check out it's [github's page](https://github.com/auraphp/Aura.Router) to find out those that were not mentioned .
 
 > Twig's online documentation can be found [here](https://twig.sensiolabs.org/documentation).
-
-
 
 There you go!!. A minimal MVC framework without the use of framework Y. With that said, frameworks on the market do offer far more features than what we've just built so far - heck, all our 'framework' has is just a router and a template engine but hey you sometimes do not want that monolithic Framework.
