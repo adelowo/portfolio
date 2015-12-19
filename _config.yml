@@ -25,7 +25,7 @@ disqus:
 sass:
   style: :compressed
 
-googleanalytics:
+googleanalytics: UA-71600006-1
 
 exclude:
     - Gemfile
