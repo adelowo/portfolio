@@ -167,11 +167,11 @@ $post-content-link-color: lighten(red, 10);
       color: $text-color;
       text-decoration: none;
       border: 0;
-      border-radius: 10px;
+      border-radius: 20px;
 
       &:hover, &:focus {
         color: white;
-        background-color: lighten(red, 10);
+        text-decoration: none;
       }
     }
 
