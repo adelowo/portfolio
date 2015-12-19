@@ -11,8 +11,11 @@
           content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css" / >
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css"/> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css"/>
+
+	<link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon">
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
