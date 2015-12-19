@@ -11,8 +11,8 @@ social :
   github : adelowo
   stackoverflow : 4301733/adelowo
   quora : Adelowo-Lanre-1
-  facebook :
-  linkedin :
+  facebook : adelowo.lanre.5
+  linkedin : adelowolanre
 
 
 
@@ -20,7 +20,7 @@ social :
 markdown: kramdown
 
 disqus:
-  shortname :
+  shortname : adelowo
 
 sass:
   style: :compressed
