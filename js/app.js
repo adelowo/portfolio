@@ -105,3 +105,12 @@ var cbpAnimatedHeader = (function () {
     init();
 })();
 
+//http://stackoverflow.com/questions/4425198/markdown-target-blank
+
+var links = document.links;
+
+for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+   if (links[i].hostname != window.location.hostname) {
+       links[i].target = '_blank';
+   } 
+}
