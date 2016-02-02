@@ -40,7 +40,7 @@ var fixcolumns = {
             temp[i].style.height = parseInt(fixcolumns.highest) + 'px';
         }
     }
-}
+};
 
 var navHeader = document.querySelector('.navbar-toggle');
 var collapsed = document.querySelector('.collapse');
