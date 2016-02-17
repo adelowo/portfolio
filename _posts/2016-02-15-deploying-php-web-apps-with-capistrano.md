@@ -180,10 +180,9 @@ Navigate to the root of your directory and tell capistrano to do it's thing.
 
 That one-liner spits a lot of information, all you have to grab a cup of coffee or do something else for some 75 secs - depending on your internet connection, i once was stucked with a bad WiFi network and it took me nearly 20 minutes - .
 
-I have attached a screenshot of the process. The terminal by the left is from my local computer while that on the right is for the remote server, in which the directories - `current/`, `releases/`, `repo`, `shared` are visible. The shared directory might not be available if you did not set a `set :linked_dirs` in the `deploy.rb` file.
+I have attached a screenshot of the process below.
 
-
-![deploying php apps with Capistrano]({{ site.baseurl }}/img/log/capistrano.png)
+![deploying php apps with Capistrano]({{ site.baseurl }}/img/log/cap.png)
 
 Haha moment ? , your production directory should match that obtainable at the right section of the screen-shot above.
 
