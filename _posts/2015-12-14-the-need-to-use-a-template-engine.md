@@ -1,7 +1,6 @@
 ---
 layout : blog
 title : You really should be using a PHP template engine
-categories : [PHP,Web Development]
 
 ---
 

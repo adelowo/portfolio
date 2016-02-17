@@ -1,5 +1,4 @@
 ---
-categories : [PHP , Web Development , Tuts]
 layout : blog
 
 ---

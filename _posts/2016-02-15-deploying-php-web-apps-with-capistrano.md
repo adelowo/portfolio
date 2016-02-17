@@ -1,6 +1,5 @@
 ---
 layout : blog
-categories : [PHP,deployment]
 
 ---
 
