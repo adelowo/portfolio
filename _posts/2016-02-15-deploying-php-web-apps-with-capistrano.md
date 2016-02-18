@@ -5,7 +5,7 @@ layout : blog
 
 I only recently completed building a project i was extremely keen on - [Schoollogue](https://schoollogue.com), a wordplay on "School Catalogue" - after which i deployed it (of course) but there was a but to it, it actually is my first stuff to go online - ok, i lied ; my [portfolio site](http://adelowolanre.com) is -, but you get the gist right ?.
 
-Which made me write this blog post for first-timers and obviously confused folks like i was.
+Which made me write this blog post for first-timers and [obviously confused folks like i was](http://www.nairaland.com/2931773/what-softwares-used-push-codes).
 
 With that said, moving the project online would be my first and i had to spend a lot of time on google, quora and stackoverflow - reading good old questions - looking for how to move this online. I already knew my best bet was an IAAS platform, since i have come to know and understand the perils of shared hosting since it just does not scale and isn't not developer-friendly but there was something i didn't just get.
 
@@ -122,7 +122,7 @@ On your development machine, you did do something like this - I use git.
 
 {% highlight bash %}
 
-	$ git push -all -u
+	$ git push --all -u
 
 {% endhighlight %}
 
