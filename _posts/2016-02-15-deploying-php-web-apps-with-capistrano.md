@@ -178,13 +178,13 @@ Navigate to the root of your directory and tell capistrano to do it's thing.
 
 {% endhighlight %}
 
-That one-liner spits a lot of information, all you have to grab a cup of coffee or do something else for some 75 secs - depending on your internet connection, i once was stucked with a bad WiFi network and it took me nearly 20 minutes - .
+That one-liner spits a lot of information, all you have to grab a cup of coffee or do something else for some 75 secs - depending on your internet connection, i once was stucked with a bad WiFi network and it took me nearly 10 minutes - .
 
 I have attached a screenshot of the process below.
 
 ![deploying php apps with Capistrano]({{ site.baseurl }}/img/log/cap.png)
 
-Haha moment ? , your production directory should match that obtainable at the right section of the screen-shot above.
+Haha moment ???
 
 I talked about pushing bad code into production the other time, so how do you rollback and remove the bad code ? It's a one-liner too!!!
 

@@ -2,8 +2,7 @@ author : Adelowo Lanre
 title : Adelowo Lanre • Web Developer From Lagos - Nigeria
 email: me@adelowolanre.com
 
-baseurl: ""
-url: "http://adelowolanre.com"
+url: http://adelowolanre.com
 permalink: /blog/:year/:month/:day/:title/
 
 social :
