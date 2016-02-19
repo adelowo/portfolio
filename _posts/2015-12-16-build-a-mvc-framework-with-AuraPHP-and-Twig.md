@@ -53,7 +53,7 @@ Create a web sever config file (i'm using apache, so i would have `.htaccess`) a
 
 Put the following in the web server config file
 
-{% highlight apache %}
+{% highlight conf %}
 
     RewriteEngine on
     Options -MultiViews
