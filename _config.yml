@@ -1,6 +1,6 @@
-author : Adelowo Lanre
+author: Adelowo Lanre
 title : Adelowo Lanre • Web Developer From Lagos - Nigeria
-email: me@adelowolanre.com
+email : me@adelowolanre.com
 
 url: http://adelowolanre.com
 permalink: /blog/:year/:month/:day/:title/
@@ -9,7 +9,7 @@ social :
   twitter : adelowolanre
   github : adelowo
   stackoverflow : 4301733/adelowo
-  quora : Adelowo-Lanre-1
+  quora : Adelowo-Lanre 
   facebook : adelowo.lanre.5
   linkedin : adelowolanre
 
