@@ -3,7 +3,7 @@ layout : blog
 
 ---
 
-One of my favorite questions on [Quora](https://www.quora.com/What-is-a-coders-worst-nightmare) is "[What is a coder's worst Nightmare](https://quora.com)". One of the most upvoted answers was 
+One of my favorite questions on [Quora](https://www.quora.com) is "[What is a coder's worst Nightmare](https://quora.com)". One of the most upvoted answers was 
 
 > It only happens in production
 
@@ -101,7 +101,7 @@ Funny enough he did ask me what db engine i use, i replied MYSQL. He went ahead 
 
 This incidents have made me think about my stance as a [responsible developer](http://blog.ircmaxell.com/2014/12/being-responsible-developer.html). I always have been one. I make sure my local machine and production environment make use of latest software and utilize `*.lock` files to keep dependencies same and a bunch of other stuffs. But what about the servers i do not have access to or control. 
 
-In light of this, i have decided to be much more responsible by asking for a `VagrantFile`,`Homestead.yaml` or something of that sort contains an environment. This is to save myself from having to deal with trivial "Bugs" being assigned to me.
+In light of this, i have decided to be much more responsible by asking for a `VagrantFile`,`Homestead.yaml` or something of that sort which contains an environment. This is to save myself from having to deal with trivial "Bugs" being assigned to me.
 
 0 -- Production in the second problem is quite weird. It meant the guy's machine as he was the one to test before pushing the code online and i can easily infer the real production server would not have any software much more recent than his.
 
