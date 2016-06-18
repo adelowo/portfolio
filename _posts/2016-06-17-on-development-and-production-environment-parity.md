@@ -93,7 +93,7 @@ I had queries running like :
     
 {% endhighlight %}
 
-But for some (obvious) reasons this throws an exception - the `SQL blah blah blah` type. We went back and forth on the issues thread with me posting links to a [Github issue](https://github.com/laravel/framework/issues/13622) with the same complaint and luckily the fix was easy. Want a true `json` column ? upgrade to an alpha version of MariaDB. But heck, no one uses alpha-tagged software in production.
+But for some (obvious) reasons this throws an exception - the `SQL blah blah blah` type. We went back and forth on the thread with me posting links to a [Github issue](https://github.com/laravel/framework/issues/13622) with the same complaint and luckily the fix was easy. Want a true `json` column ? upgrade to an alpha version of MariaDB. But heck, no one uses alpha-tagged software in production.
 
 Funny enough he did ask me what db engine i use, i replied MYSQL. He went ahead to install that but still had the same issue, asked what version he installed. His reply 5.6. C'mon Man, old version that is.
 
