@@ -27,7 +27,7 @@ In the notification hook, we had something like ***Notify all subscribers except
 
 ![code screenshot]({{ site.baseurl }}/img/log/Screenshot-from-2016-06-17 16-12-47.png)
 
-Spot the bug ? I bet you can't.. Hell that is perfectly valid code - ok let's leave the question of using collections rather than loops out of this . I did push to the repo and off to production it went.
+Spot the bug ? I bet you can't.. Hell that is perfectly valid code - ok [let's leave the question of using collections rather than loops](http://adamwathan.me/refactoring-to-collections/) out of this . I did push to the repo and off to production it went.
 
 Till i woke up to a trello notification that says a new card has been added to the "Bugs" list like ***Users should not be notified if they made the update***. I went like WTF and tried it out on my machine, i couldn't replicate it. I had to ask my friend who happen to be a dev on the platform if he could replicate it.
 
