@@ -65,7 +65,7 @@ I had written something related to the above snippet, and used it in a laravel b
 
 Obviously it wouldn't work on PHP versions lesser than 7 and i was assigned an issue for an easy stuff.
 
-The 2nd issue was also related to MariaDB.. not again!!. So MYSQL 5.7 introduced a true `json` column, and a new way of querying json data `data->name`. I so much loved that considering the fact that we have always stored `json` in some form of serialized text - and maybe have your ORM cast it to an array auto for you. The project was using this feature already but in MaraiDB that doesn't have a true `json` column.
+The 2nd issue was also related to MariaDB.. not again!!. So MYSQL 5.7 introduced a true `json` column, and a new way of querying json data `data->name`. I so much loved that considering the fact that we have always stored `json` in some form of serialized text - and maybe have your ORM cast it to an array auto for you. The project was using this feature already but in MariaDB that doesn't have a true `json` column.
  
  I ran the migrations and i got a json column up and running in my database.
  
@@ -107,6 +107,6 @@ In light of this, i have decided to be much more responsible by asking for a `Va
 
 1 -- Guys here meant anyone, it could have been a dude or a girl.
 
-2 -- We didn't really fall out of love with Graph databases but we have been doing a lot recently and haven't had the "courage" to plunge in.
+2 -- We didn't really fall out of love with Graph databases. We have been messing with the idea of moving toward Graph dbs have been doing a lot recently and haven't had the "courage" to plunge in. 
 
 3 -- The third issue was a proposal not a bug.
