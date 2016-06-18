@@ -19,7 +19,7 @@ I have never used a VM for any development not that i do not know of it or somet
   
 - Problem 1 - Code runs dead fine on my machine but fails and throws an exception in production <sup>[0]</sup>
 
-####PROBLEM 0
+###PROBLEM 0
 
 It was a small issue but it did make me rage bad time. So my friend and I run a platform that connects [students of our university together](https://schoolnetwork.io) alongside providing a simulation of **Computer Based Tests** and some other stuffs . Only recently did we add a feature that allows users to "subscribe" to a forum section or "follow" a topic to get updates as to changes in stuffs they seem interested in. We thought it nice to notify the users once an update to any of your subscriptions is available.
 
@@ -35,7 +35,7 @@ So the problem was pretty much simple, `$afollower->user_id` returns an integer 
 
 I use MYSQL for dev purposes and that is as true for my production environments - alongside the current app being talked about - but sometime in April, we switched db engine to MariaDB after we fell out of love with Graph Databases<sup>[2]</sup>. MariaDB and MYSQL are supposed to be compatible but MYSQL returns an integer - definitely- for an unsigned Integer column but the same can't be said for MariaDB - atleast in this case. To be honest, i haven't had the chance of checking why it happens this way. But such a trivial stuff did cause an extra commit.
 
-####PROBLEM 1
+###PROBLEM 1
 
 I had the chance to run a development gig for some startup and it was a project nearing it's deadline date. It really was a little job. All i had to do was implement a payment gateway - [Paystack](https://paystack.com), plus some little scheduled tasks, and a few tiny stuffs here and there.
 
