@@ -65,7 +65,7 @@ I had written something related to the above snippet, and used it in a laravel b
 
 Obviously it wouldn't work on PHP versions lesser than 7 and i was assigned an issue for an easy stuff.
 
-The 2nd issue was also related to MariaDB.. not again!!. So MYSQL 5.7 introduced a true `json` column, and a new way of querying json data `data->name`. I so much loved that considering the fact that we have always stored `json` in some form of serialized text - and maybe have your ORM cast it to an array auto for you. The project were using this feature already but in MaraiDB that doesn't have a true `json` column.
+The 2nd issue was also related to MariaDB.. not again!!. So MYSQL 5.7 introduced a true `json` column, and a new way of querying json data `data->name`. I so much loved that considering the fact that we have always stored `json` in some form of serialized text - and maybe have your ORM cast it to an array auto for you. The project was using this feature already but in MaraiDB that doesn't have a true `json` column.
  
  I ran the migrations and i got a json column up and running in my database.
  
