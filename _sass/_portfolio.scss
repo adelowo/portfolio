@@ -336,24 +336,7 @@ img[alt="Adelowo Lanre"] {
     }
 
   }
-
-  #foot {
-    font-weight: bold;
-    font-size: large;
-
-    div {
-      color: red;
-      background-color: inherit;
-      font-size: 30px;
-      display: inline-block;
-
-      &:hover {
-        transform: scale(2, 2);
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-    }
-  }
+  
 }
 
 .notification {
