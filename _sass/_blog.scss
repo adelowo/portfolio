@@ -81,7 +81,7 @@ $post-content-link-color: lighten(red, 10);
     */
 
     h2 {
-      text-transform: uppercase;
+      text-transform: capitalize;
       font-weight: bold;
       border-bottom: 5px solid $portfolio-background-color;
       padding-bottom: 20px;
