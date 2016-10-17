@@ -1,7 +1,7 @@
 ---
 
 layout : blog
-title : Note to self : KISS is a way of life
+title : Note to self, KISS is a way of life
 
 ---
 
