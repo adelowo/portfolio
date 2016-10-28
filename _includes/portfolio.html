@@ -498,8 +498,10 @@
         </p>
 
         <p>
+            {% assign latest = site.posts.first %}
             I also write a <a href="{{ site.baseurl }}/blog">blog </a> about web
-            development and programming.
+            development and programming. My latest post is
+            <a href="{{ site.baseurl }}{{ latest.url }}"> {{ latest.title }} </a>.
         </p>
 
 
