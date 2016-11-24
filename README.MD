@@ -1,4 +1,4 @@
-The source code of my [portfolio and blog](http://adelowolanre.com), It is still a work in progress but very much usable .
+The source code of my [portfolio and blog](http://lanreadelowo.com), It is still a work in progress but very much usable .
 
 
 
