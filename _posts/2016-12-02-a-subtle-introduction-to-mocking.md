@@ -37,6 +37,7 @@ $ cd somedirectory
 $ composer require --dev mockery/mockery
 {% endhighlight %}
 
+> If you want to make use of PHPunit's default mock implementation, you can find an [example here](https://github.com/brandonsavage/Upload/blob/master/tests/FileTest.php#L4-L34)
 
 ### How do i mock
 
@@ -56,6 +57,8 @@ Then we can run through the entire file content, run some logic to get the usern
 In other to pass this idea through, I would be providing code samples that show our logger in two states : ___The premock stage___ and ___The postmock stage___. 
 
 > Both stages work as expected and have unit tests.
+
+> I have put up the code for both stages on [github](https://github.com/adelowo/code-samples/tree/master/mocking)
 
 #### The Premock Stage
 
