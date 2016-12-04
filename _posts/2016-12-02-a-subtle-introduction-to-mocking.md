@@ -24,7 +24,7 @@ This stuffs aren't always guaranteed to be available or can prove tedious to set
 
 This terms are usually thrown around and it's nice to make a distinction between both of them. In fact, both are actually categorized together. They are called ___Test Doubles___.
 
-Stubs are a set of fake/dummy data in other to make a test pass WHILE Mocks (object) are simply "fakes" that simulate the behaviour of another object in a way that is controlled by you, the tester. Mocks always have stubs.
+Stubs are a set of fake/dummy data in other to make a test pass WHILE Mocks (object) are simply "fakes" that simulate the behaviour of another object in a way that is controlled by you, the tester. Mocks may (not) have stubs.
 
 ### Getting started
 
