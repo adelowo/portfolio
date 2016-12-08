@@ -323,3 +323,5 @@ Running `phpunit` again should still give us green and checking the `app.log` sh
 Mocking is a big deal when it comes to testing. Easy to get started with. Easy to love. ___Easy and prone to misuse___.
 
 I hope this has given a little insight into how mocking works. I hope to write the second part soon.
+
+> Update : The second part is accessible [here](/blog/2016/12/07/a-subtle-introduction-to-mocking-2/) 
