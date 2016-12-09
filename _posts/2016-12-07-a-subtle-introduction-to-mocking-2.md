@@ -12,7 +12,7 @@ In my previous post about ___Mocking___ - [which i think you should checkout](/b
 
 > The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/github-app).
 
-#### Users' Story
+#### Users Story
 
 As a user of this app, i want to 
 
@@ -112,7 +112,7 @@ This object is quite easy to follow. Our `GithubClient` object has a dependency 
 
 Fairly straight forward.
 
-> A nice read for understanding how ___Guzzle___ was implemented is to checkout the [PSR-7](http://www.php-fig.org/psr/psr-7/) standard.
+> The [PSR-7 standard](http://www.php-fig.org/psr/psr-7) is actually a nice way to understanding how ___Guzzle___ was implemented.
 
 How about we test this ? Since this is going to be a lot to take in, i would only show a test per block code.
 
@@ -143,7 +143,7 @@ class GithubClientTest extends \PHPUnit_Framework_TestCase
         $this->httpClient = Mockery::mock(Client::class)->makePartial();
         $this->response = Mockery::mock(ResponseInterface::class)->makePartial();
 
-        $this->httpClient->shouldReceive('get')
+        $this->httpClient->shouldReceive('get') //get is actually a method we called in GithubClient
             ->once()
             ->andReturn($this->response);
     }
@@ -535,7 +535,7 @@ With this, we have fulfilled the first user story. Let's move to the next one i.
 
 Running `phpunit` should ___make us green___ without touching the internet. 
 
-Like i said in the previous post, mocking is a big deal. Learning to use it has changed the way i write my tests and even increases my coverage - even though coverage isn't a measure of quality.
+Like i said in the previous post, mocking is a big deal. Learning to use it has changed the way i write my tests and even increased my coverage - even though coverage isn't always a measure of quality.
 
 ### Alternate Ending
 
@@ -585,7 +585,7 @@ But our tests didn't cover that edge case. Let's have that fixed
             ->andReturn(201);
 
         $this->response->shouldReceive('getBody')
-            ->never();
+            ->never(); //we aren't expecting the getBody call. An exception should "kill" the GithubClient
 
         $this->expectException(InvalidResponseException::class);
 
@@ -610,4 +610,4 @@ But our tests didn't cover that edge case. Let's have that fixed
 {% endhighlight %}
 
 
-> The source code for this can be found on [Github](https://github.com/adelowo/code-samples/tree/master/github-app).
+> The source code for this (including a sample console script that shows our dummy app in usage) can be found on [Github](https://github.com/adelowo/code-samples/tree/master/github-app).
