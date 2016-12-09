@@ -361,7 +361,7 @@ class ExampleTest extends TestCase
 
 - Overridding the `file_put_contents` function. This is actually possible due to the way `PHP`'s namespace resolution works. Basically, you redefine the function - in our case, `file_get_contents` - in a namespaced file.
 
->Function or constant names that do not contain a backslash like name can be resolved in 2 different ways. __First, the current namespace name is prepended to name__. Finally, if the constant or function name does not exist in the current namespace, a global constant or function name is used if it exists. - [PHP MANUAL](https://php.net/manual/en/language.namespaces.faq.php) and [this - another manual entry](https://php.net/language.namespaces.fallback.php)
+>Function or constant names that do not contain a backslash like name can be resolved in 2 different ways. __First, the current namespace name is prepended to name__. Finally, if the constant or function name does not exist in the current namespace, a global constant or function name is used if it exists. - [PHP MANUAL](https://php.net/manual/en/language.namespaces.faq.php) and [this - another manual entry](https://secure.php.net/manual/en/language.namespaces.fallback.php)
 
  Below is an example ;
 
