@@ -265,7 +265,7 @@ And we are green again without much ado - The `FileSystem` class doesn't need to
 
 But hey, how am i sure the `FileSystem` class is working ? Nice one. It should have it's own tests.
 
-> Watch closely, this is probably the most important part of the tests. Don't get carried away. Whatever you mock __MUST__ have it's own test(s)
+> Watch closely, this is probably the most important part of the tests. Don't get carried away. Whatever you mock __MUST__ have it's own test(s).
 
 
 {% highlight php %}
@@ -325,3 +325,73 @@ Mocking is a big deal when it comes to testing. Easy to get started with. Easy t
 I hope this has given a little insight into how mocking works. I hope to write the second part soon.
 
 > Update : The second part is accessible [here](/blog/2016/12/07/a-subtle-introduction-to-mocking-2/) 
+
+> Update => Dec 9
+
+Just as it has been pointed out in the [comments](#disqus_thread), the `put` method should have it's own tests - i kind of skipped this since i was only interested in ___mocking___ but some paragraphs up, i actually talked about ___mocks___ having their tests. There are actually three approaches to testing the `put` method :
+
+- Touching the filesystem for real. If using this method, you would have to create a temporary directory in the `setUp` method, then clean up/delete the directory in the `tearDown` method. This has the disadvantage of making your tests run slow but some tips for speeding it up has been talked about ___extensively___ in the [comments](#disqus_thread).
+
+- Virtually touching the filesystem (recommended). Your test for the `put` method would still touch the filesystem but this time, it would be a ___mocked___ filesystem. Below is an example taken directly from `phpunit`'s manual - which uses [vfsstream](https://github.com/mikey179/vfsStream) - that shows the usage of a virtual filesystem instead of manually creating and deleting temporary directories.
+
+{% highlight php %}
+
+<?php
+
+use PHPUnit\Framework\TestCase;
+
+class ExampleTest extends TestCase
+{
+    public function setUp()
+    {
+        vfsStreamWrapper::register();
+        vfsStreamWrapper::setRoot(new vfsStreamDirectory('exampleDir'));
+    }
+
+    public function testDirectoryIsCreated()
+    {
+        $example = new Example('id');
+        $this->assertFalse(vfsStreamWrapper::getRoot()->hasChild('id'));
+
+        $example->setDirectory(vfsStream::url('exampleDir'));
+        $this->assertTrue(vfsStreamWrapper::getRoot()->hasChild('id'));
+    }
+}
+{% endhighlight %}
+
+- Overridding the `file_put_contents` function. This is actually possible due to the way `PHP`'s namespace resolution works. Basically, you redefine the function - in our case, `file_get_contents` - in a namespaced file.
+
+>Function or constant names that do not contain a backslash like name can be resolved in 2 different ways. __First, the current namespace name is prepended to name__. Finally, if the constant or function name does not exist in the current namespace, a global constant or function name is used if it exists. - [PHP MANUAL](https://php.net/manual/en/language.namespaces.faq.php) and [this - another manual entry](https://php.net/language.namespaces.fallback.php)
+
+ Below is an example ;
+
+{% highlight php %}
+
+<?php
+
+class FileSystemTest extends \PHPUnit_Framework_TestCase
+{
+
+    /**
+     * @dataProvider getTopPhpers
+     */   
+    public function testFileCanBeSaved($phper)
+    {
+        $file = new FileSystem("storage/logs/app.log");
+
+        $file->put($phper); //you'd probably want some sort of assertion here.
+    }
+}
+
+//This should still be in the `FileSystemTest` file 
+function file_put_contents($path, $data, int $flag = 0)
+{
+    return true;
+}
+
+{% endhighlight %}
+
+
+There you go, the `put` method itself has also been tested and you can be confident ___it works___. It is up to you to pick one of the methods you prefer. Personally, i'd go with the virtual filesystem option, but hey!!.
+
+> Thanks pantelis for pointing this out in the comment section.
