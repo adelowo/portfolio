@@ -48,7 +48,7 @@ In this section, i would be showing 2 practical use-cases of a mock. The sample 
 
 ### The Logger
 
-After hitting [Github](https://github.com)'s api, we want to log the username that was searched for. Probably to implement some sort of ___most searched users___ feature. The way this would work is by prepending some sort of separator - `;` - to each username in the log file. With this, we end up with a file that has it's content similar to this : `fabpot;funkatron;philsturgeon;adelowo;codeguy;`. 
+After hitting [Github](https://github.com)'s api, we want to log the username that was searched for. Probably to implement some sort of ___most searched users___ feature. The way this would work is by appending some sort of separator - `;` - to each username in the log file. With this, we end up with a file that has it's content similar to this : `fabpot;funkatron;philsturgeon;adelowo;codeguy;`. 
 
 Then we can run through the entire file content, run some logic to get the username that appears the highest number of times.
 
