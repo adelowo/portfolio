@@ -126,7 +126,7 @@ On your development machine, you did do something like this - I use git.
 
 {% endhighlight %}
 
-On your remote server, if you do not have SSH authentication already configured, that should be the next time you should do. If you already do, feel free to skip the following commands
+On your remote server, if you do not have SSH authentication already configured, that should be the next thing you should do. If you already do, feel free to skip the following commands
 
 {% highlight bash %}
 
