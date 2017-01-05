@@ -145,6 +145,14 @@ $post-content-link-color: lighten(red, 10);
     position: fixed;
     top: 65px;
     right: 0;
+
+    #blog-social {
+      text-align: center;
+      i {
+        font-size: 30px;
+        padding-right: 10px;
+      }
+    }
   }
 
   @media (max-width: $mediaquery-desktop-maximum) {
