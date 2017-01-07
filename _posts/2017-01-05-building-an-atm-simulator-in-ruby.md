@@ -177,16 +177,16 @@ There is something interesting in the `get_customer_details_by_last_four_digits`
   def process_command(command)
     case command.to_i
       when Balance
-        puts "Available Balance -> #{@customer.available_balance}", ''
+        puts "Available Balance -> #{@current_customer.available_balance}", ''
 
       when Withdraw
         puts ''
 
         amount_to_withdraw = @prompter.prompt('How much would you like to withdraw ?').to_f
 
-        if @customer.can_withdraw?(amount_to_withdraw)
+        if @current_customer.can_withdraw?(amount_to_withdraw)
           puts 'Authenticating your withdrawal'
-          @customer.withdraw!(amount_to_withdraw)
+          @current_customer.withdraw!(amount_to_withdraw)
           puts 'Done'
         else
           puts 'Insufficient funds!', ''
@@ -215,7 +215,7 @@ There is something interesting in the `get_customer_details_by_last_four_digits`
   end
 
   def print_instructions
-    puts "Hello, #{@customer.full_name}", ''
+    puts "Hello, #{@current_customer.full_name}", ''
 
     commands = [
         [Balance, 'check your balance'], [Withdraw, 'withdraw some cash'], [Logout, 'logout']
