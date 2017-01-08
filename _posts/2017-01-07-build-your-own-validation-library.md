@@ -409,11 +409,13 @@ With this, we have completed our validator and can sleep knowing fully well that
 - Lack of rules. Solution => Use [packagist](https://packagist.org?q=validator)
 - Dependent on `$_POST`. Cannot work outside `HTTP`. Solution - You can update the `validate` method to allow passing an array containing the values for validation.
 
+> PS - If you are into this type of validation rules, checkout this [nifty library](https://github.com/rakit/validation) <sup>[3]</sup>
 
 <div id="foot-notes">
 [0] There are libraries with tons of rules on packagist.
 <br>
-[1] Pipe delimited rule definitions are cool. But folks be dick-riding on IDE support and shit though
+[1] Pipe delimited rule definitions are cool. But folks be complainig about IDE support and the likes though.
 <br>
 [2] My personal preference for throwing exceptions - most of the time - is to define it (the exception) in a standalone function/method. I think that's called SRP.. Lol
+[3] Contibuted to this project sometime last year.
 </div>
