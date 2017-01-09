@@ -38,6 +38,8 @@ Since this validator is quite small, we would be ___composing___ functions - 7 i
 
 We would be creating a file in the `src` called `validator.php`. Namespace would be `Reeval` - like Re-evaluate user's input.
 
+> The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/re-eval).
+
 {% highlight php %}
 <?php
 
@@ -262,7 +264,7 @@ You would notice that the `validate` function does call some other functions dep
 
 //previous code
 
-function validateLengthRule(array $ruleData, &$errorBag)
+function validateLengthRule(array $ruleData, $errorBag)
 {
     $index = $ruleData['index'];
 
@@ -299,7 +301,7 @@ There are two valid usecases here - Minimum and maximum length - . The maximum l
 {% highlight php %}
 <?php
 //previous code
-function validateEmailRule(array $ruleData, &$errorBag)
+function validateEmailRule(array $ruleData, $errorBag)
 {
     $index = $ruleData['index'];
 
@@ -417,5 +419,6 @@ With this, we have completed our validator and can sleep knowing fully well that
 [1] Pipe delimited rule definitions are cool. But folks be complainig about IDE support and the likes though.
 <br>
 [2] My personal preference for throwing exceptions - most of the time - is to define it (the exception) in a standalone function/method. I think that's called SRP.. Lol
+<br>
 [3] Contibuted to this project sometime last year.
 </div>
