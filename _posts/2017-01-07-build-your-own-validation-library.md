@@ -144,7 +144,7 @@ function validate(array $rules)
 
     foreach ($rules as $rule) {
 
-        $parsedRules = parse_validator_rules($rule);
+        $parsedRules = parseValidatorRules($rule);
 
         foreach ($parsedRules['rules'] as $parsedRule) {
 
@@ -159,7 +159,7 @@ function validate(array $rules)
                     continue;
 
                 default :
-                    throw_unknown_rule_exception($parsedRule[0]);
+                    throwUnknownRuleException($parsedRule[0]);
             }
         }
     }
@@ -167,7 +167,7 @@ function validate(array $rules)
     return $validator;
 }
 
-function parse_validator_rules(string $index)
+function parseValidatorRules(string $index)
 {
 
     $explodedRule = explode(":", $index);
@@ -184,7 +184,7 @@ function parse_validator_rules(string $index)
     ];
 }
 
-function throw_unknown_rule_exception(string $ruleName)
+function throwUnknownRuleException(string $ruleName)
 {
     throw new Exception(
         "The rule {$ruleName} doesn't exist on this validator. 
@@ -194,7 +194,7 @@ function throw_unknown_rule_exception(string $ruleName)
 
 {% endhighlight %}
 
-The `validate` method should be fairly easy to grok, the most interesting part here is the `parse_validator_rules` here. Our validator's dialect can be one of the following : ___`mail:email`,`another_mail:length=>4|50,email`___. So we first get the index - in this case `mail`. After which we get all rules delimited by `,`(comma). Rules themselves can be delimited by the arrow operator, `=>`. Then we return an array to make it much more ___readable___ and useable.
+The `validate` method should be fairly easy to grok, the most interesting part here is the `parseValidatorRules` here. Our validator's dialect can be one of the following : ___`mail:email`,`another_mail:length=>4|50,email`___. So we first get the index - in this case `mail`. After which we get all rules delimited by `,`(comma). Rules themselves can be delimited by the arrow operator, `=>`. Then we return an array to make it much more ___readable___ and useable.
 
 [I like testing](/blog/2016/12/02/a-subtle-introduction-to-mocking), so we are going to write some tests.
 
@@ -208,7 +208,7 @@ namespace Adelowo\Reeval\Tests;
 use Exception;
 use PHPUnit\Framework\TestCase;
 use function Adelowo\Reeval\validate;
-use function Adelowo\Reeval\parse_validator_rules;
+use function Adelowo\Reeval\parseValidatorRules;
 
 class ReevalValidatorTest extends TestCase
 {
@@ -231,7 +231,7 @@ class ReevalValidatorTest extends TestCase
             ]
         ];
 
-        $this->assertSame($expectedValues, parse_validator_rules($rule));
+        $this->assertSame($expectedValues, parseValidatorRules($rule));
     }
 
     public function testItParsesASingleRule()
@@ -248,12 +248,12 @@ class ReevalValidatorTest extends TestCase
             ]
         ];
 
-        $this->assertSame($expected, parse_validator_rules($rule));
+        $this->assertSame($expected, parseValidatorRules($rule));
     }
 }
 {% endhighlight %}
 
-We are testing the `parse_validator_rules` alone. This is to allow maximum assurance that "it works" with our ___parser___ before going to some other interesting things.
+We are testing the `parseValidatorRules` alone. This is to allow maximum assurance that "it works" with our ___parser___ before going to some other interesting things.
 
 You would notice that the `validate` function does call some other functions depending on the rule type. We haven't written those, let's have that fixed. There are two rules in total, but we are taking it one at a time.
 
