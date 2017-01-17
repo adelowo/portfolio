@@ -420,5 +420,5 @@ With this, we have completed our validator and can sleep knowing fully well that
 <br>
 [2] My personal preference for throwing exceptions - most of the time - is to define it (the exception) in a standalone function/method. I think that's called SRP.. Lol
 <br>
-[3] Contibuted to this project sometime last year.
+[3] Contributed to this project sometime last year.
 </div>
