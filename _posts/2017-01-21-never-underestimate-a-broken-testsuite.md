@@ -10,7 +10,7 @@ In the course of my [very little participation](https://github.com/adelowo) in t
 
 ### A little side story
 
-Every one and then, we programmers take an interest in a certain library, then decide we'd go through it's codebase some day. That day finally comes through, we turn off the lights, put on our headsets with some J Cole or Ab-Soul music on repeat, open up our IDE. Then ___the zone gets entered___.
+Every now and then, we programmers take an interest in a certain library, then decide we'd go through it's codebase some day. That day finally comes through, we turn off the lights, put on our headsets with some J Cole or Ab-Soul music on repeat, open up our IDE. Then ___the zone gets entered___.
 
 I swear it is like teleportation.
 
