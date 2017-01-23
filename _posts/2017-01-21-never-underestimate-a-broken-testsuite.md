@@ -18,7 +18,7 @@ But i have always had problems with this method. I sure get in the zone, that's 
 
 Or maybe there's just a lot of ___smartness___ going on in the library. I am afraid i am not a top programmer. Encountering ___high level of smartness___ in a codebase is usually my excuse for hitting `ALT + F4` in other to spend some time on [Genius](www.genius.com) or some other place.
 
-This ___smartness___ reduces my ability to teleport to deeper parts of ___the zone___ the same way ___darkness reduces Shawna's Baez (Peek-a-Boo) teleporting ability___. The Flash, anyone ?
+This ___smartness___ reduces my ability to teleport to deeper parts of ___the zone___ the same way ___darkness reduces Shawna Baez's (Peek-a-Boo) teleporting ability___. The Flash, anyone ?
 
 But i came across a technique some months ago to overcome situations like this. Isn't that what programmers do ? overcome/hunt down bugs.
 
