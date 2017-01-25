@@ -4,7 +4,7 @@ layout : blog
 title : Never under estimate the power of a broken testsuite
 ---
 
-Broken test suites don't lie. They just never do.
+Broken test suites don't lie. They never do.
 
 In the course of my [very little participation](https://github.com/adelowo) in the opensource world, i have come by a recurrent theme. ___This theme___ has happened to be the default route i take whenever i run `git clone` on a package on Github. Truely, this process have also been applied to code i wrote months ago but couldn't really figure out a certain part of it.
 
@@ -66,7 +66,7 @@ $ git branch fiend && git checkout fiend
 
 The second step is actually the meat of the process but it is the longest. This is where i get to mercilessly break the test suite.
 
-I have found out this works pretty well if the library is ___well tested___. ___Well tested___ is a bit of different to many people. So for me, ___well tested___ - in a library's scope - means there are a lot of **unit tests** - a lot - and a couple tests that verify they work as expected when this units are brought together.
+I have found out this works pretty well if the library is ___well tested___. ___Well tested___ can mean different things. So for me, ___well tested___ - in a library's scope - means there are a lot of **unit tests** - a lot - and a couple tests that verify they work as expected when this units are brought together.
 
 So let's assume the library i am trying to read it's source code is a library for hydrating data it reads from a ___certain place___ (can be an xml/json file, a data stream, or weirdly enough from an `HTTP` request) into some set of objects that define the data. Say it can convert a ___persons node___ in the data into a `PersonCollection` which has it values as a collection of `Person` objects.
 
@@ -122,7 +122,7 @@ $ phpunit --colors="always" tests/Paser/Strategy/XmlStrategy.php --filter='testR
 
 > If you like hard work, you can manually add `$this->markTestSkipped()` to each test in the file except the one currently being tackled.
 
-Why do this ? The main reason i do is to prevent distractions. If i am to realy take this one test at a time, i have to turn off external disturbances. I don't want to see errors for the test i am not interested in. That would kill my morale. So i get to see the stack trace for only this particular test.
+Why do this ? The main reason i do is to prevent distractions. If i am to really take this one test at a time, i have to turn off external disturbances. I don't want to see errors for the test i am not interested in. That would kill my morale. So i get to see the stack trace for only this particular test.
 
 ![Stack trace]({{ site.baseurl }}/img/log/stack_trace.png)
 
