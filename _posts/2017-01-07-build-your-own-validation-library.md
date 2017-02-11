@@ -1,10 +1,12 @@
 ---
 
-layout  : blog
+layout  : post
 
+description : 'Small, simple, no dependencies and ___reusable___.'
+
+tags : php, testing
 ---
 
-Small, simple, no dependencies and ___reusable___.
 
 Around November last year, i worked on a very small personal project. It was a ___CRD___ app (the U is missing, should have been CRUD). You couldn't update stuffs. Deleting, reading and creating were allowed. [Immutability is a thing right](http://softwareengineering.stackexchange.com/questions/151733/if-immutable-objects-are-good-why-do-people-keep-creating-mutable-objects). [Probably the biggest thing this days](http://paul-m-jones.com/archives/6400).
 
@@ -413,7 +415,8 @@ With this, we have completed our validator and can sleep knowing fully well that
 
 > PS - If you are into this type of validation rules, checkout this [nifty library](https://github.com/rakit/validation) <sup>[3]</sup>
 
-<div id="foot-notes">
+#### Footnotes
+
 [0] There are libraries with tons of rules on packagist.
 <br>
 [1] Pipe delimited rule definitions are cool. But folks be complainig about IDE support and the likes though.
@@ -421,4 +424,3 @@ With this, we have completed our validator and can sleep knowing fully well that
 [2] My personal preference for throwing exceptions - most of the time - is to define it (the exception) in a standalone function/method. I think that's called SRP.. Lol
 <br>
 [3] Contributed to this project sometime last year.
-</div>

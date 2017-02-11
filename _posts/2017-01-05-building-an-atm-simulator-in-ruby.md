@@ -1,10 +1,11 @@
 ---
 
-layout : blog
+layout : post
+description : So i have been taking a look at ___Ruby___. 
+tags : ruby
+
 
 ---
-
-So i have been taking a look at ___Ruby___. 
 
 It happens to be a powerful and expressive language by any standard. This blog posts details my very first Ruby project. Just like the title says, it would be a replica of the ___ATM (Automated Teller Machine)___  somewhere down your street.
 

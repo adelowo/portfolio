@@ -1,10 +1,15 @@
 ---
-layout : blog
+
+layout : post
 
 title : Never under estimate the power of a broken testsuite
----
 
-Broken test suites don't lie. They never do.
+description : Broken test suites don't lie. They never do.
+
+tags : testing
+
+
+---
 
 In the course of my [very little participation](https://github.com/adelowo) in the opensource world, i have come by a recurrent theme. ___This theme___ has happened to be the default route i take whenever i run `git clone` on a package on Github. Truely, this process have also been applied to code i wrote months ago but couldn't really figure out a certain part of it.
 
@@ -140,7 +145,7 @@ I do this for the `testReturnedValues` test, the repeat for all other test in th
 
 I repeat this process for the `DataParser` class - by now i have an understanding of `XmlStrategy` . Then move to the `Compiler`. Unit by unit, i climb Mountain Everest.
 
-##### Caveats
+#### Caveats
 
 If at some point in the `Compiler`, there is a `setBaz` method which takes a `Baz` object, I pause. Repeat the process for the `Baz` object.
 
@@ -165,10 +170,8 @@ And moving forward (till the day i am on some Linus Torvalds level), i'd continu
 
 I hope you do find this article helpful.
 
-<div id="foot-notes">
 
+#### Footnotes
 [0] This book is a gem. You should read it if you haven't.
 <br>
 [1] Pub/sub or Observer pattern.
-
-</div>

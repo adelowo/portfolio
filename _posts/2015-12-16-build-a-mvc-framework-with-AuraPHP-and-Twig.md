@@ -1,9 +1,12 @@
 ---
-layout : blog
+layout : post
+description: In my [previous post]({{site.baseurl}}/blog/2015/12/14/the-need-to-use-a-template-engine), i discussed the benefits a template engine could bring to a project and why major frameworks have native support for them, I also name-dropped **MVC** quite a number of time. 
+tags : php
+
 
 ---
 
-In my [previous post]({{site.baseurl}}/blog/2015/12/14/the-need-to-use-a-template-engine), i discussed the benefits a template engine could bring to a project and why major frameworks have native support for them, I also name-dropped **MVC** quite a number of time. 
+> Check out my [previous post]({{site.baseurl}}/blog/2015/12/14/the-need-to-use-a-template-engine)
 
 In view of that, i thought it'd be nice to describe how a minimal MVC structure could be implemented without running a `composer require large/framework` when all you just want is a clean way to seperate your logic from presentation and do not need all the features that'd be available within `large/framework`.
 

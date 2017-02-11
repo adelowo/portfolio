@@ -1,10 +1,12 @@
 ---
 
-layout : blog
+layout : post
+
+description : 'Missed the first part ? Checkout the [first part](/blog/2016/12/02/a-subtle-introduction-to-mocking/).'
+
+tags : testing
 
 ---
-
-Missed the first part ? Checkout the [first part](/blog/2016/12/02/a-subtle-introduction-to-mocking/).
 
 In my previous post about ___Mocking___ - [which i think you should checkout](/blog/2016/12/02/a-subtle-introduction-to-mocking/) -, I talked about building (and testing) a Github sample app. One that fetches users' repositories and profile. This isn't a full featured app by any means but it would be super useful for our purpose here - mocking.
 

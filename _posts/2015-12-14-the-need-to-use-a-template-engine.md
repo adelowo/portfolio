@@ -1,7 +1,8 @@
 ---
 layout : blog
 title : You really should be using a PHP template engine
-
+description : In the beginning, there was HTML.
+tags : php
 ---
 
 In the beginning, there was HTML then came CSS after which [Rasmus Lerdorf](https://en.m.wikipedia.org/wiki/Rasmus_Lerdorf) then decided to put some bunch of CGI scripts that could be mixed with HTML. Those bunch of scripts ended up being PHP ; a programming language extremely suited for web development ; From the little history above, we know crystal clear that PHP was designed to be 'mixed' with HTML. 

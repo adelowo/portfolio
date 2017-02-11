@@ -1,11 +1,13 @@
 ---
 
-layout : blog
+layout : post
 title : Note to self, KISS is a way of life
+description : It all began when i decided to avoid all the ugly parts of my chosen framework, Laravel. Laravel "Facades", global helper functions et al. Little did i know it was more than what meets the eyes.
+tags : php, laravel
+
 
 ---
 
-It all began when i decided to avoid all the ugly parts of my chosen framework, Laravel. Laravel "Facades", global helper functions et al. Little did i know it was more than what meets the eyes.
 
 So i was working on this dummy web app around mid August - one that was never going to exist past my private repository - and in the `README.md` file, there was a note to myself that the application must not make use of "Facades" - bottom right in the image below.
 

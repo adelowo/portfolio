@@ -53,7 +53,7 @@ navHeader.addEventListener("click", function () {
     }
 });
 
-fixcolumns.init();
+//fixcolumns.init();
 
 
 /**

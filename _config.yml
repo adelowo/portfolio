@@ -1,31 +1,3 @@
-author: Lanre Adelowo
-title : Lanre Adelowo • Web Developer From Lagos - Nigeria
-email : me@lanreadelowo.com
-
-url: http://lanreadelowo.com
-permalink: /blog/:year/:month/:day/:title/
-
-social :
-  twitter : lanreadelowo
-  github : adelowo
-  stackoverflow : 4301733/adelowo
-  quora : Lanre-Adelowo
-  facebook : adelowo.lanre.5
-  linkedin : adelowolanre
-
-
-
-# Build settings
-markdown: kramdown
-
-disqus:
-  shortname : adelowo
-
-sass:
-  style: :compressed
-
-googleanalytics: UA-71600006-1
-
 gems:
   - jekyll-mentions
   - jemoji
@@ -39,3 +11,45 @@ exclude:
     - LICENSE
     - README.md
     - CNAME
+
+exclude: ['package.json', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock','LICENSE','CNAME', 'README.md']
+
+# Site settings
+title: Lanre-Adelowo - Web Developer
+description: "A blog on Software Development"
+url: "http://lanreadelowo.com" 
+# User settings
+username: adelowo
+user_title: Lanre Adelowo
+email: me@lanreadelowo.com
+twitter_username: lanreadelowo
+github_username:  adelowo
+disqus_username: adelowo
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+links:
+  - title: home
+    url: /
+  - title: my posts
+    url: /blog
+  - title: tags
+    url: /tags
+  - title: about me
+    url: /about
+# projects in header index
+projects:
+  - name: gbowo
+    url: https://github.com/adelowo/gbowo
