@@ -1,10 +1,11 @@
 ---
 
-layout : blog
+layout : post
+description : So i have been taking a look at ___Ruby___. 
+tags : ruby
+
 
 ---
-
-So i have been taking a look at ___Ruby___. 
 
 It happens to be a powerful and expressive language by any standard. This blog posts details my very first Ruby project. Just like the title says, it would be a replica of the ___ATM (Automated Teller Machine)___  somewhere down your street.
 
@@ -302,8 +303,6 @@ atm.start
 
 > Make sure you make the file executable, then run `./app.rb`. Or just `ruby app.rb`
 
-<div id="foot-notes">
+#### Footnotes
 [1] Our app has one account per head. This is by design. In the real world, users can have multiple account.
-<br>
 [2] Our `Atm` class obviously goes against SRP (Single Responsibility Principle). It does ___password validation___ via the `is_password_valid` method. It loads all users from the database file (`get_all_customer_details` method). This two operations can be refactored into their own specific classes - say a `PasswordValidatorService` and `FileReader` (or something).
-</div>

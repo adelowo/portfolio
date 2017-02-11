@@ -1,16 +1,18 @@
 ---
 
-layout : blog
+layout : post
+
+description : 'Missed the first part ? Checkout the [first part](/blog/2016/12/02/a-subtle-introduction-to-mocking/).'
+
+tags : testing
 
 ---
-
-Missed the first part ? Checkout the [first part](/blog/2016/12/02/a-subtle-introduction-to-mocking/).
 
 In my previous post about ___Mocking___ - [which i think you should checkout](/blog/2016/12/02/a-subtle-introduction-to-mocking/) -, I talked about building (and testing) a Github sample app. One that fetches users' repositories and profile. This isn't a full featured app by any means but it would be super useful for our purpose here - mocking.
 
 ## The Github App
 
-> The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/github-app).
+> The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/github-app){:target="_blank"}.
 
 #### Users Story
 
@@ -112,7 +114,7 @@ This object is quite easy to follow. Our `GithubClient` object has a dependency 
 
 Fairly straight forward.
 
-> The [PSR-7 standard](http://www.php-fig.org/psr/psr-7) is actually a nice way to understanding how ___Guzzle___ was implemented.
+> The [PSR-7 standard](http://www.php-fig.org/psr/psr-7){:target="_blank"} is actually a nice way to understanding how ___Guzzle___ was implemented.
 
 How about we test this ? Since this is going to be a lot to take in, i would only show a test per block code.
 
@@ -434,4 +436,4 @@ But our tests didn't cover that edge case. Let's have that fixed
 {% endhighlight %}
 
 
-> The source code for this (including a sample console script that shows our dummy app in usage) can be found on [Github](https://github.com/adelowo/code-samples/tree/master/github-app).
+> The source code for this (including a sample console script that shows our dummy app in usage) can be found on [Github](https://github.com/adelowo/code-samples/tree/master/github-app){:target="_blank"}.

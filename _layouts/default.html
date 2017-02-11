@@ -1,16 +1,15 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
-<html>
-
-  {% include head.html %}
-
-  <body id="portfolio">
-
-    {% include header.html %}
-
-    {% include portfolio.html %}
-
-    {% include footer.html %}
-
-  </body>
-
+<html lang="en">
+    {% include head.html %}
+    <body>
+        {% include svg-icons.html %}
+        {% include header-default.html %}
+            <main role="main" class="content">
+                {{ content }}
+            </main>
+        {% include scripts.html %}
+    </body>
 </html>

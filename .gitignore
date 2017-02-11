@@ -6,3 +6,5 @@ _drafts/
 css/bootstrap/
 css/icons/
 js/jquery.js
+yarn.lock
+node_modules/

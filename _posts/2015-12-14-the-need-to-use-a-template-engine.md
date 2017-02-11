@@ -1,16 +1,17 @@
 ---
-layout : blog
+layout : post
 title : You really should be using a PHP template engine
-
+description : In the beginning, there was HTML.
+tags : php
 ---
 
-In the beginning, there was HTML then came CSS after which [Rasmus Lerdorf](https://en.m.wikipedia.org/wiki/Rasmus_Lerdorf) then decided to put some bunch of CGI scripts that could be mixed with HTML. Those bunch of scripts ended up being PHP ; a programming language extremely suited for web development ; From the little history above, we know crystal clear that PHP was designed to be 'mixed' with HTML. 
+In the beginning, there was HTML then came CSS after which [Rasmus Lerdorf](https://en.m.wikipedia.org/wiki/Rasmus_Lerdorf){:target="_blank"} then decided to put some bunch of CGI scripts that could be mixed with HTML. Those bunch of scripts ended up being PHP ; a programming language extremely suited for web development ; From the little history above, we know crystal clear that PHP was designed to be 'mixed' with HTML. 
 
 It was nice and relieving due to it's simplicity ; create a `.php` file, throw in some `div`s, `echo` , `sql` and `die` statements, bam....and you are golden. But as soon as more complex web applications, think facebook or big company X, were developed, the simplicity the language offered actually became a pain in the ass as there was duplication even across adjacent files, maintainability was nearly impossible and debugging was extremely hard because the `HTML` markup had been infested by PHP.
 
-In light of the scenario above, developers started "separating their concerns" in strict adherence with the **[Model-View-Controller pattern](https://en.m.wikipedia.com/wiki/Model_view_controller)** (popularly known as MVC) which was developed in 1974 for use in the smalltalk programming language by [Trygve Reenskaug](https://en.m.wikipedia.org/wiki/Trygve_Reenskaug) and has since been incorporated into many languages like Java (spring framework), Ruby (with the [Rails framework](https://rubyonrails.org)), Python (with [Django](http://djangoproject.net)).
+In light of the scenario above, developers started "separating their concerns" in strict adherence with the **[Model-View-Controller pattern](https://en.m.wikipedia.com/wiki/Model_view_controller){:target="_blank"}** (popularly known as MVC) which was developed in 1974 for use in the smalltalk programming language by [Trygve Reenskaug](https://en.m.wikipedia.org/wiki/Trygve_Reenskaug){:target="_blank"} and has since been incorporated into many languages like Java (spring framework), Ruby (with the [Rails framework](https://rubyonrails.org)){:target="_blank"}, Python (with [Django](http://djangoproject.net)){:target="_blank"}.
 
-Back to the present day ; Now that every sane developer is "separating his concerns", better, robust and maintainable applications have been built. You see,folks were creating `View` classes that rendered data to the user,in doing so,it (the View object) allowed the pseudo-variable `$this` to be used outside an object (which still messes up the templates ) i.e the files containing the HTML markup. Here's an example from an open-source framework for building User Authentication systems, [Huge](https://github.com/panique/huge).
+Back to the present day ; Now that every sane developer is "separating his concerns", better, robust and maintainable applications have been built. You see,folks were creating `View` classes that rendered data to the user,in doing so,it (the View object) allowed the pseudo-variable `$this` to be used outside an object (which still messes up the templates ) i.e the files containing the HTML markup. Here's an example from an open-source framework for building User Authentication systems, [Huge](https://github.com/panique/huge){:target="_blank"}.
 
 {% highlight php %}
 
@@ -242,7 +243,6 @@ That can also be done in twig as shown below :
 
 This strategy has ridden it's way into just about every modern template engine regardless of the programming language it was been built upon.
 
-> Object oriented Template design was first implemented by [Django](http://djangoproject.net).
 
 4.) **Terseness** : This one boils down to personal preferences. I so much love the readability and conciseness offered by twig than it's counterpart (native php). Truth be told,things can get extremely verbose when performing conditionals,loops,boolean checks in raw `PHP`. Seeing,they say is believing.
 
@@ -292,7 +292,7 @@ This strategy has ridden it's way into just about every modern template engine r
 
 The major problem associated with the adoption of template engines by web developers is the 'learning another language' block and 'Template engines are slow'. Twig is pretty much fast in the sense that it processes your templates not on every 'run' but only when a template have been modified (well , only if you disable an option called `auto_reload`) and loading a cached template is just an internal call to the cached `PHP` class (yes, cached templates are stored in raw `PHP`) .
 
-Even if a template engine requires you learn another language, IMO, i do think it's worthwhile as the knowledge extends to every other (modern) engine. For example, this blog was built with [Jekyll](http://jekyllrb.com) which uses liquid for it's templating, I haven't even checked out the latter's docs and i still am yet to lose my way!!.
+Even if a template engine requires you learn another language, IMO, i do think it's worthwhile as the knowledge extends to every other (modern) engine. For example, this blog was built with [Jekyll](http://jekyllrb.com){:target="_blank"} which uses liquid for it's templating, I haven't even checked out the latter's docs and i still am yet to lose my way!!.
 
  {% raw %}
  
@@ -304,8 +304,8 @@ Even if a template engine requires you learn another language, IMO, i do think i
  
 {% endraw %}
 
-> [Twig's online documentation](https://twig.sensiolabs.org/documentation).
+> [Twig's online documentation](https://twig.sensiolabs.org/documentation){:target="_blank"}.
 
-> If you still aren't impressed and prefer writing your templates in pure PHP, then i'd recommend a look at [Plates PHP](https://platesphp.com).
+> If you still aren't impressed and prefer writing your templates in pure PHP, then i'd recommend a look at [Plates PHP](https://platesphp.com){:target="_blank"}.
 
 Are you currently using a template engine, do you use twig or any other in the PHP world or raw PHP ? Whatever the answer is, i'd love to get your responses via the comment box.

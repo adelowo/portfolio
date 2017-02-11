@@ -1,9 +1,9 @@
 ---
-layout : blog
-
+layout : post
+description : One of my favorite questions on [Quora](https://www.quora.com) is "What is a coder's worst Nightmare".
+tags : php
 ---
 
-One of my favorite questions on [Quora](https://www.quora.com) is "[What is a coder's worst Nightmare](https://quora.com)". One of the most upvoted answers was 
 
 > It only happens in production
 
@@ -103,12 +103,9 @@ This incidents have made me think about my stance as a [responsible developer](h
 
 In light of this, i have decided to be much more responsible by asking for a `VagrantFile`,`Homestead.yaml` or something of that sort which contains an environment. This is to save myself from having to deal with trivial "Bugs" being assigned to me.
 
-<div id="foot-notes">
+#### Footnotes
+
 [0] Production in the second problem is quite weird. It meant the guy's machine as he was the one to test before pushing the code online and i can easily infer the <i>real production server</i> would not have any software much more recent than his.
-<br>
 [1] Guys here could have meant anyone, it could have been a dude or a girl.
-<br>
 [2] We didn't really fall out of love with Graph databases. We have been messing with the idea of moving toward Graph dbs but we have had a lot on our plates. Thus we haven't had the <i>courage</i> to plunge in. 
-<br>
 [3] The third issue was a proposal not a bug.
-</div>
