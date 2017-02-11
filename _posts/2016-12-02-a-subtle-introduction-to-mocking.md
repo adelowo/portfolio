@@ -28,16 +28,16 @@ Stubs are a set of fake/dummy data in other to make a test pass WHILE Mocks (obj
 
 ### Getting started
 
-The defacto tool for this - in PHP - is [Mockery](https://packagist.org/packages/mockery/mockery) even though PHPUnit ships with it's own implentation. That can get too verbose.
+The defacto tool for this - in PHP - is [Mockery](https://packagist.org/packages/mockery/mockery){:target="_blank"} even though PHPUnit ships with it's own implentation. That can get too verbose.
 
-To install mockery, we'd have to pull it in from [packagist](https://packagist.org) by running
+To install mockery, we'd have to pull it in from [packagist](https://packagist.org){:target="_blank"} by running
 
 {% highlight bash %}
 $ cd somedirectory
 $ composer require --dev mockery/mockery
 {% endhighlight %}
 
-> If you want to make use of PHPunit's default mock implementation, you can find an [example here](https://github.com/brandonsavage/Upload/blob/master/tests/FileTest.php#L4-L34)
+> If you want to make use of PHPunit's default mock implementation, you can find an [example here](https://github.com/brandonsavage/Upload/blob/master/tests/FileTest.php#L4-L34){:target="_blank"}
 
 ### How do i mock
 
@@ -48,7 +48,7 @@ In this section, i would be showing 2 practical use-cases of a mock. The sample 
 
 ### The Logger
 
-After hitting [Github](https://github.com)'s api, we want to log the username that was searched for. Probably to implement some sort of ___most searched users___ feature. The way this would work is by appending some sort of separator - `;` - to each username in the log file. With this, we end up with a file that has it's content similar to this : `fabpot;funkatron;philsturgeon;adelowo;codeguy;`. 
+After hitting [Github](https://github.com){:target="_blank"}'s api, we want to log the username that was searched for. Probably to implement some sort of ___most searched users___ feature. The way this would work is by appending some sort of separator - `;` - to each username in the log file. With this, we end up with a file that has it's content similar to this : `fabpot;funkatron;philsturgeon;adelowo;codeguy;`. 
 
 Then we can run through the entire file content, run some logic to get the username that appears the highest number of times.
 
@@ -58,7 +58,7 @@ In other to pass this idea through, I would be providing code samples that show 
 
 > Both stages work as expected and have unit tests.
 
-> I have put up the code for both stages on [github](https://github.com/adelowo/code-samples/tree/master/mocking)
+> I have put up the code for both stages on [github](https://github.com/adelowo/code-samples/tree/master/mocking){:target="_blank"}
 
 #### The Premock Stage
 

@@ -11,7 +11,7 @@ tags : testing
 
 ---
 
-In the course of my [very little participation](https://github.com/adelowo) in the opensource world, i have come by a recurrent theme. ___This theme___ has happened to be the default route i take whenever i run `git clone` on a package on Github. Truely, this process have also been applied to code i wrote months ago but couldn't really figure out a certain part of it.
+In the course of my [very little participation](https://github.com/adelowo){:target="_blank"} in the opensource world, i have come by a recurrent theme. ___This theme___ has happened to be the default route i take whenever i run `git clone` on a package on Github. Truely, this process have also been applied to code i wrote months ago but couldn't really figure out a certain part of it.
 
 ### A little side story
 
@@ -21,7 +21,7 @@ I swear it is like teleportation.
 
 But i have always had problems with this method. I sure get in the zone, that's a no brainer. But chances are the codebase would be complex to some degree and fairly hard to grok. Maybe there's a lot of small classes - which is a good thing by the way - but i find myself navigating from file to file (class definitions) so often it starts to feel like a game - how many files can you open in 5 minutes ?. 
 
-Or maybe there's just a lot of ___smartness___ going on in the library. I am afraid i am not a top programmer. Encountering ___high level of smartness___ in a codebase is usually my excuse for hitting `ALT + F4` in other to spend some time on [Genius](www.genius.com) or some other place.
+Or maybe there's just a lot of ___smartness___ going on in the library. I am afraid i am not a top programmer. Encountering ___high level of smartness___ in a codebase is usually my excuse for hitting `ALT + F4` in other to spend some time on [Genius](www.genius.com){:target="_blank"} or some other place.
 
 This ___smartness___ reduces my ability to teleport to deeper parts of ___the zone___ the same way ___darkness reduces Shawna Baez's (Peek-a-Boo) teleporting ability___. The Flash, anyone ?
 

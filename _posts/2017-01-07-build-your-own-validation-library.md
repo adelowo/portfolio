@@ -8,7 +8,7 @@ tags : php, testing
 ---
 
 
-Around November last year, i worked on a very small personal project. It was a ___CRD___ app (the U is missing, should have been CRUD). You couldn't update stuffs. Deleting, reading and creating were allowed. [Immutability is a thing right](http://softwareengineering.stackexchange.com/questions/151733/if-immutable-objects-are-good-why-do-people-keep-creating-mutable-objects). [Probably the biggest thing this days](http://paul-m-jones.com/archives/6400).
+Around November last year, i worked on a very small personal project. It was a ___CRD___ app (the U is missing, should have been CRUD). You couldn't update stuffs. Deleting, reading and creating were allowed. [Immutability is a thing right](http://softwareengineering.stackexchange.com/questions/151733/if-immutable-objects-are-good-why-do-people-keep-creating-mutable-objects){:target="_blank"}. [Probably the biggest thing this days](http://paul-m-jones.com/archives/6400){:target="_blank"}.
 
 The above mentioned project was written without a framework, not even libraries. It had just 6 routes - `/`, `/login`, `/logout`, `/signup`, `/add`, `/list` and `delete/id` 
 
@@ -18,7 +18,7 @@ I couldn't use Aura Router for just this [as much i love the library](https://gi
 
 It turns out i was kidding myself. I was already about to pull in `respect/validation` as a dependency. But i backed off, re-evaluated my needs. I was only going to make use of just two validation rules in the project - the email and the length rule. The next logical step was to write one myself.
 
-> Hold on Tiger!! There are ___thousands___ of validators on [Packagist](https://packagist.org/search/?q=validator) already. You should spend some minutes there to evaluate that which fits your project. Stucked because there's tons of them available ? Just use `respect/validation` or `symfony/validation`.
+> Hold on Tiger!! There are ___thousands___ of validators on [Packagist](https://packagist.org/search/?q=validator){:target="_blank"} already. You should spend some minutes there to evaluate that which fits your project. Stucked because there's tons of them available ? Just use `respect/validation` or `symfony/validation`.
 
 Our validator is going to be extremely simple. Extremely simple it'd fit in a single file. Concrete classes, No. Anonymous classes ? Yep. Huge library of rules ? Hell No <sup>[0]</sup>.
 
@@ -40,7 +40,7 @@ Since this validator is quite small, we would be ___composing___ functions - 7 i
 
 We would be creating a file in the `src` called `validator.php`. Namespace would be `Reeval` - like Re-evaluate user's input.
 
-> The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/re-eval).
+> The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/re-eval){:target="_blank"}.
 
 {% highlight php %}
 <?php
@@ -413,14 +413,11 @@ With this, we have completed our validator and can sleep knowing fully well that
 - Lack of rules. Solution => Use [packagist](https://packagist.org?q=validator)
 - Dependent on `$_POST`. Cannot work outside `HTTP`. Solution - You can update the `validate` method to allow passing an array containing the values for validation.
 
-> PS - If you are into this type of validation rules, checkout this [nifty library](https://github.com/rakit/validation) <sup>[3]</sup>
+> PS - If you are into this type of validation rules, checkout this [nifty library](https://github.com/rakit/validation){:target="_blank"} <sup>[3]</sup>
 
 #### Footnotes
 
 [0] There are libraries with tons of rules on packagist.
-<br>
 [1] Pipe delimited rule definitions are cool. But folks be complainig about IDE support and the likes though.
-<br>
 [2] My personal preference for throwing exceptions - most of the time - is to define it (the exception) in a standalone function/method. I think that's called SRP.. Lol
-<br>
 [3] Contributed to this project sometime last year.

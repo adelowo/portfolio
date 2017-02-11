@@ -303,8 +303,6 @@ atm.start
 
 > Make sure you make the file executable, then run `./app.rb`. Or just `ruby app.rb`
 
-<div id="foot-notes">
+#### Footnotes
 [1] Our app has one account per head. This is by design. In the real world, users can have multiple account.
-<br>
 [2] Our `Atm` class obviously goes against SRP (Single Responsibility Principle). It does ___password validation___ via the `is_password_valid` method. It loads all users from the database file (`get_all_customer_details` method). This two operations can be refactored into their own specific classes - say a `PasswordValidatorService` and `FileReader` (or something).
-</div>
