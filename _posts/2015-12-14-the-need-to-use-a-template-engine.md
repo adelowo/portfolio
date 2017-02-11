@@ -1,5 +1,5 @@
 ---
-layout : blog
+layout : post
 title : You really should be using a PHP template engine
 description : In the beginning, there was HTML.
 tags : php
