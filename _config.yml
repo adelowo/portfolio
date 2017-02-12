@@ -12,7 +12,7 @@ exclude:
     - README.md
     - CNAME
 
-exclude: ['package.json', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock','LICENSE','CNAME', 'README.md']
+exclude: ['package.json', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock','LICENSE','CNAME', 'README.md', 'yarn.lock']
 
 # Site settings
 title: Lanre-Adelowo - Web Developer
