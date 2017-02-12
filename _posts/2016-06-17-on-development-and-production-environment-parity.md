@@ -106,6 +106,9 @@ In light of this, i have decided to be much more responsible by asking for a `Va
 #### Footnotes
 
 [0] Production in the second problem is quite weird. It meant the guy's machine as he was the one to test before pushing the code online and i can easily infer the <i>real production server</i> would not have any software much more recent than his.
+
 [1] Guys here could have meant anyone, it could have been a dude or a girl.
+
 [2] We didn't really fall out of love with Graph databases. We have been messing with the idea of moving toward Graph dbs but we have had a lot on our plates. Thus we haven't had the <i>courage</i> to plunge in. 
+
 [3] The third issue was a proposal not a bug.

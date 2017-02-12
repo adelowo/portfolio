@@ -172,6 +172,7 @@ I hope you do find this article helpful.
 
 
 #### Footnotes
+
 [0] This book is a gem. You should read it if you haven't.
-<br>
+
 [1] Pub/sub or Observer pattern.

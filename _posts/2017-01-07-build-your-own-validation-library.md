@@ -418,6 +418,9 @@ With this, we have completed our validator and can sleep knowing fully well that
 #### Footnotes
 
 [0] There are libraries with tons of rules on packagist.
-[1] Pipe delimited rule definitions are cool. But folks be complainig about IDE support and the likes though.
+
+[1] Pipe delimited rule definitions are cool. But folks be complaining about IDE support and the likes though.
+
 [2] My personal preference for throwing exceptions - most of the time - is to define it (the exception) in a standalone function/method. I think that's called SRP.. Lol
+
 [3] Contributed to this project sometime last year.
