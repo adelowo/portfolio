@@ -53,3 +53,8 @@ links:
 projects:
   - name: gbowo
     url: https://github.com/adelowo/gbowo
+    description: "A payment library for Paystack and Amplifypay"
+
+  - name: fileupload
+    url: https://github.com/Gargron/fileupload
+    description: "A Document upload library that supports chunked uploads. I help maintain this project"  

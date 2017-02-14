@@ -10,7 +10,7 @@
         </h1>
 
         <div class="icons-home">
-            <a aria-label="Send email" title="Send me a e-mail" href="mailto:{{site.email}}">
+            <a aria-label="Send email" title="Send me an e-mail" href="mailto:{{site.email}}">
                 <svg class="icon icon-email"><use xlink:href="#icon-email"></use></svg>
             </a>
 
@@ -19,7 +19,7 @@
             </a>
 
 
-            <a aria-label="My Github" title="Show my projetcts" target="_blank" href="https://github.com/{{site.github_username}}">
+            <a aria-label="My Github" title="Show my projects" target="_blank" href="https://github.com/{{site.github_username}}">
                 <svg class="icon icon-github-alt"><use xlink:href="#icon-github-alt"></use></svg>
             </a>
 
@@ -30,7 +30,7 @@
 
         <ul class="recent">
             <p>Recent posts:</p>
-             {% for post in site.posts limit:3%}
+             {% for post in site.posts limit:5%}
                 <li>
                     <a title="Will take a my recent post" href="{{ post.url | prepend: site.baseurl }}">
                         <h2 class="post-title" itemprop="name">{{ post.title }}</h2>
