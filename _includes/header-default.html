@@ -9,31 +9,15 @@
             <span class="site-title">[{{site.username}}]</span>
         </h1>
 
-        <div class="icons-home">
-            <a aria-label="Send email" title="Send me an e-mail" href="mailto:{{site.email}}">
-                <svg class="icon icon-email"><use xlink:href="#icon-email"></use></svg>
-            </a>
+        {% include social.html %}
 
-            <a aria-label="My Twitter" title="Follow me on Twitter" target="_blank" href="https://twitter.com/{{site.twitter_username}}">
-                <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
-            </a>
-
-
-            <a aria-label="My Github" title="Show my projects" target="_blank" href="https://github.com/{{site.github_username}}">
-                <svg class="icon icon-github-alt"><use xlink:href="#icon-github-alt"></use></svg>
-            </a>
-
-            <a aria-label="Use the RSS to get updated" title="Register for my RSS" target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
-                <svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg>
-            </a>
-        </div>
 
         <ul class="recent">
             <p>Recent posts:</p>
-             {% for post in site.posts limit:5%}
+             {% for post in site.posts limit:7%}
                 <li>
-                    <a title="Will take a my recent post" href="{{ post.url | prepend: site.baseurl }}">
-                        <h2 class="post-title" itemprop="name">{{ post.title }}</h2>
+                    <a title="{{post.title}}" href="{{ post.url | prepend: site.baseurl }}">
+                        <h2 class="post-title" itemprop="name"><time itemprop="datePublished" datetime="{{ page.date }}">{{ post.date | date_to_string }}</time> -> {{ post.title }}</h2>
                     </a>
                 </li>
               {% endfor %}
