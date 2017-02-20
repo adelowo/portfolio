@@ -3,7 +3,7 @@
 layout : post
 description : A review of Elementary os
 tags : linux
-title : Elementary OS - the beauty and the beast
+title : Elementary OS, beauty and the beast
 
 ---
 

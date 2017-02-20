@@ -1,6 +1,6 @@
 ---
 layout : post
-description : One of my favorite questions on [Quora](https://www.quora.com) is "What is a coder's worst Nightmare".
+description : One of my favorite questions on Quora is What is a coder's worst Nightmare.
 tags : php
 ---
 
