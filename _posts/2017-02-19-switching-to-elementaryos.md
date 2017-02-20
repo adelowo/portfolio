@@ -1,7 +1,7 @@
 ---
 
 layout : post
-description : Elementary os is the new cool
+description : A review of Elementary os
 tags : linux
 title : Elementary OS - the beauty and the beast
 
@@ -9,7 +9,7 @@ title : Elementary OS - the beauty and the beast
 
 I recently switched to Elementary OS for my desktop computing needs and i am - to say the least - extremely stoked. Coming from GNOME, the swich was a breath of fresh air.
 
-But i must confess it has not been a rollercoaster ride which is the exact reason this blog post even exists in the first place. In this article, i would highlight a couple number of the awesome things about the OS and the ___not some awesome parts___. Do keep in mind that i don't put them in some list but i have ___them laced all over the article___.
+But i must confess it has not been a rollercoaster ride which is the exact reason this blog post even exists in the first place. In this article, i would highlight a couple number of the awesome things about the OS and the ___not some awesome parts___. Do keep in mind that i don't put them in a ___good and bad___ list but i have ___them laced all over the article___.
 
 
 ### Installation
@@ -17,7 +17,9 @@ But i must confess it has not been a rollercoaster ride which is the exact reaso
 The installation was pretty smooth, fast and painless but i think i'd have to ___give props___ to 
 the Ubuntu guys rather than the Elementary team since it uses the same installer <sup>0</sup>.
 
-While the installation was frictionless, i did run into one ugly issue with my Wifi. It seemed to be disconnecting all of the time. ___It just wouldn't stay connected to the network for anything longer than 30 minutes___ and i had to keep on hitting `sudo ethernet reconfigure`. Thanks to the Elementary community on stackexchange, i was able to get this fixed. Again, i'd like to say i don't think this issue is particular to Elementary in any way as i remember running into something similar on __Ubuntu 14.04__ and __Ubuntu 15.10__ (both were clean installs).
+While the installation was frictionless, i did run into one ugly issue with my Wifi. It seemed to be disconnecting all of the time. ___It just wouldn't stay connected to the network for anything longer than 30 minutes___ and i had to keep on restarting the wireless service via the command line. Thanks to the Elementary community on stackexchange, i was able to get this fixed. 
+
+I'd like to say i don't think this issue is particular to Elementary in any way as i remember running into something similar on __Ubuntu 14.04__ and __Ubuntu 15.10__ (both were clean installs).
 
 
 ### The Desktop Environment (Pantheon)
@@ -25,7 +27,7 @@ While the installation was frictionless, i did run into one ugly issue with my W
 __Long live the Pantheon. May mere mortals never be found in the midst of the gods__
 
 
-- Lightweight : The first time i noticed after installation was the weight of the desktop. It is/was extremely lightweight. If you ever used GNOME, you'd understand what i am driving at. GNOME eats up about 1gb RAM on startup. 
+- Lightweight : The first time i noticed after installation was the weight of the desktop. It is/was extremely lightweight. If you ever used GNOME, you'd understand what i am driving at. GNOME just happens to be a beast. 
 
 - Stateful : This is probably the most interesting thing about Pantheon. Applications always retain their state after you close them, logout or even a reboot.
 It would be nice anyways to explain what i mean by ___retaining state___. When i refer to state, i am talking about things like :
@@ -35,7 +37,7 @@ It would be nice anyways to explain what i mean by ___retaining state___. When i
 	- Opened Tabs : The best way to explain this is via the file manager, say i have 4 tabs opened and in each i am in some directory so deep like `/home/me/s/d/d/d/`. On a reboot, or ___reopening___ the file manager, i am presented a window that has all 4 tabs opened with each of them in the deep directory i left them at. 
 	I take full advantage of this since a lot of my activites in the file manager is usually in 3 directories : `/home/adez/Documents`, `/home/adez/goat`, `/var/www/html/`. Although i keep a 4th tab - `/home/adez/` for miscellaneous operations. With this, navigating via the GUI is just gold. ___I hear the GUI slows you down a lot, well not with Elementary.___
 
-	- Applications instances : For example, i am running two instance of Sublime text - a text editor - and for some reason, my computer crashes (or powers off if you have set a time it should go off). What i have noticed is the next time, i am in Pantheon and click on the Sublime text icon, i  get two windows instead of one. Dead drop simple.
+	- Applications instances : For example, i am running two instance of Sublime text - a text editor - and for some reason, my computer crashes (or powers off if you have a configuration in place for it to go off at a certain period). What i have noticed is the next time, i am in Pantheon and click on the Sublime text icon, i  get two windows instead of one. Dead drop simple.
 
 - The top bar crashes all the time : Infact it crashed the first time i booted into Elementary :-D and it didn't ___recover___ until the PC got a reboot. 
 
@@ -60,13 +62,17 @@ Elementary OS comes battery included albeit with a sensible battery size. The de
 
 - A mail client which is actually a fork of Geary.
 
-- A music player which looks so much like rythmbox. It most likely started life as a rythmbox fork.
+- A music player which looks so much like rythmbox, it might as well be a fork.
 
-- A terrible web browser, Epiphany that seems to be ___opinioniated on the websites it chooses to open___.
+- A ___terrible___ web browser, Epiphany.
 
 - A calendar that works.
 
+- A dock
+
 The Elementary team maintain a very much comprehensive list [on their website][elementary]{:target="_blank"} and you'd want to take a look at that.
+
+> Nice read - [Busting major myths around Elementary Os](https://medium.com/elementaryos/busting-major-myths-around-elementary-os-bd966402a9c2#.81r8vezmk){:target:"_blank"}
 
 How about installation of new stuffs ? 
 
@@ -77,14 +83,16 @@ Apparently, Elementary suffers from the same problem as Ubuntu in terms of not h
 
 ### The Community
 
-I cannot say if the community should actually be a major reason for choosing a Linux distro but i want to believe it has a lot to play when it comes to troubleshooting. Whilst Elementary has a very small community, it seems yet again to benefit from the very much titanic Ubuntu community.
+I cannot say if the community should actually be a major reason for choosing a Linux distro since a large chunk of linux knowledge applies to any distribution. Still, i want to believe it has a lot to play when it comes to troubleshooting. 
+
+While Elementary has a very small community, it seems yet again to benefit from the very much titanic Ubuntu community.
 
 
-In conclusion, i feel Elementary - by the time it gets a 1.0 release - ___might be a silver bullet___ for the linux desktop environment. I remember my sibling whining about my Ubuntu install ___the other year___, same thing with Fedora, i don't know what he thinks of Elementary as he haven't seen this yet but i think it is safe to say this is something he'd like.
+In conclusion, i feel Elementary - by the time it gets a 1.0 release - ___might be a silver bullet___ for the linux desktop environment. I remember my sibling whining about my Ubuntu install ___the other year___. Same thing with Fedora (whih uses GNOME) , i don't know what he thinks of Elementary as he haven't seen this yet but i think it is safe to say this is something he'd like.
 
 ### Footnotes
 
-[0]- At least it looks like Ubuntu installer, so it is save to assume it uses Ubuntu's installer
+[0]- It looks like Ubuntu installer, so i assumed it uses Ubuntu's installer
 
 
-[elementary]: https://elementaryos.com
+[elementary]: https://elementary.io
