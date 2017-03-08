@@ -51,10 +51,14 @@ links:
     url: /about
 # projects in header index
 projects:
-  - name: gbowo
+  - name: Gbowo
     url: https://github.com/adelowo/gbowo
-    description: "A payment library for Paystack and Amplifypay"
+    description: A payment library for Paystack and Amplifypay
 
-  - name: fileupload
+  - name: Fileupload
     url: https://github.com/Gargron/fileupload
     description: "A Document upload library that supports chunked uploads. I help maintain this project"  
+
+  - name: Gbowo-paystack
+    url:  https://github.com/adelowo/gbowo-paystack
+    description: This is a companion library to Gbowo. And it contains plugins for Gbowo's Paystack adapter.
