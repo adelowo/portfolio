@@ -2,10 +2,11 @@
 layout : post
 description: How to extend the gbowo library for paystack
 tags : php
+title: Extending the Gbowo library via plugins
 
 ---
 
-I have spent the better part of the last 4 months in building and maintaining a library called [Gbowo][gbowo] that helps interface with both [Paystack][paystack]{:target:"_blank"} and [Amplifypay][amplifypay]{:target:"_blank"}. I was working on a personal project - which never took off - and wanted to be able to process payments via any of the gateway at runtime without headaches. There wasn't something like that on the market. Hell i couldn't even find a library for Amplifypay. Every one and their dog(s) was releasing stuffs for Paystack.
+I have spent the better part of the last 4 months building and maintaining an [opensource](https://github.com/adelowo) library called [Gbowo][gbowo] that helps interface with both [Paystack][paystack] and [Amplifypay][amplifypay] - which are arguably the goto payment gateway here in Nigeria this days. I was working on a personal project - which never took off - and wanted to be able to process payments via any of the gateway at runtime without headaches. There wasn't something like that on the market. Hell i couldn't even find a library for Amplifypay. Every one was releasing stuffs for Paystack since they seemed more cool ___and raised funds from YC___.
 
 I then decided to write one. 
 
@@ -182,7 +183,7 @@ That is all, we have a functional plugin without extending anything or knowing t
 
 Plugins are key in Gbowo's architecture. At the begining of this article, i talked about Gbowo providing abstractions. Those abstractions are made even more powerful with plugins that are shipped in the core.
 
-Finally, we must test the plugin to make sure it works and run it alongside our automated tests on our CI build. That is actually of the scope for this blog post, but basically what you do is mock the HTTP Client.
+Finally, we must test the plugin to make sure it works. What is code without tests ? But testing is actually outside the scope for this blog post, but basically what you do is mock the HTTP Client.
 
 If you are a keen follower, you would query the fact that we cannot control the HTTP client since we don't know how it was generated. Well, that would be right. But it is a cinch to fix.
 
@@ -210,15 +211,21 @@ $paystack = new PaystackAdapter($mockedHttpClient);
 
 {% endhighlight %}
 
-If the concept(s) of mocking is new to you, please check [this article which decrypts the concept](/blog/2016/12/02/a-subtle-introduction-to-mocking/) and [this one that shows how to mock an HTTP Client in your tests](/blog/2016/12/07/a-subtle-introduction-to-mocking-2/)
+If the concept(s) of mocking is new to you, please check this articles :
+
+ - [A subtle introduction to mocking](/blog/2016/12/02/a-subtle-introduction-to-mocking/)
+
+ - [How to mock an HTTP Client in your tests](/blog/2016/12/07/a-subtle-introduction-to-mocking-2/)
+
+ - [The little Mocker by Uncle Bob](https://8thlight.com/blog/uncle-bob/2014/05/14/TheLittleMocker.html). Highly recommended. As a rule of thumb, Uncle Bob should be considered Golden
 
 
-> As a rule of thumb, not all plugins are needed. Don't add all available plugins to the adapter at a go. Instead look for situatuons where a specific adapter might be used and apply it there. 
+> You wouldn't need all plugins. Don't add all available plugins to the adapter at a go. Instead look for situatuons where a specific adapter might be used and apply it there. 
 
-> You don't really want to add 15 - 20 plugins at a go. ___It sounds like something that would cause a performance decline if you do. I actually don't have statistics backing this up since by nature, i am weary of benchmarks___. But even if you do add 15 plugins, performance loss is most likely from other sources - IO, network latency, background processing (say sending an email) and the likes
+> You don't really want to add 15 - 20 plugins at a go. ___It sounds like something that would cause a performance decline if you do. I actually don't have statistics backing this up since by nature, i am weary of benchmarks___. But again, even if you do add 15 plugins, performance loss is most likely from other sources - IO, network latency, background processing (say sending an email) and the likes
 
 
 [paystack]: https://paystack.com
 [amplifypay]: https://amplifypay.com
 [gbowo]: https://github.com/adelowo/gbowo
-[pluggable]: https://github.com/adelowo/gbowo/blob/master/src/Gbowo/Contracts
+[pluggable]: https://github.com/adelowo/gbowo/blob/master/src/Gbowo/Contract/Plugin/PluginInterface.php
