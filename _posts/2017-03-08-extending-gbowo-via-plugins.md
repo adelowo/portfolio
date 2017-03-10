@@ -166,6 +166,8 @@ Let's have that fixed and write the `handle` method :
 
 {% endhighlight %}
 
+> It is important you import the `VerifyHttpStatusResponseCode` trait as we have to be certain the API returns a valid response. Since we are interfacing with the Paystack API, valid HTTP response codes are `200` and `201` ([Docs here](https://developers.paystack.co/v1.0/docs/errors)). If `VerifyHttpStatusResponseCode` isn't imported, please make sure to manually inspect the response before continuing.
+
 Then we can call the plugin again :
 
 {% highlight php %}
@@ -183,9 +185,9 @@ That is all, we have a functional plugin without extending anything or knowing t
 
 Plugins are key in Gbowo's architecture. At the begining of this article, i talked about Gbowo providing abstractions. Those abstractions are made even more powerful with plugins that are shipped in the core.
 
-Finally, we must test the plugin to make sure it works. What is code without tests ? But testing is actually outside the scope for this blog post, but basically what you do is mock the HTTP Client.
+Finally, we must test the plugin to make sure it works. What is code without tests ? But testing is actually outside the scope of this blog post, but basically what you do is mock the HTTP Client.
 
-If you are a keen follower, you would query the fact that we cannot control the HTTP client since we don't know how it was generated. Well, that would be right. But it is a cinch to fix.
+If you are a keen follower, you would query the fact that we cannot control the HTTP client since we don't know how it was generated, `$this->adapter->getHttpClient()`. Well, that would be right. But it is a cinch to fix.
 
 {%highlight php %}
 
@@ -208,6 +210,14 @@ Having knowing this, you provide a mocked version of GuzzleHttp Client in the ad
 
 //Test version
 $paystack = new PaystackAdapter($mockedHttpClient); 
+
+$paystack->addPlugin(
+        new Paystack\Transaction\GetTransaction(\Gbowo\Adapter\Paystack\PaystackAdapter::API_LINK)
+   );
+
+$data = $paystack->getTransaction("ref_code_here")
+
+//Do some assertion with $data here
 
 {% endhighlight %}
 
