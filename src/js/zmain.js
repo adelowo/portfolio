@@ -1,8 +1,9 @@
 (function( $, window, undefined ) {
 
-  $(document.links).filter(function() {
+  $("a").filter(function() {
     return this.hostname != window.location.hostname;
   }).attr('target', '_blank')
+
 
   // Menu
   $("a#slide").click(function(){
