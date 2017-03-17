@@ -190,7 +190,7 @@ With this,we can get rid of all that multiple call to `api_token` directly.
 Another example where this makes sense is this ; consider our web app allows users post adverts of anything but before they can do that, they have to confirm their email address (account activation). For user experience purposes, we don't want to force that on them at the point of account registration.
 
 
-We first define a `isAccountActivated` method on our `User` ___model___ which returns a `bool` depending on a certain field in the database.
+We first define an `isAccountActivated` method on our `User` ___model___ which returns a `bool` depending on a certain field in the database.
 
 {% highlight php %}
 
