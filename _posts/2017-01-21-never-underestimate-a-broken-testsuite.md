@@ -19,9 +19,9 @@ Every now and then, we programmers take an interest in a certain library, then d
 
 I swear it is like teleportation.
 
-But i have always had problems with this method. I sure get in the zone, that's a no brainer. But chances are the codebase would be complex to some degree and fairly hard to grok. Maybe there's a lot of small classes - which is a good thing by the way - but i find myself navigating from file to file (class definitions) so often it starts to feel like a game - how many files can you open in 5 minutes ?. 
+But i have always had problems with this method. I sure get in the zone, that's a no brainer. But chances are the codebase would be complex to some degree and fairly hard to grok. Maybe there's a lot of small classes - which is a good thing by the way - but i find myself navigating from file to file (class definitions) so often it starts to feel like a game - how many files can you open in 5 minutes ?.
 
-Or maybe there's just a lot of ___smartness___ going on in the library. I am afraid i am not a top programmer. Encountering ___high level of smartness___ in a codebase is usually my excuse for hitting `ALT + F4` in other to spend some time on [Genius](www.genius.com){:target="_blank"} or some other place.
+Or maybe there's just a lot of ___smartness___ going on in the library. I am afraid i am not a top programmer. Encountering ___high level of smartness___ in a codebase is usually my excuse for hitting `ALT + F4` in other to spend some time on [Genius](https://genius.com){:target="_blank"} or some other place.
 
 This ___smartness___ reduces my ability to teleport to deeper parts of ___the zone___ the same way ___darkness reduces Shawna Baez's (Peek-a-Boo) teleporting ability___. The Flash, anyone ?
 
@@ -75,7 +75,7 @@ I have found out this works pretty well if the library is ___well tested___. ___
 
 So let's assume the library i am trying to read it's source code is a library for hydrating data it reads from a ___certain place___ (can be an xml/json file, a data stream, or weirdly enough from an `HTTP` request) into some set of objects that define the data. Say it can convert a ___persons node___ in the data into a `PersonCollection` which has it values as a collection of `Person` objects.
 
-The contents of the `readme` file or online doc should read something like this 
+The contents of the `readme` file or online doc should read something like this
 
 {% highlight php  %}
 
@@ -133,7 +133,7 @@ Why do this ? The main reason i do is to prevent distractions. If i am to really
 
 > Ideally, it wouldn't be a parse error. I had to dig into some file to make something fail as an example.
 
-The screenshot above is all i need to understand that particular test. I get the way the test was executed. What gets called ? . What gets called first ? What caused the failure ?. Then i start digging my way by going through each portion of the files in the stack trace that deals with the current test. 
+The screenshot above is all i need to understand that particular test. I get the way the test was executed. What gets called ? . What gets called first ? What caused the failure ?. Then i start digging my way by going through each portion of the files in the stack trace that deals with the current test.
 
 - I navigate to the line number shown in the stack trace.
 
@@ -164,7 +164,7 @@ The case for `EventDispatcherInterface` makes a lot of sense in this situation. 
 
 This takes a lot of time but i dare say i have used ___Learning tests___ multiple times in the last few months and they have helped me a lot reading opensource code - or stuffs i didn't write.
 
-You can read through a library without ___learning tests___ but in the little story i described above, it doesn't work for me. ___Learning tests___ fits my ___programming mental model___. 
+You can read through a library without ___learning tests___ but in the little story i described above, it doesn't work for me. ___Learning tests___ fits my ___programming mental model___.
 
 And moving forward (till the day i am on some Linus Torvalds level), i'd continue making use of ___Learning tests___.
 
