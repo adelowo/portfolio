@@ -2,7 +2,7 @@
 
 layout : post
 description : So i have been taking a look at ___Ruby___. 
-tags : ruby
+tags : [Ruby]
 
 
 ---

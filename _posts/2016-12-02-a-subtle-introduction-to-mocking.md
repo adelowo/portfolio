@@ -2,7 +2,7 @@
 
 layout : post
 description: 'Unit testing is a topic i am immensely interested in.'
-tags : testing
+tags : [Testing, PHP]
 ---
 
 

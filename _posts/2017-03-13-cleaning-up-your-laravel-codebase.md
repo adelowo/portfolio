@@ -1,7 +1,7 @@
 ---
 
 layout : post
-tags : php, laravel
+tags : [PHP, Laravel]
 description : Tips on writing more maintainable code in Laravel
 ---
 

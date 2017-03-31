@@ -1,7 +1,7 @@
 ---
 layout : post
 description: I only recently completed building a project i was extremely keen on
-tags : deployment, modern-php, php
+tags : [deployment, PHP]
 ---
 
 I only recently completed building a project i was extremely keen on - [Schoollogue](https://schoollogue.com), a wordplay on "School Catalogue" - after which i deployed it (of course) but there was a but to it, it actually is my first stuff to go online - ok, i lied ; my [portfolio site](http://lanreadelowo.com) is -, but you get the gist right ?.

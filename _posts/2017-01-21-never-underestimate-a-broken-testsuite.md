@@ -6,7 +6,7 @@ title : Never under estimate the power of a broken testsuite
 
 description : Broken test suites don't lie. They never do.
 
-tags : testing
+tags : [Testing]
 
 
 ---

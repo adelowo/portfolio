@@ -1,7 +1,7 @@
 ---
 layout : post
 description: In my [previous post]({{site.baseurl}}/blog/2015/12/14/the-need-to-use-a-template-engine), i discussed the benefits a template engine could bring to a project and why major frameworks have native support for them, I also name-dropped **MVC** quite a number of time. 
-tags : php
+tags : [PHP]
 
 
 ---

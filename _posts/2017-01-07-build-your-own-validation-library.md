@@ -4,7 +4,7 @@ layout  : post
 
 description : 'Small, simple, no dependencies and ___reusable___.'
 
-tags : php, testing
+tags : [PHP, Testing]
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 layout : post
 description: How to extend the gbowo library for paystack
-tags : php
+tags : [PHP]
 title: Extending the Gbowo library via plugins
 
 ---

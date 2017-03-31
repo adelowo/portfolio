@@ -3,7 +3,7 @@
 layout : post
 title : Note to self, KISS is a way of life
 description : It all began when i decided to avoid all the ugly parts of my chosen framework, Laravel. Laravel "Facades", global helper functions et al. Little did i know it was more than what meets the eyes.
-tags : php, laravel
+tags : [PHP, Laravel]
 
 
 ---
