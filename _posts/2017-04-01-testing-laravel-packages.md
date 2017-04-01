@@ -391,7 +391,8 @@ class GbowoManagerTest extends TestCase
 
 With the above tests, we are certain that the `Manager` would work as expected if it gets into a real Laravel application. And that is the type of confidence i like to have with my codebase.
 
-While this is enough to build confidence that the package works as expected since the `Facade` and `ServiceProvider` are heavily dependent on Laravel - ___and their workings are actually implemented in Laravel. We can push the tests a bit harder by testing the Facade.
+While this is enough to build confidence that the package works as expected since the `Facade` and `ServiceProvider` are heavily dependent on Laravel - ___and their workings are actually implemented in Laravel___. We can push the tests a bit harder by testing the Facade.
+
 
 > We can decide to leave this out as the Manager tests already confirms our trust in the package doing it's thing
 
