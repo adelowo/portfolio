@@ -14,7 +14,7 @@
 
         <ul class="recent">
             <p>Recent posts:</p>
-             {% for post in site.posts limit:7%}
+             {% for post in site.posts limit:10%}
                 <li>
                     <a title="{{post.title}}" href="{{ post.url | prepend: site.baseurl }}">
                         <h2 class="post-title" itemprop="name"><time itemprop="datePublished" datetime="{{ page.date }}">{{ post.date | date_to_string }}</time> -> {{ post.title }}</h2>
