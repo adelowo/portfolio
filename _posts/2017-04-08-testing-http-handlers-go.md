@@ -490,7 +490,7 @@ I love testing. Testing is fun. Go even makes it much more fun by incorporating 
 
 I hope this post helps someone confused about how to get started with testing.
 
-[yager]: https://yager256.io
+[yager]: http://www.yegor256.com/2015/11/24/imprisonment-for-irresponsible-coding.html
 [tests_tag]: https://lanreadelowo.com/tags#testing
 [mux]: https://github.com/gorilla/mux
-[github]: https://github/adelowo/blogapi
+[github]: https://github.com/adelowo/blogapi
