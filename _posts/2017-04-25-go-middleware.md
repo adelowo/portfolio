@@ -2,7 +2,7 @@
 layout: post
 title: Middleware in Go
 description: Understanding Golang's Middleware.
-
+tags: [Go]
 ---
 
 
