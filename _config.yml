@@ -51,6 +51,10 @@ links:
     url: /about
 # projects in header index
 projects:
+  - name: Onecache
+    url: https://github.com/adelowo/onecache/
+    description: A caching library for Golang with support for redis, filesystem, memcached and an inmemory backend
+
   - name: Gbowo
     url: https://github.com/adelowo/gbowo
     description: A payment library for Paystack and Amplifypay
