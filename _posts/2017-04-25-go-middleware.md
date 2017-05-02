@@ -162,7 +162,7 @@ func profile(next http.Handler) http.Handler {
 
 		fmt.Fprintf(w,
 			`{"error" : "Invalid token", "code" : %d }`,
-			http.StatusBadRequest)
+			http.StatusUnauthorized)
 		return
 	})
 }
