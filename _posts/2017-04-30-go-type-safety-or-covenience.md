@@ -109,5 +109,5 @@ Do check out [Onecache](https://github.com/adelowo/onecache) if you need a Golan
 
 #### Footnotes
 
-[0] This isn't hitting out at Javascript. I also write PHP which is dynamically typed but can optionally ___strictly typed___ but Javascript doesn't have that.
+[0] This isn't hitting out at Javascript. I also write PHP which is dynamically typed but can optionally be ___strictly typed___ but Javascript doesn't have that.
 
