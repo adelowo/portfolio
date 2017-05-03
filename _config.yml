@@ -43,7 +43,7 @@ compress_html:
 links:
   - title: home
     url: /
-  - title: my posts
+  - title: Blog archive 
     url: /blog
   - title: tags
     url: /tags
