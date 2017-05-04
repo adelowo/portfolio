@@ -1,7 +1,7 @@
 ---
 
 layout : post
-description: 'Unit testing is a topic i am immensely interested in.'
+description: An introduction to mocking 
 tags : [Testing, PHP]
 ---
 

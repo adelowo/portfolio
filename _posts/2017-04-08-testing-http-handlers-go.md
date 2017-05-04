@@ -5,6 +5,8 @@ layout : post
 tags : [Go,Testing]
 
 title : Testing HTTP handlers in Go
+
+description: An introduction to testing Golang's web services
 ---
 
 It is no news that quality, integrity and reliability are what we always want to deliver with software. And an integral part of that is Software testing. [Some even propose a jail term for those who don't write tests][yager].

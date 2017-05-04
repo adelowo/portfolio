@@ -2,7 +2,7 @@
 
 layout  : post
 
-description : 'Small, simple, no dependencies and ___reusable___.'
+description : Building your own simple and reusable validation library in PHP
 
 tags : [PHP, Testing]
 ---
