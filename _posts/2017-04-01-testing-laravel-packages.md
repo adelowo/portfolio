@@ -199,7 +199,7 @@ The first option is exactly the same reason i didn't have a testsuite for the br
 
 The second option makes a lot of sense since we have avoid all that ___bootstrapping___ and use only the part of the framework we need to communicate with. I ended up going with this option and is what would be described iin this post.
 
-> If the concepts of concepts are somewhat new to you, i wrote a [primer on that](/blog/2016/12/02/a-subtle-introduction-to-mocking/), you might want to check that.
+> If the concepts of mocking are somewhat new to you, i wrote a [primer on that](/blog/2016/12/02/a-subtle-introduction-to-mocking/), you might want to check that.
 
 Since the `GbowoManager` makes use of the Application instance Laravel has to provide with all services already bounded and isn't ___too coupled___ to Laravel, that seems like a nice place to start.
 
