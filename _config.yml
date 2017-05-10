@@ -17,7 +17,7 @@ exclude: ['package.json', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock','LICE
 # Site settings
 title: Lanre-Adelowo - Software Developer interested in the web
 description: "A blog on Software Development"
-url: "https://lanreadelowo.com" 
+url: "https://lanreadelowo.com"
 # User settings
 username: adelowo
 user_title: Lanre Adelowo
@@ -43,7 +43,7 @@ compress_html:
 links:
   - title: home
     url: /
-  - title: Blog archive 
+  - title: Blog archive
     url: /blog
   - title: tags
     url: /tags
@@ -59,9 +59,13 @@ projects:
     url: https://github.com/adelowo/gbowo
     description: A payment library for Paystack and Amplifypay
 
+  - name: Gottle
+    url: https://github.com/adelowo/gottle
+    description: An HTTP ratelimiter for Golang  
+
   - name: Fileupload
     url: https://github.com/Gargron/fileupload
-    description: "A Document upload library that supports chunked uploads. I help maintain this project"  
+    description: "A Document upload library that supports chunked uploads. I help maintain this project"
 
   - name: Gbowo-paystack
     url:  https://github.com/adelowo/gbowo-paystack
