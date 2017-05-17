@@ -3,6 +3,8 @@
 layout: post
 title: "On package names for Go tests"
 tags: ["Go"]
+description: "What package name do i give to my Golang tests ?"
+date: 2017-05-17
 ---
 
 When writing [tests](/blog/2017/04/08/testing-http-handlers-go/) in Go, there are two options as per how you choose to name your package's tests; `package foo` or `package foo_test`. While both are perfectly valid and idiomatic, it leaves the question of ___which do we use ?___.
@@ -29,7 +31,7 @@ I would give an example of a certain problem I ran into the past week with being
 
 So in [onecache](https://github.com/adelowo), one of the cache stores happens to be an ___in memory store___. That meant storing data in a map/dictionary. Last week, I decided to check the library for data race issues, turns out there was one.
 
-I triaged the codebase but couldn't find any reason as to why that occurred. The map was well protected by a mutex and i had to fight that fruitlessly for 2 days before i decided to look in the tests. C'mon, that is the wrong place to look ? Nah, wrong. Turns out that was where the problem was. I was manually accessing the length of the (unexported) map to make sure it equaled zero (because I could) after a `Flush` operation on the store. If i had made use of `package foo_test`, the test wouldn't even compile since the map would be inaccessible from tests.
+I triaged the codebase but couldn't find any reason as to why that occurred. The map was well protected by a mutex and i had to fight that fruitlessly for 2 days before i decided to look in the tests. C'mon, that is the wrong place to look ? Nah, wrong. Turns out that was where the problem was. I was manually accessing the length of the (unexported) map to make sure it equaled zero (because I could) after a `Flush` operation on the store. If i had made use of `package foo_test`, the test wouldn't even compile since the map would be inaccessible.
 
 While the above is a mistake from my end, it's more like ___If there is a probability of exploiting something, it would be exploited someday in the future and in bad ways.___
 
