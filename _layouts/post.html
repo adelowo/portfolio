@@ -17,6 +17,13 @@
                 {{ content }}
             </article>
 
+            <div style="text-align:center" class="more">
+              Tagged :
+              {% for tag in page.tags %}
+                <a href="/tags#{{ tag|slugify }}">{{ tag }}, </a>
+              {% endfor %}
+            </div>
+
             <div style="text-align: center;">
                 <div class="pageNavigation">
                     {% if page.previous.url %}
@@ -31,7 +38,7 @@
                          </a>
                     {% endif %}
                </div>
-                
+
             </div>
 
             {% include share.html %}
