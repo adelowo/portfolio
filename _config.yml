@@ -57,15 +57,19 @@ projects:
 
   - name: Gbowo
     url: https://github.com/adelowo/gbowo
-    description: A payment library for Paystack and Amplifypay
+    description: A payment library for Paystack and Amplifypay written in PHP
 
   - name: Gottle
     url: https://github.com/adelowo/gottle
-    description: An HTTP ratelimiter for Golang  
+    description: An HTTP ratelimiter for Golang. 
+
+  - name: Filer
+    url: https://github.com/adelowo/filer
+    description: Golang utilities for working with files
 
   - name: Fileupload
     url: https://github.com/Gargron/fileupload
-    description: "A Document upload library that supports chunked uploads. I help maintain this project"
+    description: A File upload library (written in PHP) that supports chunked uploads. I help maintain this project.
 
   - name: Gbowo-paystack
     url:  https://github.com/adelowo/gbowo-paystack
