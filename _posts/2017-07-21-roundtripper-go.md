@@ -32,7 +32,7 @@ func (s *SomeClient) RoundTrip(r *http.Request)(*Response, error) {
 
 ### Usecases
 
-- Caching http responses. For example, your web app has to connect to Github's API in other to fetch stuffs (with the trending repos one of it). In real life, this changes quite often but let's assume they rebuld that trending board once every 30 minutes and your app has tons of users. You obviously don't want to have to hit the api every time to request for the ___trending leaderboard___. since it is always the same in ___a 30 minutes window___ and also considering the fact that API calls are rate limited and due to the high usage of your app, you almost always hit / cross the limit.
+- Caching http responses. For example, your web app has to connect to Github's API in other to fetch stuffs (with the trending repos one of it). In real life, this changes quite often but let's assume they rebuild that trending board once every 30 minutes and your app has tons of users. You obviously don't want to have to hit the api every time to request for the ___trending leaderboard___. since it is always the same in ___a 30 minutes window___ and also considering the fact that API calls are rate limited and due to the high usage of your app, you almost always hit / cross the limit.
 
    A solution to this is to make use of `http.RoundTripper`. You could configure your `http.Client` with a RoundTripper that does the following :
 
@@ -187,7 +187,7 @@ func cachedResponse(b []byte, r *http.Request) (*http.Response, error) {
 
 {% endhighlight %}
 
-Then the main function where we bootstrap the program. We would set a timer to clear out the cache store, so we can make requests to the server, this is enable us view which requests are being served from the cache or the original server.
+Then the main function where we bootstrap the program. We would set a timer to clear out the cache store, so we can make requests to the server, this is to enable us view which requests are being served from the cache or the original server.
 
 {% highlight go %}
 
