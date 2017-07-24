@@ -105,7 +105,7 @@ func main() {
 
 {% endhighlight %}
 
-Then we would build the client package. This is the most interesting part, while it is quite long (130+ LOCs), I would only be showing the most interesting parts. If you want to see everything, you should head to the [github repo][post_repo].
+Then we would build the client package. This is the most interesting part, while it is quite long (130+ LOCs), It should be relatively easy to follow.I highly recommend you head to the [github repo][post_repo].
 
 
 First of all, we would need a cache store. Since this is a minimal project, a dictionary/map can help us get away ASAP. We would create a `http.Transport` that implements `http.RoundTripper` but is also a cache store.
@@ -276,8 +276,7 @@ Another thing thing to note is that the body of the response stays the stay whet
 
 [http_in_go]: /blog/2017/04/03/http-in-go/
 [google_github_client]: https://github.com/google/go-github
-[ghinstallation_lib]: https://github.com
+[ghinstallation_lib]: https://github.com/bradleyfalzon/ghinstallation 
 [gottle]: https://github.com/adelowo/gottle
-[dd]: https://github.com
 [middleware]: /blog/2017/04/25/go-middleware/
 [post_repo]: https://github.com/adelowo/rounder
