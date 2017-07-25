@@ -19,7 +19,7 @@ To fix this issues, we have to separate our API from the nice abstraction `datab
 So assuming, we are building a blog. We can create, delete and view posts. Obviously, we have to make use of some database to store this data. I would only go through the main concepts here, if anyone is interested in seeing what the entire code looks like, [Github is the place to be](https://github.com/adelowo/mockdemo).
 
 
-To properly define boundaries for our code and make it replaceable at will, we have to make use of an interface. With that in placem we can write as many as possible implementations of that (mongodb, mysql or boltdb and not forgetting a dummy implementation)... THis apples to any other stuff that has to deal with external services - mail service, external queue system..
+To properly define boundaries for our code and make it replaceable at will, we have to make use of an interface. With that in place we can write as many as possible implementations of that (mongodb, mysql or boltdb and not forgetting a dummy implementation)... This applies to any other stuff that has to deal with external services - mail service, external queue system..
 
 
 {% highlight go %}
@@ -88,7 +88,7 @@ func viewPost(a *app) http.HandlerFunc {
 
 {% endhighlight %}
 
-While we have a functional connection to sqlite3, remember we still don't want to touch the database n the test suite..
+While we have a functional connection to sqlite3, remember we still don't want to touch the database in the test suite..
 
 
 {% highlight go %}
