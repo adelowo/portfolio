@@ -112,6 +112,7 @@ First of all, we would need a cache store. Since this is a minimal project, a di
 
 > In real life you'd want to seperate them from each other though.
 
+
 {% highlight go %}
 
 func cacheKey(r *http.Request) string {
@@ -154,18 +155,17 @@ func (c *cacheTransport) RoundTrip(r *http.Request) (*http.Response, error) {
 
 	// Ok, we don't have the response cached, the store was probably cleared.
 	// Make the request to the server.
-	// Here we just default to making use of the default implementation of `http.Get` in the stdlib
 	resp, err := c.originalTransport.RoundTrip(r)
 
 	if err != nil {
-		panic("Yup, we had an error")
+		return nil, err
 	}
 
 	// Get the body of the response so we can save it in the cache for the next request.
 	buf, err := httputil.DumpResponse(resp, true)
 
 	if err != nil {
-		panic("Yup again.. We had another error")
+		return nil, err
 	}
 
 	// Saving it to the cache store
@@ -176,6 +176,9 @@ func (c *cacheTransport) RoundTrip(r *http.Request) (*http.Response, error) {
 }
 
 func (c *cacheTransport) Clear() error {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
 	c.data = make(map[string]string)
 	return nil
 }
@@ -240,13 +243,15 @@ func main() {
 			resp, err := client.Do(req)
 
 			if err != nil {
-				panic(err)
+				log.Printf("An error occurred.... %v", err)
+				continue
 			}
 
 			buf, err := ioutil.ReadAll(resp.Body)
 
 			if err != nil {
-				panic(err)
+				log.Printf("An error occurred.... %v", err)
+				continue
 			}
 
 			fmt.Printf("The body of the response is \"%s\" \n\n", string(buf))
