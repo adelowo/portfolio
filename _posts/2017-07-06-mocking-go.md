@@ -2,16 +2,16 @@
 layout: post
 tags: [Go, Testing]
 title: "Isolating and mocking the database in Go tests"
-description: "Mock the database n your Golang tests"
+description: "Mock the database in your Golang tests"
 
 ---
 
-We write code all the time and managing tight coupling is a challenge we actvely face. This post attempts to address and show a practical example of seperating ___our concerns___(business logic) and the database. While this post describes this process ___via a database___, note that it can be applied to any other part of the codebase.
+We write code all the time and managing tight coupling is a challenge we actively face. This post attempts to address and show a practical example of seperating ___our concerns___(business logic) and the database. While this post describes this process ___via a database___, note that it can be applied to any other part of the codebase.
 
 > PS,  [mocking 101](/blog/2016/12/02/a-subtle-introduction-to-mocking/),
 
 
-Coming from other languages, a lot of people usually want an ORM or some library that does a lot of heavy lifting. Everyone then says "That isn't the go way", then you decide to go pure sql only and the entire codebase gets tied to the database... 
+Coming from other languages, a lot of people usually want an ORM or some library that does a lot of heavy lifting. Everyone then says "That isn't the Go way", then you decide to go pure sql only and the entire codebase gets tied to the database...
 
 To fix this issues, we have to separate our API from the nice abstraction `database/sql` gives us.
 
@@ -76,7 +76,7 @@ func (d *db) FindByID(ID int) (post, error) {
 {% endhighlight %}
 
 
-Then in our handlers, we would access `app.DB.FindByID(12)`.. 
+Then in our handlers, we would access `app.DB.FindByID(12)`..
 
 {% highlight go %}
 
@@ -95,7 +95,7 @@ While we have a functional connection to sqlite3, remember we still don't want t
 
 func TestViewPost(t *testing.T) {
 
-	db := new(fakeStore) //fakeStore is a mock 
+	db := new(fakeStore) //fakeStore is a mock
 	p := post{
 		ID:      12,
 		Title:   "me",
