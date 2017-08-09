@@ -5,6 +5,8 @@ tags: ["Go"]
 
 ---
 
+> Random thoughts
+
 Go as a language interests me a lot and interfaces are one big part of it.
 And when I say interfaces, I am talking about the design - satisfied implicitly rather than explicitly -, extremely tied to behaviour.
 If you have ever spent some time writing Go code, one thing you would have noticed is the extensive presence of
@@ -58,8 +60,10 @@ func ReadIn(r Reader) {
 }
 {% endhighlight %}
 
+> This looks like something that is obvious enough but it just isn't.
+
 So of what use is this ? This has the benefit of making it extremely easy to read/understand code (without having to filter through that large
-`File` interface. It also simplifies testing.
+`File` interface). It also simplifies testing.
 For something like the `ReadIn` function, if we wanted to simulate the failure of `Read()`,
 we wouldn't have to autogenerate a full mock implementation of `File` which could easily be >= 100LOC (or 30LOC if handwritten)
 when all we need is the `Read` method. All that would be needed is
@@ -79,7 +83,7 @@ funcTestReadIn(t *testing.T) {
 {% endhighlight %}
 
 This might be a little hard to impose in some certain situations but with this technique,
-I think I can get rid of almost all of the trouble mocks in Go throw at me.
+I think I can get rid of my issues with mocks in Go.
 
 :satisfied:
 
