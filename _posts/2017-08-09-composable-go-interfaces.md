@@ -2,6 +2,7 @@
 
 layout: post
 tags: ["Go"]
+title: "On composable interfaces in Go"
 
 ---
 
