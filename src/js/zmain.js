@@ -20,26 +20,8 @@
     $("#close").hide();
   });
 
-  //Remove space scroll
-  window.onkeydown = function(e) {
-    if(e.keyCode == 32 && e.target == document.body) {
-        e.preventDefault();
-        return false;
-    }
-  };
   //Keys
   $(document).keydown(function(e){
-    // console.log(e.key);
-    if(! $('.search-form').hasClass('active')){
-      switch(e.key) {
-        case " ":
-          $('a#slide').trigger('click');
-          break;
-        case "Escape":
-          $('#fade').trigger('click');
-          break;
-      }
-    }
     //sidebar active
     if($('#sidebar').hasClass('slide')){
       switch(e.key) {
