@@ -1,7 +1,7 @@
 ---
 
 layout: post
-tags: ["Go"]
+tags: ["Go" , "deployment"]
 title: "Managing configuration values in production sanely"
 
 ---
@@ -103,6 +103,6 @@ func configFromConsul(prod bool, addr string) (*config.Configuration, error) {
 
 {% endhighlight %}
 
-> The icing on the cake would be automatic reconfiguration of the application by watching for changes in the kv store. Is did not implement this because config values in this application does not change often since most of this values are 3rd party api keys, dsn strings for mysql, mongodb ( atlas ), memcached e.t.c, rules to configure some internal services.
+> The icing on the cake would be automatic reconfiguration of the application by watching for changes in the kv store. I did not implement this because config values in this application does not change often since most of this values are 3rd party api keys, dsn strings for mysql, mongodb ( atlas ), memcached e.t.c, rules to configure some internal services.
 
 Consul has turned out to be a key infrastructure for the team I work on and while we are making use of it's health checking component.. You should give it a try too.
