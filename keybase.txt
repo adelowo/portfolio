@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/lanreadelowo
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://lanre.wtf
+  * I am lanreadelowo (https://keybase.io/lanreadelowo) on keybase.
+  * I have a public key with fingerprint F8C7 DFF8 EFAA F8DA 1683  49EE 91E0 447E 30C7 17D1
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120b6cdbc51cd3a19fd4f131246a718cca5fefc1a0d1179e3e34b4e1aaa87ec71c80a",
+      "fingerprint": "f8c7dff8efaaf8da168349ee91e0447e30c717d1",
+      "host": "keybase.io",
+      "key_id": "91e0447e30c717d1",
+      "kid": "010175dda5ab9deba40d9cbd42b9bd157faace0df7d05afcb8a2d240c2a2e01ce24c0a",
+      "uid": "3da737245a374be9b464ce12773f3d19",
+      "username": "lanreadelowo"
+    },
+    "service": {
+      "hostname": "lanre.wtf",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1526049288,
+  "expire_in": 157680000,
+  "prev": "fedd1b54a8fe909d5700d69e25f22d1b5451978b9f8cd10ec36462907245b6e6",
+  "seqno": 18,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.77
+Comment: https://keybase.io/crypto
+
+yMNzAnicbVJtUFRVGF78QnDiY0I+jFHnOqAORPfcj733LlrTBDmhY4BhAwI7595z
+Lq4Lu8vuZQE3jEYbKpUNnQoNxQZJw9nBgPhw8APCaVyEZNY0MRUyAiooNUOZkO5l
+cqYfnT9nzvs+z/M+73venmfm6wL9qoaSdpHfRAz49XYdKtJlPWxY7CJEKyolDC7C
+jOcunI+wQzGaTYgwECSgSFEvIVFigYRoCAQZMTKgAcXoIQd4SYKsjGUJQBIBwAmY
+xjQjMhhACHkOSxyQeBIS8YRssuRhu81usiiqrMxLHJJlHssQyjyCQM/TjICxADDJ
+MBymSZXJIaASt1sdGkM1J0IHTjBZ1Zj6MM7Z+x/8U98k4FiEIAtFAWERMiQSJBEx
+lCiICLCcWljCJJI5RLJQlkQeUohiSImCFCaBhClGmvNdNCdHI8jRHMWwkOYYEQsi
+o2ckDCiOo2UaAUEDOrDdAguwis6HFjuGCOdbi61EWTyhZpwmCWvD1br5LyqhWJFV
+ss1uVaySNV8Nb1cUm8Og0ZRSm4YrxqLxXwWjaLIgdZAqw4ntDpPVQhiAipQUkyYJ
+WEpPMgLF8/EELrGZ7Nho0hAsp+dJ9Wh1sFMbP0YIiCwDeRkLpIBYjiSRXsAUK1PU
+XIYFAseLgvpPCJBYovWMnhJIbQKiHusJradCi1XVVkspME/VdJjyLFApsmOirLsr
+e4HOL1C3aOE8bcN0gQEhT/eu488Q3Z61R9tXrh83nm6dCr+d8Zz+09n85YJ0yj0v
+rXfD+T1jub7MuuivAy4e66Vfr/e4rp15fyY8a/XMxM16IskxxvkbvvIMsFPtpbf6
+yiMJ93RO0/qM1O6GlXdHI/NiZiZPKg+Da/ZtXOMY9DeMvHoh7tltKZuKPm+e3RzH
+FNzJOn7nVrmNzP4+3RsZ1OlNrveV3g9bbgszd/h6qmeXlYUEy20zcdc93zm8D9Yy
+Wy/kTu4zc+nulgqzyJ9wx4YPVA3fKPyxdnb6Qweubq48Z6p7uT+6MuDkPSXG03rQ
+cCV8fH6b7ee9m9esK68OdG55ZWraNrqq4vyO3y1NR/wiDiYW/lYU6gfTzqWkrgMb
+g6pu/52Qs6t46+pa+NbIJs4X5+lM43dfLF56xdzREhVzo2Vi59Xg7Hexu8077L9/
+oqZd94Hgi7zkGgpzlnx0NvaNszOHiHvmwR+2Ef0vLsxgnzyKLgk7sHdpYlPD7Iqx
+T1IDXINbmAfjKa/t9L6QFEDsX/VIl53w6y/LfLUV0+/kjC8J3N3TenzRia7QFeHV
+buNLLc7DNycz+p5EdcRXBZ/uN9re7FzSfK3b6h17XJfMPl/5ZWzmYvLA0cnpoZ5v
++bbGwQVfCC2Dh6+//V5jZk/cEcZ1KWr4r76g+3/cTQxtvJwccezqKV/uDvFjz2eZ
+Zy539Jc/HvmpZrQvPTGhIO8fZATNmA==
+=w1Oi
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/lanreadelowo
+
+==================================================================
