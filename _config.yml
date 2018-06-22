@@ -21,7 +21,7 @@ url: "https://lanre.wtf"
 # User settings
 username: adelowo
 user_title: Lanre Adelowo
-email: adelowomailbox@gmail.com
+email: yo@lanre.wtf
 twitter_username: lanreadelowo
 github_username:  adelowo
 disqus_username: adelowo
@@ -30,7 +30,6 @@ disqus_username: adelowo
 markdown: kramdown
 highlighter: rouge
 permalink: /blog/:year/:month/:day/:title/
-
 
 # html minify
 compress_html:
@@ -49,6 +48,7 @@ links:
     url: /tags
   - title: about me
     url: /about
+
 # projects in header index
 projects:
   - name: Onecache
