@@ -6,17 +6,19 @@ title: "Writing a custom bufio scanner function"
 
 ---
 
-I recently had to work on a project that was originally a proof of concept i.e
-converting to a full fledged application. In it's original form, there are no
+I am currently working on a project that was originally a proof of concept i.e
+I am now to convert to a ___real___ application. In it's original form, there were no
 tests, so I figured out that would be the first place I start from while
-refactoring. While writing integration tests for `mysql`, I needed to be able to
-setup the database by creating approipate schemas and all of that, ideally, I
-would have used migrations that can be run easily during app startup and tests
+refactoring and adding newer features.
+
+While I was writing integration tests for `mysql`, I needed to be able to
+setup the database by creating appropriate schemas and all of that. Ideally, I
+would have used migrations that would run during app startup and tests
 initialization. But I didn't have the luxury here <sup>0</sup>, so I just moved
 the entire sql dump to `testdata/init.sql`.
 
 The problem now was how to import the file into the database (during CI, as I
-wouldn't have access to the MySQL shell to run `source file`), I
+obviously wouldn't have access to the MySQL shell to run `source file`), I
 reached out for `bufio#Scanner` to implement some parsing but figured out it would not serve my usecase as
 it defaults to splitting content by lines. [See here](https://godoc.org/bufio/#NewScanner) . I needed to be able to distinguish sql statements.
 A valid one for instance might span multiple lines and terminated by a
@@ -31,7 +33,7 @@ Here is what I ended up with for the splitting
 
 ```go
 
-func TestDB_KeyExistsD(t *testing.T) {
+func TestDB_KeyExists(t *testing.T) {
 
 	db, _ := sql.Open("user:passwd@tcp(localhost:3306)/test?parseTime=true")
 
