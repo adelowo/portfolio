@@ -1,4 +1,4 @@
-var gulp        = require('gulp'),
+var     gulp        = require('gulp'),
 	plumber     = require('gulp-plumber'),
 	browserSync = require('browser-sync'),
 	uglify      = require('gulp-uglify'),
@@ -6,6 +6,7 @@ var gulp        = require('gulp'),
 	prefixer    = require('autoprefixer-stylus'),
 	imagemin    = require('gulp-imagemin'),
 	cp          = require('child_process');
+	sass        = require('gulp-sass');
 
 var messages = {
 	jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -30,6 +31,15 @@ gulp.task('browser-sync', ['jekyll-build'], function() {
 	});
 });
 
+
+gulp.task('sass', function(){
+		gulp.src('src/sass/main.sass')
+		.pipe(sass())
+		.pipe(gulp.dest('_site/assets/css/'))
+		.pipe(browserSync.reload({stream:true}))
+    		.pipe(gulp.dest('assets/css'));
+});
+
 gulp.task('js', function(){
 	return gulp.src('src/js/**/*.js')
 		.pipe(concat('main.js'))
@@ -47,10 +57,9 @@ gulp.task('imagemin', function() {
 });
 
 gulp.task('watch', function () {
-	gulp.watch('src/styl/**/*.styl', ['stylus']);
-	gulp.watch('src/js/**/*.js', ['js']);
+	gulp.watch('src/sass/*.sass', ['sass']);
 	gulp.watch('src/img/**/*.{jpg,png,gif}', ['imagemin']);
 	gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_config.yml'], ['jekyll-rebuild']);
 });
 
-gulp.task('default', ['js', 'browser-sync', 'watch']);
+gulp.task('default', ['js', 'sass', 'browser-sync', 'watch']);
