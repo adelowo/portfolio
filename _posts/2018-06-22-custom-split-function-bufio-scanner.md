@@ -7,7 +7,7 @@ title: "A custom split function for bufio#Scanner"
 ---
 
 I am currently working on a project that was originally a proof of concept i.e
-I am now to convert to a ___real___ application. In it's original form, there were no
+I am now to convert it to a ___real___ application. In it's original form, it lacked
 tests, so I figured out that would be the first place I start from while
 refactoring and adding newer features.
 
