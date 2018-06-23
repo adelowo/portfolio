@@ -1,17 +1,17 @@
 ---
 
 layout : post
-description : So i have been taking a look at ___Ruby___. 
+description : So i have been taking a look at ___Ruby___.
 tags : [Ruby]
-
 
 ---
 
-It happens to be a powerful and expressive language by any standard. This blog posts details my very first Ruby project. Just like the title says, it would be a replica of the ___ATM (Automated Teller Machine)___  somewhere down your street.
+It happens to be a powerful and expressive language by any standard. This blog posts details my very first Ruby project.
+Just like the title says, it would be a replica of the ___ATM (Automated Teller Machine)___  somewhere down your street.
 
 ### USECASES
 
-- There are users. 
+- There are users.
 - Users have accounts - one account per head.
 - Accounts have balances - total available balance and minimum balance.
 - Accounts have passwords.
@@ -23,12 +23,15 @@ From the above, we sure know we'd need some classes. Here are the ones we would 
 - `Customer` -> A user - this includes his account information.<sup>1</sup>
 - `Atm` -> This is the main container for our app.
 
-Security must be built into any app. Ours isn't an exception. We want to make sure there are only authorized usage of our application. __No trolls. Else we end up in some serious legal suit.__ Authentication is done by providing a valid debit card and a matching password - for the card. Hence to save passwords, we'd be making use of a database - of a sort. A (flat) file would serve as our database. This is for several reasons :
+Security must be built into any app. Ours isn't an exception. We want to make sure there are only authorized usage of our application. __No trolls. Else we end up in some serious legal suit.__
+Authentication is done by providing a valid debit card and a matching password - for the card.
+Hence to save passwords, we'd be making use of a database - of a sort. A (flat) file would serve as our database. This is for several reasons :
 
 - Ruby is a good language for text processing, this is an opportunity to demonstrate that strength.
 - ___We are not enterprise level___
 
-Our db file would contain some data in a ___specialized___ format our app understands. Each line would represent a user which would ultimately be converted into a `Customer` object.
+Our db file would contain some data in a ___specialized___ format our app understands.
+Each line would represent a user which would ultimately be converted into a `Customer` object.
 
 Here is what a sample line looks like : `5011; 0000-1234-5678-5011; The Real Clown; ?2313! ; 60_000; 3_000`. They are in the following order when delimited by `;` :
 
@@ -40,7 +43,7 @@ Here is what a sample line looks like : `5011; 0000-1234-5678-5011; The Real Clo
 
 Since we are working on a `cli` app, we need to ask for certain inputs from the user which we then respond to. Here is time to put our `Prompter` to work.
 
-{% highlight ruby %}
+```ruby
 
 class Prompter
 
@@ -50,13 +53,15 @@ class Prompter
   end
 end
 
-{% endhighlight %}
+```
 
-`gets` is built in function that reads input from the keyboard. We show the user a question, then we wait till we get a reply. This is more like ___What would you like to do___ question we get on a real life machine.
+`gets` is built in function that reads input from the keyboard. We show the user a question, then we wait till we get a reply.
+This is more like ___What would you like to do___ question we get on a real life machine.
 
 Next up is the app container itself
 
-{% highlight ruby %}
+
+```ruby
 
 class Atm
 
@@ -65,7 +70,7 @@ class Atm
   Separator = ';' #separator for the data in the database file
 
   {% raw %}
-  ##Here are the command the ATM understands 
+  ##Here are the command the ATM understands
   {% endraw %}
   Balance = 0
   Withdraw = 1
@@ -80,18 +85,21 @@ class Atm
   end
 end
 
-{% endhighlight %}
+```
 
-In Ruby, the constructor method is `initialize` not `__construct` like in PHP or the class name as in Java. Basic OO - We inject the prompter into the class, this is so as we can ___switch___ to something more sophisticated when we reach ___enterprise level___.
+In Ruby, the constructor method is `initialize` not `__construct` like in PHP or the class name as in Java. Basic OO -
+We inject the prompter into the class, this is so as we can ___switch___ to something more sophisticated when we reach ___enterprise level___.
 
-{% highlight ruby %}
+
+```ruby
+
 
   def start
 
     last_4_digits = @cli_prompter.prompt('ENTER the last 4 digits of your card ?')
 
     raise AtmRunTimeError, 'The digits must be 4 characters long' unless last_4_digits.length.eql? 4
-    
+
   end
 
   protected
@@ -103,19 +111,24 @@ In Ruby, the constructor method is `initialize` not `__construct` like in PHP or
     end
   end
 
-{% endhighlight %}
+```
 
-The `get_all_customer_details` is simply fetching everything from the database and dumping them into an array in our app. This is so as we can get easily get all the data for the users without constantly digging into the file. The line that says `/\w+/` is a regular expression that tells us to only get lines that contain words from the file (our database). Remember this method was called in the constructor.
+The `get_all_customer_details` is simply fetching everything from the database and dumping them into an array in our app. This is so as we can get easily get
+all the data for the users without constantly digging into the file. The line that says `/\w+/` is a regular expression that tells us to only get lines that
+contain words from the file (our database). Remember this method was called in the constructor.
 
-Our `start` method tells our atm to do some real work. First we ask for the last four digits om his/her card. This is always unique so it helps us simulate a card insertion (into the slot). Then we `throw` an exception if the user provides some digit more or less than 4 in it's length - `raise` is Ruby's equivalent to PHP or Java's `throw` statement.
+Our `start` method tells our atm to do some real work. First we ask for the last four digits om his/her card. This is always unique so it helps
+us simulate a card insertion (into the slot). Then we `throw` an exception if the user provides some digit more or less than 4 in it's length - `raise` is
+Ruby's equivalent to PHP or Java's `throw` statement.
 
 
-{% highlight ruby  %}
+```ruby
+
    def start
     #previous code
-    
+
     current_customer = get_customer_details_by_last_four_digits last_4_digits.to_i #method call here. Parenthesis are totally optional
-    
+
     end
 
   def get_customer_details_by_last_four_digits(number)
@@ -131,19 +144,20 @@ Our `start` method tells our atm to do some real work. First we ask for the last
     found
   end
 
-{% endhighlight %}
+```
 
-There is something interesting in the `get_customer_details_by_last_four_digits` method. This method shows us many nice stuffs about the ruby language : 
+There is something interesting in the `get_customer_details_by_last_four_digits` method. This method shows us many nice stuffs about the ruby language :
 
 - Everything is an object.
 - Reads a lot like regular english
 
-{% highlight ruby  %}
+```ruby
+
 
   def start
-  
+
     ###previous code
-    
+
     begin
 
       is_password_valid(current_customer, @prompter.prompt('Please provide your password ?'))
@@ -169,12 +183,12 @@ There is something interesting in the `get_customer_details_by_last_four_digits`
     end
 
     bootstrap_atm_commands # if we get here, we golden.
-  end  
-  
+  end
+
   def is_password_valid(customer, password)
       raise InvalidPasswordError, 'Please input the right password' unless customer[3].strip.eql? password
   end
-  
+
   def process_command(command)
     case command.to_i
       when Balance
@@ -204,7 +218,7 @@ There is something interesting in the `get_customer_details_by_last_four_digits`
 
     bootstrap_atm_commands
   end
-  
+
 
   def bootstrap_atm_commands
     print_instructions
@@ -225,21 +239,27 @@ There is something interesting in the `get_customer_details_by_last_four_digits`
     commands.each { |key, value| puts "Press #{key} to #{value}." }
 
     puts ''
-  end  
- 
-{% endhighlight %}
+  end
+
+```
 
 <sup>2</sup>
 
-This is quite large but quite self explanatory. We check if the user provided the right password. If yes, save the current user to the instance variable `current_customer` - which is actually more a sort of session stuff.
+This is quite large but quite self explanatory. We check if the user provided the right password. If yes, save the current user to the
+instance variable `current_customer` - which is actually more a sort of session stuff.
 
-The `bootstrap_atm_commands` simply print some information to the screen while waiting for the user to enter some response, so as to perform the requested action. Our atm understands some basic commands - 0 for account balance, 1 to withdraw some cash (this command in turn prompts the user to specify how much he'd like to withdraw), 2 is for logging out.
+The `bootstrap_atm_commands` simply print some information to the screen while waiting for the user to enter some response,
+so as to perform the requested action. Our atm understands some basic commands - 0 for account balance, 1 to withdraw some cash (this command in turn prompts the user to
+specify how much he'd like to withdraw), 2 is for logging out.
 
-The most interesting parts here are the extra methods we called on the customer instance - `@current_customer.can_withdraw?` and `@current_customer.withdraw!`. The method `can_withdraw` would return a `boolean` which is actually why it has a ___?___ in it's method definition -  a standard ruby practice by the way WHILE the `withdraw!` method would actually reduce the balance of the customer.
+The most interesting parts here are the extra methods we called on the customer instance - `@current_customer.can_withdraw?` and `@current_customer.withdraw!`.
+The method `can_withdraw` would return a `boolean` which is actually why it has a ___?___ in it's method definition -  a
+standard ruby practice by the way WHILE the `withdraw!` method would actually reduce the balance of the customer.
 
 Great!!! But what does the `Customer` object look like ? Nothing complex if you ask.
 
-{% highlight ruby  %}
+```ruby
+
 class Customer
 
   attr_accessor :full_name, :available_balance
@@ -260,11 +280,12 @@ class Customer
     cannot_withdraw ||= amount < @available_balance
   end
 end
-{% endhighlight %}
+
+```
 
 For the curious minded, here are the exceptions definition
 
-{% highlight ruby  %}
+```ruby
 
 AtmRunTimeError = Class.new(RuntimeError)
 
@@ -281,14 +302,16 @@ end
 
 LoginThrottleError = Class.new(RuntimeError)
 
-{% endhighlight %}
 
+```
 
-With this, our application is complete and works. Tests should be written obviously especially the `Customer` object since we have more fine grained control over it - unlike others where there is a lot of ___prompting___ and reading stuffs from the keyboard.
+With this, our application is complete and works. Tests should be written obviously especially the `Customer` object
+since we have more fine grained control over it - unlike others where there is a lot of ___prompting___ and reading stuffs from the keyboard.
 
 To test out the atm, a dummy file - say `app.rb` - should be created with the following content :
 
-{% highlight ruby  %}
+```ruby
+
 #!/usr/bin/env ruby
 
 require './lib/atm'
@@ -297,9 +320,9 @@ require './lib/exceptions'
 require './lib/customer'
 
 atm = Atm.new(Prompter.new)
-atm.start    
+atm.start
 
-{% endhighlight %}
+```
 
 > Make sure you make the file executable, then run `./app.rb`. Or just `ruby app.rb`
 
@@ -307,4 +330,8 @@ atm.start
 
 [1] Our app has one account per head. This is by design. In the real world, users can have multiple account.
 
-[2] Our `Atm` class obviously goes against SRP (Single Responsibility Principle). It does ___password validation___ via the `is_password_valid` method. It loads all users from the database file (`get_all_customer_details` method). This two operations can be refactored into their own specific classes - say a `PasswordValidatorService` and `FileReader` (or something).
+[2] Our `Atm` class obviously goes against SRP (Single Responsibility Principle). It does ___password validation___ via the `is_password_valid` method.
+It loads all users from the database file (`get_all_customer_details` method).
+This two operations can be refactored into their own specific classes - say a `PasswordValidatorService` and `FileReader` (or something).
+
+

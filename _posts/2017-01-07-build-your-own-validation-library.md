@@ -5,24 +5,36 @@ layout  : post
 description : Building your own simple and reusable validation library in PHP
 
 tags : [PHP, Testing]
+
 ---
 
 
-Around November last year, i worked on a very small personal project. It was a ___CRD___ app (the U is missing, should have been CRUD). You couldn't update stuffs. Deleting, reading and creating were allowed. [Immutability is a thing right](http://softwareengineering.stackexchange.com/questions/151733/if-immutable-objects-are-good-why-do-people-keep-creating-mutable-objects){:target="_blank"}. [Probably the biggest thing this days](http://paul-m-jones.com/archives/6400){:target="_blank"}.
+Around November last year, i worked on a very small personal project.
+It was a ___CRD___ app (the U is missing, should have been CRUD). You couldn't update stuffs.
+Deleting, reading and creating were allowed. [Immutability is a thing right](http://softwareengineering.stackexchange.com/questions/151733/if-immutable-objects-are-good-why-do-people-keep-creating-mutable-objects){:target="_blank"}.
+[Probably the biggest thing this days](http://paul-m-jones.com/archives/6400){:target="_blank"}.
 
-The above mentioned project was written without a framework, not even libraries. It had just 6 routes - `/`, `/login`, `/logout`, `/signup`, `/add`, `/list` and `delete/id` 
+The above mentioned project was written without a framework, not even libraries.
+It had just 6 routes - `/`, `/login`, `/logout`, `/signup`, `/add`, `/list` and `delete/id`
 
 > No route like `/list/id` .. Yup... You can't even view a single item. You must view it all in one large chunk
 
-I couldn't use Aura Router for just this [as much i love the library](https://github.com/adelowo/cfar), [Twig](/blog/2015/12/14/the-need-to-use-a-template-engine/) or any of the cool stuffs i usually reach out to while working on a framework-less project.
+I couldn't use Aura Router for just this [as much i love the library](https://github.com/adelowo/cfar), [Twig](/blog/2015/12/14/the-need-to-use-a-template-engine/) or any of the cool stuffs
+I usually reach out to while working on a framework-less project.
 
-It turns out i was kidding myself. I was already about to pull in `respect/validation` as a dependency. But i backed off, re-evaluated my needs. I was only going to make use of just two validation rules in the project - the email and the length rule. The next logical step was to write one myself.
+It turns out i was kidding myself. I was already about to pull in `respect/validation` as a dependency.
+But i backed off, re-evaluated my needs. I was only going to make use of just two validation rules in the project -
+the email and the length rule. The next logical step was to write one myself.
 
-> Hold on Tiger!! There are ___thousands___ of validators on [Packagist](https://packagist.org/search/?q=validator){:target="_blank"} already. You should spend some minutes there to evaluate that which fits your project. Stucked because there's tons of them available ? Just use `respect/validation` or `symfony/validation`.
+> Hold on Tiger!! There are ___thousands___ of validators on [Packagist](https://packagist.org/search/?q=validator){:target="_blank"} already.
+> You should spend some minutes there to evaluate that which fits your project. Stucked because
+> there's tons of them available ? Just use `respect/validation` or `symfony/validation`.
 
-Our validator is going to be extremely simple. Extremely simple it'd fit in a single file. Concrete classes, No. Anonymous classes ? Yep. Huge library of rules ? Hell No <sup>[0]</sup>.
+Our validator is going to be extremely simple. Extremely simple it'd fit in a single file.
+Concrete classes, No. Anonymous classes ? Yep. Huge library of rules ? Hell No <sup>[0]</sup>.
 
-[To keep things simple](/blog/2016/10/16/kiss-is-a-way-of-life/), we would be making use of something kind of related to Laravel's validation rule syntax <sup>[1]</sup>. Below are some valid definitions :
+[To keep things simple](/blog/2016/10/16/kiss-is-a-way-of-life/), we would be making use of something kind of related to Laravel's validation rule syntax <sup>[1]</sup>.
+Below are some valid definitions :
 
 - `fullname:length=>3|50`
 - `username:length=>3|25`
@@ -30,19 +42,23 @@ Our validator is going to be extremely simple. Extremely simple it'd fit in a si
 - `another_mail:length=>4|50,email`
 - `password:length=>3`
 
-> Quick one. The word before the `:` delimiter stands for the index of the value we are trying to validate - say `$_POST['password']`. While every other thing after the `:` delimiter denotes rules definition.
+> Quick one. The word before the `:` delimiter stands for the index of the value we are trying to validate - say `$_POST['password']`.
+> While every other thing after the `:` delimiter denotes rules definition.
 
 ### Back to Business
 
 Enough of the talking. This is where we get to implement the validator.
 
-Since this validator is quite small, we would be ___composing___ functions - 7 in total - together. 2 of this functions are just ___wrappers___ for anonymous classes. 2 are for the validation rules - length and email. Some other 2 acts as the ___validator engine___ while the last one throws an ___Exception___<sup>[2]</sup>
+Since this validator is quite small, we would be ___composing___ functions - 7 in total - together. 2 of
+this functions are just ___wrappers___ for anonymous classes. 2 are for the validation rules - length and email.
+Some other 2 acts as the ___validator engine___ while the last one throws an ___Exception___<sup>[2]</sup>
 
 We would be creating a file in the `src` called `validator.php`. Namespace would be `Reeval` - like Re-evaluate user's input.
 
 > The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/re-eval){:target="_blank"}.
 
-{% highlight php %}
+```php
+
 <?php
 
 namespace Adelowo\Reeval;
@@ -126,15 +142,18 @@ function errorBag(array $defaultErrors = [])
     };
 }
 
-{% endhighlight %}
 
+```
 > If the above seems a little bit weird, you should get up to speed on anonymous classes by skimming through the [docs](http://php.net/manual/en/language.oop5.anonymous.php)
 
-We have an anonymous class within the `validator` method that helps us check if our checks was successfull or not via the `fails` and `passes` methods. The `errorBag` function handles the addition of errors to the collection already available.
+We have an anonymous class within the `validator` method that helps us check if our checks was successfull or not via the `fails` and `passes` methods.
+The `errorBag` function handles the addition of errors to the collection already available.
 
-The next thing we have coming is the ___validator engine___ itself. This would be responsible for parsing the rule set passed to it and determining if our validator understands them. Else we throw an exception.
+The next thing we have coming is the ___validator engine___ itself.
+This would be responsible for parsing the rule set passed to it and determining if our validator understands them. Else we throw an exception.
 
-{% highlight php %}
+```php
+
 <?php
 
 //previous code  here
@@ -189,20 +208,24 @@ function parseValidatorRules(string $index)
 function throwUnknownRuleException(string $ruleName)
 {
     throw new Exception(
-        "The rule {$ruleName} doesn't exist on this validator. 
+        "The rule {$ruleName} doesn't exist on this validator.
         Go hunt down a library on packagist."
     );
 }
 
-{% endhighlight %}
 
-The `validate` method should be fairly easy to grok, the most interesting part here is the `parseValidatorRules` here. Our validator's dialect can be one of the following : ___`mail:email`,`another_mail:length=>4|50,email`___. So we first get the index - in this case `mail`. After which we get all rules delimited by `,`(comma). Rules themselves can be delimited by the arrow operator, `=>`. Then we return an array to make it much more ___readable___ and useable.
+```
+
+The `validate` method should be fairly easy to grok, the most interesting part here is the `parseValidatorRules` here.
+Our validator's dialect can be one of the following : ___`mail:email`,`another_mail:length=>4|50,email`___. So we first get the index - in this case `mail`.
+After which we get all rules delimited by `,`(comma). Rules themselves can be delimited by the arrow operator, `=>`. Then we return an array to make it much more ___readable___ and useable.
 
 [I like testing](/blog/2016/12/02/a-subtle-introduction-to-mocking), so we are going to write some tests.
 
 ![Testing is key]({{ site.baseurl }}/img/log/testing.jpg)
 
-{% highlight php %}
+```php
+
 <?php
 
 namespace Adelowo\Reeval\Tests;
@@ -253,15 +276,19 @@ class ReevalValidatorTest extends TestCase
         $this->assertSame($expected, parseValidatorRules($rule));
     }
 }
-{% endhighlight %}
+
+
+```
 
 We are testing the `parseValidatorRules` alone. This is to allow maximum assurance that "it works" with our ___parser___ before going to some other interesting things.
 
-You would notice that the `validate` function does call some other functions depending on the rule type. We haven't written those, let's have that fixed. There are two rules in total, but we are taking it one at a time.
+You would notice that the `validate` function does call some other functions depending on the rule type. We haven't written those, let's have that fixed.
+There are two rules in total, but we are taking it one at a time.
 
 ### The length rule
 
-{% highlight php %}
+```php
+
 <?php
 
 //previous code
@@ -291,8 +318,9 @@ function validateLengthRule(array $ruleData, $errorBag)
         }
     }
 }
-    
-{% endhighlight %}
+
+
+```
 
 > This is correct but my highlighting tool screws the ___coloring___ up
 
@@ -300,7 +328,9 @@ There are two valid usecases here - Minimum and maximum length - . The maximum l
 
 ### The Email rule
 
-{% highlight php %}
+```php
+
+
 <?php
 //previous code
 function validateEmailRule(array $ruleData, $errorBag)
@@ -311,11 +341,14 @@ function validateEmailRule(array $ruleData, $errorBag)
         $errorBag->add($index, "Please provide a valid email address");
     }
 }
-{% endhighlight %}
+
+
+```
 
 Done. Nah, we hafta write some more tests to see if they work. The code block below contain tests for both rules.
 
-{% highlight php %}
+```php
+
 <?php
 //previous unit testing code
 
@@ -387,13 +420,14 @@ Done. Nah, we hafta write some more tests to see if they work. The code block be
         $validator = validate($rules);
 
         $this->assertTrue($validator->passes());
-    }    
+    }
 
-{% endhighlight %}
+```
 
-We haven't covered an edge-case though. How about invalid rules ? The ___engine___ would throw an exception on encountering one right ? 
+We haven't covered an edge-case though. How about invalid rules ? The ___engine___ would throw an exception on encountering one right ?
 
-{% highlight php %}
+```php
+
 <?php
 //previous unit testing code
     public function testAnUnexpectedRuleIsEncountered()
@@ -406,7 +440,8 @@ We haven't covered an edge-case though. How about invalid rules ? The ___engine_
 
         validate($rules);
     }
-{% endhighlight %}
+
+```
 
 With this, we have completed our validator and can sleep knowing fully well that it works - thanks to our test suite. But there are some issues with our validatior :
 
@@ -424,3 +459,4 @@ With this, we have completed our validator and can sleep knowing fully well that
 [2] My personal preference for throwing exceptions - most of the time - is to define it (the exception) in a standalone function/method. I think that's called SRP.. Lol
 
 [3] Contributed to this project sometime last year.
+
