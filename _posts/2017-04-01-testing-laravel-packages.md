@@ -13,27 +13,34 @@ title : Testing packages integration with Laravel
 
 [I like testing](/tags#testing) and always find a way to bitch about it whenever i can. So, here we go again.
 
-I have been working on a framework agnostic package called [Gbowo][gbowo] for quite some time. Essentially, it is a payment library for this new wave of ___Stripe like___ Nigerian payment startups.
+I have been working on a framework agnostic package called [Gbowo][gbowo] for quite some time.
+Essentially, it is a payment library for this new wave of ___Stripe like___ Nigerian payment startups.
 
-Since i like Laravel, support for the framework was baked directly into the package. [Obviously, it was totally alienated from the package itself ___but was on the file tree___][gbowo_laravel].
+Since i like Laravel, support for the framework was baked directly into the package.
+[Obviously, it was totally alienated from the package itself ___but was on the file tree___][gbowo_laravel].
 
-While the package was - and still is - ___fully___ tested, the Laravel bridge i wrote didn't have a single tests. I didn't like that. 
+While the package was - and still is - ___fully___ tested, the Laravel bridge i wrote didn't have a single tests.
+I didn't like that.
 
-I didn't want that to ruin my ___awesome code coverage___ [<sup>0</sup>](#footnotes). So i added `@codeCoverageIgnore` to the files in the bridge package (namespace). [There were 3 files in total][gbowo_laravel] - a ServiceProvider, a Facade and errm, a Manager.
+I didn't want that to ruin my ___awesome code coverage___ [<sup>0</sup>](#footnotes).
+So i added `@codeCoverageIgnore` to the files in the bridge package (namespace). [
+There were 3 files in total][gbowo_laravel] - a ServiceProvider, a Facade and errm, a Manager.
 
-In the spirit of modularity, I then decided to migrate the bridge to it's own repository. Then the problem resurfaced. I wasn't going to create a package without a testsuite. I just couldn't entertain that thought. 
+In the spirit of modularity, I then decided to migrate the bridge to it's own repository.
+Then the problem resurfaced. I wasn't going to create a package without a testsuite. I just couldn't entertain that thought.
 
 That birthed this blog post.
 
-
 ### The Blog Post itself
 
-For the most part of integrating a package into Laravel, we need at least a `Facade` and a `ServiceProvider`. Extra classes can also be added. For example, Laravel's Filesystem package [defines extra objects](https://github.com/laravel/framework/blob/5.4/src/Illuminate/Filesystem). In the case of the migrated package as mentioned earlier, i had just 3 objects - a ___Facade___, a ServiceProvider and a ___Manager___.
-
+For the most part of integrating a package into Laravel, we need at least a `Facade` and a `ServiceProvider`.
+Extra classes can also be added. For example, Laravel's Filesystem package [defines extra objects](https://github.com/laravel/framework/blob/5.4/src/Illuminate/Filesystem).
+In the case of the migrated package as mentioned earlier, i had just 3 objects - a ___Facade___, a ServiceProvider and a ___Manager___.
 
 Here is what [the service provider looks like](https://github.com/adelowo/laravel-gbowo/blob/f1cdba26f98c52668a0ab207afce848497bf531a/src/GbowoServiceProvider.php) :
 
-{% highlight php %}
+```php
+
 
 <?php
 
@@ -79,13 +86,14 @@ class GbowoServiceProvider extends ServiceProvider
     }
 }
 
-{% endhighlight %}
+```
 
 > Those adapters are from the core package.
 
-The Manager is used for ___managing (sic)___ adapters instance at a ___transparent level___. So here is what it looks like 
+The Manager is used for ___managing (sic)___ adapters instance at a ___transparent level___. So here is what it looks like
 
-{% highlight php %}
+
+```php
 
 <?php
 
@@ -166,12 +174,13 @@ class GbowoManager
 }
 
 
-{% endhighlight %}
-
+```
 
 And of course,[the facade](https://github.com/adelowo/laravel-gbowo/blob/master/src/Facades/Gbowo.php)
 
-{% highlight php %}
+
+```php
+
 
 <?php
 
@@ -187,7 +196,8 @@ class Gbowo extends Facade
     }
 }
 
-{% endhighlight %}
+
+```
 
 
 As i said earlier, I wanted to be certain i was interacting correctly with Laravel ?. So how do i get that done ? There are actually two ways to do this :
@@ -195,15 +205,18 @@ As i said earlier, I wanted to be certain i was interacting correctly with Larav
 * Run the entire framework like end to end tests are being written.
 * Mock out what you need.
 
-The first option is exactly the same reason i didn't have a testsuite for the bridge while it lived in the core library. Well, another reason was because i didn't want to have to specify `laravel/framework` as a dependency - `require` or `require --dev`. So i skipped this.
+The first option is exactly the same reason i didn't have a testsuite for the bridge while it lived in the core library.
+Well, another reason was because i didn't want to have to specify `laravel/framework` as a dependency - `require` or `require --dev`. So i skipped this.
 
-The second option makes a lot of sense since we have avoid all that ___bootstrapping___ and use only the part of the framework we need to communicate with. I ended up going with this option and is what would be described iin this post.
+The second option makes a lot of sense since we have avoid all that ___bootstrapping___ and use only the part of the framework we need to communicate with.
+I ended up going with this option and is what would be described iin this post.
 
 > If the concepts of mocking are somewhat new to you, i wrote a [primer on that](/blog/2016/12/02/a-subtle-introduction-to-mocking/), you might want to check that.
 
-Since the `GbowoManager` makes use of the Application instance Laravel has to provide with all services already bounded and isn't ___too coupled___ to Laravel, that seems like a nice place to start.
+Since the `GbowoManager` makes use of the Application instance Laravel has to provide with all services already bounded and isn't ___too coupled___ to Laravel,
+that seems like a nice place to start.
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -253,13 +266,15 @@ class GbowoManagerTest extends TestCase
 
 }
 
-{% endhighlight %}
+```
+
+
 
 > Prophet is a mocking framework that comes with PHPUnit. Mockery can [also be used](/blog/2016/12/02/a-subtle-introduction-to-mocking/).
 
-The most interesting parts are 
+The most interesting parts are
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -273,17 +288,19 @@ The most interesting parts are
             ->willReturn(new AmplifypayAdapter());
 
 
-{% endhighlight %}
+```
 
 We created a mock that can act as a replacement with `prophesize(Application::class)`after which we added some stubs to it.
 
-We are faking that we have `gbowo.amplifypay` and `gbowo.paystack` as registered services in the container when we actually don't. Same thing goes for `config`. This is because we aren't bootstrapping the framework, hence we don't get a real Laravel `Application` instance. Meaning we have to act as if it was a real Laravel instance running.
+We are faking that we have `gbowo.amplifypay` and `gbowo.paystack` as registered services in the container when we actually don't.
+Same thing goes for `config`. This is because we aren't bootstrapping the framework, hence we don't get a real Laravel `Application` instance.
+Meaning we have to act as if it was a real Laravel instance running.
 
 Great ? How about making sure that works ?
 
-{% highlight php %}
+```php
 
-<?php 
+<?php
 
 class GbowoManagerTest extends TestCase
 {
@@ -299,7 +316,7 @@ class GbowoManagerTest extends TestCase
         $method->setAccessible(true);
 
         $this->assertSame(GbowoFactory::PAYSTACK, $method->invoke($this->manager));
-    }   
+    }
 
 
     /**
@@ -320,12 +337,13 @@ class GbowoManagerTest extends TestCase
 
 }
 
-{% endhighlight %}
+```
 
 
-Running that should give us green but we still have a huge part of the ___manager___ that isn't tested yet. It allows for extensibility and we haven't tested that yet. It throws exceptions when it couldn't resolve an adapter by a name. Let's put those in our test.
+Running that should give us green but we still have a huge part of the ___manager___ that isn't tested yet.
+It allows for extensibility and we haven't tested that yet. It throws exceptions when it couldn't resolve an adapter by a name. Let's put those in our test.
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -386,17 +404,18 @@ class GbowoManagerTest extends TestCase
 
 }
 
-{% endhighlight %}
+```
 
 
-With the above tests, we are certain that the `Manager` would work as expected if it gets into a real Laravel application. And that is the type of confidence i like to have with my codebase.
+With the above tests, we are certain that the `Manager` would work as expected if it gets into a real Laravel application.
+And that is the type of confidence i like to have with my codebase.
 
-While this is enough to build confidence that the package works as expected since the `Facade` and `ServiceProvider` are heavily dependent on Laravel - ___and their workings are actually implemented in Laravel___. We can push the tests a bit harder by testing the Facade.
-
+While this is enough to build confidence that the package works as expected since the `Facade` and `ServiceProvider` are heavily dependent on
+Laravel - ___and their workings are actually implemented in Laravel___. We can push the tests a bit harder by testing the Facade.
 
 > We can decide to leave this out as the Manager tests already confirms our trust in the package doing it's thing
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -429,17 +448,15 @@ class GbowoTest extends TestCase
     }
 }
 
+```
 
-{% endhighlight %}
+Here, we are eseentially making sure the Facade resolves to the GbowoManager.
+The ___message passing___ is done by Laravel, so we can leave that out trusting Laravel to work as expected.
 
-Here, we are eseentially making sure the Facade resolves to the GbowoManager. The ___message passing___ is done by Laravel, so we can leave that out trusting Laravel to work as expected.
-
-
-As said alone, i am not interested in testing the service provider as that is ___too Laravel tied___ and even if i do, it would have ended up as a ___useless test___ and i don't feel the ___need to get to a `100%` coverage___.
-
+As said alone, i am not interested in testing the service provider as that is ___too Laravel tied___ and even if i do,
+it would have ended up as a ___useless test___ and i don't feel the ___need to get to a `100%` coverage___.
 
 > You can have a look at the [tests on github](https://github.com/adelowo/laravel-gbowo/tree/master/tests)
-
 
 Hopefully this helps someone.
 
@@ -452,3 +469,5 @@ Hopefully this helps someone.
 
 [gbowo]: https://github.com/adelowo/gbowo
 [gbowo_laravel]: https://github.com/adelowo/gbowo/tree/1.4.1/src/Gbowo/Bridge/Laravel
+
+
