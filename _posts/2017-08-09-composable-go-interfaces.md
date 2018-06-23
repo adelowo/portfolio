@@ -41,7 +41,9 @@ it has to be the minimum or smallest contract needed for the function to perform
 
 So what does this look like in real life ? Luckily he gave an example
 
-{% highlight go %}
+```go
+
+
 // Where File is an interface composed of the following interfaces
 // io.Reader, io.ReaderAt, io.Seeker, io.SeekerAt
 // io.Writer, io.Closer, io.WriterAt
@@ -49,17 +51,20 @@ func ReadIn(f File) {
 	 b := []byte{}
 	 n, err := f.Read(b)
 }
-{% endhighlight %}
+
+```
 
 He had that converted to
 
-{% highlight go %}
+```go
+
 // I am guessing by Reader, he meant io.Reader
 func ReadIn(r Reader) {
 	 b := []byte{}
 	 n, err := r.Read(b)
 }
-{% endhighlight %}
+
+```
 
 > This looks like something that is obvious enough but it just isn't.
 
@@ -69,7 +74,8 @@ For something like the `ReadIn` function, if we wanted to simulate the failure o
 we wouldn't have to autogenerate a full mock implementation of `File` which could easily be >= 100LOC (or 30LOC if handwritten)
 when all we need is the `Read` method. All that would be needed is
 
-{% highlight go %}
+```go
+
 type mockReader struct {}
 
 func (m mockReader) Read(buf []byte) (n int, err error) {
@@ -81,7 +87,8 @@ funcTestReadIn(t *testing.T) {
 	ReadIn(r)
 	// Maybe ReadIn in real code might return an error which assertions can run against
 }
-{% endhighlight %}
+
+```
 
 This might be a little hard to impose in some certain situations but with this technique,
 I think I can get rid of my issues with mocks in Go.

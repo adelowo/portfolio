@@ -6,13 +6,19 @@ description: "Behaviour Driven Development (BDD) in Golang"
 
 ---
 
-Testing is a subject extremely close to my heart. I [talk (write)][testing_tag] about it all the time and one of the reasons I fell in love with Go was the simplicity of the testing standard library alongside it's ease of usage.
+Testing is a subject extremely close to my heart. I [talk (write)][testing_tag] about it all the time and one of the reasons I
+fell in love with Go was the simplicity of the testing standard library alongside it's ease of usage.
 
-But simplicity is actually complicated. With simple and tiny test suites (e.g the universally accepted calculator example), the standard testing library is spot on. But with larger and ___complex___ tests, the testsuite starts to feel clunky, complex and for the most part, difficult to read and follow through - which for me is a miss.
+But simplicity is actually complicated. With simple and tiny test suites (e.g the universally accepted calculator example), the standard testing library is spot on.
+But with larger and ___complex___ tests, the testsuite starts to feel clunky, complex and for the most part, difficult to read and follow through - which for me is a miss.
 
-This testsuites starts to feel as it was the application's code itself. Tons of `if/else`s (too much details in the tests) and the likes. Just to be clear, I take my test code as important as the application code itself. But then again, I am a big fan of [readability when it comes to testing][learning_tests] and I have noticed that is quite hard to get if I make use of the testing package provided in the standard library.
+This testsuites starts to feel as it was the application's code itself.
+Tons of `if/else`s (too much details in the tests) and the likes.
+Just to be clear, I take my test code as important as the application code itself.
+But then again, I am a big fan of [readability when it comes to testing][learning_tests] and I have noticed that is quite hard to get if I make use of the testing package provided in the standard library.
 
-While searching for an alternative, I came across [Ginkgo][ginkgo] and [Gomega][gomega]. Ginkgo is a BDD testing framework for Go while Gomega is a test matcher/assertion library.
+While searching for an alternative, I came across [Ginkgo][ginkgo] and [Gomega][gomega].
+Ginkgo is a BDD testing framework for Go while Gomega is a test matcher/assertion library.
 
 ### Why Ginkgo ?
 
@@ -20,7 +26,7 @@ While searching for an alternative, I came across [Ginkgo][ginkgo] and [Gomega][
 - Enforces tests to access only the exported values/symbols of a package. [This was the subject of a previous blog post](/blog/2017/05/17/on-package-naming-for-tests/). This can be overridden by changing the package name though.
 
 
-Since Ginkgo is a BDD framework, we would be dropping a lot of stuffs we learnt from xUnit and get used to stuffs like 
+Since Ginkgo is a BDD framework, we would be dropping a lot of stuffs we learnt from xUnit and get used to stuffs like
 
 - `Expect` : To run an assertion
 - `It` : To describe a test suite
@@ -35,7 +41,9 @@ Let's write some code to determine the type of a triangle (equilateral, isoscele
 
 > I created a package in my `$GOPATH`, `github.com/adelowo/triangle`
 
-{% highlight go %}
+```go
+
+
 
 package triangle
 
@@ -78,15 +86,18 @@ func KindFromSides(a, b, c float64) (Kind, error) {
 	return Sca, nil
 }
 
-{% endhighlight %}
+```
 
 We are done with our package, the next obvious thing is to write the tests. We would be needng to install `ginkgo` and `gomega`. They are ___go gettable___ as `github.com/onsi/:name`
 
-The way ginkgo works is a little bit different from how the standard library works. So we would need to (automatically) create a `bootstrap` file for our tests, this is for compatibilty with the standard library test runner i.e `go test`. To generate the bootstrap file, we would run `ginkgo bootstrap`. After which we would run `ginkgo generate file_name.go`in other to generate a test file.
+The way ginkgo works is a little bit different from how the standard library works.
+So we would need to (automatically) create a `bootstrap` file for our tests, this is for compatibilty with the standard library test runner i.e `go test`.
+To generate the bootstrap file, we would run `ginkgo bootstrap`. After which we would run `ginkgo generate file_name.go`in other to generate a test file.
 
 Here is what the generated test file looks like :
 
-{% highlight go %}
+```go
+
 
 package triangle_test
 
@@ -101,14 +112,13 @@ var _ = Describe("Triangle", func() {
 
 })
 
-{% endhighlight %} 
+```
 
 > You can get rid of the dot(.) imports.
 
+Let's fill that dummy test suite up
 
-Let's fill that dummy test suite up 
-
-{% highlight go %}
+```go
 
 package triangle_test
 
@@ -130,16 +140,17 @@ var _ = Describe("Triangle", func() {
 	})
 })
 
-{% endhighlight %}
+```
 
 > You should run `ginkgo` instead of `go test`, although the latter would work too - if you ran the `ginkgo bootstrap` command earlier.
 
-This should be readable and denotes what the test does. On failure, you get a nice stack of the description anyways. How comparable is this to 
+This should be readable and denotes what the test does. On failure, you get a nice stack of the description anyways. How comparable is this to
 
-{% highlight go %}
+```go
+
 
 func TestNotATriangle(t *testing.T) {
-	
+
 	got, err := KindFromSides(0, -1, 10)
 
 	if err == nil {
@@ -151,13 +162,14 @@ func TestNotATriangle(t *testing.T) {
 	}
 }
 
-{% endhighlight %}
+```
 
 The one with the standard library is just complex and non-readable as the BDD version (with Ginkgo).
 
 Let's complete the test for `KindFromSides`
 
-{% highlight go %}
+```go
+
 
 	It("Should return an Equilateral triangle if all sides are equal", func() {
 		got, err := KindFromSides(10, 10, 10)
@@ -180,13 +192,15 @@ Let's complete the test for `KindFromSides`
 		Expect(got).To(Equal(Sca))
 	})
 
-{% endhighlight %}
+```
 
-There are also some more interesting concepts Ginkgo (BDD ?) has which I feel makes it far superior than the standard testing library. There is the `BeforeEach`, `JustBeforeEach`, `AfterEach` hooks for you to do clean up and tear down as in xUnit style.
+There are also some more interesting concepts Ginkgo (BDD ?) has which I feel makes it far superior than the standard testing library.
+There is the `BeforeEach`, `JustBeforeEach`, `AfterEach` hooks for you to do clean up and tear down as in xUnit style.
 
 Although it is possible to implement ___setup and teardown___ with the standard testing library, it is just a ltttle bit of more code
 
-{% highlight go %}
+```go
+
 
 func setUp(t *testing.T) (*http.Request, func(), error) {
 
@@ -207,12 +221,12 @@ func TestSomething(t *testing.T) {
 	//Do the deed here
 }
 
-{% endhighlight %}
+```
 
 
 Another thing I love about Ginkgo is the way table driven tests are written... Freaking neat. Here is an example from [filer](https://github.com/adelowo/filer)
 
-{% highlight go %}
+```go
 
 package generator_test
 
@@ -242,14 +256,15 @@ var _ = Describe("Slug", func() {
 	)
 })
 
-{% endhighlight %}
+```
 
 > PS : If you need to take a look at packages/projects that makes use of this, you can checkout [Kubernetes](https://github.com/kubernetes/kubernetes) and [filer](https://github.com/adelowo/filer)
 
 [testing_tag]: /tags#testing
 
-[learning_tests]: /blog/2017/01/21/never-underestimate-a-broken-testsuite/ 
+[learning_tests]: /blog/2017/01/21/never-underestimate-a-broken-testsuite/
 
 [ginkgo]: https://github.com/onsi/ginkgo
 
 [gomega]: https://github.com/onsi/gomega
+
