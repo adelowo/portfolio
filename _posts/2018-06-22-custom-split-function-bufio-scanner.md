@@ -2,7 +2,7 @@
 
 layout: post
 tags: ["Go"]
-title: "Writing a custom bufio scanner function"
+title: "A custom split function for bufio#Scanner"
 
 ---
 
@@ -25,9 +25,7 @@ A valid one for instance might span multiple lines and terminated by a
 semi-colon (;). I then decided to write a custom splitting function..
 
 
-Example sql is something like this
-
-
+See this [gist](https://gist.github.com/adelowo/4de408f0b272a4e746b0a2678e7de411) for a sample sql dump
 
 Here is what I ended up with for the splitting
 
