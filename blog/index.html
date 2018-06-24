@@ -12,7 +12,7 @@ layout: compress
         {% include svg-icons.html %}
 
 
-	<section class="container">
+<section class="container">
 
 		<div class="is-pitch-word">
 		    <p class="has-text-centered title"> All posts </a>
@@ -50,31 +50,30 @@ layout: compress
 	    </div>
     </div>
     </div>
+<div class="columns">
         {% assign pages_list = tag[1] %}
 	<div class="content">
         {% for post in pages_list %}
             {% if post.title != null %}
             {% if group == null or group == post.group %}
-		    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}
-		        <span class="entry-date">
-		            <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
-				    {{ post.date | date: "%B %d, %Y" }}
-			    </time>
-			</span>
-		    </a>
-		    <br />
+	    <!-- <a class="{{forloop.index}}" href="{{ site.url }}{{ post.url }}">{{ post.title }} -->
+		        <!-- <span> -->
+		            <!-- <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished"> -->
+				    <!-- {{ post.date | date: "%B %d, %Y" }} -->
+			    <!-- </time> -->
+			<!-- </span> -->
+		    <!-- </a> -->
             {% endif %}
             {% endif %}
         {% endfor %}
 	</div>
+</div>
         {% assign pages_list = nil %}
         {% assign group = nil %}
 {% endfor %}
-
-	</section>
+</section>
 
         </div>
     </body>
 </html>
-
 
