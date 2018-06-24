@@ -6748,3 +6748,16 @@ img.is-rounded {
 .is-pitch-word {
   padding-bottom: 40px;
   margin-top: 20px; }
+
+#about-a-god {
+  text-shadow: 9px 1px #ffdd57;
+  text-decoration: solid underline #0a0a0a;
+  font-weight: 900;
+  font-size: 4rem;
+  letter-spacing: 0.3rem; }
+
+#has-about-text {
+  font-size: 1.3rem;
+  font-weight: bolder; }
+  #has-about-text a:hover {
+    font-size: 1.4rem; }
