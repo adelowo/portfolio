@@ -24,13 +24,13 @@ layout: compress
 {% assign tags_list = site.tags %}
   {% if tags_list.first[0] == null %}
     {% for tag in tags_list %}
-        <a class="tag is-warning is-large" data-scroll href="#{{ tag | slugify }}">
+        <a class="tag is-warning is-large is-tomato-tag" data-scroll href="#{{ tag | slugify }}">
 		{{ tag | replace:",","" }}
 	</a>
     {% endfor %}
   {% else %}
     {% for tag in tags_list %}
-        <a class="tag is-warning is-large" data-scroll href="#{{ tag[0] | slugify }}">
+        <a class="tag is-warning is-large is-tomato-tag" data-scroll href="#{{ tag[0] | slugify }}">
 		{{ tag[0] | replace: ",","" }}
 	</a>
     {% endfor %}
@@ -44,7 +44,7 @@ layout: compress
     <div class="is-pitch-word">
     <div class="level">
 	    <div class="level-item">
-		    <span class="title" id="{{ tag[0] | slugify }}">
+		    <span class="title is-tomato-tag" id="{{ tag[0] | slugify }}">
 			    {{ tag[0] }}
 		    </span>
 	    </div>

@@ -6592,7 +6592,7 @@ label.panel-block {
   background: #eff;
   margin-bottom: 20px; }
   .highlighter-rouge .highlight {
-    background: #fcfcfc; }
+    background: #fafafa; }
   .highlight .c {
     color: #998;
     font-style: italic; }
@@ -6740,6 +6740,12 @@ img.is-rounded {
 
 .share-item {
   margin-right: 16px; }
+
+.is-tomato {
+  color: rgba(255, 0, 0, 0.5) !important; }
+
+.hero.is-tomato {
+  background-image: linear-gradient(141deg, #ffdd57 35%, #ff3860 75%, rgba(255, 0, 0, 0.5) 100%); }
 
 .tags a:hover {
   text-decoration: none;

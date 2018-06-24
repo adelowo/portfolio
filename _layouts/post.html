@@ -9,7 +9,9 @@
 	    <div class="level">
 		<div class="level-item">
 			<div class="level-left">
-				<time itemprop="datePublished" datetime="{{ page.date }}">{{ page.date | date_to_string }}</time>
+				<time class="is-tomato has-text-weight-bold" itemprop="datePublished" datetime="{{ page.date }}">
+				        {{ page.date | date: "%B %d, %Y" }}
+				</time>
 			</div>
 		</div>
 
@@ -22,7 +24,8 @@
 			<div class="level-right">
 	    			<div class="tags">
               				{% for tag in page.tags %}
-					  <a class="is-warning is-rounded tag" href="/tags#{{tag | slugify }}">{{ tag }}</a>
+					  <a class="is-tomato is-rounded tag
+						  has-text-weight-bold" href="/tags#{{tag | slugify }}">{{ tag }}</a>
               				{% endfor %}
 	    			</div>
 			</div>

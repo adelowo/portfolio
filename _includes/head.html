@@ -80,23 +80,23 @@
   {% include svg-icons.html %}
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="/">
+      <a class="navbar-item has-text-weight-bold is-uppercase" href="/">
         Home
       </a>
 
-  	<a class="navbar-item" href="/blog">
+  	<a class="navbar-item has-text-weight-bold is-uppercase" href="/blog">
          Blog
         </a>
 
-  	<a class="navbar-item" href="/tags">
+  	<a class="navbar-item has-text-weight-bold is-uppercase" href="/tags">
          Tags
         </a>
 
-  	<a class="navbar-item" href="/about">
+  	<a class="navbar-item has-text-weight-bold is-uppercase" href="/about">
          About me
         </a>
 
-  	<a class="navbar-item" href="/gear">
+  	<a class="navbar-item has-text-weight-bold is-uppercase" href="/gear">
          Gear
         </a>
     </div>
@@ -105,49 +105,48 @@
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control control-icon">
-
-            <a aria-label="Github" target="_blank" href="https://github.com/{{site.github_username}}"
+            <a aria-label="Github"
+	            target="_blank"
+	            href="https://github.com/{{site.github_username}}"
 		    data-social-network="Github"
                     data-social-target="https://github.com/{{site.github_username}}">
               <svg class="icon icon-github-alt"><use xlink:href="#icon-github-alt"></use></svg>
             </a>
-
           </p>
 
           <p class="control control-icon">
-
-            <a aria-label="Twitter" target="_blank" href="https://twitter.com/{{site.twitter_username}}"
+            <a aria-label="Twitter"
+	            target="_blank"
+	            href="https://twitter.com/{{site.twitter_username}}"
 		    data-social-network="Twitter"
                     data-social-target="https://twitter.com/{{site.twitter_username}}">
               <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
             </a>
-
           </p>
 
           <p class="control control-icon">
-
-            <a aria-label="RSS feed" target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
+            <a aria-label="RSS feed"
+		    target="_blank"
+		    href="{{ "/feed.xml" | prepend: site.baseurl }}">
               <svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg>
             </a>
-
           </p>
 
 
           <p class="control">
-
-            <a aria-label="Send email" title="Send me an e-mail" href="mailto:{{site.email}}">
+            <a aria-label="Send email"
+		    title="Send me an e-mail"
+		    href="mailto:{{site.email}}">
               <svg class="icon icon-email"><use xlink:href="#icon-email"></use></svg>
             </a>
-
           </p>
-
         </div>
       </div>
     </div>
   </div>
 </nav>
 
-<section class="hero is-warning is-medium is-bold">
+<section class="hero is-tomato is-medium is-bold">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
