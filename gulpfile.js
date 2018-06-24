@@ -59,7 +59,10 @@ gulp.task('imagemin', function() {
 gulp.task('watch', function () {
 	gulp.watch('src/sass/*.sass', ['sass']);
 	gulp.watch('src/img/**/*.{jpg,png,gif}', ['imagemin']);
-	gulp.watch(['*.html', '_includes/*.html', '_layouts/*.html', '_posts/*', '_config.yml'], ['jekyll-rebuild']);
+	gulp.watch(['*.html','{blog,gear,_includes,_layouts}/*.html','_posts/*', '_config.yml'], ['jekyll-rebuild']);
 });
 
 gulp.task('default', ['js', 'sass', 'browser-sync', 'watch']);
+
+
+
