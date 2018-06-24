@@ -7,6 +7,10 @@ $tomatoRed: rgba(red, 0.5)
 @import '../../node_modules/bulma/bulma'
 @import '_code'
 
+#portfolio
+  font-size: 4rem
+  text-transform: uppercase
+
 img
   &.is-rounded
     border-radius: 60%
@@ -26,6 +30,16 @@ img
 .is-tomato
   color: $tomatoRed !important
 
+.button
+  &.is-tomato
+    background-color: $tomatoRed;
+    border-color: transparent;
+    color: $black !important;
+  &.button.is-tomato:hover, .button.is-tomato.is-hovered
+      background-color: $tomatoRed;
+      border-color: transparent;
+      color: #fff;
+
 .hero
   &.is-tomato
     background-image: linear-gradient(141deg, $yellow 35%, $danger 75%,
@@ -43,10 +57,11 @@ img
 
 #about-a-god
   text-shadow: 9px 1px $yellow
-  text-decoration: solid underline $black
+  text-decoration: solid overline underline $black
   font-weight: 900
   font-size: 4rem
   letter-spacing: 0.3rem
+  text-decoration-color: $tomatoRed
 
 #has-about-text
   font-size: 1.3rem

@@ -149,12 +149,17 @@
 <section class="hero is-tomato is-medium is-bold">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
+      {% if page.title != "About me" and page.title != "Gear box" %}
+      <h1 class="title has-text-weight-bold" id="portfolio">
         I am Lanre Adelowo,
       </h1>
-      <h2 class="subtitle">
-	A software developer
+      <h2 class="subtitle has-text-weight-semibold">
+	A software developer interested in the web.
       </h2>
+      <div>
+	<a class="button is-large is-tomato is-rounded" href="/about"> Read more </a>
+      </div>
+      {% endif %}
     </div>
   </div>
 </section>
