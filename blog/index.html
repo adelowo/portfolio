@@ -1,5 +1,7 @@
 ---
+
 layout: compress
+
 ---
 
 <!DOCTYPE html>
@@ -9,23 +11,70 @@ layout: compress
         <div class="page_posts">
         {% include svg-icons.html %}
 
-<div class="tree-posts">
 
-    <h3>*Posts*</h3>
+	<section class="container">
 
-    {% for post in site.posts %}
+		<div class="is-pitch-word">
+		    <p class="has-text-centered title"> All posts </a>
+	    	</div>
 
-    <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <div class="content">
-            <a title="Open the post" href="{{ post.url | prepend: site.baseurl }}">
-                <h2 class="post-title" itemprop="name">{{ post.title }}</h2>
-            </a>
-        </div>
-    </article>
-
+<div class="level">
+<div class="level-item">
+<div class="tags">
+{% assign tags_list = site.tags %}
+  {% if tags_list.first[0] == null %}
+    {% for tag in tags_list %}
+        <a class="tag is-warning is-large" data-scroll href="#{{ tag | slugify }}">
+		{{ tag | replace:",","" }}
+	</a>
     {% endfor %}
-
+  {% else %}
+    {% for tag in tags_list %}
+        <a class="tag is-warning is-large" data-scroll href="#{{ tag[0] | slugify }}">
+		{{ tag[0] | replace: ",","" }}
+	</a>
+    {% endfor %}
+  {% endif %}
+{% assign tags_list = nil %}
 </div>
+</div>
+</div>
+
+{% for tag in site.tags %}
+    <div class="is-pitch-word">
+    <div class="level">
+	    <div class="level-item">
+		    <span class="title" id="{{ tag[0] | slugify }}">
+			    {{ tag[0] }}
+		    </span>
+	    </div>
+    </div>
+    </div>
+        {% assign pages_list = tag[1] %}
+	<div class="content">
+        {% for post in pages_list %}
+            {% if post.title != null %}
+            {% if group == null or group == post.group %}
+		    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}
+		        <span class="entry-date">
+		            <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+				    {{ post.date | date: "%B %d, %Y" }}
+			    </time>
+			</span>
+		    </a>
+		    <br />
+            {% endif %}
+            {% endif %}
+        {% endfor %}
+	</div>
+        {% assign pages_list = nil %}
+        {% assign group = nil %}
+{% endfor %}
+
+	</section>
+
         </div>
     </body>
 </html>
+
+
