@@ -36,7 +36,7 @@
       </div>
       <div class="content">
         <p>
-	   {{ post.content | truncatewords: 50 }}
+	   {{ post.content | strip_html | truncatewords: 60 }}
 	</p>
       </div>
     </article>
@@ -76,7 +76,7 @@
       </div>
       <div class="content">
         <p>
-	   {{ post.content | truncatewords: 50 }}
+	{{ post.content | strip_html | truncatewords: 60 }}
 	</p>
       </div>
     </article>
@@ -116,7 +116,7 @@
       </div>
       <div class="content">
         <p>
-	   {{ post.content | truncatewords: 50 }}
+	{{ post.content | strip_html | truncatewords: 60 }}
 	</p>
       </div>
     </article>
@@ -156,7 +156,7 @@
       </div>
       <div class="content">
         <p>
-	   {{ post.content | truncatewords: 50 }}
+	{{ post.content | strip_html | truncatewords: 60 }}
 	</p>
       </div>
     </article>
@@ -173,7 +173,7 @@
       </a>
     </div>
   </div>
-
 </div>
 
 </section>
+
