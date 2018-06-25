@@ -1253,7 +1253,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 .box {
   background-color: white;
   border-radius: 6px;
-  box-shadow: 20px 5px 10px rgba(10, 10, 10, 0.7), 0 5px 10px 1px rgba(10, 10, 10, 0.1);
+  box-shadow: none;
   color: #4a4a4a;
   display: block;
   padding: 1.25rem; }
@@ -6726,6 +6726,9 @@ label.panel-block {
     color: #008080; }
   .highlight .il {
     color: #099; }
+
+html {
+  background-color: rgba(10, 10, 10, 0.1); }
 
 #portfolio {
   font-size: 4rem;
