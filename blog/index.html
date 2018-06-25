@@ -5,12 +5,11 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     {% include head.html %}
     <body>
         <div class="page_posts">
         {% include svg-icons.html %}
-
 
 <section class="container">
 
@@ -50,24 +49,44 @@ layout: compress
 	    </div>
     </div>
     </div>
-<div class="columns">
         {% assign pages_list = tag[1] %}
 	<div class="content">
         {% for post in pages_list %}
             {% if post.title != null %}
             {% if group == null or group == post.group %}
-	    <!-- <a class="{{forloop.index}}" href="{{ site.url }}{{ post.url }}">{{ post.title }} -->
-		        <!-- <span> -->
-		            <!-- <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished"> -->
-				    <!-- {{ post.date | date: "%B %d, %Y" }} -->
-			    <!-- </time> -->
-			<!-- </span> -->
-		    <!-- </a> -->
+	    {% if forloop.first %}
+	      <div class="columns is-multiline">
+	    {% endif %}
+	    <div class="column is-4">
+		    <div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p class="subtitle">
+	<strong>
+		<a class="is-tomato" href="{{ site.url }}{{ post.url }}">
+			{{ post.title }}
+		</a>
+	</strong>
+	<small>
+		<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+			{{ post.date | date: "%B %d, %Y" }}
+		</time>
+	</small>
+        </p>
+      </div>
+    </div>
+  </article>
+		    </div>
+	    </div>
+	    {% if forloop.last %}
+	      </div>
+	    {% endif %}
+
             {% endif %}
             {% endif %}
         {% endfor %}
 	</div>
-</div>
         {% assign pages_list = nil %}
         {% assign group = nil %}
 {% endfor %}
