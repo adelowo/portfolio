@@ -11,7 +11,7 @@
   {% for post in site.posts limit:3 offset:0 %}
   <div class="tile is-parent is-4">
     <article class="tile is-child box">
-      <p class="title">
+      <p class="title is-capitalized">
         <a class="link has-text-grey-darker" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} </a>
       </p>
       <div class="level has-text-grey-light">
@@ -27,7 +27,8 @@
 	    <div class="tags">
 
               {% for tag in post.tags %}
-	      <span class="has-text-weight-bold is-rounded tag is-tomato">{{ tag }}</span>
+	      <span class="has-text-weight-bold is-rounded tag is-tomato
+		      is-capitalized">{{ tag }}</span>
               {% endfor %}
 	    </div>
 	  </div>
@@ -51,7 +52,7 @@
   {% for post in site.posts limit:3 offset:3 %}
   <div class="tile is-parent is-4">
     <article class="tile is-child box">
-      <p class="title">
+      <p class="title is-capitalized">
         <a class="link has-text-grey-darker" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} </a>
       </p>
       <div class="level has-text-grey-light">
@@ -67,7 +68,7 @@
 	    <div class="tags">
 
               {% for tag in post.tags %}
-		<span class="is-tomato is-rounded has-text-weight-bold tag">{{ tag }}</span>
+		<span class="is-tomato is-capitalized is-rounded has-text-weight-bold tag">{{ tag }}</span>
               {% endfor %}
 	    </div>
 	  </div>
@@ -91,7 +92,7 @@
   {% for post in site.posts limit:3 offset:6 %}
   <div class="tile is-parent is-4">
     <article class="tile is-child box">
-      <p class="title">
+      <p class="title is-capitalized">
         <a class="link has-text-grey-darker" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} </a>
       </p>
       <div class="level has-text-grey-light">
@@ -107,7 +108,7 @@
 	    <div class="tags">
 
               {% for tag in post.tags %}
-		<span class="is-rounded tag is-tomato has-text-weight-bold">{{ tag }}</span>
+		<span class="is-rounded is-capitalized tag is-tomato has-text-weight-bold">{{ tag }}</span>
               {% endfor %}
 	    </div>
 	  </div>
@@ -131,7 +132,7 @@
   {% for post in site.posts limit:3 offset:9 %}
   <div class="tile is-parent is-4">
     <article class="tile is-child box">
-      <p class="title">
+      <p class="title is-capitalized">
         <a class="link has-text-grey-darker" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }} </a>
       </p>
       <div class="level has-text-grey-light">
@@ -147,7 +148,7 @@
 	    <div class="tags">
 
               {% for tag in post.tags %}
-		<span class="is-rounded tag is-tomato has-text-weight-bold">{{ tag }}</span>
+		<span class="is-rounded tag is-tomato is-capitalized has-text-weight-bold">{{ tag }}</span>
               {% endfor %}
 	    </div>
 	  </div>
