@@ -25,7 +25,8 @@
 	    			<div class="tags">
               				{% for tag in page.tags %}
 					  <a class="is-tomato is-rounded tag
-						  has-text-weight-bold" href="/tags#{{tag | slugify }}">{{ tag }}</a>
+						  has-text-weight-bold"
+						  href="/blog#{{tag | slugify }}">{{ tag }}</a>
               				{% endfor %}
 	    			</div>
 			</div>
