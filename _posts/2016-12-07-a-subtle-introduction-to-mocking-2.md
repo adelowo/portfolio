@@ -8,7 +8,8 @@ tags : [Testing, PHP]
 
 ---
 
-In my previous post about ___Mocking___ - [which i think you should checkout](/blog/2016/12/02/a-subtle-introduction-to-mocking/) -, I talked about building (and testing) a Github sample app. One that fetches users' repositories and profile. This isn't a full featured app by any means but it would be super useful for our purpose here - mocking.
+In my previous post about ___Mocking___ - [which i think you should checkout](/blog/2016/12/02/a-subtle-introduction-to-mocking/) -, I talked about building (and testing) a Github sample app.
+One that fetches users' repositories and profile. This isn't a full featured app by any means but it would be super useful for our purpose here - mocking.
 
 ## The Github App
 
@@ -16,18 +17,19 @@ In my previous post about ___Mocking___ - [which i think you should checkout](/b
 
 #### Users Story
 
-As a user of this app, i want to 
+As a user of this app, i want to
 
 - Search for a user on github and get his profile.
 - Find all repositories belonging to a specific user.
 
 Cool ? That's all we need to implement. Fairly easy.
 
-Since we would need to hit the github api to fulfill this ___stories___, we would be needing a sort of `HttpClient`. For this we would be using ___Guzzle___ - which  is kind of the industry standard in PHP.
+Since we would need to hit the github api to fulfill this ___stories___, we would be needing a sort of `HttpClient`.
+For this we would be using ___Guzzle___ - which  is kind of the industry standard in PHP.
 
 You should `cd` to some directory and create a `composer.json` file with the following content ;
 
-{% highlight json %}
+```json
 
 {
   "require": {
@@ -44,15 +46,18 @@ You should `cd` to some directory and create a `composer.json` file with the fol
   }
 }
 
-{% endhighlight %}
+```
 
-{% highlight bash %}
-$ composer install
-{% endhighlight %}
+```sh
+
+$composer install
+
+
+```
 
 Great, we have our testing tools and an `HttpClient`. All we have to do is create an object that interacts with `Github`'s api using ___Guzzle___.
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -108,9 +113,11 @@ class GithubClient
     }
 }
 
-{% endhighlight %}
+```
 
-This object is quite easy to follow. Our `GithubClient` object has a dependency on `GuzzleHttp\Client`. We only have two public method apis - `getUserProfile` and `getUserRepositories` -. Their communication with the Github api has been moved to a single method - `get(string $relativeUrl)` - in other to prevent duplication.
+This object is quite easy to follow. Our `GithubClient` object has a dependency on `GuzzleHttp\Client`.
+We only have two public method apis - `getUserProfile` and `getUserRepositories` -. Their communication with the Github api has been moved to a single
+method - `get(string $relativeUrl)` - in other to prevent duplication.
 
 Fairly straight forward.
 
@@ -121,7 +128,7 @@ How about we test this ? Since this is going to be a lot to take in, i would onl
 > The most interesting part here are the `setUp`, `getGithubClient` methods. They are the main places that shows how to test code that requires an internet connection.
 
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -154,17 +161,18 @@ class GithubClientTest extends \PHPUnit_Framework_TestCase
     {
         Mockery::close();
     }
-    
+
     protected function getGithubClient()
     {
        return new GithubClient($this->httpClient); //give our client object the mock
     }
 }
-{% endhighlight %}
+
+```
 
 How about fulfilling user story no 1.
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -192,7 +200,7 @@ How about fulfilling user story no 1.
             \GuzzleHttp\json_encode($userProfile)
         );
     }
-    
+
     public function getUserProfile()
     {
         //Let's fake the result since we are not going to hit the api
@@ -231,11 +239,12 @@ How about fulfilling user story no 1.
             ]
         ];
     }
-{% endhighlight %}
+
+```
 
 With this, we have fulfilled the first user story. Let's move to the next one i.e for repositories.
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -355,11 +364,12 @@ With this, we have fulfilled the first user story. Let's move to the next one i.
         ];
     }
 
-{% endhighlight %}
+
+```
 
 ![whoops](/img/log/mock2.png)
 
-Running `phpunit` should ___make us green___ without touching the internet. 
+Running `phpunit` should ___make us green___ without touching the internet.
 
 Like i said in the previous post, mocking is a big deal. Learning to use it has changed the way i write my tests and even increased my coverage - even though coverage isn't always a measure of quality.
 
@@ -367,7 +377,7 @@ Like i said in the previous post, mocking is a big deal. Learning to use it has 
 
 But we have a problem. Tests should also cover extreme edge cases right ?. For example in our `GithubClient` object, we only care if the `HTTP` status code is `200` - anything other than that would be considered an invalid response.
 
-{% highlight php %}
+```php
 
 <?php
 
@@ -378,25 +388,25 @@ But we have a problem. Tests should also cover extreme edge cases right ?. For e
         $response = $this->get("users/{$userName}");
 
         if (200 !== $response->getStatusCode()) { //Hey, look here!!!
-            throw $this->throwInvalidResponseException(); 
+            throw $this->throwInvalidResponseException();
         }
 
         return json_decode($response->getBody(), true);
     }
-    
+
     protected function throwInvalidResponseException()
     {
         return new InvalidResponseException(
             InvalidResponseException::MESSAGE
         );
     }
-    
-    
-{% endhighlight %}
 
-But our tests didn't cover that edge case. Let's have that fixed 
+```
 
-{% highlight php %}
+But our tests didn't cover that edge case. Let's have that fixed
+
+```php
+
 
 <?php
 
@@ -433,7 +443,9 @@ But our tests didn't cover that edge case. Let's have that fixed
         $this->getGithubClient()->getUserRepositories("adelowo");
     }
 
-{% endhighlight %}
+```
 
 
-> The source code for this (including a sample console script that shows our dummy app in usage) can be found on [Github](https://github.com/adelowo/code-samples/tree/master/github-app){:target="_blank"}.
+> The source code for this (including a sample console script that shows our dummy app in usage) can be found
+> on [Github](https://github.com/adelowo/code-samples/tree/master/github-app){:target="_blank"}.
+

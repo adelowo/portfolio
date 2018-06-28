@@ -48,7 +48,7 @@ Internally, you organize your keys in a tree like status e.g `app/github/*` and 
 
 Below is an example of what I implemented :
 
-{% highlight go %}
+```go
 
 // config/config.go
 
@@ -58,10 +58,11 @@ const (
     CONSUL_MONGO_DSN = CONSUL_PREFIX + "database/mongodb/dsn"
 )
 
-{% endhighlight %}
+```
 
 
-{% highlight go %}
+```go
+
 
 // cmd/setup.go
 
@@ -123,9 +124,13 @@ func configFromConsul(prod bool, addr string) (*config.Configuration, error) {
 	return c, nil
 }
 
-{% endhighlight %}
+```
 
-> The icing on the cake would be automatic reconfiguration of the application by watching for changes in the kv store. I did not implement this because config values in this application does not change often since most of this values are 3rd party api keys, dsn strings for mysql, mongodb ( atlas ), memcached e.t.c, rules to configure some internal services.
+> The icing on the cake would be automatic reconfiguration of the application by watching for changes in the kv store.
+> I did not implement this because config values in this application does not change often since most of this values are 3rd party api keys, dsn strings for mysql,
+> mongodb ( atlas ), memcached e.t.c, rules to configure some internal services.
 
 Consul has turned out to be a key infrastructure for the team I work on and I
 couldn't have settled on anything less.
+
+

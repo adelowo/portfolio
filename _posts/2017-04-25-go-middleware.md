@@ -6,7 +6,8 @@ tags: [Go]
 ---
 
 
-I wrote an indepth [blog post about understanding how HTTP works in GO][http_in_go] and in that post, i introduced the concept of middleware with the hope of writing about them in the future. ___Well, welcome to the future___.
+I wrote an indepth [blog post about understanding how HTTP works in GO][http_in_go] and in that post, i introduced the concept of
+middleware with the hope of writing about them in the future. ___Well, welcome to the future___.
 
 ### Middleware
 
@@ -43,9 +44,10 @@ A middleware is nothing more than a regular `HTTP` handler that filters out requ
 
 >I called  them Children handlers since they usually come in form of a chain.. `FirstMiddleware(SecondMiddleware(PostUser()))` where `PostUser` is the handler that actually registers a user into the application.
 
-Let's have a look at a very basic example of a Middleware. Say we are building an API, we have to return the correct HTTP headers. We can build a middleware that makes sure all our routes return an HTTP content type of `application/json`.
+Let's have a look at a very basic example of a Middleware.
+Say we are building an API, we have to return the correct HTTP headers. We can build a middleware that makes sure all our routes return an HTTP content type of `application/json`.
 
-{% highlight go %}
+```go
 
 package main
 
@@ -73,15 +75,17 @@ func myHandler(w http.ResponseWriter, h *http.Request) {
 	fmt.Fprint(w, `{"name" : "John Doe"}`)
 }
 
-{% endhighlight %}
+```
 
 While this is a silly example, `json` is actually a middleware. It applies the correct content type to responses.
 
 #### A real world example
 
-Let's build a middleware that would protect a route from users without a valid api token. This would be very simple, the user just needs to pass in the token via the `Authorization: Bearer xxx` Headers, then we parse out the value, check if it is a valid token. If it is, we authenticate the user to view his profile. Requests with an invalid Bearer token would error out.
+Let's build a middleware that would protect a route from users without a valid api token.
+This would be very simple, the user just needs to pass in the token via the `Authorization: Bearer xxx` Headers, then we parse out the value, check if it is a valid token.
+If it is, we authenticate the user to view his profile. Requests with an invalid Bearer token would error out.
 
-{% highlight go %}
+```go
 
 package main
 
@@ -126,13 +130,13 @@ func jsonHandler(h http.Handler) http.Handler {
 	})
 }
 
-{% endhighlight %}
+```
 
 The `jsonHandler` is from the previous example. It just happened to be renamed. The app handler for the profile route is `profileHandler`, we don't have that yet. So we write it.
 
-Remember 
+Remember
 
-- The flow is 
+- The flow is
   - HTTP Mux
   - jsonHandler (middleware)
   - profile (middleware)
@@ -141,7 +145,8 @@ Remember
 - Only users with a valid token should be allowed in
 - Once a user is logged in, a response containing his/her profile would be sent.
 
-{% highlight go %}
+
+```go
 
 func profile(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -196,15 +201,15 @@ func findUserByToken(token string) (*User, error) {
 	return activeUser, fmt.Errorf("User with token, %s not found", token)
 }
 
-{% endhighlight %}
+```
 
 To test this, we need to run `curl -H "Authorization: Bearer abc123" http://localhost:8000/profile -i` (our sample user, horus has his token as ___abc123___).
 
-![Works]({{ site.baseurl }}/img/log/works.png) 
+![Works]({{ site.baseurl }}/img/log/works.png)
 
 Ok, that works.. Let's try an invalid token, say (abc12).. `curl -H "Authorization: Bearer abc12" http://localhost:8000/profile -i `
 
-![Failure]({{ site.baseurl }}/img/log/failure.png) 
+![Failure]({{ site.baseurl }}/img/log/failure.png)
 
 
 ### Closing remarks
@@ -212,3 +217,5 @@ Ok, that works.. Let's try an invalid token, say (abc12).. `curl -H "Authorizati
 While we have manually tested our sample app, automated [testing](/tags#testing) is the way to go... Check out [this blog post](/blog/2017/04/08/testing-http-handlers-go/) on testing handlers (middleware and/or application handlers)
 
 [http_in_go]: /blog/2017/04/03/http-in-go/
+
+

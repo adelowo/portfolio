@@ -8,17 +8,22 @@ date: 2017-07-24
 
 ---
 
-I have written quite a bit on [HTTP][http_in_go]. And this blog post is just yet another one that talks about another interesting concept in the way Go deals with `HTTP` and how it makes HTTP related stuffs even much more fun.
+I have written quite a bit on [HTTP][http_in_go].
+And this blog post is just yet another one that talks about another interesting concept in the way Go deals with `HTTP` and how it makes HTTP related stuffs even much more fun.
 
 In this post, I would be covering what ___Round tripping___ is, it's applicable usecases and a tiny demo that shows it's application.
 
-This concept I want to talk about is called `Round tripping` or as the `godoc` describes it ___the ability to execute a single HTTP transaction, obtaining the Response for a given Request___. Basically, what this means is being able to hook into what happens between making an `HTTP` request and receiving a response. In lay man terms, it's like ___[middleware][middleware]___ but for an `http.Client`. I say this since round tripping occurs before the request is actually sent.
+This concept I want to talk about is called `Round tripping` or as the `godoc` describes it ___the ability to execute a single HTTP transaction, obtaining the Response for a
+given Request___.
+Basically, what this means is being able to hook into what happens between making an `HTTP` request and receiving a response.
+In lay man terms, it's like ___[middleware][middleware]___ but for an `http.Client`. I say this since round tripping occurs before the request is actually sent.
 
-> Although, it is possible to do anything within the `RoundTrip` method (as in like middleware for your HTTP handlers), it is recommended you don't inspect the response, return an error (nil or non nil) and shouldn't do stuffs like user auth (or cookies handling).. 
+> Although, it is possible to do anything within the `RoundTrip` method (as in like middleware for your HTTP handlers),
+> it is recommended you don't inspect the response, return an error (nil or non nil) and shouldn't do stuffs like user auth (or cookies handling)..
 
 Since `http.RoundTripper` is an interface. All you have to do to get this functionality is implement `RoundTrip` :
 
-{% highlight go %}
+```go
 
 type SomeClient struct {}
 
@@ -26,13 +31,16 @@ func (s *SomeClient) RoundTrip(r *http.Request)(*Response, error) {
 	//Something comes here...Maybe
 }
 
-{% endhighlight %}
+```
 
 > And this is just keeping in line with other one method interfaces in the stdlib.. Small and concise.
 
 ### Usecases
 
-- Caching http responses. For example, your web app has to connect to Github's API in other to fetch stuffs (with the trending repos one of it). In real life, this changes quite often but let's assume they rebuild that trending board once every 30 minutes and your app has tons of users. You obviously don't want to have to hit the api every time to request for the ___trending leaderboard___. since it is always the same in ___a 30 minutes window___ and also considering the fact that API calls are rate limited and due to the high usage of your app, you almost always hit / cross the limit.
+- Caching http responses. For example, your web app has to connect to Github's API in other to fetch stuffs (with the trending repos one of it).
+In real life, this changes quite often but let's assume they rebuild that trending board once every 30 minutes and your app has tons of users.
+You obviously don't want to have to hit the api every time to request for the ___trending leaderboard___. since it is always the same in ___a 30 minutes window___ and also
+considering the fact that API calls are rate limited and due to the high usage of your app, you almost always hit / cross the limit.
 
    A solution to this is to make use of `http.RoundTripper`. You could configure your `http.Client` with a RoundTripper that does the following :
 
@@ -44,23 +52,32 @@ func (s *SomeClient) RoundTrip(r *http.Request)(*Response, error) {
      * Make the `HTTP` request to the api.
      * Cache the data received from the api.
 
-> You don't have to make use of a RoundTripper for this as (inside a handler) you can check the cache for the existence of an item before you make the `HTTP` request at all. But with a RoundTripper implementation, ___you are probably distributing responsibilities properly___<sup>[0]</sup>
+> You don't have to make use of a RoundTripper for this as (inside a handler) you can check the cache for the existence of an item before you make the `HTTP`
+> request at all. But with a RoundTripper implementation, ___you are probably distributing responsibilities properly___<sup>[0]</sup>
 
-- Adding appropiate (authorization) headers to the request as need be... An example that readily comes to mind is [google/go-github][google_github_client], a Golang client for Github's api. Some part of Github's api require the request be authenticated, some don't. By default, the library doesn't handle authentication, it uses a default HTTP client, if you need to be able to access authenticated sections of the api, you bring your own HTTP client along, for example with `oauth2` protected endpoints.. So how does this concern Round tripping, there is this [ghinstallation][ghinstallation_lib] that allows you authenticate Github apps with go-github. If you look at it's codebase, all it does is provide an `http.Client` that implements `http.RoundTripper`. After which it set the appropiate headers (and values) in the `RoundTrip` method.
+- Adding appropiate (authorization) headers to the request as need be...
+An example that readily comes to mind is [google/go-github][google_github_client], a Golang client for Github's api.
+Some part of Github's api require the request be authenticated, some don't. By default, the library doesn't handle authentication, it uses a default HTTP client,
+if you need to be able to access authenticated sections of the api, you bring your own HTTP client along, for example with `oauth2` protected endpoints..
+So how does this concern Round tripping, there is this [ghinstallation][ghinstallation_lib] that allows you authenticate Github apps with go-github.
+If you look at it's codebase, all it does is provide an `http.Client` that implements `http.RoundTripper`. After which it set the appropiate headers (and values) in the `RoundTrip` method.
 
--  Rate limiting. This is quite similiar to the above, maybe you have a ___bucket___ where you keep the number of connections you have made recently. You check if you are still in acceptable ___standing with the API___ and decide if you should make the request, pull back from making the request or scheduling it to run in future.
+-  Rate limiting. This is quite similiar to the above, maybe you have a ___bucket___ where you keep the number of connections you have made recently.
+You check if you are still in acceptable ___standing with the API___ and decide if you should make the request, pull back from making the request or scheduling it to run in future.
 
 - Whatever have you.. [Maybe not](https://godoc.org/pkg/net/http/#RoundTripper).
 
 ### Real world usage
 
-We would be looking at caching `HTTP` responses with an implementation of `http.RoundTripper`. We would be creating a server that responds to just one route, then a client package that connects to that server. THe client would make use of it's own implementation of `http.Client` so we can be able to provide our own RoundTripper, since we are trying to cache responses.
+We would be looking at caching `HTTP` responses with an implementation of `http.RoundTripper`.
+We would be creating a server that responds to just one route, then a client package that connects to that server.
+THe client would make use of it's own implementation of `http.Client` so we can be able to provide our own RoundTripper, since we are trying to cache responses.
 
-So here is what it is going to look like, 
+So here is what it is going to look like,
 
 - The client makes a request to the server.
   - If the response for that url exists in the cache store ?
-    * Don't make the call to the server. 
+    * Don't make the call to the server.
     * Fetch the item from the store.
     * Write it into the response and return it straight off.
   - If the response for that url does not exist in the cache store
@@ -72,15 +89,15 @@ So here is what it is going to look like,
 > This has been put up on [github][post_repo].
 
 
-{% highlight sh %}
+```sh
 
 $ mkdir client server
 
-{% endhighlight %}
+```
 
 We would be building the server first since it's implementation is quite simple
 
-{% highlight go %}
+```go
 
 import (
 	"fmt"
@@ -103,17 +120,20 @@ func main() {
 	http.ListenAndServe(":8000", mux)
 }
 
-{% endhighlight %}
+
+```
 
 Then we would build the client package. This is the most interesting part, while it is quite long (130+ LOCs), It should be relatively easy to follow.I highly recommend you head to the [github repo][post_repo].
 
 
-First of all, we would need a cache store. Since this is a minimal project, a dictionary/map can help us get away ASAP. We would create a `http.Transport` that implements `http.RoundTripper` but is also a cache store.
+First of all, we would need a cache store. Since this is a minimal project,
+a dictionary/map can help us get away ASAP. We would create a `http.Transport` that implements `http.RoundTripper` but is also a cache store.
 
 > In real life you'd want to seperate them from each other though.
 
 
-{% highlight go %}
+```go
+
 
 func cacheKey(r *http.Request) string {
 	return r.URL.String()
@@ -188,14 +208,15 @@ func cachedResponse(b []byte, r *http.Request) (*http.Response, error) {
 	return http.ReadResponse(bufio.NewReader(buf), r)
 }
 
-{% endhighlight %}
+```
 
-Then the main function where we bootstrap the program. We would set a timer to clear out the cache store, so we can make requests to the server, this is to enable us view which requests are being served from the cache or the original server.
+Then the main function where we bootstrap the program.
+We would set a timer to clear out the cache store, so we can make requests to the server, this is to enable us view which requests are being served from the cache or the original server.
 
-{% highlight go %}
+```go
 
 func main() {
-	
+
 	//client/main/go
 
 	cachedTransport := newTransport()
@@ -259,19 +280,18 @@ func main() {
 	}
 }
 
-{% endhighlight %}
+```
 
 
-To test this out, we have to build both programs - `client/main.go` and `server/main.go`. Run them in their respective directories with `./client` and `./server`. You should get something like this 
-
+To test this out, we have to build both programs - `client/main.go` and `server/main.go`. Run them in their respective directories with `./client` and `./server`. You should get something like this
 
 ![RoundTripping in action](/img/log/round-tripping.png)
 
-And watch what gets printed to the terminal, you would notice that some places say "fetching from the cache" while some would be "fetching from the server".. The most interesting part is if you look at the implementation of `server/main.go`, we have a `fmt.Println` that would get executed only when the server is called, you would notice that you only see that when the client prints "Fetching from the server".
+And watch what gets printed to the terminal, you would notice that some places say "fetching from the cache" while some would be "fetching from the server"..
+The most interesting part is if you look at the implementation of `server/main.go`, we have a `fmt.Println` that would get executed only when the server is called,
+you would notice that you only see that when the client prints "Fetching from the server".
 
 Another thing thing to note is that the body of the response stays the stay whether we hit the server or not.
-
-
 
 #### Footnotes
 
@@ -281,7 +301,9 @@ Another thing thing to note is that the body of the response stays the stay whet
 
 [http_in_go]: /blog/2017/04/03/http-in-go/
 [google_github_client]: https://github.com/google/go-github
-[ghinstallation_lib]: https://github.com/bradleyfalzon/ghinstallation 
+[ghinstallation_lib]: https://github.com/bradleyfalzon/ghinstallation
 [gottle]: https://github.com/adelowo/gottle
 [middleware]: /blog/2017/04/25/go-middleware/
 [post_repo]: https://github.com/adelowo/rounder
+
+

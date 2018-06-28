@@ -7,7 +7,6 @@
 
     <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-
     <!-- Social Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@{{site.twitter_username}}">
@@ -51,7 +50,7 @@
     <link rel="apple-touch-icon" sizes="152x152" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-152x152.png" />
 
     <!-- Windows 8 Tile Icons -->
-    <meta name="application-name" content="{{site.username}} Blog">
+    <meta name="application-name" content="{{site.username}}'s Blog">
     <meta name="msapplication-TileColor" content="#5d4d7a">
     <meta name="msapplication-square70x70logo" content="smalltile.png" />
     <meta name="msapplication-square150x150logo" content="mediumtile.png" />
@@ -65,3 +64,102 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
 </head>
+
+<nav class="navbar is-transparent is-fixed-bottom is-warning" id="navbarFixBottom">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="/assets/img/profile.jpg" alt="Lanre Adelowo" class="is-rounded" height="28">
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  {% include svg-icons.html %}
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class=" navbar-item has-text-weight-bold is-uppercase" href="/">
+        Home
+      </a>
+
+  	<a class="navbar-item has-text-weight-bold is-uppercase" href="/blog">
+         Blog
+        </a>
+
+  	<a class="navbar-item has-text-weight-bold is-uppercase" href="/tags">
+         Tags
+        </a>
+
+  	<a class="navbar-item has-text-weight-bold is-uppercase" href="/about">
+         About me
+        </a>
+
+  	<a class="navbar-item has-text-weight-bold is-uppercase" href="/gear">
+         Gear
+        </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control control-icon">
+            <a aria-label="Github"
+	            target="_blank"
+	            href="https://github.com/{{site.github_username}}"
+		    data-social-network="Github"
+                    data-social-target="https://github.com/{{site.github_username}}">
+              <svg class="icon icon-github-alt"><use xlink:href="#icon-github-alt"></use></svg>
+            </a>
+          </p>
+
+          <p class="control control-icon">
+            <a aria-label="Twitter"
+	            target="_blank"
+	            href="https://twitter.com/{{site.twitter_username}}"
+		    data-social-network="Twitter"
+                    data-social-target="https://twitter.com/{{site.twitter_username}}">
+              <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
+            </a>
+          </p>
+
+          <p class="control control-icon">
+            <a aria-label="RSS feed"
+		    target="_blank"
+		    href="{{ "/feed.xml" | prepend: site.baseurl }}">
+              <svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg>
+            </a>
+          </p>
+
+
+          <p class="control">
+            <a aria-label="Send email"
+		    title="Send me an e-mail"
+		    href="mailto:{{site.email}}">
+              <svg class="icon icon-email"><use xlink:href="#icon-email"></use></svg>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero is-tomato is-medium is-bold">
+  <div class="hero-body">
+    <div class="container">
+      {% if page.home %}
+      <h1 class="title has-text-weight-bold glitch" data-text="I am Lanre Adelowo," id="portfolio">
+      </h1>
+      <h2 class="subtitle has-text-weight-semibold">
+	A software developer interested in the web.
+      </h2>
+      <div>
+	      <a class="button is-large is-tomato is-rounded"
+		      style="background-color: linear-gradient(120deg, #f6d365 0%, #fda085 100%)" href="/about"> Read more </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

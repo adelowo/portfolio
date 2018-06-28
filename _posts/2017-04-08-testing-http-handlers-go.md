@@ -9,20 +9,25 @@ title : Testing HTTP handlers in Go
 description: An introduction to testing Golang's web services
 ---
 
-It is no news that quality, integrity and reliability are what we always want to deliver with software. And an integral part of that is Software testing. [Some even propose a jail term for those who don't write tests][yager].
+It is no news that quality, integrity and reliability are what we always want to deliver with software.
+And an integral part of that is Software testing. [Some even propose a jail term for those who don't write tests][yager].
 
-Ok, maybe that was extreme, but testing is such an important process since it helps us verify ___the system___ works as intended. There are tons of information readily available on the internet - from books to blog posts - that describes the ___whys of testing___.
+Ok, maybe that was extreme, but testing is such an important process since it helps us verify ___the system___ works as intended.
+There are tons of information readily available on the internet - from books to blog posts - that describes the ___whys of testing___.
 
-Being a big fan of [software testing][tests_tag], it was one of the first things i was eager to learn when i started learning Go. The Go team made this even much easier by providing a testing framework out of the box and a simple command to run them all `go test`. Coming from PHP, this is a relieve since PHPunit, the testing framework is userland code and you have to add this as a (dev)dependency to every project. But in Go, all i do is append `_test` to a file name and it's content becomes a testsuite.
-
+Being a big fan of [software testing][tests_tag], it was one of the first things i was eager to learn when i started learning Go.
+The Go team made this even much easier by providing a testing framework out of the box and a simple command to run them all `go test`.
+Coming from PHP, this is a relieve since PHPunit, the testing framework is userland code and you have to add this as
+a (dev)dependency to every project. But in Go, all i do is append `_test` to a file name and it's content becomes a testsuite.
 
 ### Primer
 
-If you are totally new to testing in Go, you might want to read this section else feel [free to keep on scrolling](#t). 
+If you are totally new to testing in Go, you might want to read this section else feel [free to keep on scrolling](#t).
 
-### The obligatory Calculator test 
+### The obligatory Calculator test
 
-{% highlight go %}
+```go
+
 //calculator.go
 package calculator
 
@@ -34,10 +39,11 @@ func Multiply(x, y int) int {
 	return x * y
 }
 
-{% endhighlight %}
+```
 
 
-{% highlight go %}
+```go
+
 
 package calculator
 
@@ -63,11 +69,10 @@ func TestMultiply(t *testing.T) {
 	}
 }
 
-{% endhighlight %}
+```
 
 > `go test` is the command you need to run.
 
-<div id="t"></div>
 
 ### Testing Handlers
 
@@ -75,9 +80,11 @@ While testing handlers (or anything in general), all we want to do is :=
 
 - Arrange: Run some set up.
 - Act: Run the part of the code you want to test.
-- Assert: Compare your expected output to what was returned. Here, we would manually inspect the `HTTP` status code and the response body - we are returning JSON. Inspecting the persistence layer ___can also be a thing___.
+- Assert: Compare your expected output to what was returned.
+Here, we would manually inspect the `HTTP` status code and the response body - we are returning JSON. Inspecting the persistence layer ___can also be a thing___.
 
-To put this idea through, we would be building a simple api for a dummy blog. To keep things extremely simple, the data would be held in-memory and it would have a very limited feature set ;
+To put this idea through, we would be building a simple api for a dummy blog.
+To keep things extremely simple, the data would be held in-memory and it would have a very limited feature set ;
 
 - Posts can be created.
 - Posts can be deleted.
@@ -89,7 +96,8 @@ For this project, we would be making use of [gorilla/mux][mux] for the routing. 
 
 > The code for this can be found on [github][github]
 
-{% highlight go %}
+```go
+
 
 //main.go
 package main
@@ -145,13 +153,13 @@ func main() {
 	http.ListenAndServe(":4000", r)
 }
 
-{% endhighlight %}
+```
 
 Nothing here, just yet another web server we created. So let's implement the handlers.
 
 > You might want to comment out unimplemented handlers so an error shouldn't occur.
 
-{% highlight go %}
+```go
 
 //Fetches all posts
 func articlesHandler(w http.ResponseWriter, r *http.Request) {
@@ -167,11 +175,12 @@ func articlesHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, string(users))
 }
 
-{% endhighlight %}
+
+```
 
 Create a test file called `main_test.go`
 
-{% highlight go %}
+```go
 
 package main
 
@@ -217,9 +226,10 @@ func TestArticlesHandler(t *testing.T) {
 	assert.JSONEq(t, expected, rr.Body.String(), "Response body differs")
 }
 
-{% endhighlight %}
+```
 
-I have laced the test with comments in other for it to be exlanatory but what we are basically doing here is making sure our handler returns the correct HTTP status code and correct JSON. If you are persisting stuffs to a store, you might as well want to check that to make sure all is well.
+I have laced the test with comments in other for it to be exlanatory but what we are basically doing here is making sure our handler returns the correct HTTP status code and correct JSON.
+If you are persisting stuffs to a store, you might as well want to check that to make sure all is well.
 
 The main thing to note here is we made use of a `ResponseRecorder`, this is key to testing HTTP In Go since it allows us inspect the response.
 
@@ -230,7 +240,8 @@ The main thing to note here is we made use of a `ResponseRecorder`, this is key 
 
 To fetch a blog post via the link `/posts/4`, we would have an implementation like :
 
-{% highlight go %}
+```go
+
 //main.go
 func articleHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -274,11 +285,12 @@ func createArticle(w http.ResponseWriter, r *http.Request) {
 	//STUB
 }
 
-{% endhighlight %}
+```
 
-To test this, we have to verify the returned JSON is the same as what we have in the array. 
+To test this, we have to verify the returned JSON is the same as what we have in the array.
 
-{% highlight go %}
+
+```go
 
 func TestArticleHandlerWithValidPost(t *testing.T) {
 	req, err := http.NewRequest("GET", "/posts/2", nil)
@@ -303,17 +315,20 @@ func TestArticleHandlerWithValidPost(t *testing.T) {
 
 }
 
-{% endhighlight %}
+```
 
-This is quite diffferent from what we had in the previous test. 
+This is quite diffferent from what we had in the previous test.
 
-Why instantiate a  `gorilla/mux` instance when we could have simply done `http.HandlerFunc(handler).ServeHTTP(rr,req)` ? This is because in the handler implementation, we had to retrieve the url param. Not instantiating mux would mean we wouldn't be able to fetch the url parameter. Heck, we'd even get a nice panic. We don't want that.
+Why instantiate a  `gorilla/mux` instance when we could have simply done `http.HandlerFunc(handler).ServeHTTP(rr,req)` ?
+This is because in the handler implementation, we had to retrieve the url param. Not instantiating mux would mean we wouldn't be able to fetch the url parameter.
+Heck, we'd even get a nice panic. We don't want that.
 
 Apart from that, nothing changed. We still called mux's `ServeHTTP` method with the response recorder, checked the status and asserted the return JSON.
 
-Tests are supposed to cover both positive and negative inputs. In the `articleHandler`, we have a check that says ___If post cannot be found, throw a 404 error___. How are we sure that works ? 
+Tests are supposed to cover both positive and negative inputs. In the `articleHandler`, we have a check that says ___If post cannot be found, throw a 404 error___. How are we sure that works ?
 
-{% highlight go %}
+```go
+
 
 func TestArticleHandlerWithAnInvalidPost(t *testing.T) {
 
@@ -340,16 +355,19 @@ func TestArticleHandlerWithAnInvalidPost(t *testing.T) {
 }
 
 
-{% endhighlight %}
+```
 
 
 That is going on fine, our tests are passing but we still have un covered feature sets. Our api cannot handle posts creation and deletion right now.
 
-> For this features, i have added only very little tests (positive input only). You might want to try out writing the tests with negative inputs. Just remember that the [github repo][github] has the test suite heavily covered with both positive and negative input if you need a place to look.
+> For this features, i have added only very little tests (positive input only).
+> You might want to try out writing the tests with negative inputs.
+> Just remember that the [github repo][github] has the test suite heavily covered with both positive and negative input if you need a place to look.
 
 The following code block would include the production code for both features while the second one would contain the tests.
 
-{% highlight go %}
+```go
+
 
 func deleteArticleHandler(w http.ResponseWriter, r *http.Request) {
 	type d struct {
@@ -430,11 +448,6 @@ func createArticle(w http.ResponseWriter, r *http.Request) {
 }
 
 
-{% endhighlight %}
-
-
-{% highlight go %}
-
 func TestArticleHandlerWithValidPost(t *testing.T) {
 	req, err := http.NewRequest("GET", "/posts/2", nil)
 
@@ -482,9 +495,10 @@ func TestCanDeleteAPost(t *testing.T) {
 
 }
 
-{% endhighlight %}
+```
 
-This isn't diffferent from what we have done earlier on. We inspect everything that matters to us. For example, we took a peek into the in memory data store in other to truly confirm our handler was properly deleting the post.
+This isn't diffferent from what we have done earlier on. We inspect everything that matters to us.
+For example, we took a peek into the in memory data store in other to truly confirm our handler was properly deleting the post.
 
 > For kicks, you can even check the store doesn't have a post with the specified key.
 
@@ -496,3 +510,4 @@ I hope this post helps someone confused about how to get started with testing.
 [tests_tag]: https://lanreadelowo.com/tags#testing
 [mux]: https://github.com/gorilla/mux
 [github]: https://github.com/adelowo/blogapi
+

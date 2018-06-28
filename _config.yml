@@ -31,7 +31,6 @@ markdown: kramdown
 highlighter: rouge
 permalink: /blog/:year/:month/:day/:title/
 
-
 # html minify
 compress_html:
   clippings: all
@@ -39,34 +38,3 @@ compress_html:
   endings: []
   profile: false
 
-# Links to include in menu navigation
-links:
-  - title: home
-    url: /
-  - title: Blog archive
-    url: /blog
-  - title: tags
-    url: /tags
-  - title: about me
-    url: /about
-# projects in header index
-projects:
-  - name: Onecache
-    url: https://github.com/adelowo/onecache/
-    description: A caching library for Golang with support for redis, filesystem, memcached and an inmemory backend
-
-  - name: Gbowo
-    url: https://github.com/adelowo/gbowo
-    description: A payment library for Paystack and Amplifypay written in PHP
-
-  - name: Gottle
-    url: https://github.com/adelowo/gottle
-    description: An HTTP ratelimiter for Golang.
-
-  - name: Filer
-    url: https://github.com/adelowo/filer
-    description: Golang utilities for working with files
-
-  - name: Gbowo-paystack
-    url:  https://github.com/adelowo/gbowo-paystack
-    description: This is a companion library to Gbowo. And it contains plugins for Gbowo's Paystack adapter.
