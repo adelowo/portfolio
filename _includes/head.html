@@ -63,6 +63,7 @@
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 </head>
 
 <nav class="navbar is-transparent is-fixed-bottom is-warning" id="navbarFixBottom">
@@ -157,7 +158,8 @@
 	A software developer interested in the web.
       </h2>
       <div>
-	<a class="button is-large is-tomato is-rounded" href="/about"> Read more </a>
+	      <a class="button is-large is-tomato is-rounded"
+		      style="background-color: linear-gradient(120deg, #f6d365 0%, #fda085 100%)" href="/about"> Read more </a>
       </div>
       {% endif %}
     </div>

@@ -6592,7 +6592,7 @@ label.panel-block {
   background: #eff;
   margin-bottom: 20px; }
   .highlighter-rouge .highlight {
-    background: #fafafa; }
+    background: #f0f0f0; }
   .highlight .c {
     color: #998;
     font-style: italic; }
@@ -6730,6 +6730,9 @@ label.panel-block {
 html {
   background-color: rgba(10, 10, 10, 0.1); }
 
+body {
+  font-family: 'Muli', sans-serif; }
+
 #portfolio {
   font-size: 4rem;
   text-transform: uppercase; }
@@ -6762,7 +6765,7 @@ img.is-rounded {
   color: #fff; }
 
 .hero.is-tomato {
-  background-image: linear-gradient(141deg, #ffdd57 35%, #ff3860 75%, rgba(255, 0, 0, 0.5) 100%); }
+  background-image: linear-gradient(141deg, #ffdd57 20%, #ff3860 100%); }
 
 .tags a:hover {
   text-decoration: none;
