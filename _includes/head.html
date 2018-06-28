@@ -63,7 +63,6 @@
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 </head>
 
 <nav class="navbar is-transparent is-fixed-bottom is-warning" id="navbarFixBottom">
@@ -151,8 +150,7 @@
   <div class="hero-body">
     <div class="container">
       {% if page.home %}
-      <h1 class="title has-text-weight-bold" id="portfolio">
-        I am Lanre Adelowo,
+      <h1 class="title has-text-weight-bold glitch" data-text="I am Lanre Adelowo," id="portfolio">
       </h1>
       <h2 class="subtitle has-text-weight-semibold">
 	A software developer interested in the web.
