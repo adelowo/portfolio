@@ -1,77 +1,101 @@
+---
+
+layout: compress
+
+---
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     {% include head.html %}
     <body>
-        <section class="section" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="container is-fluid">
-	<div class="columns">
-		<div class="column">
-	    <div class="level">
-		<div class="level-item">
-			<div class="level-left">
-				<time class="is-tomato has-text-weight-bold" itemprop="datePublished" datetime="{{ page.date }}">
-				        {{ page.date | date: "%B %d, %Y" }}
-				</time>
-			</div>
-		</div>
+        <div class="page_posts">
+        {% include svg-icons.html %}
 
-		 <div class="level-item">
-                     <h1 class="title" itemprop="name">{{ page.title }}</h1>
-		 </div>
+<section class="container">
 
+		<div class="is-pitch-word">
+		    <p class="has-text-centered title"> All posts </a>
+	    	</div>
 
-		<div class="level-item">
-			<div class="level-right">
-	    			<div class="tags">
-              				{% for tag in page.tags %}
-					  <a class="is-tomato is-rounded tag
-						  has-text-weight-bold" href="/tags#{{tag | slugify }}">{{ tag }}</a>
-              				{% endfor %}
-	    			</div>
-			</div>
-		</div>
+<div class="level">
+<div class="level-item">
+<div class="tags">
+{% assign tags_list = site.tags %}
+  {% if tags_list.first[0] == null %}
+    {% for tag in tags_list %}
+        <a class="tag is-warning is-large is-capitalize" data-scroll href="#{{ tag | slugify }}">
+		{{ tag | replace:",","" }}
+	</a>
+    {% endfor %}
+  {% else %}
+    {% for tag in tags_list %}
+        <a class="tag is-warning is-large is-capitalize" data-scroll href="#{{ tag[0] | slugify }}">
+		{{ tag[0] | replace: ",","" }}
+	</a>
+    {% endfor %}
+  {% endif %}
+{% assign tags_list = nil %}
+</div>
+</div>
+</div>
+<hr class="hr">
+
+{% for tag in site.tags %}
+    <div class="is-pitch-word">
+    <div class="level">
+	    <div class="level-item">
+		    <span class="title is-capitalized" id="{{ tag[0] | slugify }}">
+			    {{ tag[0] }}
+		    </span>
 	    </div>
-	    </div>
-	    </div>
-
-	    <div class="columns">
-	    <div class="column is-2">
-	    </div>
-	    <div class="column is-8">
-            <article role="article" class="content" itemprop="articleBody">
-                {{ content }}
-            </article>
-
-                <div class="level">
-                    {% if page.previous.url %}
-		    <div class="level-item">
-		    <div class="level-left">
-                        <a class="link" href="{{page.previous.url}}">
-                            &laquo; {{page.previous.title}}
-                        </a>
+    </div>
+    </div>
+        {% assign pages_list = tag[1] %}
+	<div class="content">
+        {% for post in pages_list %}
+            {% if post.title != null %}
+            {% if group == null or group == post.group %}
+	    {% if forloop.first %}
+	      <div class="columns is-multiline">
+	    {% endif %}
+	    <div class="column is-4">
+		    <div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p class="subtitle">
+	<strong>
+		<a class="is-tomato is-capitalized" href="{{ site.url }}{{ post.url }}">
+			{{ post.title }}
+		</a>
+	</strong>
+	<small>
+		<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+			{{ post.date | date: "%B %d, %Y" }}
+		</time>
+	</small>
+        </p>
+      </div>
+    </div>
+  </article>
 		    </div>
-		    </div>
-                    {% endif %}
+	    </div>
+	    {% if forloop.last %}
+	      </div>
+	      <hr class="hr">
+	    {% endif %}
 
-                    {% if page.next.url %}
-		    <div class="level-item">
-		    <div class="level-right">
-                        <a class="link" href="{{page.next.url}}">
-                            {{page.next.title}} &raquo;
-                         </a>
-		    </div>
-		    </div>
-                    {% endif %}
-               </div>
+            {% endif %}
+            {% endif %}
+        {% endfor %}
+	</div>
+        {% assign pages_list = nil %}
+        {% assign group = nil %}
+{% endfor %}
+</section>
 
-            {% include share.html %}
-            {% include comments.html %}
-	    </div>
-	    <div class="column is-2">
-            </div>
-	    </div>
-	    </div>
-        </section>
+        </div>
+	{% include scripts.html %}
     </body>
 </html>
 
