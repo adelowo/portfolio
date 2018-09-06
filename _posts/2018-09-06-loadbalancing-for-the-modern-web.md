@@ -64,7 +64,7 @@ func (c *Client) RegisterService(svc *consul.AgentServiceRegistration) (string, 
     id := uuid.New()
     svc.ID = id
 
-    // We need to return the id, so the app can delete itself from beinng discovered..
+    // We need to return the id, so the app can delete itself from being discovered..
     // Remember that the service discovery db is now our source of truth,
     // so we need to clean up when neccessary
     return id, c.inner.Agent().ServiceRegister(svc)
@@ -199,7 +199,7 @@ Running 3 instances of the service above and fabio yields the below UI
 
 ![Fabio]({{ site.baseurl }}/img/log/fabio.png)
 
-> You obviously don't want to expose `:9998` to the outside work.. A trick that can be used to view it regardless is ssh tunnelling.
+> You obviously don't want to expose `:9998` to the outside world.. A trick that can be used to view it regardless is ssh tunnelling.
 > `ssh -N -f -L 9998:localhost:9998 lanre@IPadress` ... Visit `localhost:9998` on your PC now
 
 With this, all that is needed is to just deploy the service to another server and it would register it's self with consul and fabio
