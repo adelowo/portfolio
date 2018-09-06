@@ -177,7 +177,7 @@ like this :
 
 Now that we have multiple instances of the same service running, how do we uniquely pick one of them ( an healthy instance
 actually ) ? Turns out load balancing is a feature already built into consul but we would not be using those since it doesn't
-have stuffs like loadbalancing based on **_ weights/priority _** and it ties your application too closely with consul..
+have stuffs like loadbalancing based on **_weights/priority_** and it ties your application too closely with consul..
 
 Here comes in [Fabio](https://github.com/fabiolb/fabio). All it needs for it to work is to register your services with consul
 and provide them an health check. It supports TCP, HTTP and Websockets.
@@ -188,7 +188,7 @@ Looking back at our little service, you would notice `Tags: []string{"urlprefix-
 route all requests starting with `/oops` to an healthy instance of our service.
 It can get more interesting by specifying an host name `urlprefix-mysite.com/`.
 
-Runing `fabio` is actually all you need as no configuration is **_ needed _**, it works perfectly fine with it's default,
+Runing `fabio` is actually all you need as no configuration is **_needed_**, it works perfectly fine with it's default,
 although you can always finetune to what you want.
 
 Fabio has a web ui which is exposed on `:9998` and the loadbalancer on `:9999`. So all your traffic would ideally be sent to
@@ -205,4 +205,4 @@ Running 3 instances of the service above and fabio yields the below UI
 With this, all that is needed is to just deploy the service to another server and it would register it's self with consul and fabio
 would then add it to it's routing table.
 
-[consul_kv]: /blog/2017/08/09/composable-go-interfaces
+[consul_kv]: /blog/2018/02/18/managing-production-configuration
