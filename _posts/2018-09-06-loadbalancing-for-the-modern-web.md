@@ -38,7 +38,146 @@ applications to the new server.
 
 ### Service discovery all the way
 
-I wanted a way to add new servers, run the apps there and not bother about proxy .
+I wanted a way to add new servers, run the apps there and not bother about manually updating some list or deploying
+unnneccessary services too.
+
+I looked around, found fabio and the rest as they say is history.
+
+### Register a service in consul
+
+I have put together a simple demo [on Github](https://github.com/adelowo/service-discovery-demo).. We first need to connect to consul.. Doing that is pretty easy
+
+```go
+func New(addr string) (*Client, error) {
+	conf := consul.DefaultConfig()
+	conf.Address = addr
+
+	return NewWithConfig(conf)
+}
+```
+
+The part that actually registers the service is this
+
+```go
+func (c *Client) RegisterService(svc *consul.AgentServiceRegistration) (string, error) {
+
+	id := uuid.New()
+	svc.ID = id
+
+    // We need to return the id, so the app can delete itself from beinng discovered..
+    // Remember that the service discovery db is now our source of truth,
+    // so we need to clean up when neccessary
+	return id, c.inner.Agent().ServiceRegister(svc)
+}
+```
+
+```go
+// Deregistering the service is pretty easy,
+// just pass the id gotten after a successful registration
+// This should ideally be done as part of the shutdown process.
+func (c *Client) DeRegister(id string) error {
+	return c.inner.Agent().ServiceDeregister(id)
+}
+```
+
+So how does this all fit in a real application/service ?
+
+- Call `Register`
+- Add health checks
+- Deregister on shutdown.
+
+Let's take a look at an example :
+
+```go
+package main
+
+import (
+	"flag"
+	"fmt"
+	"log"
+	"net/http"
+	"strconv"
+
+	"github.com/adelowo/service-discovery-demo/pkg/registry"
+	"github.com/hashicorp/consul/api"
+)
+
+func main() {
+
+	var discoveryURL = flag.String("discovery", "127.0.0.1:8500", "Consul service discovery url")
+	var httpPort = flag.String("http", ":3000", "Port to run HTTP service at")
+
+	flag.Parse()
+
+	reg, err := registry.New(*discoveryURL)
+	if err != nil {
+		log.Fatalf("an error occurred while bootstrapping service discovery... %v", err)
+	}
+
+	var healthURL string
+
+    // look at the code put on Github for this
+	ip, err := registry.IPAddr()
+	if err != nil {
+		log.Fatalf("could not determine IP address to register this service with... %v", err)
+	}
+
+	healthURL = "http://" + ip.String() + *httpPort + "/health"
+
+	pp, err := strconv.Atoi((*httpPort)[1:]) // get rid of the ":" port
+	if err != nil {
+		log.Fatalf("could not discover port to register with consul.. %v", err)
+	}
+
+	svc := &api.AgentServiceRegistration{
+		Name:    "cool_app",
+		Address: ip.String(),
+		Port:    pp,
+		Tags:    []string{"urlprefix-/oops"},
+		Check: &api.AgentServiceCheck{
+			TLSSkipVerify: true,
+			Method:        "GET",
+			Timeout:       "20s",
+			Interval:      "1m",
+			HTTP:          healthURL,
+			Name:          "HTTP check for cool app",
+		},
+	}
+
+	id, err := reg.RegisterService(svc)
+	if err != nil {
+		log.Fatalf("Could not register service in consul... %v", err)
+	}
+
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		r.Body.Close()
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+	})
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		r.Body.Close()
+		fmt.Println("Here")
+		w.Write([]byte("home page"))
+	})
+
+	if err := http.ListenAndServe(*httpPort, nil); err != nil {
+		reg.DeRegister(id)
+	}
+}
+```
+
+Running multiple versions of this code ( with different ips ) should give you an interface
+like:
+
+![All services]({{ site.baseurl }}/img/log/allservices.png)
+![Deeper view of all services]({{ site.baseurl }}/img/log/running_services.png)
+
+### So where is the loadbalancer fit in ?
+
+Here is where fabio comes in
+
+![Fabio]({{ site.baseurl }}/img/log/fabio.png)
 
 dnvdjon
 
