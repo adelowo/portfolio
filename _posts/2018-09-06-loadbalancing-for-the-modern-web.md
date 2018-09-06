@@ -10,7 +10,7 @@ to remember, especially given the fact that most software this days end up havin
 down and restarting the same service most likely means it has a newer IP address.
 
 How can applications then be aware of other supporting services it needs to communicate with ? This is where
-**_ Service discovery _** comes into play. Basically, service discovery is the process of services communicating
+**_Service discovery_** comes into play. Basically, service discovery is the process of services communicating
 information about it's self (IP address, port number, metadata ??? ) to others. It also involves running health checks
 on this services to check availability and communicates that to others.
 
