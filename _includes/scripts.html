@@ -1,12 +1,20 @@
-			<script>
-			        var t = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
-        t.length > 0 && t.forEach(function(t) {
-            t.addEventListener("click", function() {
-                var e = t.dataset.target,
-                    n = document.getElementById(e);
-                t.classList.toggle("is-tomato"), n.classList.toggle("is-active")
-            })
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71600006-1"></script>
+
+<script>
+    var t = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    t.length > 0 && t.forEach(function (t) {
+        t.addEventListener("click", function () {
+            var e = t.dataset.target,
+                n = document.getElementById(e);
+            t.classList.toggle("is-tomato"), n.classList.toggle("is-active")
         })
+    })
 
-		</script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
+    gtag('config', 'UA-71600006-1');
+
+</script>
