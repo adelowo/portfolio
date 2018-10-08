@@ -7,6 +7,13 @@ pipeline:
       - bundle install
       - jekyll build
 
+  scp:
+    image: appleboy/drone-scp
+    secrets: [ ssh_key, ssh_username ]
+    host: lanre.wtf
+    target: ~/lanre.wtf
+    source: _site
+
 branches: master
 when:
   event: [push, pull_request,tag]
