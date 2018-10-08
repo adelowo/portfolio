@@ -6,3 +6,7 @@ pipeline:
       - gem install bundler
       - bundle install
       - jekyll build
+
+branches: master
+when:
+  event: [push, pull_request,tag]
