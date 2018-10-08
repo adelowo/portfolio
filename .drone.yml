@@ -2,6 +2,7 @@ pipeline:
   build:
     image: jekyll/jekyll
     commands:
+      - mkdir _site
       - gem install bundler
       - bundle install
       - jekyll build
