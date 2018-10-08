@@ -7,13 +7,14 @@ pipeline:
       - bundle install
       - jekyll build
 
-  scp:
-    image: appleboy/drone-scp
-    secrets: [ ssh_key, ssh_username ]
-    host: lanre.wtf
-    target: ~/lanre.wtf
+  deploy:
+    image: drillster/drone-rsync
+    hosts: [ "lanre.wtf" ]
     source: _site
-    username: lanreadelowo
+    target: ~/git.lanre.wtf
+    recursive: true
+    # delete: true
+    secrets: [ plugin_key, rsync_user ]
 
 branches: master
 when:
