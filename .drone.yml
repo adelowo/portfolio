@@ -1,0 +1,7 @@
+pipeline:
+  build:
+    image: jekyll/jekyll
+    commands:
+      - gem install bundler
+      - bundle install
+      - jekyll build
