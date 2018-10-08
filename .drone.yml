@@ -13,6 +13,7 @@ pipeline:
     host: lanre.wtf
     target: ~/lanre.wtf
     source: _site
+    username: lanreadelowo
 
 branches: master
 when:
