@@ -16,9 +16,7 @@ pipeline:
     user: lanreadelowo
     # delete: true
     #
-    secrets:
-      - source: RSYNC_KEY
-        target: rsync_key
+    secrets: [ plugin_key ]
 
 branches: master
 when:
