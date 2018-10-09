@@ -1,0 +1,23 @@
+pipeline:
+  build:
+    image: jekyll/jekyll
+    commands:
+      - mkdir _site
+      - gem install bundler
+      - bundle install
+      - jekyll build
+
+  rsync:
+    image: drillster/drone-rsync
+    hosts: [ "lanre.wtf" ]
+    source: _site
+    target: ~/git.lanre.wtf
+    recursive: true
+    user: lanreadelowo
+    # delete: true
+    #
+    secrets: [ rsync_key ]
+
+branches: master
+when:
+  event: [push, pull_request,tag]
