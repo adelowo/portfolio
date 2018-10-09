@@ -16,7 +16,9 @@ pipeline:
     user: lanreadelowo
     # delete: true
     #
-    secrets: [ rsync_key ]
+    secrets:
+      - source: RSYNC_KEY
+        target: rsync_key
 
 branches: master
 when:
