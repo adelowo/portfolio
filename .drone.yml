@@ -7,7 +7,7 @@ pipeline:
       - bundle install
       - jekyll build
 
-  deploy:
+  rsync:
     image: drillster/drone-rsync
     hosts: [ "lanre.wtf" ]
     source: _site
@@ -15,7 +15,8 @@ pipeline:
     recursive: true
     user: lanreadelowo
     # delete: true
-    secrets: [ rsync_key]
+    #
+    secrets: [ rsync_key ]
 
 branches: master
 when:
