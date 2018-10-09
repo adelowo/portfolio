@@ -13,8 +13,9 @@ pipeline:
     source: _site
     target: ~/git.lanre.wtf
     recursive: true
+    user: lanreadelowo
     # delete: true
-    secrets: [ rsync_key, rsync_user ]
+    secrets: [ rsync_key]
 
 branches: master
 when:
