@@ -101,7 +101,10 @@ host, your private key .
 
 > You don't have to make your private key public. Drone has good support for
 secrets.. Secret values are so flexible they can even be limited to a specific docker
-image plus they arenn't exposed on a PR. See [docs](http://docs.drone.io/manage-secrets/)
+image plus they aren't exposed on a PR. See [docs](http://docs.drone.io/manage-secrets/)
+
+> There is an [scp plugin here](https://github.com/appleboy/drone-scp#usage-from-drone-ci) if you want to
+> use that instead
 
 To add our private key as a secret, we need to run the following :
 
