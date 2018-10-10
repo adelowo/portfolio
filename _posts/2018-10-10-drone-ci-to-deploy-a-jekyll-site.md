@@ -1,8 +1,7 @@
 ---
 layout: post
 tags: ["Go", "Devops"]
-title: "Automatigally build and deploy your Jekyll site with a git push
-and Drone CI"
+title: "Automagically build and deploy your Jekyll site with Drone CI"
 ---
 
 I have been using Jekyll, Github pages plus Cloudflare to host my blog for a
