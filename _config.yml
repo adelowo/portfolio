@@ -15,7 +15,7 @@ exclude:
 exclude: ['package.json', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock','LICENSE','CNAME', 'README.md', 'yarn.lock', 'gulpfile.js']
 
 # Site settings
-title: Lanre-Adelowo - Software Developer interested in the web
+title: Lanre Adelowo - Software Developer interested in the web
 description: "A blog on Software Development"
 url: "https://lanre.wtf"
 # User settings
