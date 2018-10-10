@@ -5,7 +5,7 @@ pipeline:
       - mkdir _site
       - gem install bundler
       - bundle install
-      - jekyll build
+      - bundle exec jekyll build
 
   deploy:
     image: drillster/drone-rsync
