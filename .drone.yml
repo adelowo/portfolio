@@ -10,7 +10,7 @@ pipeline:
   rsync:
     image: drillster/drone-rsync
     hosts: [ "lanre.wtf" ]
-    source: _site
+    source: _site/*
     target: ~/lanre.wtf
     recursive: true
     user: lanreadelowo
