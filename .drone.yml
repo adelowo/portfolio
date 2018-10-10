@@ -11,7 +11,7 @@ pipeline:
     image: drillster/drone-rsync
     hosts: [ "lanre.wtf" ]
     source: _site
-    target: ~/git.lanre.wtf
+    target: ~/tmp
     recursive: true
     user: lanreadelowo
     # delete: true
