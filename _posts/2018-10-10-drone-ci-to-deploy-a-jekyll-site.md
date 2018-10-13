@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: ["Go", "Devops"]
+tags: [ "Devops", "Deployment"]
 title: "Automagically build and deploy your Jekyll site with Drone CI"
 ---
 

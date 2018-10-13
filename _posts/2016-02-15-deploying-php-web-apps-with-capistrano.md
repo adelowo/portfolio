@@ -1,7 +1,7 @@
 ---
 layout : post
 description: I only recently completed building a project i was extremely keen on
-tags : [deployment, PHP]
+tags : [Deployment, PHP]
 ---
 
 I only recently completed building a project i was extremely keen on - [Schoollogue](https://schoollogue.com), a wordplay on "School Catalogue" -

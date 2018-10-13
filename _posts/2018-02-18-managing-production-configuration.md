@@ -1,7 +1,7 @@
 ---
 
 layout: post
-tags: ["Go" , "deployment"]
+tags: ["Go" , "Deployment"]
 title: "Managing configuration values in production sanely"
 
 ---
