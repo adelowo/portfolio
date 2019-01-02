@@ -92,7 +92,8 @@ func main() {
 
 
 That above my friend is the easiest way to do database migration in Go. You can
-go ahead to download the following files and place them in the `migrations`
+go ahead to download the following files from [this repo](https://github.com/adelowo/migration-demo)
+and place them in the `migrations`
 directory or wherever you deem fit. After which you will need to run it with the
 following command:
 
