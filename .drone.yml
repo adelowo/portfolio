@@ -3,6 +3,7 @@ pipeline:
     image: ruby:latest
     commands:
       - gem install bundler
+      - gem update --system
       - bundle install
       - bundle exec jekyll build
 
