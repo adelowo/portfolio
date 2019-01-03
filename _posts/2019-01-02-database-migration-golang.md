@@ -31,6 +31,8 @@ basically, each migration should have an `up.sql` and `down.sql` file. The
 `up.sql` file will be executed on actually running the migration while
 `down.sql` will execute when a rollback is attempted.
 
+> You can use the [migrate](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate) cli tool to create the migrations though. `migrate create -ext sql create_users_table`
+
 
 ```go
 package main
