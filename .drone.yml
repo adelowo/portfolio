@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: ruby
+    image: ruby:latest
     commands:
       - gem install bundler
       - bundle install
