@@ -1,5 +1,17 @@
 <section class="comments">
 
+  {% if site.is_hireable %}
+  <div class="notification is-warning" style="margin-top: 1rem">
+    <button class="delete" id="job-search"></button>
+    <p>Hi there, here is to let you know I am currently open to opportunities -
+    contract and fulltime with an emphasis on remote work. I would love to work with
+    Go, PHP (with a preference for Laravel) or NodeJS. Ruby on Rails wouldn't be
+    terrible idea either.</p>
+
+    <p>Sounds like something you or your company needs ? Shoot me an email at
+    {{site.email}}</p>
+  </div>
+  {% endif %}
     <p class="has-text-centered title" style="margin-top: 15px; ">Comments</p>
     <div id="disqus_thread"></div>
 

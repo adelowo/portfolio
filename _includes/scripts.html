@@ -11,6 +11,13 @@
         })
     })
 
+    var jobSearchBtn = document.getElementById("job-search")
+    if (jobSearchBtn !== null) {
+	    jobSearchBtn.addEventListener("click", function() {
+		    jobSearchBtn.parentElement.remove()
+	    })
+    }
+
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
