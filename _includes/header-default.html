@@ -1,11 +1,5 @@
 <section class="section">
 <div class="container is-fluid">
-  <div class="level is-pitch-word">
-     <div class="level-item">
-       <h1 class="title">Most recent posts</h1>
-     </div>
-  </div>
-
   <div class="columns has-recent-grid">
   <div class="tile is-ancestor">
   {% for post in site.posts limit:3 offset:0 %}
