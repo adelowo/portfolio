@@ -95,10 +95,12 @@
       <a class="navbar-item has-text-weight-bold is-uppercase" href="/gear">
         Gear
       </a>
+      {% if site.is_hireable %}
       <a class="tags has-addons" href="mailto:{{site.email}}">
       <span class="tag is-dark">Hire</span>
       <span class="tag is-success">me now</span>
-    </a>
+      </a>
+      {% endif %}
     </div>
 
     <div class="navbar-end">

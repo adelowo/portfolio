@@ -25,7 +25,7 @@ email: yo@lanre.wtf
 twitter_username: lanreadelowo
 github_username:  adelowo
 disqus_username: adelowo
-is_hireable: true
+is_hireable: false
 
 # Build settings
 markdown: kramdown
