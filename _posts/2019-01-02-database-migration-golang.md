@@ -59,7 +59,7 @@ func main() {
 
 	db, err := sql.Open("mysql", *mysqlDSN)
 	if err != nil {
-		log.Fatalf("could not connect to postgresql database... %v", err)
+		log.Fatalf("could not connect to the MySQL database... %v", err)
 	}
 
 	if err := db.Ping(); err != nil {
