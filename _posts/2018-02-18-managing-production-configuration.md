@@ -7,7 +7,7 @@ title: "Managing configuration values in production sanely"
 ---
 
 
-In the last 2 months I have saved configuration details in multiple ways and this post is a reflection of
+In the last 2 months I have stored configuration details in multiple ways and this post is a reflection of
 those methods and what I default to now - I have seen the light.
 
 As a developer trying to improve and follow well known best practices.

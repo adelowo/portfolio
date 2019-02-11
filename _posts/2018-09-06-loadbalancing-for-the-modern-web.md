@@ -14,8 +14,8 @@ How can applications then be aware of other supporting services it needs to comm
 information about it's self (IP address, port number, metadata ??? ) to others. It also involves running health checks
 on this services to check availability and communicates that to others.
 
-A popular application for this ( at least in the Golang community ) is Consul. While I wrote a blog post on using consul at
-my place of a work, it has always [been for configuration purposes for apps runnninng on different machines][consul_kv]
+A popular application for this ( at least in the Golang community ) is Consul. While I wrote a blog post on using consul,
+it has always [been for configuration purposes for apps runinng on different machines][consul_kv]
 so we don't have to deal with flags, `env` values and all of that. But consul is much more than that. Key value storage
 is one of the things it does.
 

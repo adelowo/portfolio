@@ -86,7 +86,7 @@ the project's dependencies. After which we test to see if the repo still builds.
 #### Continous Deployment
 
 Awesome, we have set up continous integration to make sure the site doesn't
-break randomly but we still need to be deeploy changes automatically. Since the
+break randomly but we still need to deploy changes automatically. Since the
 previous step built the site ( into the `_site` directory ), all that is needed
 is to copy those files to some location.
 
