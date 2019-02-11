@@ -5,18 +5,29 @@
     var t = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
     t.length > 0 && t.forEach(function (t) {
         t.addEventListener("click", function () {
-            var e = t.dataset.target,
-                n = document.getElementById(e);
-            t.classList.toggle("is-tomato"), n.classList.toggle("is-active")
-        })
-    })
+            	var e = t.dataset.target,
+                var n = document.getElementById(e);
 
+            	t.classList.toggle("is-tomato");
+		n.classList.toggle("is-active");
+        })
+    });
+
+    var allLinks = Array.prototype.slice.call(document.getElementsByTagName("a"),0)
+    allLinks.length > 0 && allLinks.forEach(function(link) {
+	    if (link.hostname !== "lanre.wtf") {
+	    	link.target = "_";
+	    }
+    });
+
+    {% if site.is_hireable %}
     var jobSearchBtn = document.getElementById("job-search")
     if (jobSearchBtn !== null) {
 	    jobSearchBtn.addEventListener("click", function() {
 		    jobSearchBtn.parentElement.remove()
-	    })
+	    });
     }
+    {% endif %}
 
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
