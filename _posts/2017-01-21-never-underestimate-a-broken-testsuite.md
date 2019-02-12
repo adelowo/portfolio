@@ -13,7 +13,7 @@ tags : [Testing]
 
 In the course of my [very little participation](https://github.com/adelowo){:target="_blank"} in the opensource world, i have come by a recurrent theme.
 ___This theme___ has happened to be the default route i take whenever i run `git clone` on a package on Github.
-Truely, this process have also been applied to code i wrote months ago but couldn't really figure out a certain part of it.
+Truly, this process have also been applied to code i wrote months ago but couldn't really figure out a certain part of it.
 
 ### A little side story
 
@@ -140,7 +140,7 @@ $ phpunit --colors="always" tests/Paser/Strategy/XmlStrategy.php
 I know that is going to give me the red bar. But i don't care.
 I just don't. **What i care about is knowing the tests failed and i have made wrong assumptions on the usage/API of the library**
 
-> It was hard getting into this mindset and i still get fuzzy about this occassionaly.
+> It was hard getting into this mindset and i still get fuzzy about this occasionally.
 
 Then i disect the test suite for the `XmlStrategy` one after the other. This is usually done by appending `--filter` to `phpunit`'s invocation.
 

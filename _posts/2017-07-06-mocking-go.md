@@ -7,7 +7,7 @@ description: "Mock the database in your Golang tests"
 ---
 
 We write code all the time and managing tight coupling is a challenge we actively face.
-This post attempts to address and show a practical example of seperating ___our concerns___(business logic) and the database.
+This post attempts to address and show a practical example of separating ___our concerns___(business logic) and the database.
 While this post describes this process ___via a database___, note that it can be applied to any other part of the codebase.
 
 > PS,  [mocking 101](/blog/2016/12/02/a-subtle-introduction-to-mocking/),
@@ -132,7 +132,7 @@ The most interesting here is [`fakeStore`](https://github.com/adelowo/mockdemo/b
 It is a mock that has expectations and stubs (return values) so as to make itself seem real. While it can be written by hand, I made use of a tool called [mockery](https://github.com/vektra/mockery) that autogenerates structs based on interfaces.
 
 While this is good enough, we might have a problem.
-And that is as a result of mocking (suprised ?), we could run into problems where the ci build passes but the code fails in production because we wrote poorly formatted sql.
+And that is as a result of mocking (surprised ?), we could run into problems where the ci build passes but the code fails in production because we wrote poorly formatted sql.
 To fix this issue, I have found [sqlmock][s] useful.
 
 Another thing is it starts to get complex, so for small projects, I mock all through but for any other thing, I would rather just make use of an in memory sqlite database while keeping MYSQL for production.

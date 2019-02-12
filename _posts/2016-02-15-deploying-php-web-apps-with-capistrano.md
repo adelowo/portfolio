@@ -15,7 +15,7 @@ looking for how to move this online. I already knew my best bet was an IAAS plat
 just does not scale and isn't not developer-friendly but there was something i didn't just get.
 
 Of course, i knew i could throw it (the files) at the server and "just let it flow" but it's a project i do want to iterate on, add new features and remove obsolete or
-unneccessary features - some would call it a start-up .***coughs*** - .
+unnecessary features - some would call it a start-up .***coughs*** - .
 
 **How do i add all this up without having to do a lot of manual work when there's a v2 out  ?**
 

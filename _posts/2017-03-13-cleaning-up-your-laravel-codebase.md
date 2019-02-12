@@ -6,7 +6,7 @@ description : Tips on writing more maintainable code in Laravel
 
 ---
 
-I wrote a [blog post](/blog/2016/10/16/kiss-is-a-way-of-life/) some time ago about how i tried over-architecting a Laravel app, what i learnt in the process of doing that (TLDR; maintainance hell).
+I wrote a [blog post](/blog/2016/10/16/kiss-is-a-way-of-life/) some time ago about how i tried over-architecting a Laravel app, what i learnt in the process of doing that (TLDR; maintenance hell).
 With that it seems kind of nice to write a follow up as to what have changed since that and how i write Laravel apps this days.
 
 Most of what i am going to be talking about are by no more means new processes/methods but it's something i still find a lot of people

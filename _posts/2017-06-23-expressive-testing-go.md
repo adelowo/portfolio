@@ -91,7 +91,7 @@ func KindFromSides(a, b, c float64) (Kind, error) {
 We are done with our package, the next obvious thing is to write the tests. We would be needng to install `ginkgo` and `gomega`. They are ___go gettable___ as `github.com/onsi/:name`
 
 The way ginkgo works is a little bit different from how the standard library works.
-So we would need to (automatically) create a `bootstrap` file for our tests, this is for compatibilty with the standard library test runner i.e `go test`.
+So we would need to (automatically) create a `bootstrap` file for our tests, this is for compatibility with the standard library test runner i.e `go test`.
 To generate the bootstrap file, we would run `ginkgo bootstrap`. After which we would run `ginkgo generate file_name.go`in other to generate a test file.
 
 Here is what the generated test file looks like :

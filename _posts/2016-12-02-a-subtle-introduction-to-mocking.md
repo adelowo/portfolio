@@ -33,7 +33,7 @@ way that is controlled by you, the tester. Mocks may (not) have stubs.
 
 ### Getting started
 
-The defacto tool for this - in PHP - is [Mockery](https://packagist.org/packages/mockery/mockery){:target="_blank"} even though PHPUnit ships with it's own implentation. That can get too verbose.
+The defacto tool for this - in PHP - is [Mockery](https://packagist.org/packages/mockery/mockery){:target="_blank"} even though PHPUnit ships with it's own implementation. That can get too verbose.
 
 To install mockery, we'd have to pull it in from [packagist](https://packagist.org){:target="_blank"} by running
 

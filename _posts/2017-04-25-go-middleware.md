@@ -33,7 +33,7 @@ When Middleware is added to a web application, HTTP flow looks like this =>
 - Multiplexer
 - Middleware handler
 - App handler (say `PostUser`)
-- Middleware handler (not neccessary, can skip this)
+- Middleware handler (not necessary, can skip this)
 
 
 #### Making Middleware

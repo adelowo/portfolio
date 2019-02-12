@@ -37,7 +37,7 @@ for a couple reasons.
 
 ### Drone CI
 
-Drone is a continous integration (s/integration/delivery) server written in Golang. But the most
+Drone is a continuous integration (s/integration/delivery) server written in Golang. But the most
 interesting thing is it's Docker usage. All build pipelines are executed in a
 container, makes perfect sense.
 
@@ -83,9 +83,9 @@ We use the standard `ruby` container, install bundler, use bundler to install
 the project's dependencies. After which we test to see if the repo still builds.
 
 
-#### Continous Deployment
+#### Continuous Deployment
 
-Awesome, we have set up continous integration to make sure the site doesn't
+Awesome, we have set up continuous integration to make sure the site doesn't
 break randomly but we still need to deploy changes automatically. Since the
 previous step built the site ( into the `_site` directory ), all that is needed
 is to copy those files to some location.
@@ -93,7 +93,7 @@ is to copy those files to some location.
 Here is where plugins in Drone CI come in. Plugins themselves too are regular
 docker containers too. Write the plugin, then containerize it, capish.
 
-I have choosen to make use of `rsync` for this, so I am using this [plugin for that](https://github.com/Drillster/drone-rsync). We would
+I have chosen to make use of `rsync` for this, so I am using this [plugin for that](https://github.com/Drillster/drone-rsync). We would
 be needing to supply some parameters to the plugin so it can do all the
 hardlifting for us, they include the host, source file/directory, target on the
 host, your private key .

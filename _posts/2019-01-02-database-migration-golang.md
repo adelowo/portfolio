@@ -24,7 +24,7 @@ intrincasies as per deployment. I will also explain how this ends up in the [rea
 
 #### A sample application
 
-The `migrate` libary requires some convention as per the migration files. This
+The `migrate` library requires some convention as per the migration files. This
 is expected as it is a matter of convention over configuration. The migration
 files have to be named `1_create_XXX.up.sql` and `1_create_XXX.down.sql`. So
 basically, each migration should have an `up.sql` and `down.sql` file. The

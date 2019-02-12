@@ -146,7 +146,7 @@ function errorBag(array $defaultErrors = [])
 ```
 > If the above seems a little bit weird, you should get up to speed on anonymous classes by skimming through the [docs](http://php.net/manual/en/language.oop5.anonymous.php)
 
-We have an anonymous class within the `validator` method that helps us check if our checks was successfull or not via the `fails` and `passes` methods.
+We have an anonymous class within the `validator` method that helps us check if our checks was successful or not via the `fails` and `passes` methods.
 The `errorBag` function handles the addition of errors to the collection already available.
 
 The next thing we have coming is the ___validator engine___ itself.

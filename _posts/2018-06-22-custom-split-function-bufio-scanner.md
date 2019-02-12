@@ -42,7 +42,7 @@ func TestDB_KeyExists(t *testing.T) {
 
 	buf.Split(func(data []byte, atEOF bool) (int, []byte, error) {
 
-		// Trim out unneccessary whitespaces
+		// Trim out unnecessary whitespaces
 		trimSpaces := func(b []byte) []byte {
 			return bytes.TrimSpace(b)
 		}

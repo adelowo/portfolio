@@ -55,14 +55,14 @@ considering the fact that API calls are rate limited and due to the high usage o
 > You don't have to make use of a RoundTripper for this as (inside a handler) you can check the cache for the existence of an item before you make the `HTTP`
 > request at all. But with a RoundTripper implementation, ___you are probably distributing responsibilities properly___<sup>[0]</sup>
 
-- Adding appropiate (authorization) headers to the request as need be...
+- Adding appropriate (authorization) headers to the request as need be...
 An example that readily comes to mind is [google/go-github][google_github_client], a Golang client for Github's api.
 Some part of Github's api require the request be authenticated, some don't. By default, the library doesn't handle authentication, it uses a default HTTP client,
 if you need to be able to access authenticated sections of the api, you bring your own HTTP client along, for example with `oauth2` protected endpoints..
 So how does this concern Round tripping, there is this [ghinstallation][ghinstallation_lib] that allows you authenticate Github apps with go-github.
-If you look at it's codebase, all it does is provide an `http.Client` that implements `http.RoundTripper`. After which it set the appropiate headers (and values) in the `RoundTrip` method.
+If you look at it's codebase, all it does is provide an `http.Client` that implements `http.RoundTripper`. After which it set the appropriate headers (and values) in the `RoundTrip` method.
 
--  Rate limiting. This is quite similiar to the above, maybe you have a ___bucket___ where you keep the number of connections you have made recently.
+-  Rate limiting. This is quite similar to the above, maybe you have a ___bucket___ where you keep the number of connections you have made recently.
 You check if you are still in acceptable ___standing with the API___ and decide if you should make the request, pull back from making the request or scheduling it to run in future.
 
 - Whatever have you.. [Maybe not](https://godoc.org/pkg/net/http/#RoundTripper).
@@ -129,7 +129,7 @@ Then we would build the client package. This is the most interesting part, while
 First of all, we would need a cache store. Since this is a minimal project,
 a dictionary/map can help us get away ASAP. We would create a `http.Transport` that implements `http.RoundTripper` but is also a cache store.
 
-> In real life you'd want to seperate them from each other though.
+> In real life you'd want to separate them from each other though.
 
 
 ```go

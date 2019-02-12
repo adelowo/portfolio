@@ -9,7 +9,7 @@ tags : [PHP]
 > Check out my [previous post]({{site.baseurl}}/blog/2015/12/14/the-need-to-use-a-template-engine)
 
 In view of that, i thought it'd be nice to describe how a minimal MVC structure could be implemented without running a `composer require large/framework` when all you just want
-is a clean way to seperate your logic from presentation and do not need all the features that'd be available within `large/framework`.
+is a clean way to separate your logic from presentation and do not need all the features that'd be available within `large/framework`.
 
 ## AuraPHP
 This is a router and we only are installing it since we get pretty urls which is a must nowadays.
@@ -18,7 +18,7 @@ This is a router and we only are installing it since we get pretty urls which is
 
 ## Twig
 
-> Twig is a templating engine and helps us seperate our template files for reusability and maintainance. I already [wrote a post on the benefits of using a template engine]({{site.baseurl}}/blog/2015/12/14/the-need-to-use-a-template-engine).
+> Twig is a templating engine and helps us separate our template files for reusability and maintenance. I already [wrote a post on the benefits of using a template engine]({{site.baseurl}}/blog/2015/12/14/the-need-to-use-a-template-engine).
 
 ### Installation
 
@@ -120,7 +120,7 @@ As depicted above, the methods are quite descriptive.
 This is a simple example as it represents a :
 
 * `GET` request to the `/` route. The action and method param are what we actually need in order to present a little attractive something to our users.
-In order to achieve this, we would employ Twig since we are all about seperating the pieces of our application .
+In order to achieve this, we would employ Twig since we are all about separating the pieces of our application .
 
 * `POST` request to the `/submit` route.
 

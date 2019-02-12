@@ -40,7 +40,7 @@ It would be nice anyways to explain what i mean by ___retaining state___. When i
 
 	- Opened Tabs : The best way to explain this is via the file manager, say i have 4 tabs opened and in each i am in some directory so deep like `/home/me/s/d/d/d/`.
 	  On a reboot, or ___reopening___ the file manager, i am presented a window that has all 4 tabs opened with each of them in the deep directory i left them at.
-	  I take full advantage of this since a lot of my activites in the file manager is usually in 3 directories : `/home/adez/Documents`, `/home/adez/goat`, `/var/www/html/`.
+	  I take full advantage of this since a lot of my activities in the file manager is usually in 3 directories : `/home/adez/Documents`, `/home/adez/goat`, `/var/www/html/`.
 	  Although i keep a 4th tab - `/home/adez/` for miscellaneous operations. With this, navigating via the GUI is just gold. ___I hear the GUI slows you down a lot, well not with Elementary.___
 
 	- Applications instances : For example, i am running two instance of Sublime text - a text editor - and for some reason, my computer crashes
@@ -73,7 +73,7 @@ A snapshot in progress (Take a look at the devices section)
 ![Disk usage bar]({{site.baseurl}}/assets/img/pantheon-files.png)
 
 
-### Default Applications and installation of new sofware
+### Default Applications and installation of new software
 
 Elementary OS comes battery included albeit with a sensible battery size. The default installation comes with :
 

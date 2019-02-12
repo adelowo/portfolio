@@ -37,7 +37,7 @@ Till i woke up to a trello notification that says a new card has been added to t
 I went like WTF and tried it out on my machine, i couldn't replicate it. I had to ask my friend who happen to be a dev on the platform if he could replicate it.
 
 So the problem was pretty much simple, `$afollower->user_id` returns an integer on my machine but in production, it returns a string.
-That alongside the fact that i made use of "strict comparision" - === - rather than loose comparision - == .
+That alongside the fact that i made use of "strict comparison" - === - rather than loose comparison - == .
 
 I use MYSQL for dev purposes and that is as true for my production environments - alongside the current app being talked about - but sometime in April, we switched
 db engine to MariaDB after we fell out of love with Graph Databases<sup>[2]</sup>. MariaDB and MYSQL are supposed to be compatible but MYSQL returns an integer - definitely -

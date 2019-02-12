@@ -29,7 +29,7 @@ But what about those where there isn't an abstraction ? What do we do ?
 > Brute force solution : We don't use the feature.
 
 As you already know, brute forced solutions are usually problematic.
-And this is no exception. We miss some other goodies of the API because the library we have choosen to make use doesn't support that feature.
+And this is no exception. We miss some other goodies of the API because the library we have chosen to make use doesn't support that feature.
 
 That exactly is the thought process that went into adding the option of ___Plugins___ as a first class feature in [Gbowo][gbowo].
 
@@ -209,7 +209,7 @@ $paystack->getTransaction("ref_comes_here");
 
 That is all, we have a functional plugin without extending anything or knowing the innards of the core Gbowo library.
 
-Plugins are key in Gbowo's architecture. At the begining of this article, i talked about Gbowo providing abstractions.
+Plugins are key in Gbowo's architecture. At the beginning of this article, i talked about Gbowo providing abstractions.
 Those abstractions are made even more powerful with plugins that are shipped in the core.
 
 Finally, we must test the plugin to make sure it works.

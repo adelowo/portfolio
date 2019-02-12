@@ -66,7 +66,7 @@ func (c *Client) RegisterService(svc *consul.AgentServiceRegistration) (string, 
 
     // We need to return the id, so the app can delete itself from being discovered..
     // Remember that the service discovery db is now our source of truth,
-    // so we need to clean up when neccessary
+    // so we need to clean up when necessary
     return id, c.inner.Agent().ServiceRegister(svc)
 }
 ```
@@ -188,7 +188,7 @@ Looking back at our little service, you would notice `Tags: []string{"urlprefix-
 route all requests starting with `/oops` to an healthy instance of our service.
 It can get more interesting by specifying an host name `urlprefix-mysite.com/`.
 
-Runing `fabio` is actually all you need as no configuration is **_needed_**, it works perfectly fine with it's default,
+Running `fabio` is actually all you need as no configuration is **_needed_**, it works perfectly fine with it's default,
 although you can always finetune to what you want.
 
 Fabio has a web ui which is exposed on `:9998` and the loadbalancer on `:9999`. So all your traffic would ideally be sent to
