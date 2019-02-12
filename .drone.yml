@@ -1,4 +1,12 @@
 pipeline:
+  check_misspellings:
+    image: alpine
+    commands:
+      - apk --no-cache add curl
+      - curl -L -o ./install-misspell.sh https://git.io/misspell
+      - ./install-misspell.sh
+      - misspell .
+
   build:
     image: ruby:latest
     commands:
