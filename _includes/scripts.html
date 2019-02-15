@@ -15,7 +15,7 @@
 
     var allLinks = Array.prototype.slice.call(document.getElementsByTagName("a"),0);
     allLinks.length > 0 && allLinks.forEach(function(link) {
-	    if (link.hostname !== "lanre.wtf") {
+	    if (link.hostname !== "lanre.wtf" && link.hostname !== "localhost") {
 	    	link.target = "_blank";
 	    }
     });
