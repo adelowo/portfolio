@@ -12,15 +12,18 @@ steps:
 
 - name: deploy
   image: drillster/drone-rsync
-  hosts: [ "lanre.wtf" ]
-  source: _site/*
-  target: ~/lanre.wtf
-  recursive: true
-  delete: true
-  secrets: [ rsync_key ]
-  when:
-    event: [ push, tag ]
-    local: false
+  environment:
+    RSYNC_KEY:
+      from_secret: rsync_key
+  settings:
+    hosts: [ "lanre.wtf" ]
+    source: _site/*
+    target: /root/lanre.wtf
+    recursive: true
+    delete: true
+    when:
+      event: [ push, tag ]
+      local: false
 
 
 trigger:
