@@ -58,6 +58,11 @@ is just
   else to do.
 
 
+> Heads up, Drone v1 has been released and it came along with some breaking
+changes, you can find an updated version that works with 1.0 at my [site's
+repo](https://github.com/adelowo/personal-site/blob/ea57057f9a47c063285e0f25690f8bb49d7d621e/.drone.yml)
+
+
 #### Making sure the site builds
 
 To do this, we would be needing the jekyll docker image since this build
