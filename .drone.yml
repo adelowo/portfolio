@@ -1,4 +1,7 @@
-pipeline:
+kind: pipeline
+name: default
+
+steps:
   build:
     image: ruby:latest
     commands:
@@ -13,7 +16,6 @@ pipeline:
     source: _site/*
     target: ~/lanre.wtf
     recursive: true
-    user: lanreadelowo
     delete: true
     secrets: [ rsync_key ]
     when:
