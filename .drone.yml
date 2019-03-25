@@ -1,0 +1,28 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: ruby:latest
+  commands:
+    - gem update --system
+    - gem install bundler
+    - bundle install
+    - bundle exec jekyll build
+
+- name: deploy
+  image: drillster/drone-rsync
+  hosts: [ "lanre.wtf" ]
+  source: _site/*
+  target: ~/lanre.wtf
+  recursive: true
+  delete: true
+  secrets: [ rsync_key ]
+  when:
+    event: [ push, tag ]
+    local: false
+
+
+trigger:
+  branch: master
+  event: [push, pull_request,tag]
