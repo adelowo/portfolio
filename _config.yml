@@ -11,8 +11,10 @@ exclude:
     - LICENSE
     - README.md
     - CNAME
-
-exclude: ['package.json', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock','LICENSE','CNAME', 'README.md', 'yarn.lock', 'gulpfile.js']
+    - package.json
+    - src
+    - yarn.lock
+    - gulpfile.js
 
 # Site settings
 title: Lanre Adelowo - Software Developer interested in the web
@@ -25,6 +27,7 @@ email: yo@lanre.wtf
 twitter_username: lanreadelowo
 github_username:  adelowo
 disqus_username: adelowo
+is_hireable: false
 
 # Build settings
 markdown: kramdown
