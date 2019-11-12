@@ -9,11 +9,11 @@ whenever I come across apps like this is to check if there is a revocation strat
 
 Basically JWTs generally rely on client expiration and will always be considered valid until it expires. 
 They (JWTs) usually contain an `exp` field which contains the expiration date. This presents a huge security problem 
-unlike sessions which the server can invalidate at any given time by the server
-whenever it feels. What this means in practice is you cannot randomly invalidate a token you believe has been 
-compromised. For example, as I demonstrated on the web app to the developer, I logged into the app, picked out the JWT,
-logged out but I could still interact with the API via the JWT I copied earlier. The developer was a little disturbed as
-per revocation strategies so I thought to write something up that could help him and others :)).
+unlike sessions which the server can invalidate at any given time. What this means in practice is you cannot randomly 
+invalidate a token you believe has been compromised. For example, as I demonstrated on the web app to the developer, 
+I logged into the app, picked out the JWT, logged out but I could still interact with the API via the JWT I copied 
+earlier. The developer was a little disturbed as per revocation strategies so I thought to write something up that 
+could help him and others :)).
 
 In this post, I will be talking about two different methods to revoke JWTs that can solve the issue described above:
 
