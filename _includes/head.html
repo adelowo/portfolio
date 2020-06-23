@@ -1,132 +1,216 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>
+    {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
+  </title>
 
-  <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta
+    name="description"
+    content="{% if page.description %}{{
+      page.description | strip_html | strip_newlines | truncate: 160
+    }}{% else %}{{ site.description }}{% endif %}"
+  />
 
   <!-- Social Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@{{site.twitter_username}}">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@{{ site.twitter_username }}" />
+  <meta
+    name="twitter:title"
+    content="{% if page.title %}{{ page.title }}{% else %}{{
+      site.title
+    }}{% endif %}"
+  />
+  <meta
+    name="twitter:description"
+    content="{% if page.description %}{{
+      page.description | strip_html | strip_newlines | truncate: 160
+    }}{% else %}{{ site.description }}{% endif %}"
+  />
 
   {% if page.image %}
-  <meta property="twitter:image:src" content="{{ site.url }}{{page.image }}">
-  {% else %}
-  <meta property="twitter:image:src" content="{{ "/assets/img/profile.jpg" | prepend: site.baseurl | prepend: site.url }}">
-  {% endif %}
+  <meta property="twitter:image:src" content="{{ site.url }}{{ page.image }}" />
+  {% else %} <meta property="twitter:image:src" content="{{
+    "/assets/img/profile.jpg" | prepend: site.baseurl | prepend: site.url
+  }}"> {% endif %}
 
   <!-- Social Facebook/Open Graph -->
-  <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta
+    property="og:url"
+    content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+  />
+  <meta
+    property="og:title"
+    content="{% if page.title %}{{ page.title }}{% else %}{{
+      site.title
+    }}{% endif %}"
+  />
   {% if page.image %}
-  <meta property="og:image" content="{{ site.url }}{{page.image }}">
-  {% else %}
-  <meta property="og:image" content="{{ "/assets/img/blog-image.png" | prepend: site.baseurl | prepend: site.url }}">
-  {% endif %}
-  <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:image" content="{{ site.url }}{{ page.image }}" />
+  {% else %} <meta property="og:image" content="{{
+    "/assets/img/blog-image.png" | prepend: site.baseurl | prepend: site.url
+  }}"> {% endif %}
+  <meta
+    property="og:description"
+    content="{% if page.description %}{{
+      page.description | strip_html | strip_newlines | truncate: 160
+    }}{% else %}{{ site.description }}{% endif %}"
+  />
+  <meta property="og:site_name" content="{{ site.title }}" />
 
   <!-- Social Google+/Schema.org  -->
-  <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-  <meta itemprop="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta itemprop="image" content="{{ "/assets/img/profile.jpg" | prepend: site.baseurl | prepend: site.url }}" />
+  <meta
+    itemprop="name"
+    content="{% if page.title %}{{ page.title }}{% else %}{{
+      site.title
+    }}{% endif %}"
+  />
+  <meta
+    itemprop="description"
+    content="{% if page.description %}{{
+      page.description | strip_html | strip_newlines | truncate: 160
+    }}{% else %}{{ site.description }}{% endif %}"
+  />
+  <meta itemprop="image" content="{{
+    "/assets/img/profile.jpg" | prepend: site.baseurl | prepend: site.url
+  }}" />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="{{site.baseurl}}/assets/img/icons/favicon.ico" type="image/x-icon" />
+  <link
+    rel="shortcut icon"
+    href="{{ site.baseurl }}/assets/img/icons/favicon.ico"
+    type="image/x-icon"
+  />
 
   <!-- Apple Touch Icons -->
-  <link rel="apple-touch-icon" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon.png" />
-  <link rel="apple-touch-icon" sizes="57x57" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="{{site.baseurl}}/assets/img/icons/apple-touch-icon-152x152.png" />
+  <link
+    rel="apple-touch-icon"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="57x57"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon-57x57.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="72x72"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon-72x72.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="114x114"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon-114x114.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="144x144"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon-144x144.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="60x60"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon-60x60.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="120x120"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon-120x120.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="76x76"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon-76x76.png"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="152x152"
+    href="{{ site.baseurl }}/assets/img/icons/apple-touch-icon-152x152.png"
+  />
 
   <!-- Windows 8 Tile Icons -->
-  <meta name="application-name" content="{{site.username}}'s Blog">
-  <meta name="msapplication-TileColor" content="#5d4d7a">
+  <meta name="application-name" content="{{ site.username }}'s Blog" />
+  <meta name="msapplication-TileColor" content="#5d4d7a" />
   <meta name="msapplication-square70x70logo" content="smalltile.png" />
   <meta name="msapplication-square150x150logo" content="mediumtile.png" />
   <meta name="msapplication-wide310x150logo" content="widetile.png" />
   <meta name="msapplication-square310x310logo" content="largetile.png" />
 
   <!-- Android Lolipop Theme Color -->
-  <meta name="theme-color" content="#5d4d7a">
+  <meta name="theme-color" content="#5d4d7a" />
 
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+  <link rel="stylesheet" href="{{
+    "/assets/css/main.css" | prepend: site.baseurl
+  }}">
+  <link
+    rel="canonical"
+    href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}"
+  />
+  <link rel="alternate" type="application/rss+xml" title="{{
+    site.title
+  }}" href="{{
+    "/feed.xml" | prepend: site.baseurl | prepend: site.url
+  }}" />
 </head>
 
-<nav class="navbar is-transparent is-fixed-bottom is-warning" id="navbarFixBottom">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <img src="/assets/img/profile.jpg" alt="Lanre Adelowo" class="is-rounded" height="28">
-    </a>
-    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+<nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <svg
+      class="fill-current h-8 w-8 mr-2"
+      width="54"
+      height="54"
+      viewBox="0 0 54 54"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"
+      />
+    </svg>
+    <span class="font-semibold text-xl tracking-tight">Lanre Adelowo</span>
   </div>
-
-  {% include svg-icons.html %}
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class=" navbar-item has-text-weight-bold is-uppercase" href="/">
-        Root
-      </a>
-
-      <a class="navbar-item has-text-weight-bold is-uppercase" href="/blog">
+  <div class="block lg:hidden">
+    <button
+      class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white"
+    >
+      <svg
+        class="fill-current h-3 w-3"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>Menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+      </svg>
+    </button>
+  </div>
+  <div class="w-full inline-block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div class="text-sm lg:flex-grow"></div>
+    <div>
+      <a
+        href="#responsive-header"
+        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+      >
         Blog
       </a>
-
-      <a class="navbar-item has-text-weight-bold is-uppercase" href="/about">
+      <a
+        href="#responsive-header"
+        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+      >
         About
       </a>
-
-      <a class="navbar-item has-text-weight-bold is-uppercase" href="/gear">
-        Gear
+      <a
+        href="#responsive-header"
+        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
+      >
+        Uses
       </a>
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="field is-grouped">
-          <p class="control control-icon">
-            <a aria-label="Github" target="_blank" href="https://github.com/{{site.github_username}}"
-              data-social-network="Github" data-social-target="https://github.com/{{site.github_username}}">
-              <svg class="icon icon-github-alt">
-                <use xlink:href="#icon-github-alt"></use>
-              </svg>
-            </a>
-          </p>
-
-          <p class="control control-icon">
-            <a aria-label="Twitter" target="_blank" href="https://twitter.com/{{site.twitter_username}}"
-              data-social-network="Twitter" data-social-target="https://twitter.com/{{site.twitter_username}}">
-              <svg class="icon icon-twitter">
-                <use xlink:href="#icon-twitter"></use>
-              </svg>
-            </a>
-          </p>
-          <p class="control control-icon">
-            <a aria-label="RSS feed" target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}">
-              <svg class="icon icon-rss">
-                <use xlink:href="#icon-rss"></use>
-              </svg>
-            </a>
-          </p>
-        </div>
-      </div>
+      <a
+        href="#responsive-header"
+        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
+      >
+        Projects
+      </a>
     </div>
   </div>
 </nav>
-
