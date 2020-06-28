@@ -17878,6 +17878,20 @@ video {
   transition-delay: 1000ms;
 }
 
+/* support for mobile client navigation */
+
+#menu-toggle:checked + #menu {
+  display: block;
+}
+
+img .is-rounded {
+  border-radius: 60%;
+}
+
+.space-text * {
+  letter-spacing: 0.2em;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;

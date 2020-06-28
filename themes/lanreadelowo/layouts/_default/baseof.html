@@ -3,12 +3,8 @@
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body class="flex flex-col font-sans bg-gray-200">
-    <main
-      class="w-full min-h-screen flex flex-col items-center justify-center lg:w-3/4 xl:w-2/3 px-3 py-12 mx-auto"
-    >
-      {{ block "main" . }}{{ end }}
-    </main>
+  <body class="antialiased bg-gray-200">
+    {{ block "main" . }}{{ end }}
     {{ partial "footer.html" . }}
   </body>
 </html>
