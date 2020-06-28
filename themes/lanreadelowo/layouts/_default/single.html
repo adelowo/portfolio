@@ -22,19 +22,26 @@
   </div>
 </div>
 
-<div class="container mx-auto h-full flex justify-center items-center pt-6">
-  <div class="grid grid-cols-3 gap-4">
-    <div>
-      <img
-        class="w-10 h-10 rounded-full mr-4"
-        src="/img/human.png"
-        alt="Author's Picture"
-      />
-      <div class="text-sm">
-        <p class="text-gray-900 leading-none">Jonathan Reinink</p>
-        <p class="text-gray-600">Aug 18</p>
-      </div>
-    </div>
-  </div>
+<!-- <div class="container mx-auto h-full flex justify-center items-center pt-6"> -->
+<!--   <div class="max-w-sm mx-auto rounded-lg overflow-hidden"> -->
+<!--     <div class="sm:flex sm:items-center px-6 py-4"> -->
+<!--       <img -->
+<!--         class="block mx-auto sm:mx-0 sm:flex-shrink-0 h-16 sm:h-24 rounded-full" -->
+<!--         src="/img/human.png" -->
+<!--         alt="Lanre Adelowo's face" -->
+<!--       /> -->
+<!--       <div class="mt-4 sm:mt-0 sm:ml-4 text-center sm:text-left"> -->
+<!--         <p class="text-xl leading-tight">{{ .Site.Params.Name }}</p> -->
+<!--         <p class="text-sm leading-tight text-gray-600 pt-4"> -->
+<!--           {{ .Date.Format "January 02, 2006"}} -->
+<!--         </p> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
+
+<div class="container mx-auto h-full mt-8" id="content">
+  {{.Content}}
 </div>
+
 {{ end }}

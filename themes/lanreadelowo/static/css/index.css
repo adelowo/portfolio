@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "syntax.css";
+
 /* support for mobile client navigation */
 #menu-toggle:checked + #menu {
   display: block;
@@ -97,4 +99,8 @@ img .is-rounded {
   max-width: 60px;
   border-radius: 100%;
   border: 1px dashed #aaa;
+}
+
+#content p {
+  @apply break-words;
 }

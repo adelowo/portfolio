@@ -17878,6 +17878,8 @@ video {
   transition-delay: 1000ms;
 }
 
+@import "syntax.css";
+
 /* support for mobile client navigation */
 
 #menu-toggle:checked + #menu {
@@ -17975,6 +17977,10 @@ img .is-rounded {
   max-width: 60px;
   border-radius: 100%;
   border: 1px dashed #aaa;
+}
+
+#content p {
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 640px) {

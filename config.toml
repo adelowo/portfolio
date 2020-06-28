@@ -2,3 +2,8 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "lanreadelowo"
+
+[params]
+  name = "Lanre Adelowo"
+  email = "yo@lanre.wtf"
+  homepage = "https://lanre.wtf"
