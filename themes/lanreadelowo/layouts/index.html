@@ -106,50 +106,10 @@
   <section>
     <h2 class="font-bold mt-10 text-accent">Recently Published</h2>
     <div class="grid grid-cols-2 gap-4">
-      <div>
-        <a
-          href="/blog/2019/11/11/jwt-revocation/"
-          class="inline-flex p-4 items-center"
-          ><div
-            class="flex flex-col justify-center items-center border-r-2 pr-4"
-          >
-            <span class="font-semibold">Nov</span
-            ><span class="text-lg font-bold">11</span><span>2019</span>
-          </div>
-          <div class="ml-4 flex flex-col">
-            <h3 class="text-xl font-semibold">
-              JWT Revocation
-            </h3>
-            <div
-              class="hidden lg:block text-gray light-mode:text-dark-light text-lg"
-            >
-              How to safely revoke JWTs without compromising user's security
-            </div>
-          </div></a
-        >
-      </div>
-
-      <div>
-        <a
-          href="/blog/2019/01/02/database-migration-golang/"
-          class="inline-flex p-4 items-center"
-          ><div
-            class="flex flex-col justify-center items-center border-r-2 pr-4"
-          >
-            <span class="font-semibold">Jan</span
-            ><span class="text-lg font-bold">02</span><span>2019</span>
-          </div>
-          <div class="ml-4 flex flex-col">
-            <h3 class="text-xl font-semibold">Database migrations in Golang</h3>
-            <div
-              class="hidden lg:block text-gray light-mode:text-dark-light text-lg"
-            >
-              Go doesn't automatically solve migrations like Rails and/or
-              Laravel. Let's explore ways on how to fix that
-            </div>
-          </div></a
-        >
-      </div>
+  {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
+  {{ range $paginator.Pages }}
+  {{ partial "articles-list" . }}
+    {{ end }}
     </div>
 
     <div class="flex-1 flex justify-center items-center pt-4">
