@@ -1,8 +1,10 @@
 ---
 
-layout: post
 tags: ["Go"]
 title: "On composable interfaces in Go"
+summary: "Interfaces should ideally be small and focused. Learn how to make
+smaller and concised interfaces in Go"
+date: "2017-08-09"
 
 ---
 

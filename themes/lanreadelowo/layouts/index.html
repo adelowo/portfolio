@@ -106,7 +106,7 @@
   <section>
     <h2 class="font-bold mt-10 text-accent">Recently Published</h2>
     <div class="grid grid-cols-2 gap-4">
-  {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
+  {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") (or .Site.Params.paginate 8)  }}
   {{ range $paginator.Pages }}
   {{ partial "articles-list" . }}
     {{ end }}
