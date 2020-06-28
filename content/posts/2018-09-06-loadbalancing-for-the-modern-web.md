@@ -1,7 +1,10 @@
 ---
-layout: post
+
 tags: ["Go"]
 title: "Service discovery and loadbalancing with Consul and Fabio"
+summary: "Introduction to using consul for service registration"
+date: "2018-09-06"
+
 ---
 
 In the modern day cloud, applications or services ( if you will ) are usually distributed across a

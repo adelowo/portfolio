@@ -3,8 +3,9 @@
 layout : post
 tags : ["Go"]
 title: "Diving deep into net/http : A look at http.RoundTripper"
-description: "What is RoundTripper in Golang ?"
-date: 2017-07-24
+summary: "Learn how to perform some operations before a request is processed in
+Go"
+date: "2017-07-24"
 
 ---
 

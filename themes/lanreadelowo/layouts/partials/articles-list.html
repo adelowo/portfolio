@@ -1,0 +1,17 @@
+<div>
+  <a href="{{ .Permalink }}" class="inline-flex p-4 items-center"
+    ><div class="flex flex-col justify-center items-center border-r-2 pr-4">
+      <span class="font-semibold">{{.Date.Format "Jan"}}</span
+      ><span class="text-lg font-bold">{{.Date.Format "02"}}</span
+      ><span>{{.Date.Format "2006"}}</span>
+    </div>
+    <div class="ml-4 flex flex-col">
+      <h3 class="text-xl font-semibold">
+        {{ .Title }}
+      </h3>
+      <div class="hidden lg:block text-gray light-mode:text-dark-light text-lg">
+        {{.Summary}}
+      </div>
+    </div></a
+  >
+</div>

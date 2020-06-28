@@ -1,7 +1,10 @@
 ---
-layout: post
+
 tags: [ "Devops", "Deployment", "Go"]
 title: "Database migrations in Golang"
+summary: "Implementing migrations in Go the sane way"
+date: "2019-01-02"
+
 ---
 
 A topic that keeps on coming up in `r/reddit` is ___How do I solve database

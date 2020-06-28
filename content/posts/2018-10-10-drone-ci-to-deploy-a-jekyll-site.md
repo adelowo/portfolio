@@ -1,7 +1,10 @@
 ---
-layout: post
+
 tags: [ "Devops", "Deployment"]
 title: "Automagically build and deploy your Jekyll site with Drone CI"
+summary: "Continous integration to deploy static websites"
+date: "2018-10-10"
+
 ---
 
 I have been using Jekyll, Github pages plus Cloudflare to host my blog for a
