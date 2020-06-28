@@ -1,0 +1,40 @@
+{{define "main"}}
+
+{{ partial "nav" . }}
+<div class="container mx-auto h-full flex justify-center items-center pt-12">
+  <div id="hero-text">
+    <p class="font-black antialiased text-4xl">
+      {{.Title}}
+    </p>
+
+    <p class="pt-6">
+      {{ .Summary }}
+    </p>
+
+    <div class="h-divider">
+      <div class="shadow"></div>
+      <div class="text2">
+        <img
+          src="https://t1.gstatic.com/images?q=tbn:ANd9GcQsmMfybMIwoE5etmOIAuvnFWdfv_8C1Bq15urJFqwhhI55FyYNP2YuUA"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mx-auto h-full flex justify-center items-center pt-6">
+  <div class="grid grid-cols-3 gap-4">
+    <div>
+      <img
+        class="w-10 h-10 rounded-full mr-4"
+        src="/img/human.png"
+        alt="Author's Picture"
+      />
+      <div class="text-sm">
+        <p class="text-gray-900 leading-none">Jonathan Reinink</p>
+        <p class="text-gray-600">Aug 18</p>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
