@@ -17892,6 +17892,18 @@ img .is-rounded {
   letter-spacing: 0.2em;
 }
 
+#hero-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#hero-text > p {
+  text-align: center;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
