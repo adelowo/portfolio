@@ -58,12 +58,12 @@ So 2 of the 3 issues were related to using old software on the prod server.
 
 The first was about his PHP engine complaining about not able to have an array defined as a constant.
 
-```php
+{{< highlight php >}}
 
 //PHP 7 -- Very valid but would fail < 7
 define("STATUS",[ 0 => "Nothing" , 1 => "Almost Completed" , 2 => "Done"]);
 
-``````
+{{< / highlight >}}
 
 I had written something related to the above snippet, and used it in a laravel blade template like :
 
@@ -81,18 +81,15 @@ The project was using this feature already but in MariaDB that doesn't have a tr
 
 I ran the migrations and i got a json column up and running in my database.
 
-```php
-
+{{< highlight php >}}
 <?php
     $table->json("data");
     //text field with serialized texts on db engines except MYSQL 5.7 and Postgres
-
-```
+{{< / highlight >}}
 
 I had queries running like :
 
-```php
-
+{{< highlight php >}}
 <?php
 
 Class Model
@@ -103,8 +100,7 @@ Class Model
         return $this->where("user_id" , $user->id)->orWhere("data->email",$user->email)->get();
     }
 }
-
-```
+{{< / highlight >}}
 
 But for some (obvious) reasons this throws an exception - the `SQL blah blah blah` type. We went back and forth on the thread with me posting links to a
 [Github issue](https://github.com/laravel/framework/issues/13622) with the same complaint and luckily the fix was easy.

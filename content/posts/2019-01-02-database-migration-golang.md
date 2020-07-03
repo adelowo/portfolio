@@ -37,7 +37,8 @@ basically, each migration should have an `up.sql` and `down.sql` file. The
 > You can use the [migrate](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate) cli tool to create the migrations though. `migrate create -ext sql create_users_table`
 
 
-```go
+{{< highlight go "linenos=table" >}}
+// ... code
 package main
 
 import (
@@ -93,7 +94,7 @@ func main() {
 }
 
 
-```
+{{< / highlight >}}
 
 
 That above my friend is the easiest way to do database migration in Go. You can
@@ -122,7 +123,7 @@ this:
   the image. Capice. Here is an example:
 
 
-```docker
+{{< highlight docker "linenos=table" >}}
 FROM golang:1.11 as build-env
 
 WORKDIR /go/src/github.com/adelowo/project
@@ -139,7 +140,8 @@ FROM gcr.io/distroless/base
 COPY --from=build-env /go/bin/cmd /
 COPY --from=build-env /go/src/github.com/adelowo/project/path/to/migrations /migrations
 CMD ["/cmd"]
-```
+
+{{< / highlight >}}
 
 - If you have CI/CD processes in place, you can make use of the cli tool that
   `migrate` ships with. Just include it a step before the actual deployment
