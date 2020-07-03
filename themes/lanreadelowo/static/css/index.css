@@ -141,17 +141,21 @@
 }
 
 #content blockquote {
+  @apply border-orange-800;
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   padding-left: 1rem;
   border-left-width: 4px;
-  border-color: black;
   font-style: italic;
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-size: 1.15em;
+}
+
+#content p > a {
+  @apply text-orange-600;
 }
 
 .highlight {

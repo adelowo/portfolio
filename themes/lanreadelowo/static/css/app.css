@@ -18019,17 +18019,25 @@ video {
 }
 
 #content blockquote {
+  --border-opacity: 1;
+  border-color: #9c4221;
+  border-color: rgba(156, 66, 33, var(--border-opacity));
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   padding-left: 1rem;
   border-left-width: 4px;
-  border-color: black;
   font-style: italic;
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-size: 1.15em;
+}
+
+#content p > a {
+  --text-opacity: 1;
+  color: #dd6b20;
+  color: rgba(221, 107, 32, var(--text-opacity));
 }
 
 .highlight {
