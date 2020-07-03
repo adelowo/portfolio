@@ -1,79 +1,5 @@
 {{define "main"}}
-<header class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
-  <div class="flex-1 flex justify-between items-center">
-    <nav>
-      <ul
-        class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0 font-bold uppercase space-text"
-      >
-        <li>
-          <a
-            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent"
-            href="#"
-          >
-            <img src="/img/human.png" alt="Lanre Adelowo" class="is-rounded" />
-          </a>
-        </li>
-        <li>
-          <a
-            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent"
-            href="/uses"
-            >Lanre Adelowo</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
-
-  <label for="menu-toggle" class="pointer-cursor lg:hidden block"
-    ><svg
-      class="fill-current text-gray-900"
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-    >
-      <title>menu</title>
-      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg
-  ></label>
-  <input class="hidden" type="checkbox" id="menu-toggle" />
-
-  <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
-    <nav>
-      <ul
-        class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0 font-bold uppercase tracking-widest space-text"
-      >
-        <li>
-          <a
-            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-black"
-            href="/blog"
-            >Blog</a
-          >
-        </li>
-        <li>
-          <a
-            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-black"
-            href="/about"
-            >About</a
-          >
-        </li>
-        <li>
-          <a
-            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-black"
-            href="/uses"
-            >Uses</a
-          >
-        </li>
-        <li>
-          <a
-            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-black lg:mb-0 mb-2"
-            href="/projects"
-            >Projects</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+{{ partial "nav" . }}
 <div class="container mx-auto h-full flex justify-center items-center pt-12">
   <div id="hero-text">
     <p class="font-black antialiased text-4xl">
@@ -101,13 +27,14 @@
     </div>
   </div>
 </div>
-
 <div class="container mx-auto h-full flex justify-center items-center pt-12">
   <section>
     <p class="font-bold text-accent text-center capitalize">
       Most recent articles
     </p>
-    <div class="grid grid-cols-2 gap-4">
+    <div
+      class="grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4"
+    >
       {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") (or .Site.Params.paginate 8)  }}
       {{ range $paginator.Pages }}
       {{ partial "articles-list" . }}

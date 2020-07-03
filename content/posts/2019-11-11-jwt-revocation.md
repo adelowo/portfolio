@@ -4,6 +4,7 @@ tags: [ "Go"]
 title: "JWT revocation"
 date: "2019-11-11"
 summary: "How to safely revoke JWTs without compromising user's security"
+extra: "Sort all that out"
 
 ---
 
