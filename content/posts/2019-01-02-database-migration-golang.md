@@ -122,7 +122,7 @@ this:
   the image. Capice. Here is an example:
 
 
-``````
+```docker
 FROM golang:1.11 as build-env
 
 WORKDIR /go/src/github.com/adelowo/project
@@ -139,7 +139,7 @@ FROM gcr.io/distroless/base
 COPY --from=build-env /go/bin/cmd /
 COPY --from=build-env /go/src/github.com/adelowo/project/path/to/migrations /migrations
 CMD ["/cmd"]
-``````
+```
 
 - If you have CI/CD processes in place, you can make use of the cli tool that
   `migrate` ships with. Just include it a step before the actual deployment
