@@ -17880,6 +17880,16 @@ video {
   transition-delay: 1000ms;
 }
 
+.base-container {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+}
+
 /* support for mobile client navigation */
 
 #menu-toggle: checked + #menu {
@@ -17975,6 +17985,13 @@ video {
   border: 1px dashed #aaa;
 }
 
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  margin-top: 2rem;
+}
+
 #content .intro {
   font-size: 1.15em;
   margin: 2rem;
@@ -18003,7 +18020,9 @@ video {
 #content h4:before {
   position: absolute;
   --text-opacity: 1;
-  color: black;
+  color: #000;
+  color: rgba(0, 0, 0, var(--text-opacity));
+  --text-opacity: 1;
   margin-left: -2ch;
   content: "#";
 }

@@ -3,6 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.base-container {
+  @apply mx-auto;
+  @apply h-full;
+  @apply flex;
+  @apply justify-center;
+  @apply items-center;
+  @apply pt-12;
+}
+
 /* support for mobile client navigation */
 #menu-toggle: checked + #menu {
   display: block;
@@ -96,6 +105,12 @@
   border: 1px dashed #aaa;
 }
 
+#content {
+  @apply mx-auto;
+  @apply h-full;
+  @apply mt-8;
+}
+
 #content .intro {
   font-size: 1.15em;
   @apply m-8;
@@ -113,18 +128,18 @@
 #content h2,
 #content h3,
 #content h4 {
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  margin-top: 1.25rem;
-  position: relative;
+  @apply font-semibold;
+  @apply mb-3;
+  @apply mt-5;
+  @apply relative;
 }
 
 #content h2:before,
 #content h3:before,
 #content h4:before {
-  position: absolute;
+  @apply absolute;
+  @apply text-black;
   --text-opacity: 1;
-  color: black;
   margin-left: -2ch;
   content: "#";
 }
