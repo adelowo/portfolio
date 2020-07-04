@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "lanreadelowo"
 pygmentsUseClasses=true
-isqusShortname = "yourdiscussshortname"
+disqusShortname = "adelowo"
 
 [params]
   name = "Lanre Adelowo"

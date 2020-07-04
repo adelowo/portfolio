@@ -42,6 +42,7 @@
 
 <div id="content" class="container">
   {{.Content}}
+  {{ template "_internal/disqus.html" . }}
 </div>
 
 {{ end }}
