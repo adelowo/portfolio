@@ -43,9 +43,7 @@ it has to be the minimum or smallest contract needed for the function to perform
 
 So what does this look like in real life ? Luckily he gave an example
 
-```go
-
-
+{{< highlight go "linenos=table"  >}}
 // Where File is an interface composed of the following interfaces
 // io.Reader, io.ReaderAt, io.Seeker, io.SeekerAt
 // io.Writer, io.Closer, io.WriterAt
@@ -54,19 +52,17 @@ func ReadIn(f File) {
 	 n, err := f.Read(b)
 }
 
-```
+{{< / highlight >}}
 
 He had that converted to
 
-```go
-
+{{< highlight go "linenos=table"  >}}
 // I am guessing by Reader, he meant io.Reader
 func ReadIn(r Reader) {
 	 b := []byte{}
 	 n, err := r.Read(b)
 }
-
-```
+{{< / highlight >}}
 
 > This looks like something that is obvious enough but it just isn't.
 
@@ -76,8 +72,7 @@ For something like the `ReadIn` function, if we wanted to simulate the failure o
 we wouldn't have to autogenerate a full mock implementation of `File` which could easily be >= 100LOC (or 30LOC if handwritten)
 when all we need is the `Read` method. All that would be needed is
 
-```go
-
+{{< highlight go "linenos=table"  >}}
 type mockReader struct {}
 
 func (m mockReader) Read(buf []byte) (n int, err error) {
@@ -89,8 +84,7 @@ funcTestReadIn(t *testing.T) {
 	ReadIn(r)
 	// Maybe ReadIn in real code might return an error which assertions can run against
 }
-
-```
+{{< / highlight >}}
 
 This might be a little hard to impose in some certain situations but with this technique,
 I think I can get rid of my issues with mocks in Go.
@@ -99,9 +93,6 @@ I think I can get rid of my issues with mocks in Go.
 
 ### Footnotes
 
-<div id="footnotes"></div>
-
-<div id="footnotes2"></div>
 [0] I understand code coverage should not be substituted for software quality but I feel it can be a pointer.
 
 [round_tripping]: /blog/2017/07/24/roundtripper-go

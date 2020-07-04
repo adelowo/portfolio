@@ -56,8 +56,6 @@ What should be exported and what shouldn't be ? Anyways, your tests would fail i
 
 #### Footnotes
 
-<div id="footnotes"> </div>
-
 [0] Unexported stuffs are usually helper/utility pieces.
 
 

@@ -50,18 +50,18 @@ I looked around, found fabio and the rest as they say is history.
 
 I have put together a simple demo [on Github](https://github.com/adelowo/service-discovery-demo).. We first need to connect to consul.. Doing that is pretty easy
 
-```go
+{{< highlight go "linenos=table" >}}
 func New(addr string) (*Client, error) {
     conf := consul.DefaultConfig()
     conf.Address = addr
 
     return NewWithConfig(conf)
 }
-```
+{{< / highlight >}}
 
 The part that actually registers the service is this
 
-```go
+{{< highlight go "linenos=table"  >}}
 func (c *Client) RegisterService(svc *consul.AgentServiceRegistration) (string, error) {
 
     id := uuid.New()
@@ -72,16 +72,16 @@ func (c *Client) RegisterService(svc *consul.AgentServiceRegistration) (string, 
     // so we need to clean up when necessary
     return id, c.inner.Agent().ServiceRegister(svc)
 }
-```
+{{< / highlight >}}
 
-```go
+{{< highlight go "linenos=table"  >}}
 // Deregistering the service is pretty easy,
 // just pass the id gotten after a successful registration
 // This should ideally be done as part of the shutdown process.
 func (c *Client) DeRegister(id string) error {
     return c.inner.Agent().ServiceDeregister(id)
 }
-```
+{{< / highlight >}}
 
 So how does this all fit in a real application/service ?
 
@@ -91,7 +91,7 @@ So how does this all fit in a real application/service ?
 
 Let's take a look at an example :
 
-```go
+{{< highlight go "linenos=table"  >}}
 package main
 
 import (
@@ -168,7 +168,7 @@ func main() {
         reg.DeRegister(id)
     }
 }
-```
+{{< / highlight >}}
 
 Running multiple versions of this code ( with different ips ) should give you an interface (in consul)
 like this :

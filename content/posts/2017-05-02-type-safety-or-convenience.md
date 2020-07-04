@@ -20,8 +20,7 @@ The method name i chose was `Set`. I initially had a signature like `Set(key str
 While that is fine, I was concerned about client code and the added responsibility they would get by having to ___convert cacheable pieces of data into a byte array___, so i decided to play a fast one.
 Save them the entire hard work. I converted the method to
 
-```go
-
+{{< highlight go "linenos=table"  >}}
 package onecache
 
 import (
@@ -32,7 +31,7 @@ type Store interface {
 	Set(key string, data interface{}, ttl time.Duration)
 }
 
-```
+{{< / highlight >}}
 
 > If you aren't a Gopher, `interface{}` is different from an ___Interface___. The former
 > is a way of getting around Go's type system (or a type that can accept any type) while the latter is OO Interface.
@@ -45,8 +44,7 @@ This is obviously a great case for usability as client code can cache any thing 
 I had success doing this for primitives and structs by making use of `encoding/gob` for encoding and decoding the cached data into/from a byte buffer.
 Something as simple as the code block below worked ;
 
-```go
-
+{{< highlight go "linenos=table"  >}}
 package onecache
 
 import (
@@ -71,7 +69,7 @@ func UnMarshalBytes(data []byte, i interface{}) error {
 	return gob.NewDecoder(bytes.NewBuffer(data)).Decode(i)
 }
 
-```
+{{< / highlight >}}
 
 ### So what is the problem ?
 

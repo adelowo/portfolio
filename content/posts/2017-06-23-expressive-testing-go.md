@@ -41,10 +41,7 @@ Let's write some code to determine the type of a triangle (equilateral, isoscele
 
 > I created a package in my `$GOPATH`, `github.com/adelowo/triangle`
 
-```go
-
-
-
+{{< highlight go "linenos=table"  >}}
 package triangle
 
 import (
@@ -85,8 +82,7 @@ func KindFromSides(a, b, c float64) (Kind, error) {
 
 	return Sca, nil
 }
-
-```
+{{< / highlight >}}
 
 We are done with our package, the next obvious thing is to write the tests. We would be needng to install `ginkgo` and `gomega`. They are ___go gettable___ as `github.com/onsi/:name`
 
@@ -96,9 +92,7 @@ To generate the bootstrap file, we would run `ginkgo bootstrap`. After which we 
 
 Here is what the generated test file looks like :
 
-```go
-
-
+{{< highlight go "linenos=table"  >}}
 package triangle_test
 
 import (
@@ -111,15 +105,13 @@ import (
 var _ = Describe("Triangle", func() {
 
 })
-
-```
+{{< / highlight >}}
 
 > You can get rid of the dot(.) imports.
 
 Let's fill that dummy test suite up
 
-```go
-
+{{< highlight go "linenos=table"  >}}
 package triangle_test
 
 import (
@@ -139,16 +131,13 @@ var _ = Describe("Triangle", func() {
 		Expect(got).To(Equal(NaT))
 	})
 })
-
-```
+{{< / highlight >}}
 
 > You should run `ginkgo` instead of `go test`, although the latter would work too - if you ran the `ginkgo bootstrap` command earlier.
 
 This should be readable and denotes what the test does. On failure, you get a nice stack of the description anyways. How comparable is this to
 
-```go
-
-
+{{< highlight go "linenos=table"  >}}
 func TestNotATriangle(t *testing.T) {
 
 	got, err := KindFromSides(0, -1, 10)
@@ -161,16 +150,13 @@ func TestNotATriangle(t *testing.T) {
 		t.Fatalf("Expected %v. Got %v", NaT, got)
 	}
 }
-
-```
+{{< / highlight >}}
 
 The one with the standard library is just complex and non-readable as the BDD version (with Ginkgo).
 
 Let's complete the test for `KindFromSides`
 
-```go
-
-
+{{< highlight go "linenos=table"  >}}
 	It("Should return an Equilateral triangle if all sides are equal", func() {
 		got, err := KindFromSides(10, 10, 10)
 
@@ -192,16 +178,14 @@ Let's complete the test for `KindFromSides`
 		Expect(got).To(Equal(Sca))
 	})
 
-```
+{{< / highlight >}}
 
 There are also some more interesting concepts Ginkgo (BDD ?) has which I feel makes it far superior than the standard testing library.
 There is the `BeforeEach`, `JustBeforeEach`, `AfterEach` hooks for you to do clean up and tear down as in xUnit style.
 
 Although it is possible to implement ___setup and teardown___ with the standard testing library, it is just a ltttle bit of more code
 
-```go
-
-
+{{< highlight go "linenos=table"  >}}
 func setUp(t *testing.T) (*http.Request, func(), error) {
 
 	r := httptest.NewRequest(http.MethodGet, "/oops", nil)
@@ -221,12 +205,12 @@ func TestSomething(t *testing.T) {
 	//Do the deed here
 }
 
-```
+{{< / highlight >}}
 
 
 Another thing I love about Ginkgo is the way table driven tests are written... Freaking neat. Here is an example from [filer](https://github.com/adelowo/filer)
 
-```go
+{{< highlight go "linenos=table"  >}}
 
 package generator_test
 
@@ -256,7 +240,7 @@ var _ = Describe("Slug", func() {
 	)
 })
 
-```
+{{< / highlight >}}
 
 > PS : If you need to take a look at packages/projects that makes use of this, you can checkout [Kubernetes](https://github.com/kubernetes/kubernetes) and [filer](https://github.com/adelowo/filer)
 

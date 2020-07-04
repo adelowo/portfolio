@@ -127,8 +127,7 @@ func (c *Client) AddToBlacklist(jti string) error {
 The next step is to include this logic in the authorization process. I will be showing a sample middleware that includes
 this logic.
 
-{{< highlight go >}}
-
+{{< highlight go "linenos=table"  >}}
 func requireAuth(store *store, redis *Client, signingSecret string) func(next http.HandlerFunc) http.HandlerFunc {
 	return func(next http.HandlerFunc) http.HandlerFunc {
 		return func(w http.ResponseWriter, r *http.Request) {

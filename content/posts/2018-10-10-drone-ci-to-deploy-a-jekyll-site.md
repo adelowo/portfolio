@@ -73,8 +73,7 @@ pipeline is to run in a container. In your `.drone.yml` file, add the following
 ;
 
 
-```yaml
-
+{{< highlight yaml >}}
 pipeline:
   build:
     image: ruby
@@ -83,7 +82,7 @@ pipeline:
       - bundle install
       - bundle exec jekyll build
 
-```
+{{< / highlight >}}
 
 
 
@@ -115,7 +114,8 @@ image plus they aren't exposed on a PR. See [docs](http://docs.drone.io/manage-s
 
 To add our private key as a secret, we need to run the following :
 
-```sh
+
+{{< highlight bash >}}
 
 drone secret add \ 
   -repository repo/name \
@@ -123,7 +123,7 @@ drone secret add \
   -name rsync_key \
   -value @./path_to_id_rsa
 
-```
+{{< / highlight >}}
 
 
 
@@ -137,8 +137,8 @@ https://ci.example.com/account/token plus it has a guide there anyways.
 You can then update the `.drone.yml` file
 
 
-```yaml
 
+{{< highlight yaml >}}
   deploy:
     image: drillster/drone-rsync
     hosts: [ "example.com" ]
@@ -149,7 +149,7 @@ You can then update the `.drone.yml` file
     delete: true
     secrets: [ rsync_key ]
 
-```
+{{< / highlight >}}
 
 
 
@@ -157,8 +157,7 @@ You can then update the `.drone.yml` file
 
 Your `.drone.yml` should look like this now ;
 
-```yaml
-
+{{< highlight yaml >}}
 pipeline:
   build:
     image: ruby
@@ -176,8 +175,7 @@ pipeline:
     user: youruser
     delete: true
     secrets: [ rsync_key ]
-
-```
+{{< / highlight >}}
 
 
 There is an additional step you can take and that is making sure the `deploy`
@@ -186,12 +184,11 @@ wouldn't want PR builds to report as failed - remember [secrets are not exposed
 to a pull request](http://docs.drone.io/manage-secrets/), hence the deploy step
 would always fail. To do that, you have to update your deploy step to include
 
-```yaml
+{{< highlight yaml >}}
     when:
       event: [ push ] ## Would run only on a push to master
       branch: [ master ] ## Only the master branch can be deployed to production
-```
-
+{{< / highlight >}}
 
 
 

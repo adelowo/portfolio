@@ -24,15 +24,14 @@ In lay man terms, it's like ___[middleware][middleware]___ but for an `http.Clie
 
 Since `http.RoundTripper` is an interface. All you have to do to get this functionality is implement `RoundTrip` :
 
-```go
-
+{{< highlight go "linenos=table"  >}}
 type SomeClient struct {}
 
 func (s *SomeClient) RoundTrip(r *http.Request)(*Response, error) {
 	//Something comes here...Maybe
 }
 
-```
+{{< / highlight >}}
 
 > And this is just keeping in line with other one method interfaces in the stdlib.. Small and concise.
 
@@ -90,16 +89,15 @@ So here is what it is going to look like,
 > This has been put up on [github][post_repo].
 
 
-```sh
+{{< highlight zsh "linenos=table"  >}}
 
 $ mkdir client server
 
-```
+{{< / highlight >}}
 
 We would be building the server first since it's implementation is quite simple
 
-```go
-
+{{< highlight go "linenos=table"  >}}
 import (
 	"fmt"
 	"net/http"
@@ -121,8 +119,7 @@ func main() {
 	http.ListenAndServe(":8000", mux)
 }
 
-
-```
+{{< / highlight >}}
 
 Then we would build the client package. This is the most interesting part, while it is quite long (130+ LOCs), It should be relatively easy to follow.I highly recommend you head to the [github repo][post_repo].
 
@@ -133,9 +130,7 @@ a dictionary/map can help us get away ASAP. We would create a `http.Transport` t
 > In real life you'd want to separate them from each other though.
 
 
-```go
-
-
+{{< highlight go "linenos=table"  >}}
 func cacheKey(r *http.Request) string {
 	return r.URL.String()
 }
@@ -208,14 +203,12 @@ func cachedResponse(b []byte, r *http.Request) (*http.Response, error) {
 	buf := bytes.NewBuffer(b)
 	return http.ReadResponse(bufio.NewReader(buf), r)
 }
-
-```
+{{< / highlight >}}
 
 Then the main function where we bootstrap the program.
 We would set a timer to clear out the cache store, so we can make requests to the server, this is to enable us view which requests are being served from the cache or the original server.
 
-```go
-
+{{< highlight go "linenos=table"  >}}
 func main() {
 
 	//client/main/go
@@ -280,8 +273,7 @@ func main() {
 		}
 	}
 }
-
-```
+{{< / highlight >}}
 
 
 To test this out, we have to build both programs - `client/main.go` and `server/main.go`. Run them in their respective directories with `./client` and `./server`. You should get something like this
@@ -295,8 +287,6 @@ you would notice that you only see that when the client prints "Fetching from th
 Another thing thing to note is that the body of the response stays the stay whether we hit the server or not.
 
 #### Footnotes
-
-<div id="footnotes"> </div>
 
 [0] SRP ? What really is a responsibility ? The term is quite overloaded but hey ___SRP___ all things.
 
