@@ -678,5 +678,32 @@
         }
       </style>
     </form>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-71600006-1"
+    ></script>
+
+    <script>
+      var allLinks = Array.prototype.slice.call(
+        document.getElementsByTagName("a"),
+        0
+      );
+      allLinks.length > 0 &&
+        allLinks.forEach(function (link) {
+          if (link.hostname !== "lanre.wtf" && link.hostname !== "localhost") {
+            link.target = "_blank";
+          }
+        });
+
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      gtag("config", "UA-71600006-1");
+    </script>
   </div>
 </div>
