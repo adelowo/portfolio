@@ -18056,7 +18056,8 @@ blockquote {
   font-size: 1.15em;
 }
 
-#content p > a {
+#content p > a,
+blockquote a {
   --text-opacity: 1;
   color: #dd6b20;
   color: rgba(221, 107, 32, var(--text-opacity));

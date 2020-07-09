@@ -23,6 +23,29 @@
             >Lanre Adelowo</a
           >
         </li>
+        <li>
+          <a
+            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent"
+            href="{{.Site.Params.Github}}"
+            ><img src="/img/002-github.png"
+          /></a>
+        </li>
+
+        <li>
+          <a
+            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent"
+            href="{{.Site.Params.Twitter}}"
+            ><img src="/img/001-twitter.png"
+          /></a>
+        </li>
+
+        <li>
+          <a
+            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent"
+            href="/index.xml"
+            ><img src="/img/003-rss.png"
+          /></a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -69,7 +92,14 @@
         <li>
           <a
             class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-black lg:mb-0 mb-2"
-            href="/contact"
+            href="/newsletter"
+            >Newsletter</a
+          >
+        </li>
+        <li>
+          <a
+            class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-black lg:mb-0 mb-2"
+            href="mailto:{{.Site.Params.Email}}"
             >Contact</a
           >
         </li>

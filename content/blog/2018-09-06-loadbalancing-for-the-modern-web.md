@@ -201,7 +201,7 @@ Fabio has a web ui which is exposed on `:9998` and the loadbalancer on `:9999`. 
 
 Running 3 instances of the service above and fabio yields the below UI
 
-![Fabio]({{ site.baseurl }}/img/log/fabio.png)
+![Fabio](/img/log/fabio.png)
 
 > You obviously don't want to expose `:9998` to the outside world.. A trick that can be used to view it regardless is ssh tunnelling.
 > `ssh -N -f -L 9998:localhost:9998 lanre@IPadress` ... Visit `localhost:9998` on your PC now

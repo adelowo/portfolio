@@ -171,7 +171,8 @@ blockquote {
   font-size: 1.15em;
 }
 
-#content p > a {
+#content p > a,
+blockquote a {
   @apply text-orange-600;
 }
 
