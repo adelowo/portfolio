@@ -35,7 +35,7 @@
     <div
       class="grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4"
     >
-      {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") (or .Site.Params.paginate 8)  }}
+      {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") (or .Site.Params.paginate 8)  }}
       {{ range $paginator.Pages }}
       {{ partial "articles-list" . }}
       {{ end }}

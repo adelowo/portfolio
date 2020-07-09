@@ -1,8 +1,8 @@
 ---
 
-layout : post
 summary : 'Mocking, Mocking? Are you mocking me?'
 title: "A subtle introduction to Mocking (2)"
+slug: "a-subtle-introduction-to-mocking-2"
 tags : [Testing, PHP]
 date: "2016-12-07"
 

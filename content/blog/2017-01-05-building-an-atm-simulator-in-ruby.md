@@ -1,10 +1,10 @@
 ---
 
-layout : post
 summary : So I have been taking a look at ___Ruby___.
 title: "ATM Simulator in Ruby"
 date: "2017-01-05"
 tags : [Ruby]
+slug: "building-an-atm-simulator-in-ruby"
 
 ---
 

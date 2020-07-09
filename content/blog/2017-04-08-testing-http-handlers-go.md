@@ -1,10 +1,10 @@
 ---
 
-layout : post
 tags : [Go,Testing]
 title : Testing HTTP handlers in Go
 summary: An introduction to testing Golang's web services
 date: "2017-04-08"
+slug: "testing-http-handlers-go"
 
 ---
 

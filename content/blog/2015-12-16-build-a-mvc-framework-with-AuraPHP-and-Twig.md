@@ -1,9 +1,9 @@
 ---
 
-layout : post
 summary: In my previous post, I discussed the benefits a template engine could bring to a project and why major frameworks have native support for them.
 tags : [PHP]
 title: "Building a simplistic MVC framework with AuraPHP and Twig"
+slug: "build-a-mvc-framework-with-auraphp-and-twig"
 date: "2015-12-16"
 
 ---

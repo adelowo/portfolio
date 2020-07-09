@@ -1,9 +1,9 @@
 ---
 
-layout : post
 tags : [PHP, Laravel, Testing]
 summary : How to test Laravel's Service provider
 title : Testing packages integration with Laravel
+slug: "testing-laravel-packages"
 date: "2017-04-01"
 
 ---

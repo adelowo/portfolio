@@ -3,6 +3,7 @@
 title : "You really should be using a PHP template engine"
 date: "2015-12-14"
 summary: "Why you should use a template engine ( PHP )"
+slug: "the-need-to-use-a-template-engine"
 tags : [PHP]
 
 ---

@@ -1,10 +1,10 @@
 ---
 
-layout : post
 summary : A review of Elementary os
 tags : [Linux]
 title : Elementary OS, beauty and the beast
 date: "2017-02-19"
+slug: "switching-to-elementaryos"
 
 ---
 

@@ -1,11 +1,13 @@
 ---
 
-layout : post
 summary: An introduction to mocking
 date: "2016-12-02"
 tags : [Testing, PHP]
 title: "An introduction to Mocking"
+slug: "a-subtle-introduction-to-mocking"
+
 ---
+
 
 
 ### What is Mocking ?

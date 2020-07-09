@@ -1,8 +1,8 @@
 ---
-layout : post
 summary: I only recently completed building a project i was extremely keen on
 title: "Deploying PHP web apps with Capistrano"
 tags : [Deployment, PHP]
+slug: "deploying-php-web-apps-with-capistrano"
 date: "2016-02-15"
 ---
 

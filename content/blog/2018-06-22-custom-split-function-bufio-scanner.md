@@ -4,6 +4,7 @@ tags: ["Go"]
 title: "A custom split function for bufio#Scanner"
 summary: "Custom implementation of a buffered scanner"
 date: "2018-06-22"
+slug: "custom-split-function-bufio-scanner"
 
 ---
 

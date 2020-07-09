@@ -1,9 +1,9 @@
 ---
-layout : post
 summary : One of my favorite questions on Quora is What is a coder's worst Nightmare.
 title: "On Development and Production environment parity"
 tags : [PHP]
 date: "2016-06-17"
+slug: "on-development-and-production-environment-parity"
 ---
 
 

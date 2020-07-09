@@ -2,6 +2,7 @@
 
 tags: ["Go" , "Deployment"]
 title: "Managing configuration values in production sanely"
+slug: "managing-production-configuration"
 summary: "Learn how not to leak production configurations. 12 factor
 configuration?"
 date: "2018-02-18"

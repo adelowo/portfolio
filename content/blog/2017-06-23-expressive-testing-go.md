@@ -1,10 +1,10 @@
 ---
 
-layout: post
 tags: [Go, Testing]
 title: "Writing Expressive tests in Go with Ginkgo and Gomega"
 summary: "Behaviour Driven Development (BDD) in Golang"
 date: "2017-06-23"
+slug: "expressive-testing-go"
 
 ---
 

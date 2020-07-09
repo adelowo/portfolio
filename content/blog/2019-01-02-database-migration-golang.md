@@ -3,6 +3,7 @@
 tags: [ "Devops", "Deployment", "Go"]
 title: "Database migrations in Golang"
 summary: "Implementing migrations in Go the sane way"
+slug: "database-migration-golang"
 date: "2019-01-02"
 
 ---

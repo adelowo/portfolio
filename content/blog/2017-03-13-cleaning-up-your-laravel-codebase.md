@@ -1,9 +1,9 @@
 ---
 
-layout : post
 tags : [PHP, Laravel]
 summary : Tips on writing more maintainable code in Laravel
 title: "Improving maintainability in Laravel apps"
+slug: "cleaning-up-your-laravel-codebase"
 date: "2017-03-13"
 
 ---

@@ -5,6 +5,9 @@ theme = "lanreadelowo"
 pygmentsUseClasses=true
 disqusShortname = "adelowo"
 
+[permalinks]
+  blog = "/:year/:month/:day/:slug/"
+
 [params]
   name = "Lanre Adelowo"
   email = "yo@lanre.wtf"
