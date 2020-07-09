@@ -4,6 +4,7 @@ title: Middleware in Go
 summary: Understanding Golang's Middleware.
 date: "2017-04-25"
 tags: [Go]
+slug: "go-middleware"
 
 ---
 

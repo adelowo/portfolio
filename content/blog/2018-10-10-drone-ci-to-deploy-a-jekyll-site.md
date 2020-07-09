@@ -3,6 +3,7 @@
 tags: [ "Devops", "Deployment"]
 title: "Automagically build and deploy your Jekyll site with Drone CI"
 summary: "Continous integration to deploy static websites"
+slug: "drone-ci-to-deploy-a-jekyll-site"
 date: "2018-10-10"
 
 ---

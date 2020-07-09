@@ -5,6 +5,7 @@ title: "Diving deep into net/http : A look at http.RoundTripper"
 summary: "Learn how to perform some operations before a request is processed in
 Go"
 date: "2017-07-24"
+slug: "roundtripper-go"
 
 ---
 

@@ -4,6 +4,7 @@ date: 2017-05-02
 title: Type safety or convenience
 summary: "Exploring public API for your libraries: Convenience or type safety?"
 tags: [Go]
+slug: "type-safety-or-convenience"
 
 ---
 

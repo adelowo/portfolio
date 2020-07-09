@@ -4,6 +4,7 @@ title: "On package names for Go tests"
 tags: ["Go"]
 summary: "What package name do I give my Golang tests ?"
 date: 2017-05-17
+slug: "on-package-naming-for-tests"
 
 ---
 
