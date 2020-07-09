@@ -12,7 +12,7 @@
 {{ template "_internal/opengraph.html" . }}
 <title>
   {{ if .IsHome }}Home | {{ .Site.Author.name }}{{ else }}{{ .Title }} |
-  {{ .Site.Author.name }}{{ end }}
+  {{ .Site.Params.Name }}{{ end }}
 </title>
 <meta name="theme-color" content="#ffffff" />
 <link rel="stylesheet" href="{{ .Site.BaseURL}}/css/app.css" />

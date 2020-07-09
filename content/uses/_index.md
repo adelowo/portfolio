@@ -1,5 +1,6 @@
 ---
 
 layout: uses
+title: "Uses"
 
 ---

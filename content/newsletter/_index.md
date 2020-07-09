@@ -1,5 +1,6 @@
 ---
 
 layout: newsletter
+title: "Newsletter"
 
 ---
