@@ -26,14 +26,20 @@
           data-element="header"
           style="color: rgb(77, 77, 77); font-size: 27px; font-weight: 700;"
         >
-          <h1>Join the Newsletter</h1>
+          <h1>My Newsletter</h1>
         </div>
         <div
           class="formkit-subheader"
           data-element="subheader"
           style="color: rgb(104, 104, 104); font-size: 18px;"
         >
-          Subscribe to get our latest content by email.
+          <p>
+            <span style="color: rgb(54, 54, 54);"
+              >I send out an email every 2 weeks or there about often to inform
+              you of articles I have written or cool stuff I'm working on and/or
+              launching. Sounds like fun? go ahead and sign up</span
+            >
+          </p>
         </div>
         <ul
           class="formkit-alert formkit-alert-error"
@@ -48,10 +54,11 @@
           <div class="formkit-field">
             <input
               class="formkit-input"
-              name="email_address"
-              placeholder="Your email address"
+              aria-label="First Name"
+              name="fields[first_name]"
               required=""
-              type="email"
+              placeholder="First Name"
+              type="text"
               style="
                 color: rgb(0, 0, 0);
                 border-color: rgb(227, 227, 227);
@@ -66,11 +73,10 @@
           <div class="formkit-field">
             <input
               class="formkit-input"
-              aria-label="First Name"
-              name="fields[first_name]"
+              name="email_address"
+              placeholder="Your email address"
               required=""
-              placeholder="First Name"
-              type="text"
+              type="email"
               style="
                 color: rgb(0, 0, 0);
                 border-color: rgb(227, 227, 227);
@@ -108,7 +114,7 @@
           data-element="guarantee"
           style="color: rgb(77, 77, 77); font-size: 13px; font-weight: 400;"
         >
-          We won't send you spam. Unsubscribe at any time.
+          <p>We won't send you spam. Unsubscribe at any time.</p>
         </div>
         <a
           href="https://convertkit.com?utm_source=dynamic&amp;utm_medium=referral&amp;utm_campaign=poweredby&amp;utm_content=form"
@@ -515,6 +521,7 @@
           height: 36px;
           margin: 0 auto;
           opacity: 0.95;
+          padding: 0;
           -webkit-text-decoration: none;
           text-decoration: none;
           text-indent: 100%;
@@ -535,6 +542,7 @@
           .formkit-powered-by-convertkit:hover,
         .formkit-form[data-uid="097f0c179b"]
           .formkit-powered-by-convertkit:focus {
+          background-color: #ffffff;
           -webkit-transform: scale(1.025) perspective(1px);
           -ms-transform: scale(1.025) perspective(1px);
           transform: scale(1.025) perspective(1px);
