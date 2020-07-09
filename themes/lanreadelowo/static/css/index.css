@@ -13,7 +13,7 @@
 }
 
 /* support for mobile client navigation */
-#menu-toggle: checked + #menu {
+#menu-toggle:checked + #menu {
   display: block;
 }
 
