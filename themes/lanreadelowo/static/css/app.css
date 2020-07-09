@@ -18039,7 +18039,8 @@ video {
   list-style: initial;
 }
 
-#content blockquote {
+#content blockquote,
+blockquote {
   --border-opacity: 1;
   border-color: #9c4221;
   border-color: rgba(156, 66, 33, var(--border-opacity));

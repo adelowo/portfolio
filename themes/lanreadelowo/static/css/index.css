@@ -156,7 +156,8 @@
   list-style: initial;
 }
 
-#content blockquote {
+#content blockquote,
+blockquote {
   @apply border-orange-800;
   padding-top: 1rem;
   padding-bottom: 1rem;

@@ -1,0 +1,99 @@
+{{define "main"}}
+{{ partial "nav" . }}
+<div class="base-container container">
+  <section>
+    <div
+      class="grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4"
+    >
+      <div>
+        <p class="font-bold text-accent text-center capitalize">
+          whoami
+        </p>
+        <blockquote>
+          Lanre Adelowo, a 24 year old software developer based out of Lagos,
+          Nigeria.
+        </blockquote>
+
+        <p class="font-bold text-accent text-center capitalize">
+          work
+        </p>
+        <blockquote>
+          Currently shipping code at
+          <a href="https://tyk.io"> Tyk Technologies.</a> Used to ship code for
+          the Nigerian IRS (FIRS) and Nigerian postal services (NIPOST).
+        </blockquote>
+
+        <p class="font-bold text-accent text-center capitalize">
+          Technologies
+        </p>
+        <blockquote>
+          These days my entire life revolves around Go. In a previous life, I
+          wrote a ton of PHP and used Ruby for one-off scripts. I use Docker for
+          everything in between development and production. If it is worth
+          running in a Kubernetes cluster, I'd put it in one else ....
+        </blockquote>
+
+        <blockquote>
+          Prior to modern day civilization, I wrote an awful ton of Javascript.
+        </blockquote>
+
+        <p class="font-bold text-accent text-center capitalize">
+          Work in the open
+        </p>
+        <blockquote>
+          I do have a bit of projects in the open. Most notably, I am a core
+          maintainer of
+          <a href="https://github.com/go-gitea/gitea" target="_blank">
+            Gitea.
+          </a>
+        </blockquote>
+
+        <blockquote>
+          While my day job is at Tyk, I occassionally contribute to the open
+          source API Gateway we maintain;
+          <a href="https://github.com/TykTechnologies/tyk" target="_blank">
+            Tyk API Gateway.
+          </a>
+        </blockquote>
+      </div>
+
+      <div>
+        <p class="font-bold text-accent text-center capitalize">
+          A real human runs this site
+        </p>
+        <blockquote>
+          <img
+            src="/img/lanre-white-trad.jpg"
+            alt="What I look like"
+	    class="rounded-full"
+          />
+        </blockquote>
+
+        <p class="font-bold text-accent text-center capitalize">
+          Github contribution graph
+        </p>
+        <blockquote>
+          <img
+            src="https://ghchart.rshah.org/adelowo"
+            alt="Lanre Adelowo's Github chart"
+          />
+        </blockquote>
+
+        <p class="font-bold text-accent text-center capitalize">
+          How much time do I spend coding?
+        </p>
+	<blockquote>
+		<figure><embed src="https://wakatime.com/share/@horus/97d6e689-df7a-47aa-a961-4b7f179149aa.svg"></embed></figure>
+	</blockquote>
+
+        <p class="font-bold text-accent text-center capitalize">
+          What languages do I spend most of my time writing?
+        </p>
+	<blockquote>
+		<figure><embed src="https://wakatime.com/share/@horus/922b3b2a-087b-4e90-9654-b3e6cb30454a.svg"></embed></figure>
+	</blockquote>
+      </div>
+    </div>
+  </section>
+</div>
+{{ end }}
