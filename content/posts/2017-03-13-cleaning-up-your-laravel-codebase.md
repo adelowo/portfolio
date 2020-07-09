@@ -2,7 +2,9 @@
 
 layout : post
 tags : [PHP, Laravel]
-description : Tips on writing more maintainable code in Laravel
+summary : Tips on writing more maintainable code in Laravel
+title: "Improving maintainability in Laravel apps"
+date: "2017-03-13"
 
 ---
 

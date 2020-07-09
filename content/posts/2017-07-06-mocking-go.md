@@ -2,7 +2,8 @@
 layout: post
 tags: [Go, Testing]
 title: "Isolating and mocking the database in Go tests"
-description: "Mock the database in your Golang tests"
+summary: "Mock the database in your Golang tests"
+date: "2017-07-06"
 
 ---
 

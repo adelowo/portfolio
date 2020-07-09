@@ -1,0 +1,17 @@
+{{define "main"}}
+{{ partial "nav" . }}
+<div class="base-container container">
+  <section>
+    <p class="font-bold text-accent text-center capitalize">
+      All my articles
+    </p>
+    <div
+      class="grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-4"
+    >
+      {{ range.Site.RegularPages }}
+      {{ partial "articles-list" . }}
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

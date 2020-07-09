@@ -1,12 +1,10 @@
 ---
 
 layout : post
-
 title : Never under estimate the power of a broken testsuite
-
-description : Broken test suites don't lie. They never do.
-
+summary : Broken test suites don't lie. They never do.
 tags : [Testing]
+date: "2017-01-21"
 
 
 ---

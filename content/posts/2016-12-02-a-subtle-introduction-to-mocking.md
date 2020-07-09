@@ -1,8 +1,10 @@
 ---
 
 layout : post
-description: An introduction to mocking
+summary: An introduction to mocking
+date: "2016-12-02"
 tags : [Testing, PHP]
+title: "An introduction to Mocking"
 ---
 
 

@@ -3,8 +3,9 @@
 layout: post
 title: "On package names for Go tests"
 tags: ["Go"]
-description: "What package name do i give to my Golang tests ?"
+summary: "What package name do I give my Golang tests ?"
 date: 2017-05-17
+
 ---
 
 When writing [tests](/blog/2017/04/08/testing-http-handlers-go/) in Go, there are two options as per how you choose to name your package's tests; `package foo` or `package foo_test`.

@@ -1,8 +1,11 @@
 ---
+
 layout: post
 title: Middleware in Go
-description: Understanding Golang's Middleware.
+summary: Understanding Golang's Middleware.
+date: "2017-04-25"
 tags: [Go]
+
 ---
 
 

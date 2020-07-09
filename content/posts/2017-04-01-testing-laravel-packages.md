@@ -1,13 +1,10 @@
 ---
 
 layout : post
-
 tags : [PHP, Laravel, Testing]
-
-description : How to test Laravel's Service provider
-
+summary : How to test Laravel's Service provider
 title : Testing packages integration with Laravel
-
+date: "2017-04-01"
 
 ---
 
