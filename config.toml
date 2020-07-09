@@ -1,6 +1,6 @@
-baseURL = "http://example.org/"
+baseURL = "https://lanre.wtf"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Lanre Adelowo's website"
 theme = "lanreadelowo"
 pygmentsUseClasses=true
 disqusShortname = "adelowo"
