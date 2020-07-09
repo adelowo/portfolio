@@ -1,10 +1,10 @@
 ---
 
 layout : post
-
-description : 'Missed the first part ? Checkout the [first part](/blog/2016/12/02/a-subtle-introduction-to-mocking/).'
-
+summary : 'Mocking, Mocking? Are you mocking me?'
+title: "A subtle introduction to Mocking (2)"
 tags : [Testing, PHP]
+date: "2016-12-07"
 
 ---
 

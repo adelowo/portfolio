@@ -1,10 +1,10 @@
 ---
 
-layout  : post
-
-description : Building your own simple and reusable validation library in PHP
-
+layout: post
+summary: Building your own simple and reusable validation library in PHP
+title: "Build your own validation library"
 tags : [PHP, Testing]
+date: "2017-01-07"
 
 ---
 

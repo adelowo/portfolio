@@ -1,9 +1,10 @@
 ---
 
 layout : post
-description : A review of Elementary os
+summary : A review of Elementary os
 tags : [Linux]
 title : Elementary OS, beauty and the beast
+date: "2017-02-19"
 
 ---
 

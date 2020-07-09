@@ -1,7 +1,9 @@
 ---
 layout : post
-description: I only recently completed building a project i was extremely keen on
+summary: I only recently completed building a project i was extremely keen on
+title: "Deploying PHP web apps with Capistrano"
 tags : [Deployment, PHP]
+date: "2016-02-15"
 ---
 
 I only recently completed building a project i was extremely keen on - [Schoollogue](https://schoollogue.com), a wordplay on "School Catalogue" -

@@ -1,7 +1,9 @@
 ---
 
 layout : post
-description : So i have been taking a look at ___Ruby___.
+summary : So I have been taking a look at ___Ruby___.
+title: "ATM Simulator in Ruby"
+date: "2017-01-05"
 tags : [Ruby]
 
 ---

@@ -1,12 +1,11 @@
 ---
 
 layout : post
-
 tags : [Go,Testing]
-
 title : Testing HTTP handlers in Go
+summary: An introduction to testing Golang's web services
+date: "2017-04-08"
 
-description: An introduction to testing Golang's web services
 ---
 
 It is no news that quality, integrity and reliability are what we always want to deliver with software.

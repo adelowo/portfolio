@@ -1,8 +1,10 @@
 ---
-layout : post
-title : You really should be using a PHP template engine
-description : In the beginning, there was HTML.
+
+title : "You really should be using a PHP template engine"
+date: "2015-12-14"
+summary: "Why you should use a template engine ( PHP )"
 tags : [PHP]
+
 ---
 
 In the beginning, there was HTML then came CSS after which [Rasmus Lerdorf](https://en.m.wikipedia.org/wiki/Rasmus_Lerdorf){:target="_blank"} then decided to put some bunch of
