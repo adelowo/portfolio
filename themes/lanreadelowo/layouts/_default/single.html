@@ -1,0 +1,48 @@
+{{define "main"}}
+
+{{ partial "nav" . }}
+<div class="base-container container">
+  <div id="hero-text">
+    <p class="font-black antialiased text-4xl">
+      {{.Title}}
+    </p>
+
+    <p class="pt-6">
+      {{ .Summary }}
+    </p>
+
+    <div class="h-divider">
+      <div class="shadow"></div>
+      <div class="text2">
+        <img
+          src="https://t1.gstatic.com/images?q=tbn:ANd9GcQsmMfybMIwoE5etmOIAuvnFWdfv_8C1Bq15urJFqwhhI55FyYNP2YuUA"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container mx-auto h-full flex justify-center items-center pt-6"> -->
+<!--   <div class="max-w-sm mx-auto rounded-lg overflow-hidden"> -->
+<!--     <div class="sm:flex sm:items-center px-6 py-4"> -->
+<!--       <img -->
+<!--         class="block mx-auto sm:mx-0 sm:flex-shrink-0 h-16 sm:h-24 rounded-full" -->
+<!--         src="/img/human.png" -->
+<!--         alt="Lanre Adelowo's face" -->
+<!--       /> -->
+<!--       <div class="mt-4 sm:mt-0 sm:ml-4 text-center sm:text-left"> -->
+<!--         <p class="text-xl leading-tight">{{ .Site.Params.Name }}</p> -->
+<!--         <p class="text-sm leading-tight text-gray-600 pt-4"> -->
+<!--           {{ .Date.Format "January 02, 2006"}} -->
+<!--         </p> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </div> -->
+
+<div id="content" class="container">
+  {{.Content}}
+  {{ template "_internal/disqus.html" . }}
+</div>
+
+{{ end }}
