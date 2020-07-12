@@ -111,8 +111,10 @@ Then update the file with the following :
 set :application, 'Your app name'
 set :repo_url, "git@bitbucket.org:username/reponame.git"
 set :deploy_to, '/var/www/html/app' #the deploy directory
-set :keep_releases, 5 #The number of directories to be kept in the `releases` directory - this is for the rollback functionality
-set :linked_dirs, fetch(:linked_dirs, []).push('cache','public/uploads') #directories that are to be shared between releases, mostly cached files or a file upload folder
+set :keep_releases, 5 #The number of directories to be kept in the `releases` directory
+# - this is for the rollback functionality
+# #directories that are to be shared between releases, mostly cached files or a file upload folder
+set :linked_dirs, fetch(:linked_dirs, []).push('cache','public/uploads')
 set :linked_files, fetch(:linked_files, []).push('generated-conf/config.php') #files that are to be shared among releases
 
 ```
@@ -129,8 +131,9 @@ $ vi /path/to/dir/config/deploy/production.rb
 Update the file as per what is obtainable below :
 
 ```ruby
-
-role :web, %w{deploy@01.23.456.789} #this should replaced by your server ip address, you definitely have access to the remote via SSH right ?
+#this should replaced by your server ip address,
+# you definitely have access to the remote via SSH right ?
+role :web, %w{deploy@01.23.456.789}
 
 ```
 
@@ -218,7 +221,7 @@ I once was stucked with a bad WiFi network and it took me nearly 10 minutes - .
 
 I have attached a screenshot of the process below.
 
-![deploying php apps with Capistrano]({{ site.baseurl }}/img/log/cap.png)
+![deploying php apps with Capistrano](/img/log/cap.png)
 
 Haha moment ???
 

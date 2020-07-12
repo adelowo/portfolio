@@ -30,7 +30,7 @@ get updates as to changes in stuffs they seem interested in. We thought it nice 
 
 In the notification hook, we had something like ***Notify all subscribers except the guy <sup>[1]</sup> who added the update***
 
-![code screenshot]({{ site.baseurl }}/img/log/Screenshot-from-2016-06-17 16-12-47.png)
+![implementation](/img/log/codescreenshot.png)
 
 Spot the bug ? I bet you can't.. Hell that is perfectly valid code - ok [let's leave the question of using collections rather than loops](http://adamwathan.me/refactoring-to-collections/) out of this .
 I did push to the repo and off to production it went.

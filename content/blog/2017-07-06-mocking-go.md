@@ -1,4 +1,5 @@
 ---
+
 tags: [Go, Testing]
 title: "Isolating and mocking the database in Go tests"
 summary: "Mock the database in your Golang tests"

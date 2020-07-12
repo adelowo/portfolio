@@ -13,7 +13,7 @@ One that fetches users' repositories and profile. This isn't a full featured app
 
 ## The Github App
 
-> The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/github-app){:target="_blank"}.
+> The code for this has been put on [Github](https://github.com/adelowo/code-samples/tree/master/github-app).
 
 #### Users Story
 
@@ -121,7 +121,7 @@ method - `get(string $relativeUrl)` - in other to prevent duplication.
 
 Fairly straight forward.
 
-> The [PSR-7 standard](http://www.php-fig.org/psr/psr-7){:target="_blank"} is actually a nice way to understanding how ___Guzzle___ was implemented.
+> The [PSR-7 standard](http://www.php-fig.org/psr/psr-7) is actually a nice way to understanding how ___Guzzle___ was implemented.
 
 How about we test this ? Since this is going to be a lot to take in, i would only show a test per block code.
 
@@ -447,5 +447,5 @@ But our tests didn't cover that edge case. Let's have that fixed
 
 
 > The source code for this (including a sample console script that shows our dummy app in usage) can be found
-> on [Github](https://github.com/adelowo/code-samples/tree/master/github-app){:target="_blank"}.
+> on [Github](https://github.com/adelowo/code-samples/tree/master/github-app).
 

@@ -155,7 +155,7 @@ Why do this ? The main reason i do is to prevent distractions. If i am to really
 i have to turn off external disturbances. I don't want to see errors for the test i am not interested in.
 That would kill my morale. So i get to see the stack trace for only this particular test.
 
-![Stack trace]({{ site.baseurl }}/img/log/stack_trace.png)
+![Stack trace](/img/log/stack_trace.png)
 
 > Ideally, it wouldn't be a parse error. I had to dig into some file to make something fail as an example.
 

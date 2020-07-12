@@ -174,8 +174,8 @@ func main() {
 Running multiple versions of this code ( with different ips ) should give you an interface (in consul)
 like this :
 
-![All services]({{ site.baseurl }}/img/log/allservices.png)
-![Deeper view of all services]({{ site.baseurl }}/img/log/running_services.png)
+![All services](/img/log/allservices.png)
+![Deeper view of all services](/img/log/running_services.png)
 
 ### So where does the loadbalancer fit into all this ?
 

@@ -205,11 +205,11 @@ func findUserByToken(token string) (*User, error) {
 
 To test this, we need to run `curl -H "Authorization: Bearer abc123" http://localhost:8000/profile -i` (our sample user, horus has his token as ___abc123___).
 
-![Works]({{ site.baseurl }}/img/log/works.png)
+![Works](/img/log/works.png)
 
 Ok, that works.. Let's try an invalid token, say (abc12).. `curl -H "Authorization: Bearer abc12" http://localhost:8000/profile -i `
 
-![Failure]({{ site.baseurl }}/img/log/failure.png)
+![Failure](/img/log/failure.png)
 
 
 ### Closing remarks

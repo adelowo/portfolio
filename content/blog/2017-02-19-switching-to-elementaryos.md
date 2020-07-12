@@ -71,7 +71,7 @@ That might sound trivial but considering the fact Unity and GNOME disable this a
 - Disk usage bar : Remember that ugly windows external disk usage bar ? Elementary has got something of that sort but it isn't any where ugly.
 A snapshot in progress (Take a look at the devices section)
 
-![Disk usage bar]({{site.baseurl}}/assets/img/pantheon-files.png)
+![Disk usage bar](/img/log/pantheon-files.png)
 
 
 ### Default Applications and installation of new software
@@ -88,7 +88,7 @@ Elementary OS comes battery included albeit with a sensible battery size. The de
 
 - A dock
 
-The Elementary team maintain a very much comprehensive list [on their website][elementary]{:target="_blank"} and you'd want to take a look at that.
+The Elementary team maintain a very much comprehensive list [on their website][elementary] and you'd want to take a look at that.
 
 > Nice read - [Busting major myths around Elementary Os](https://medium.com/elementaryos/busting-major-myths-around-elementary-os-bd966402a9c2#.81r8vezmk){:target:"_blank"}
 

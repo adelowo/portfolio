@@ -11,7 +11,7 @@ slug: "kiss-is-a-way-of-life"
 
 So i was working on this dummy web app around mid August - one that was never going to exist past my private repository - and in the `README.md` file, there was a note to myself that the application must not make use of "Facades" - bottom right in the image below.
 
-![A laravel facade thou shall not use]({{ site.baseurl }}/img/log/Screenshot-from-2016-10-16-15-44-26.png)
+![A laravel facade thou shall not use](/img/log/Screenshot-from-2016-10-16-15-44-26.png)
 
 It turns out it was pure extremism. Every time i've got cause to review my redundant private repositories, this particular repo has always been a mental note to myself about stuffs like over-engineering, framework/dependency lock-in and their ilks.
 

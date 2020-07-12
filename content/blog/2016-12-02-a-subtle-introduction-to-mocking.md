@@ -37,9 +37,9 @@ way that is controlled by you, the tester. Mocks may (not) have stubs.
 
 ### Getting started
 
-The defacto tool for this - in PHP - is [Mockery](https://packagist.org/packages/mockery/mockery){:target="_blank"} even though PHPUnit ships with it's own implementation. That can get too verbose.
+The defacto tool for this - in PHP - is [Mockery](https://packagist.org/packages/mockery/mockery) even though PHPUnit ships with it's own implementation. That can get too verbose.
 
-To install mockery, we'd have to pull it in from [packagist](https://packagist.org){:target="_blank"} by running
+To install mockery, we'd have to pull it in from [packagist](https://packagist.org) by running
 
 ```sh
 
@@ -48,7 +48,7 @@ $ composer require --dev mockery/mockery
 
 ```
 
-> If you want to make use of PHPunit's default mock implementation, you can find an [example here](https://github.com/brandonsavage/Upload/blob/master/tests/FileTest.php#L4-L34){:target="_blank"}
+> If you want to make use of PHPunit's default mock implementation, you can find an [example here](https://github.com/brandonsavage/Upload/blob/master/tests/FileTest.php#L4-L34)
 
 ### How do i mock
 
@@ -59,7 +59,7 @@ In this section, i would be showing 2 practical use-cases of a mock. The sample 
 
 ### The Logger
 
-After hitting [Github](https://github.com){:target="_blank"}'s api, we want to log the username that was searched for. Probably to implement some sort of ___most searched users___ feature.
+After hitting [Github](https://github.com)'s api, we want to log the username that was searched for. Probably to implement some sort of ___most searched users___ feature.
 The way this would work is by appending some sort of separator - `;` - to each username in the log file.
 With this, we end up with a file that has it's content similar to this : `fabpot;funkatron;philsturgeon;adelowo;codeguy;`.
 
@@ -71,7 +71,7 @@ In other to pass this idea through, I would be providing code samples that show 
 
 > Both stages work as expected and have unit tests.
 
-> I have put up the code for both stages on [github](https://github.com/adelowo/code-samples/tree/master/mocking){:target="_blank"}
+> I have put up the code for both stages on [github](https://github.com/adelowo/code-samples/tree/master/mocking)
 
 #### The Premock Stage
 
@@ -145,7 +145,7 @@ What if we had to do this 15, 20, 50 times. Our tests' would take longer to run.
 > **Tests should be fast. They should run quickly. When tests run slow, you won’t want to run them frequently. If you don’t run them frequently, you won’t find problems early enough to
 > fix them easily. You won’t feel as free to clean up the code. Eventually the code will begin to rot --- Uncle Bob (F.I.R.S.T)**
 
-![We touched the filesystem](/img/log/Screenshot-from-2016-12-01 03-55-58.png)
+![We touched the filesystem](/img/log/touch-the-filesystem.png)
 
 Ok, that was a ***soft argument***.
 
