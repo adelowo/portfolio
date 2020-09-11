@@ -155,4 +155,7 @@ CMD ["/cmd"]
   binary. With that step, you actually destroy the dependency on the filesystem. There is an
   [opened PR](https://github.com/golang-migrate/migrate/pull/144) for that right now and I'd be keeping an eye opened to update this post should in case its status changes.
 
+> Update: this has become my most preffered method of doing this. Use
+`go-bindata` to embed the files and capice
+
 
