@@ -4,14 +4,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta
   name="description"
-  content="{{ with.Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}"
+  content="{{   with.Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{  end }}{{ end }}"
 />
-<meta name="author" content="{{ .Site.Params.author }}" />
+<meta name="author" content="{{ .Site.Params.Name }}" />
 <meta name="robots" content="index,follow" />
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/opengraph.html" . }}
 <title>
-  {{ if .IsHome }}Home | {{ .Site.Author.name }}{{ else }}{{ .Title }} |
+  {{ if .IsHome }}Home | {{ .Site.Params.name }}{{ else }}{{ .Title }} |
   {{ .Site.Params.Name }}{{ end }}
 </title>
 <meta name="theme-color" content="#ffffff" />
