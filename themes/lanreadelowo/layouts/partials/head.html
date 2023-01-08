@@ -4,11 +4,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta
   name="description"
-  content="{{
-    with.Description
-  }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{
-    end
-  }}{{ end }}"
+  content="{{ with.Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}"
 />
 <meta name="author" content="{{ .Site.Params.Name }}" />
 <meta name="robots" content="index,follow" />
