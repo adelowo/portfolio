@@ -108,4 +108,4 @@ problems upfront most of the times?
 
 You don't want to shove and make a mess of your application logs.
 You want them to be consistent, easy to filter and grep, extremely detailed and
-actionable. And also with low signal to noise ratio.
+actionable. And also with a high signal to noise ratio.
