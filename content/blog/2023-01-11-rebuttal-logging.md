@@ -2,7 +2,7 @@
 
 tags: [ "devops"]
 title: "On actionable and actually useful logs"
-date: "2023-01-11"
+date: "2023-01-12"
 summary: "Responding to responses about my earlier thoughts on overlogging"
 
 ---
