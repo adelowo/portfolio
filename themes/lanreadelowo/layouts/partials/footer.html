@@ -18,22 +18,22 @@
       border-bottom-left-radius: 4px;
     "
   >
-    <div class="formkit-background" style="opacity: 0.2;"></div>
+    <div class="formkit-background" style="opacity: 0.2"></div>
     <div data-style="minimal">
       <div
         class="formkit-header"
         data-element="header"
-        style="color: rgb(77, 77, 77); font-size: 27px; font-weight: 700;"
+        style="color: rgb(77, 77, 77); font-size: 27px; font-weight: 700"
       >
         <h1>My Newsletter</h1>
       </div>
       <div
         class="formkit-subheader"
         data-element="subheader"
-        style="color: rgb(104, 104, 104); font-size: 18px;"
+        style="color: rgb(104, 104, 104); font-size: 18px"
       >
         <p>
-          <span style="color: rgb(54, 54, 54);"
+          <span style="color: rgb(54, 54, 54)"
             >I send out an email every 2 weeks or there about often to inform
             you of articles I have written or cool stuff I'm working on and/or
             launching. Sounds like fun? go ahead and sign up</span
@@ -111,7 +111,7 @@
       <div
         class="formkit-guarantee"
         data-element="guarantee"
-        style="color: rgb(77, 77, 77); font-size: 13px; font-weight: 400;"
+        style="color: rgb(77, 77, 77); font-size: 13px; font-weight: 400"
       >
         <p>We won't send you spam. Unsubscribe at any time.</p>
       </div>
@@ -673,8 +673,9 @@
   </form>
 
   <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=UA-71600006-1"
+    defer
+    data-domain="lanre.wtf"
+    src="https://plausible.io/js/script.js"
   ></script>
 
   <script>
@@ -688,18 +689,5 @@
           link.target = "_blank";
         }
       });
-
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag("js", new Date());
-    gtag("config", "UA-71600006-1");
   </script>
-  <script
-    src="https://unpkg.com/sars-stand/black-lives.js"
-    type="module"
-  ></script>
 </div>
