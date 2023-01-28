@@ -36,7 +36,7 @@ In the case of the migrated package as mentioned earlier, i had just 3 objects -
 
 Here is what [the service provider looks like](https://github.com/adelowo/laravel-gbowo/blob/f1cdba26f98c52668a0ab207afce848497bf531a/src/GbowoServiceProvider.php) :
 
-{{< highlight php "linenos=table"  >}}
+```php
 <?php
 
 namespace Gbowo\Bridge\Laravel;
@@ -80,15 +80,14 @@ class GbowoServiceProvider extends ServiceProvider
         return ["gbowo", "gbowo.paystack", "gbowo.amplifypay"];
     }
 }
-
-{{< / highlight >}}
+```
 
 > Those adapters are from the core package.
 
 The Manager is used for ___managing (sic)___ adapters instance at a ___transparent level___. So here is what it looks like
 
 
-{{< highlight php "linenos=table"  >}}
+```php
 <?php
 
 namespace Gbowo\Bridge\Laravel;
@@ -166,12 +165,12 @@ class GbowoManager
         $this->customAdapters[$adapterName] = $callback;
     }
 }
-{{< / highlight >}}
+```
 
 And of course,[the facade](https://github.com/adelowo/laravel-gbowo/blob/master/src/Facades/Gbowo.php)
 
 
-{{< highlight php "linenos=table"  >}}
+```php
 <?php
 
 namespace Gbowo\Bridge\Laravel\Facades;
@@ -186,7 +185,7 @@ class Gbowo extends Facade
     }
 }
 
-{{< / highlight >}}
+```
 
 
 As i said earlier, I wanted to be certain i was interacting correctly with Laravel ?. So how do i get that done ? There are actually two ways to do this :
@@ -205,7 +204,7 @@ I ended up going with this option and is what would be described iin this post.
 Since the `GbowoManager` makes use of the Application instance Laravel has to provide with all services already bounded and isn't ___too coupled___ to Laravel,
 that seems like a nice place to start.
 
-{{< highlight php "linenos=table"  >}}
+```php
 <?php
 
 namespace Gbowo\Bridge\Laravel\Tests;
@@ -253,8 +252,7 @@ class GbowoManagerTest extends TestCase
     }
 
 }
-
-{{< / highlight >}}
+```
 
 
 
@@ -262,7 +260,7 @@ class GbowoManagerTest extends TestCase
 
 The most interesting parts are
 
-{{< highlight php "linenos=table"  >}}
+```php
 <?php
 
         $app->offsetGet("config")
@@ -274,8 +272,7 @@ The most interesting parts are
         $app->make("gbowo.amplifypay")
             ->willReturn(new AmplifypayAdapter());
 
-
-{{< / highlight >}}
+```
 
 We created a mock that can act as a replacement with `prophesize(Application::class)`after which we added some stubs to it.
 
@@ -285,7 +282,7 @@ Meaning we have to act as if it was a real Laravel instance running.
 
 Great ? How about making sure that works ?
 
-{{< highlight php "linenos=table"  >}}
+```php
 <?php
 
 class GbowoManagerTest extends TestCase
@@ -322,14 +319,12 @@ class GbowoManagerTest extends TestCase
     }
 
 }
-
-{{< / highlight >}}
-
+```
 
 Running that should give us green but we still have a huge part of the ___manager___ that isn't tested yet.
 It allows for extensibility and we haven't tested that yet. It throws exceptions when it couldn't resolve an adapter by a name. Let's put those in our test.
 
-{{< highlight php "linenos=table"  >}}
+```php
 <?php
 
 class GbowoManagerTest extends TestCase
@@ -388,8 +383,7 @@ class GbowoManagerTest extends TestCase
     }
 
 }
-
-{{< / highlight >}}
+```
 
 
 With the above tests, we are certain that the `Manager` would work as expected if it gets into a real Laravel application.
@@ -400,7 +394,7 @@ Laravel - ___and their workings are actually implemented in Laravel___. We can p
 
 > We can decide to leave this out as the Manager tests already confirms our trust in the package doing it's thing
 
-{{< highlight php "linenos=table"  >}}
+```php
 <?php
 
 namespace Gbowo\Bridge\Laravel\Tests;
@@ -431,8 +425,7 @@ class GbowoTest extends TestCase
         );
     }
 }
-
-{{< / highlight >}}
+```
 
 Here, we are eseentially making sure the Facade resolves to the GbowoManager.
 The ___message passing___ is done by Laravel, so we can leave that out trusting Laravel to work as expected.

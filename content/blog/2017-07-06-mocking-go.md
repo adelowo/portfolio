@@ -27,7 +27,7 @@ With that in place we can write as many as possible implementations of that (mon
 This applies to any other stuff that has to deal with external services - mail service, external queue system..
 
 
-{{< highlight go "linenos=table"  >}}
+```go
 type (
 	//our db abstraction
 	store interface {
@@ -50,12 +50,12 @@ type (
 	}
 )
 
-{{< / highlight >}}
 
+```
 
 Here, we have declared `app.DB` to be of type `store`, so we can easily switch between mysql and something else with a config file -probably . To use sqlite3, we would have something like :
 
-{{< highlight go "linenos=table"  >}}
+```go
 import (
 	"github.com/jmoiron/sqlx"
 	_ "github.com/mattn/go-sqlite3"
@@ -75,23 +75,23 @@ func (d *db) Delete(ID int) error {
 func (d *db) FindByID(ID int) (post, error) {
 }
 
-{{< / highlight >}}
+```
 
 
 Then in our handlers, we would access `app.DB.FindByID(12)`..
 
-{{< highlight go "linenos=table"  >}}
+```go
 func viewPost(a *app) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		a.DB.FindByID(id)
 	}
 }
+```
 
-{{< / highlight >}}
 
 While we have a functional connection to sqlite3, remember we still don't want to touch the database in the test suite..
 
-{{< highlight go "linenos=table"  >}}
+```go
 func TestViewPost(t *testing.T) {
 
 	db := new(fakeStore) //fakeStore is a mock
@@ -124,7 +124,7 @@ func TestViewPost(t *testing.T) {
 
 }
 
-{{< / highlight >}}
+```
 
 The most interesting here is [`fakeStore`](https://github.com/adelowo/mockdemo/blob/master/main_test.go#L113-L166).
 It is a mock that has expectations and stubs (return values) so as to make itself seem real. While it can be written by hand, I made use of a tool called [mockery](https://github.com/vektra/mockery) that autogenerates structs based on interfaces.

@@ -51,7 +51,7 @@ Internally, you organize your keys in a tree like status e.g `app/github/*` and 
 
 Below is an example of what I implemented :
 
-{{< highlight go "linenos=table"  >}}
+```go
 // config/config.go
 
 const (
@@ -59,12 +59,10 @@ const (
     CONSUL_MYSQL_DSN = CONSUL_PREFIX + "database/mysql/dsn"
     CONSUL_MONGO_DSN = CONSUL_PREFIX + "database/mongodb/dsn"
 )
+```
 
-{{< / highlight >}}
 
-
-{{< highlight go "linenos=table"  >}}
-
+```go
 // cmd/setup.go
 
 func configFromConsul(prod bool, addr string) (*config.Configuration, error) {
@@ -124,8 +122,7 @@ func configFromConsul(prod bool, addr string) (*config.Configuration, error) {
 
 	return c, nil
 }
-
-{{< / highlight >}}
+```
 
 > The icing on the cake would be automatic reconfiguration of the application by watching for changes in the kv store.
 > I did not implement this because config values in this application does not change often since most of this values are 3rd party api keys, dsn strings for mysql,

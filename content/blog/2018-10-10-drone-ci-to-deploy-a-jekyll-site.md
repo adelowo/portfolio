@@ -74,7 +74,7 @@ pipeline is to run in a container. In your `.drone.yml` file, add the following
 ;
 
 
-{{< highlight yaml >}}
+```yaml
 pipeline:
   build:
     image: ruby
@@ -82,8 +82,7 @@ pipeline:
       - gem install bundler
       - bundle install
       - bundle exec jekyll build
-
-{{< / highlight >}}
+```
 
 
 
@@ -116,15 +115,13 @@ image plus they aren't exposed on a PR. See [docs](http://docs.drone.io/manage-s
 To add our private key as a secret, we need to run the following :
 
 
-{{< highlight bash >}}
-
+```sh
 drone secret add \ 
   -repository repo/name \
   -image drillster/drone-rsync \
   -name rsync_key \
   -value @./path_to_id_rsa
-
-{{< / highlight >}}
+```
 
 
 
@@ -139,7 +136,7 @@ You can then update the `.drone.yml` file
 
 
 
-{{< highlight yaml >}}
+```yaml
   deploy:
     image: drillster/drone-rsync
     hosts: [ "example.com" ]
@@ -149,16 +146,14 @@ You can then update the `.drone.yml` file
     user: youruser
     delete: true
     secrets: [ rsync_key ]
-
-{{< / highlight >}}
-
+```
 
 
 > You can also add your user as a secret stored in `rsync_user` though.
 
 Your `.drone.yml` should look like this now ;
 
-{{< highlight yaml >}}
+```yaml
 pipeline:
   build:
     image: ruby
@@ -176,7 +171,7 @@ pipeline:
     user: youruser
     delete: true
     secrets: [ rsync_key ]
-{{< / highlight >}}
+```
 
 
 There is an additional step you can take and that is making sure the `deploy`
@@ -185,15 +180,11 @@ wouldn't want PR builds to report as failed - remember [secrets are not exposed
 to a pull request](http://docs.drone.io/manage-secrets/), hence the deploy step
 would always fail. To do that, you have to update your deploy step to include
 
-{{< highlight yaml >}}
+```yaml
     when:
       event: [ push ] ## Would run only on a push to master
       branch: [ master ] ## Only the master branch can be deployed to production
-{{< / highlight >}}
-
-
-
-
+```
 
 After this, write a new blog post, `git push` your changes and sleep... If you
 are reading this, then this steps worked :smile: :laughing: .

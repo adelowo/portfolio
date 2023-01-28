@@ -25,7 +25,7 @@ Back to the present day ; Now that every sane developer is "separating his conce
 You see,folks were creating `View` classes that rendered data to the user,in doing so,it (the View object) allowed the pseudo-variable `$this` to be used outside an object
 (which still messes up the templates ) i.e the files containing the HTML markup. Here's an example from an open-source framework for building User Authentication systems, [Huge](https://github.com/panique/huge){:target="_blank"}.
 
-{{< highlight php "linenos=table" >}}
+```php
 <?php
 
 class View
@@ -43,7 +43,6 @@ class View
         require Config::get('PATH_VIEW') . '_templates/footer.php';
     }
 }
-
 ```
 
 It works but i do feel we could do better without screwing the `$this` pseudo-variable.
@@ -82,9 +81,7 @@ protected function makeView($templateFileToLoad , array $params)
     echo $twig->render($fileFullName, $data);
 
 }
-
-
-{{< / highlight >}}
+```
 
 {% highlight liquid %}
 
@@ -107,9 +104,9 @@ the __good guys with good intentions that end up doing bad things to your web ap
 even in our worst nightmares. Here comes twig again to save the day and a major reason why i'd never ever write a web app again without a template engine
 (well if a gun was put to my balls,I probably would...just don't count on that).
 
-{{< highlight go >}}
+```php
 echo htmlspecialchars($variable , ENT_QUOTES , 'UTF-8') ;
-{{< / highlight >}}
+```
 
 
 {% highlight liquid %}

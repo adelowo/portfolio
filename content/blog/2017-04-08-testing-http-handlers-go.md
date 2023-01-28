@@ -25,7 +25,7 @@ If you are totally new to testing in Go, you might want to read this section els
 
 ### The obligatory Calculator test
 
-{{< highlight go "linenos=table"  >}}
+```go
 //calculator.go
 package calculator
 
@@ -36,10 +36,10 @@ func Add(x, y int) int {
 func Multiply(x, y int) int {
 	return x * y
 }
-{{< / highlight >}}
+```
 
 
-{{< highlight go "linenos=table"  >}}
+```go
 package calculator
 
 import (
@@ -63,8 +63,8 @@ func TestMultiply(t *testing.T) {
 		t.Errorf("Expected %d. Got %d", expected, got)
 	}
 }
+```
 
-{{< / highlight >}}
 
 > `go test` is the command you need to run.
 
@@ -91,7 +91,7 @@ For this project, we would be making use of [gorilla/mux][mux] for the routing. 
 
 > The code for this can be found on [github][github]
 
-{{< highlight go "linenos=table"  >}}
+```go
 //main.go
 package main
 
@@ -145,14 +145,13 @@ func main() {
 
 	http.ListenAndServe(":4000", r)
 }
-
-{{< / highlight >}}
+```
 
 Nothing here, just yet another web server we created. So let's implement the handlers.
 
 > You might want to comment out unimplemented handlers so an error shouldn't occur.
 
-{{< highlight go "linenos=table"  >}}
+```go
 //Fetches all posts
 func articlesHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -166,12 +165,11 @@ func articlesHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, string(users))
 }
-
-{{< / highlight >}}
+```
 
 Create a test file called `main_test.go`
 
-{{< highlight go "linenos=table"  >}}
+```go
 package main
 
 import (
@@ -215,8 +213,7 @@ func TestArticlesHandler(t *testing.T) {
 	//The assert package checks if both JSON string are equal and for a plus, it actually confirms if our manually built JSON string is valid
 	assert.JSONEq(t, expected, rr.Body.String(), "Response body differs")
 }
-
-{{< / highlight >}}
+```
 
 I have laced the test with comments in other for it to be exlanatory but what we are basically doing here is making sure our handler returns the correct HTTP status code and correct JSON.
 If you are persisting stuffs to a store, you might as well want to check that to make sure all is well.
@@ -230,7 +227,7 @@ The main thing to note here is we made use of a `ResponseRecorder`, this is key 
 
 To fetch a blog post via the link `/posts/4`, we would have an implementation like :
 
-{{< highlight go "linenos=table"  >}}
+```go
 //main.go
 func articleHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -273,13 +270,12 @@ func articleHandler(w http.ResponseWriter, r *http.Request) {
 func createArticle(w http.ResponseWriter, r *http.Request) {
 	//STUB
 }
-
-{{< / highlight >}}
+```
 
 To test this, we have to verify the returned JSON is the same as what we have in the array.
 
 
-{{< highlight go "linenos=table"  >}}
+```go
 func TestArticleHandlerWithValidPost(t *testing.T) {
 	req, err := http.NewRequest("GET", "/posts/2", nil)
 
@@ -302,7 +298,7 @@ func TestArticleHandlerWithValidPost(t *testing.T) {
 	assert.JSONEq(t, expected, rr.Body.String(), "Response body differs")
 
 }
-{{< / highlight >}}
+```
 
 This is quite diffferent from what we had in the previous test.
 
@@ -314,7 +310,7 @@ Apart from that, nothing changed. We still called mux's `ServeHTTP` method with 
 
 Tests are supposed to cover both positive and negative inputs. In the `articleHandler`, we have a check that says ___If post cannot be found, throw a 404 error___. How are we sure that works ?
 
-{{< highlight go "linenos=table"  >}}
+```go
 func TestArticleHandlerWithAnInvalidPost(t *testing.T) {
 
 	//we don't have a post with an id of 42, we expect and error
@@ -339,7 +335,7 @@ func TestArticleHandlerWithAnInvalidPost(t *testing.T) {
 	assert.Equal(t, expected, rr.Body.String(), "Response body differs")
 }
 
-{{< / highlight >}}
+```
 
 
 That is going on fine, our tests are passing but we still have un covered feature sets. Our api cannot handle posts creation and deletion right now.
@@ -350,7 +346,7 @@ That is going on fine, our tests are passing but we still have un covered featur
 
 The following code block would include the production code for both features while the second one would contain the tests.
 
-{{< highlight go "linenos=table"  >}}
+```go
 func deleteArticleHandler(w http.ResponseWriter, r *http.Request) {
 	type d struct {
 		ID int `json:"id"`
@@ -476,8 +472,7 @@ func TestCanDeleteAPost(t *testing.T) {
 	}
 
 }
-
-{{< / highlight >}}
+```
 
 This isn't diffferent from what we have done earlier on. We inspect everything that matters to us.
 For example, we took a peek into the in memory data store in other to truly confirm our handler was properly deleting the post.

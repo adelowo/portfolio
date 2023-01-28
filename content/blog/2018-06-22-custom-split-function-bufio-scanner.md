@@ -31,7 +31,7 @@ See this [gist](https://gist.github.com/adelowo/4de408f0b272a4e746b0a2678e7de411
 
 Here is what I ended up with for the splitting
 
-{{< highlight go "linenos=table"  >}}
+```go
 func TestDB_KeyExists(t *testing.T) {
 
 	db, _ := sql.Open("user:passwd@tcp(localhost:3306)/test?parseTime=true")
@@ -71,7 +71,7 @@ func TestDB_KeyExists(t *testing.T) {
 	// Real test comes here
 }
 
-{{< / highlight >}}
+```
 
 Hopefully this helps someone trying to implement something of this sort
 

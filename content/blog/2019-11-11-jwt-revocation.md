@@ -66,7 +66,7 @@ the app.
 
 This assumes a file named `redis.go` exists.
 
-{{< highlight go "linenos=table" >}}
+```go
 
 package main
 
@@ -122,13 +122,14 @@ func (c *Client) AddToBlacklist(jti string) error {
 	return err
 }
 
-{{< / highlight >}}
+```
 
 
 The next step is to include this logic in the authorization process. I will be showing a sample middleware that includes
 this logic.
 
-{{< highlight go "linenos=table"  >}}
+```go
+
 func requireAuth(store *store, redis *Client, signingSecret string) func(next http.HandlerFunc) http.HandlerFunc {
 	return func(next http.HandlerFunc) http.HandlerFunc {
 		return func(w http.ResponseWriter, r *http.Request) {
@@ -193,7 +194,7 @@ func requireAuth(store *store, redis *Client, signingSecret string) func(next ht
 	}
 }
 
-{{< / highlight >}}
+```
 
 
 The middleware above should be used to protect other handlers. With this, tokens will be verified as valid before the
@@ -201,7 +202,7 @@ request goes to the actual handler handling the request. The only thing left to 
 in which you are supposed to add the JWT's `jti` claim to the blacklist.
 
 
-{{< highlight go >}}
+```go
 func logoutHandler(redis *Client) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 
@@ -225,7 +226,7 @@ func logoutHandler(redis *Client) http.HandlerFunc {
 	}
 }
 
-{{< / highlight >}}
+```
 
 
 Happy JWTing. There is a complete example of an HTTP server that incorporates these code in this
